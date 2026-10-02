@@ -6,13 +6,14 @@
 [ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scripts/interactable3D.gd" id="3_bjhrd"]
 [ext_resource type="Texture2D" uid="uid://b3w0qgmfitt30" path="res://addons/terrabrush/Assets/placeholder_texture.png" id="5_g37um"]
 [ext_resource type="Texture2D" uid="uid://xk4bxscd0dd7" path="res://Assets/Textures/dense_sand_1k.blend/textures/dense_sand_diff_1k.jpg" id="6_2u137"]
-[ext_resource type="Texture2D" uid="uid://bqlldm3qk34vy" path="res://Assets/Textures/dense_sand_1k.blend/textures/dense_sand_disp_1k.png" id="7_17okr"]
 [ext_resource type="Image" uid="uid://b7t1d3s5nulnb" path="res://Terrain/Heightmap_0_0.res" id="7_25e43"]
 [ext_resource type="Texture2D" uid="uid://c5gjaqtpr45ki" path="res://Assets/Textures/rocky_terrain_02_1k.blend/textures/rocky_terrain_02_diff_1k.jpg" id="8_17okr"]
 [ext_resource type="Image" uid="uid://bmns0h4bfbw6r" path="res://Terrain/Splatmap_0_0_0.res" id="8_haq7r"]
 [ext_resource type="Texture2D" uid="uid://c87kbf10racab" path="res://Assets/Textures/asphalt_02_1k.blend/textures/asphalt_02_diff_1k.jpg" id="9_261nc"]
 [ext_resource type="Image" uid="uid://de0n5txng222e" path="res://Terrain/Water_0_0.res" id="9_ruleg"]
+[ext_resource type="Texture2D" uid="uid://c47kvsygpgmv4" path="res://Assets/Textures/rocky_trail_02_1k.blend/textures/rocky_trail_02_diff_1k.jpg" id="10_aylps"]
 [ext_resource type="Image" uid="uid://dk7aqkt64xxtk" path="res://Terrain/Color_0_0.res" id="10_x8ffa"]
+[ext_resource type="Image" uid="uid://cmgiby6b3miec" path="res://Terrain/Splatmap_0_0_1.res" id="15_d1thh"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8s5l4"]
 size = Vector2(20, 20)
@@ -56,7 +57,6 @@ resource_name = "Placeholder"
 [sub_resource type="TextureSetResource" id="TextureSetResource_gty17"]
 name = "Sand"
 albedoTexture = ExtResource("6_2u137")
-heightTexture = ExtResource("7_17okr")
 resource_name = "Sand"
 
 [sub_resource type="TextureSetResource" id="TextureSetResource_rembb"]
@@ -69,8 +69,13 @@ name = "Asphalt"
 albedoTexture = ExtResource("9_261nc")
 resource_name = "Asphalt"
 
+[sub_resource type="TextureSetResource" id="TextureSetResource_pvo4f"]
+name = "Dirt Road"
+albedoTexture = ExtResource("10_aylps")
+resource_name = "Dirt Road"
+
 [sub_resource type="TextureSetsResource" id="TextureSetsResource_fdhix"]
-textureSets = Array[TextureSetResource]([SubResource("TextureSetResource_ioamw"), SubResource("TextureSetResource_gty17"), SubResource("TextureSetResource_rembb"), SubResource("TextureSetResource_sb7fu")])
+textureSets = Array[TextureSetResource]([SubResource("TextureSetResource_ioamw"), SubResource("TextureSetResource_gty17"), SubResource("TextureSetResource_rembb"), SubResource("TextureSetResource_sb7fu"), SubResource("TextureSetResource_pvo4f")])
 
 [sub_resource type="WaterResource" id="WaterResource_76umi"]
 waterColor = Color(0.2509804, 0.45490196, 1, 1)
@@ -78,7 +83,7 @@ waterColor = Color(0.2509804, 0.45490196, 1, 1)
 [sub_resource type="ZoneResource" id="ZoneResource_m15hl"]
 heightMapImage = ExtResource("7_25e43")
 colorImage = ExtResource("10_x8ffa")
-splatmapsImage = Array[Image]([ExtResource("8_haq7r")])
+splatmapsImage = Array[Image]([ExtResource("8_haq7r"), ExtResource("15_d1thh")])
 waterImage = ExtResource("9_ruleg")
 
 [sub_resource type="ZonesResource" id="ZonesResource_x8ffa"]
@@ -206,6 +211,6 @@ textureSets = SubResource("TextureSetsResource_fdhix")
 waterDefinition = SubResource("WaterResource_76umi")
 terrainZones = SubResource("ZonesResource_x8ffa")
 physics_interpolation_mode = 2
-metadata/_edit_lock_ = false
+metadata/_edit_lock_ = true
 
 [connection signal="effect" from="Meshes/FollyHouse/Bed/SceneSwitcher" to="." method="trigger_scene_switch"]
