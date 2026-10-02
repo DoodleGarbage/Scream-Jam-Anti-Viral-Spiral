@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://ckfq2b6nq36bp"]
+
+[ext_resource type="Script" uid="uid://b0rcku7ss1uax" path="res://Scenes/token.gd" id="1_0m8cp"]
+[ext_resource type="Texture2D" uid="uid://dhegp24nia2so" path="res://icon.svg" id="2_0m8cp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
+radius = 70.0
+
+[node name="Player" type="Node2D" unique_id=1008853708]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_0m8cp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=769176349]
+texture = ExtResource("2_0m8cp")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1496114070]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2116133016]
+shape = SubResource("CircleShape2D_onrkg")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1258185473]
+custom_minimum_size = Vector2(90, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = 58.0
+offset_right = 30.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 1.0
+step = 1.0
+value = 1.0
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_mouse_hovering"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_mouse_left_hovering"]

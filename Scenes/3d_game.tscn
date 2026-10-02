@@ -1,0 +1,211 @@
+[gd_scene format=3 uid="uid://cla6817oo6prx"]
+
+[ext_resource type="Script" uid="uid://cqu5inwwjjy0q" path="res://Scripts/3d_root.gd" id="1_wgwvh"]
+[ext_resource type="PackedScene" uid="uid://d1lajfwv4osme" path="res://Scenes/3DSky/daynightcycle.tscn" id="2_clir2"]
+[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="2_sothc"]
+[ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scripts/interactable3D.gd" id="3_bjhrd"]
+[ext_resource type="Texture2D" uid="uid://b3w0qgmfitt30" path="res://addons/terrabrush/Assets/placeholder_texture.png" id="5_g37um"]
+[ext_resource type="Texture2D" uid="uid://xk4bxscd0dd7" path="res://Assets/Textures/dense_sand_1k.blend/textures/dense_sand_diff_1k.jpg" id="6_2u137"]
+[ext_resource type="Texture2D" uid="uid://bqlldm3qk34vy" path="res://Assets/Textures/dense_sand_1k.blend/textures/dense_sand_disp_1k.png" id="7_17okr"]
+[ext_resource type="Image" uid="uid://b7t1d3s5nulnb" path="res://Terrain/Heightmap_0_0.res" id="7_25e43"]
+[ext_resource type="Texture2D" uid="uid://c5gjaqtpr45ki" path="res://Assets/Textures/rocky_terrain_02_1k.blend/textures/rocky_terrain_02_diff_1k.jpg" id="8_17okr"]
+[ext_resource type="Image" uid="uid://bmns0h4bfbw6r" path="res://Terrain/Splatmap_0_0_0.res" id="8_haq7r"]
+[ext_resource type="Texture2D" uid="uid://c87kbf10racab" path="res://Assets/Textures/asphalt_02_1k.blend/textures/asphalt_02_diff_1k.jpg" id="9_261nc"]
+[ext_resource type="Image" uid="uid://de0n5txng222e" path="res://Terrain/Water_0_0.res" id="9_ruleg"]
+[ext_resource type="Image" uid="uid://dk7aqkt64xxtk" path="res://Terrain/Color_0_0.res" id="10_x8ffa"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8s5l4"]
+size = Vector2(20, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gbt80"]
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4qn5"]
+albedo_color = Color(0.5398569, 0.10386274, 0.17595893, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8s5l4"]
+material = SubResource("StandardMaterial3D_c4qn5")
+size = Vector3(2, 0.3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c4qn5"]
+size = Vector3(20, 5, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c4qn5"]
+size = Vector3(20, 5, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fodyg"]
+size = Vector3(0.3, 5, 9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fodyg"]
+size = Vector3(1, 5, 9)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2d2xd"]
+size = Vector3(0.3, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m15hl"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_ioamw"]
+name = "Placeholder"
+albedoTexture = ExtResource("5_g37um")
+resource_name = "Placeholder"
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_gty17"]
+name = "Sand"
+albedoTexture = ExtResource("6_2u137")
+heightTexture = ExtResource("7_17okr")
+resource_name = "Sand"
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_rembb"]
+name = "Grass"
+albedoTexture = ExtResource("8_17okr")
+resource_name = "Grass"
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_sb7fu"]
+name = "Asphalt"
+albedoTexture = ExtResource("9_261nc")
+resource_name = "Asphalt"
+
+[sub_resource type="TextureSetsResource" id="TextureSetsResource_fdhix"]
+textureSets = Array[TextureSetResource]([SubResource("TextureSetResource_ioamw"), SubResource("TextureSetResource_gty17"), SubResource("TextureSetResource_rembb"), SubResource("TextureSetResource_sb7fu")])
+
+[sub_resource type="WaterResource" id="WaterResource_76umi"]
+waterColor = Color(0.2509804, 0.45490196, 1, 1)
+
+[sub_resource type="ZoneResource" id="ZoneResource_m15hl"]
+heightMapImage = ExtResource("7_25e43")
+colorImage = ExtResource("10_x8ffa")
+splatmapsImage = Array[Image]([ExtResource("8_haq7r")])
+waterImage = ExtResource("9_ruleg")
+
+[sub_resource type="ZonesResource" id="ZonesResource_x8ffa"]
+zones = Array[ZoneResource]([SubResource("ZoneResource_m15hl")])
+
+[node name="3DRoot" type="Node3D" unique_id=1576440724 node_paths=PackedStringArray("character", "SkyCycle")]
+script = ExtResource("1_wgwvh")
+character = NodePath("Character")
+SkyCycle = NodePath("DayNight")
+
+[node name="DayNight" parent="." unique_id=1714857602 instance=ExtResource("2_clir2")]
+
+[node name="Character" parent="." unique_id=1981548183 instance=ExtResource("2_sothc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42.370003, 0.9083986, 200.08847)
+mouse_sensitivity = 0.35
+controls = {
+&"BACKWARD": "backward",
+&"CROUCH": "crouch",
+&"FORWARD": "forward",
+&"INTERACT": "interact",
+&"JUMP": "jump",
+&"LEFT": "left",
+&"PAUSE": "pause",
+&"RIGHT": "right",
+&"SPRINT": "sprint"
+}
+
+[node name="Meshes" type="Node3D" parent="." unique_id=1670238264]
+
+[node name="FollyHouse" type="Node3D" parent="Meshes" unique_id=1796742518]
+transform = Transform3D(-0.38559932, 0, 0.9226664, 0, 1, 0, -0.9226664, 0, -0.38559932, -35.25633, 0.70057106, 213.965)
+
+[node name="Floor" type="MeshInstance3D" parent="Meshes/FollyHouse" unique_id=717380720]
+mesh = SubResource("PlaneMesh_8s5l4")
+
+[node name="Ceil" type="MeshInstance3D" parent="Meshes/FollyHouse" unique_id=125274919]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 4.816078, 0)
+mesh = SubResource("BoxMesh_gbt80")
+
+[node name="Bed" type="MeshInstance3D" parent="Meshes/FollyHouse" unique_id=953876094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6333084, 7.2739806)
+mesh = SubResource("BoxMesh_8s5l4")
+
+[node name="SceneSwitcher" type="Area3D" parent="Meshes/FollyHouse/Bed" unique_id=555222697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.23773777, 0)
+collision_layer = 2
+script = ExtResource("3_bjhrd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/FollyHouse/Bed/SceneSwitcher" unique_id=587687351]
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="Walls" type="Node3D" parent="Meshes/FollyHouse" unique_id=1352958312]
+
+[node name="Wall" type="MeshInstance3D" parent="Meshes/FollyHouse/Walls" unique_id=1330730733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.384355, 9.957332)
+mesh = SubResource("BoxMesh_c4qn5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/FollyHouse/Walls/Wall" unique_id=2101432504]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/FollyHouse/Walls/Wall/StaticBody3D" unique_id=860191705]
+shape = SubResource("BoxShape3D_c4qn5")
+
+[node name="Wall2" type="MeshInstance3D" parent="Meshes/FollyHouse/Walls" unique_id=380308017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.384355, -9.989051)
+mesh = SubResource("BoxMesh_c4qn5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/FollyHouse/Walls/Wall2" unique_id=758671612]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/FollyHouse/Walls/Wall2/StaticBody3D" unique_id=1015120343]
+shape = SubResource("BoxShape3D_c4qn5")
+
+[node name="Wall3" type="MeshInstance3D" parent="Meshes/FollyHouse/Walls" unique_id=2063231056]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.874971, 2.384355, -0.033688545)
+mesh = SubResource("BoxMesh_c4qn5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/FollyHouse/Walls/Wall3" unique_id=378711626]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/FollyHouse/Walls/Wall3/StaticBody3D" unique_id=862239612]
+shape = SubResource("BoxShape3D_c4qn5")
+
+[node name="DoorWall" type="MeshInstance3D" parent="Meshes/FollyHouse/Walls" unique_id=914429674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.888397, 2.3811476, 5.4966035)
+mesh = SubResource("BoxMesh_fodyg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/FollyHouse/Walls/DoorWall" unique_id=567103961]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/FollyHouse/Walls/DoorWall/StaticBody3D" unique_id=1485218175]
+shape = SubResource("BoxShape3D_fodyg")
+
+[node name="DoorWall2" type="MeshInstance3D" parent="Meshes/FollyHouse/Walls" unique_id=144772861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.888397, 2.3811476, -5.4717817)
+mesh = SubResource("BoxMesh_fodyg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/FollyHouse/Walls/DoorWall2" unique_id=115915034]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/FollyHouse/Walls/DoorWall2/StaticBody3D" unique_id=1024304838]
+shape = SubResource("BoxShape3D_fodyg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Meshes/FollyHouse/Walls" unique_id=165868703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.872708, 3.8781981, -0.009689987)
+mesh = SubResource("BoxMesh_2d2xd")
+
+[node name="HouseLayout" type="MeshInstance3D" parent="Meshes" unique_id=18765337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.9208, 0, -143.93402)
+mesh = SubResource("BoxMesh_m15hl")
+
+[node name="HouseLayout3" type="MeshInstance3D" parent="Meshes" unique_id=1414934101]
+transform = Transform3D(0.9446939, 0, 0.32795328, 0, 1, 0, -0.32795328, 0, 0.9446939, -10.543869, 0, 89.0034)
+mesh = SubResource("BoxMesh_m15hl")
+
+[node name="HouseLayout2" type="MeshInstance3D" parent="Meshes" unique_id=396377616]
+transform = Transform3D(0.79437506, 0, 0.6074276, 0, 1, 0, -0.6074276, 0, 0.79437506, 87.54392, 0, -132.7294)
+mesh = SubResource("BoxMesh_m15hl")
+
+[node name="HouseLayout4" type="MeshInstance3D" parent="Meshes" unique_id=1524544162]
+transform = Transform3D(0.9599798, 0, -0.28006947, 0, 1, 0, 0.28006947, 0, 0.9599798, 47.247322, 0, -45.76654)
+mesh = SubResource("BoxMesh_m15hl")
+
+[node name="Colliders" type="Node3D" parent="." unique_id=964454485]
+
+[node name="TerraBrush" type="TerraBrush" parent="." unique_id=2011839165]
+dataPath = "res://Terrain"
+zonesSize = 512
+textureSets = SubResource("TextureSetsResource_fdhix")
+waterDefinition = SubResource("WaterResource_76umi")
+terrainZones = SubResource("ZonesResource_x8ffa")
+physics_interpolation_mode = 2
+metadata/_edit_lock_ = false
+
+[connection signal="effect" from="Meshes/FollyHouse/Bed/SceneSwitcher" to="." method="trigger_scene_switch"]

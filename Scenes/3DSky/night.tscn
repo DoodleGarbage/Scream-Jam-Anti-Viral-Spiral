@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://ckn8k1op01gw4"]
+
+[ext_resource type="Shader" uid="uid://bi82vc74b7pvy" path="res://Scenes/3DSky/stylized-sky.gdshader" id="1_5i0bj"]
+[ext_resource type="Texture2D" uid="uid://dblb54qcom8t0" path="res://Scenes/3DSky/Dysnomia-moon-transparent-new12.png" id="2_6t5ul"]
+[ext_resource type="Texture2D" uid="uid://0yx8vb7eauve" path="res://Scenes/3DSky/shooting_star_sampler.png" id="2_ux4fg"]
+
+[sub_resource type="Curve" id="Curve_gsmta"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.137725, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.709949), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_30jfc"]
+curve = SubResource("Curve_gsmta")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4re0a"]
+frequency = 0.0111
+fractal_type = 2
+fractal_lacunarity = 1.83
+fractal_gain = 0.49
+cellular_distance_function = 3
+cellular_return_type = 6
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g6uxe"]
+seamless = true
+noise = SubResource("FastNoiseLite_4re0a")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8mrmi"]
+seed = 50
+frequency = 0.0076
+fractal_gain = 0.52
+cellular_distance_function = 3
+cellular_return_type = 6
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t4udj"]
+seamless = true
+noise = SubResource("FastNoiseLite_8mrmi")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ys1f0"]
+noise_type = 3
+seed = 48
+frequency = 0.0065
+fractal_type = 2
+fractal_lacunarity = 1.83
+fractal_gain = 0.49
+cellular_distance_function = 3
+cellular_return_type = 6
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1dacr"]
+seamless = true
+noise = SubResource("FastNoiseLite_ys1f0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ifdfi"]
+shader = ExtResource("1_5i0bj")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.4
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.05
+shader_parameter/clouds_light_color = Color(0.227451, 0.447059, 1, 1)
+shader_parameter/clouds_shadow_intensity = 2.6
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_t4udj")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_g6uxe")
+shader_parameter/cloud_curves = SubResource("CurveTexture_30jfc")
+shader_parameter/high_clouds_density = 0.0
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_1dacr")
+shader_parameter/top_color = Color(0.027451, 0.101961, 0.25098, 1)
+shader_parameter/bottom_color = Color(0.027451, 0.101961, 0.25098, 1)
+shader_parameter/sun_scatter = Color(0.12549, 0.0862745, 0.372549, 1)
+shader_parameter/astro_tint = Color(0.760784, 0.870588, 1, 1)
+shader_parameter/astro_scale = 2.8
+shader_parameter/astro_intensity = 2.0
+shader_parameter/astro_sampler = ExtResource("2_6t5ul")
+shader_parameter/stars_intensity = 5.0
+shader_parameter/shooting_stars_intensity = 0.5
+shader_parameter/shooting_star_tint = Color(1, 0.662745, 0.419608, 1)
+shader_parameter/shooting_star_sampler = ExtResource("2_ux4fg")
+
+[sub_resource type="Sky" id="Sky_1n4rn"]
+sky_material = SubResource("ShaderMaterial_ifdfi")
+
+[sub_resource type="Environment" id="Environment_ids3x"]
+background_mode = 2
+sky = SubResource("Sky_1n4rn")
+tonemap_mode = 2
+glow_enabled = true
+adjustment_enabled = true
+adjustment_saturation = 1.5
+
+[node name="Night" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ids3x")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.865612, -0.448219, 0.223193, -0.0266888, 0.486416, 0.87332, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
