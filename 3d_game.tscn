@@ -20,8 +20,15 @@ background_mode = 2
 sky = SubResource("Sky_c7xmk")
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fodyg"]
+albedo_color = Color(0, 0.2901961, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c4qn5"]
+material = SubResource("StandardMaterial3D_fodyg")
+size = Vector2(80, 30)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_8s5l4"]
-size = Vector2(40, 40)
+size = Vector2(20, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4qn5"]
 albedo_color = Color(0.5398569, 0.10386274, 0.17595893, 1)
@@ -32,6 +39,21 @@ size = Vector3(2, 0.3, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
 size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c4qn5"]
+size = Vector3(20, 5, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c4qn5"]
+size = Vector3(20, 5, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fodyg"]
+size = Vector3(0.3, 5, 9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fodyg"]
+size = Vector3(1, 5, 9)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2d2xd"]
+size = Vector3(0.3, 2, 2)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8s5l4"]
 
@@ -67,20 +89,81 @@ controls = {
 
 [node name="Meshes" type="Node3D" parent="3DRoot" unique_id=501058216]
 
-[node name="Floor" type="MeshInstance3D" parent="3DRoot/Meshes" unique_id=1715131145]
+[node name="Water" type="MeshInstance3D" parent="3DRoot/Meshes" unique_id=2048650639]
+transform = Transform3D(0.85639083, 0, 0.5163281, 0, 1, 0, -0.5163281, 0, 0.85639083, 29.398369, 0, 46.866623)
+mesh = SubResource("PlaneMesh_c4qn5")
+
+[node name="FollyHouse" type="Node3D" parent="3DRoot/Meshes" unique_id=1334321014]
+
+[node name="Floor" type="MeshInstance3D" parent="3DRoot/Meshes/FollyHouse" unique_id=1715131145]
 mesh = SubResource("PlaneMesh_8s5l4")
 
-[node name="Bed" type="MeshInstance3D" parent="3DRoot/Meshes" unique_id=676994355]
+[node name="Ceil" type="MeshInstance3D" parent="3DRoot/Meshes/FollyHouse" unique_id=1337196617]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 4.816078, 0)
+mesh = SubResource("PlaneMesh_8s5l4")
+
+[node name="Bed" type="MeshInstance3D" parent="3DRoot/Meshes/FollyHouse" unique_id=676994355]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6333084, 7.2739806)
 mesh = SubResource("BoxMesh_8s5l4")
 
-[node name="SceneSwitcher" type="Area3D" parent="3DRoot/Meshes/Bed" unique_id=1396285217]
+[node name="SceneSwitcher" type="Area3D" parent="3DRoot/Meshes/FollyHouse/Bed" unique_id=1396285217]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.23773777, 0)
 collision_layer = 2
 script = ExtResource("4_m5plj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="3DRoot/Meshes/Bed/SceneSwitcher" unique_id=1903697578]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DRoot/Meshes/FollyHouse/Bed/SceneSwitcher" unique_id=1903697578]
 shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="Walls" type="Node3D" parent="3DRoot/Meshes/FollyHouse" unique_id=560740371]
+
+[node name="Wall" type="MeshInstance3D" parent="3DRoot/Meshes/FollyHouse/Walls" unique_id=836600118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.384355, 9.957332)
+mesh = SubResource("BoxMesh_c4qn5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="3DRoot/Meshes/FollyHouse/Walls/Wall" unique_id=426523091]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DRoot/Meshes/FollyHouse/Walls/Wall/StaticBody3D" unique_id=1178994615]
+shape = SubResource("BoxShape3D_c4qn5")
+
+[node name="Wall2" type="MeshInstance3D" parent="3DRoot/Meshes/FollyHouse/Walls" unique_id=33415753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.384355, -9.989051)
+mesh = SubResource("BoxMesh_c4qn5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="3DRoot/Meshes/FollyHouse/Walls/Wall2" unique_id=1571991961]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DRoot/Meshes/FollyHouse/Walls/Wall2/StaticBody3D" unique_id=1808080862]
+shape = SubResource("BoxShape3D_c4qn5")
+
+[node name="Wall3" type="MeshInstance3D" parent="3DRoot/Meshes/FollyHouse/Walls" unique_id=682497350]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.874971, 2.384355, -0.033688545)
+mesh = SubResource("BoxMesh_c4qn5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="3DRoot/Meshes/FollyHouse/Walls/Wall3" unique_id=1953279069]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DRoot/Meshes/FollyHouse/Walls/Wall3/StaticBody3D" unique_id=1634471312]
+shape = SubResource("BoxShape3D_c4qn5")
+
+[node name="DoorWall" type="MeshInstance3D" parent="3DRoot/Meshes/FollyHouse/Walls" unique_id=355648082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.888397, 2.3811476, 5.4966035)
+mesh = SubResource("BoxMesh_fodyg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="3DRoot/Meshes/FollyHouse/Walls/DoorWall" unique_id=1178010152]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DRoot/Meshes/FollyHouse/Walls/DoorWall/StaticBody3D" unique_id=1214764275]
+shape = SubResource("BoxShape3D_fodyg")
+
+[node name="DoorWall2" type="MeshInstance3D" parent="3DRoot/Meshes/FollyHouse/Walls" unique_id=286998324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.888397, 2.3811476, -5.4717817)
+mesh = SubResource("BoxMesh_fodyg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="3DRoot/Meshes/FollyHouse/Walls/DoorWall2" unique_id=479041052]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3DRoot/Meshes/FollyHouse/Walls/DoorWall2/StaticBody3D" unique_id=1009282889]
+shape = SubResource("BoxShape3D_fodyg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3DRoot/Meshes/FollyHouse/Walls" unique_id=627832290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.872708, 3.8781981, -0.009689987)
+mesh = SubResource("BoxMesh_2d2xd")
 
 [node name="Colliders" type="Node3D" parent="3DRoot" unique_id=232224301]
 
@@ -105,4 +188,4 @@ position = Vector2(539, 300)
 process_mode = 4
 position = Vector2(557, 305)
 
-[connection signal="effect" from="3DRoot/Meshes/Bed/SceneSwitcher" to="." method="switch_scene"]
+[connection signal="effect" from="3DRoot/Meshes/FollyHouse/Bed/SceneSwitcher" to="." method="switch_scene"]
