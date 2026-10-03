@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://ckmoxn11pg42c"]
+
+[ext_resource type="Script" uid="uid://yxulswaok6sp" path="res://addons/heightmapmesh/hmm_control.gd" id="1_6l4hr"]
+
+[node name="Control" type="VBoxContainer" unique_id=1252731496]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_6l4hr")
+
+[node name="SelHM" type="Label" parent="." unique_id=1399363581]
+layout_mode = 2
+text = "Select Heightmap"
+
+[node name="SelSize" type="Label" parent="." unique_id=1705929936]
+layout_mode = 2
+text = "Select Mesh Size"
+
+[node name="Mesh" type="LineEdit" parent="." unique_id=1514080187]
+layout_mode = 2
+placeholder_text = "Mesh Size ex. 512"
+
+[node name="EnOutput" type="Label" parent="." unique_id=1031312607]
+layout_mode = 2
+text = "Enter Output Name"
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=1283410949]
+layout_mode = 2
+placeholder_text = "File Name"
+
+[node name="Generate Mesh" type="Button" parent="." unique_id=1042645810]
+layout_mode = 2
+text = "Generate Mesh"
+
+[connection signal="pressed" from="Generate Mesh" to="." method="clicked"]

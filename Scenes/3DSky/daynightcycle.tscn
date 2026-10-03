@@ -422,7 +422,7 @@ _data = {
 environment = SubResource("Environment_8d3bw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=227015150]
-transform = Transform3D(0.11933255, 0.047292847, -0.9917271, -0.8680148, -0.47993386, -0.12733318, -0.4819855, 0.87602884, -0.016220922, 0, 0, 0)
+transform = Transform3D(0.11933255, 0.04729285, -0.9917271, -0.8680148, -0.4799339, -0.12733318, -0.4819855, 0.8760289, -0.016220922, 0, 0, 0)
 rotation_edit_mode = 1
 shadow_enabled = true
 
