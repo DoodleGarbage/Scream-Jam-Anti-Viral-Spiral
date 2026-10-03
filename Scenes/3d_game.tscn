@@ -16,8 +16,12 @@
 [ext_resource type="Image" uid="uid://de0n5txng222e" path="res://Terrain/Water_0_0.res" id="9_ruleg"]
 [ext_resource type="Texture2D" uid="uid://c47kvsygpgmv4" path="res://Assets/Textures/rocky_trail_02_1k.blend/textures/rocky_trail_02_diff_1k.jpg" id="10_aylps"]
 [ext_resource type="Texture2D" uid="uid://dkn0p63bxpngj" path="res://Assets/Textures/marble_cliff_05_1k.blend/textures/marble_cliff_05_diff_1k.jpg" id="10_godah"]
+[ext_resource type="Texture2D" uid="uid://cpbptcurdtm32" path="res://Assets/Textures/waterspray.png" id="10_haq7r"]
 [ext_resource type="Image" uid="uid://dk7aqkt64xxtk" path="res://Terrain/Color_0_0.res" id="10_x8ffa"]
+[ext_resource type="PackedScene" uid="uid://djsdfxdi23qx8" path="res://Assets/Models/rock3.blend" id="11_kcn1r"]
+[ext_resource type="PackedScene" uid="uid://dmmu3a87y1i5g" path="res://Assets/Models/rock2.blend" id="12_ul1u8"]
 [ext_resource type="ArrayMesh" uid="uid://b7p4x2wq02lg1" path="res://Assets/Models/Tree1.blend" id="12_x1m31"]
+[ext_resource type="PackedScene" uid="uid://b4lrjx815trov" path="res://Assets/Models/rock1.blend" id="13_futmp"]
 [ext_resource type="Image" uid="uid://dkr68cn78duxg" path="res://Terrain/Foliage_0_0_0.res" id="14_d1thh"]
 [ext_resource type="PackedScene" uid="uid://bgaankpteb8" path="res://Assets/Models/Tree1scene.blend" id="14_jtqtu"]
 [ext_resource type="Image" uid="uid://cmgiby6b3miec" path="res://Terrain/Splatmap_0_0_1.res" id="15_d1thh"]
@@ -116,6 +120,65 @@ size = Vector3(1.5, 5, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_godah"]
 size = Vector3(90, 1, 10)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mskaw"]
+render_priority = 0
+shader = ExtResource("5_aylps")
+shader_parameter/noise = SubResource("NoiseTexture2D_d1thh")
+shader_parameter/height_scale = 5.002
+shader_parameter/normalmap = SubResource("NoiseTexture2D_qq7nf")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mskaw"]
+material = SubResource("ShaderMaterial_mskaw")
+size = Vector2(250, 250)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ruleg"]
+direction = Vector3(0, 1, 0)
+spread = 58.24
+flatness = 0.451
+initial_velocity_min = 8.0
+initial_velocity_max = 16.19
+gravity = Vector3(0, -18, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5e55t"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("10_haq7r")
+billboard_mode = 3
+
+[sub_resource type="QuadMesh" id="QuadMesh_5e55t"]
+material = SubResource("StandardMaterial3D_5e55t")
+size = Vector2(3, 3)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iscit"]
+direction = Vector3(0, -1, 1)
+spread = 16.058
+flatness = 1.0
+initial_velocity_min = 18.0
+initial_velocity_max = 28.0
+gravity = Vector3(0, -30, 0)
+linear_accel_min = -32.08
+linear_accel_max = -18.640001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbgsn"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("10_haq7r")
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_m4q0v"]
+material = SubResource("StandardMaterial3D_qbgsn")
+size = Vector2(2, 2)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vu6bh"]
+direction = Vector3(0, -1, 1)
+spread = 69.579
+flatness = 0.727
+initial_velocity_min = 18.0
+initial_velocity_max = 28.0
+gravity = Vector3(0, -30, 0)
+linear_accel_min = -32.08
+linear_accel_max = -18.640001
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_g37um"]
 size = Vector3(30, 300, 30)
 
@@ -196,7 +259,7 @@ character = NodePath("Character")
 transform = Transform3D(172.26163, 0, -471.24194, 0, 501.74, 0, 471.24194, 0, 172.26163, 0, 37.134277, 0)
 
 [node name="Character" parent="." unique_id=1981548183 instance=ExtResource("2_sothc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.243413, 23.891197, 62.254276)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.145409, 11.939997, 60.97244)
 mouse_sensitivity = 0.35
 controls = {
 &"BACKWARD": "backward",
@@ -386,6 +449,143 @@ transform = Transform3D(0.0076386034, 0, 0.9999708, 0, 1, 0, -0.9999708, 0, 0.00
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/TownBridge/StaticBody3D2" unique_id=97068386]
 shape = SubResource("BoxShape3D_godah")
+
+[node name="Water2" type="MeshInstance3D" parent="Meshes" unique_id=745119432]
+transform = Transform3D(0.70362735, 0, -0.71056914, 0, 1, 0, 0.71056914, 0, 0.70362735, -202.87549, 43.59043, -220.3664)
+mesh = SubResource("PlaneMesh_mskaw")
+
+[node name="Waterfall" type="Node3D" parent="Meshes" unique_id=1713029789]
+
+[node name="Spray" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=1459128436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.55552, -9.620382, -93.813255)
+amount = 241
+lifetime = 0.8
+explosiveness = 0.07
+randomness = 0.57
+process_material = SubResource("ParticleProcessMaterial_ruleg")
+draw_pass_1 = SubResource("QuadMesh_5e55t")
+
+[node name="Spray2" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=1231234632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.78748, -9.6203785, -101.81777)
+amount = 241
+lifetime = 0.8
+explosiveness = 0.07
+randomness = 0.57
+process_material = SubResource("ParticleProcessMaterial_ruleg")
+draw_pass_1 = SubResource("QuadMesh_5e55t")
+
+[node name="Spray3" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=561654803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.03457, -9.6203785, -115.58105)
+amount = 241
+lifetime = 0.8
+explosiveness = 0.07
+randomness = 0.57
+process_material = SubResource("ParticleProcessMaterial_ruleg")
+draw_pass_1 = SubResource("QuadMesh_5e55t")
+
+[node name="Spray4" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=1570724224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.17055, -9.620371, -83.11848)
+amount = 241
+lifetime = 0.8
+explosiveness = 0.07
+randomness = 0.57
+process_material = SubResource("ParticleProcessMaterial_ruleg")
+draw_pass_1 = SubResource("QuadMesh_5e55t")
+
+[node name="Spray5" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=951894511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.20014, -9.620371, -92.50064)
+amount = 241
+lifetime = 0.8
+explosiveness = 0.07
+randomness = 0.57
+process_material = SubResource("ParticleProcessMaterial_ruleg")
+draw_pass_1 = SubResource("QuadMesh_5e55t")
+
+[node name="Spray7" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=1221924237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.64394, -5.37644, -128.14789)
+amount = 241
+lifetime = 0.8
+explosiveness = 0.07
+randomness = 0.57
+process_material = SubResource("ParticleProcessMaterial_ruleg")
+draw_pass_1 = SubResource("QuadMesh_5e55t")
+
+[node name="Spray6" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=727519093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.32723, -9.620375, -111.53286)
+amount = 241
+lifetime = 0.8
+explosiveness = 0.07
+randomness = 0.57
+process_material = SubResource("ParticleProcessMaterial_ruleg")
+draw_pass_1 = SubResource("QuadMesh_5e55t")
+
+[node name="rock3" parent="Meshes/Waterfall" unique_id=1189326063 instance=ExtResource("11_kcn1r")]
+transform = Transform3D(6.321554, 0, 6.5341763, 0, 9.091618, 0, -6.5341763, 0, 6.321554, -95.92892, 47.32404, -152.00726)
+
+[node name="rock2" parent="Meshes/Waterfall" unique_id=1151142086 instance=ExtResource("12_ul1u8")]
+transform = Transform3D(7.682019, 3.1327808, -4.808726, -2.6554325, 9.062963, 1.6622255, 5.087911, -2.3841858e-07, 8.128022, -133.21207, 44.214825, -115.15248)
+
+[node name="rock1" parent="Meshes/Waterfall" unique_id=1519687776 instance=ExtResource("13_futmp")]
+transform = Transform3D(0.7669808, -7.7425795, 0, 6.796698, 0.8737199, 0, 0, 0, 10.223393, -115.287895, 42.228157, -129.28697)
+
+[node name="rock4" parent="Meshes/Waterfall" unique_id=1513903360 instance=ExtResource("12_ul1u8")]
+transform = Transform3D(11.829192, 0, 0, 0, 11.829192, 0, 0, 0, 11.829192, -104.635445, 41.267536, -141.31197)
+
+[node name="rock5" parent="Meshes/Waterfall" unique_id=1415829849 instance=ExtResource("11_kcn1r")]
+transform = Transform3D(-4.1270695, -9.493769, -15.493507, -19.55023, 6.9880724, -4.71204, 11.541157, 8.442561, -13.522407, -129.46976, 38.656643, -110.213295)
+
+[node name="rock6" parent="Meshes/Waterfall" unique_id=851309618 instance=ExtResource("13_futmp")]
+transform = Transform3D(2.9782884, 1.2420162, -3.4419174, -1.0567427, 4.540763, 0.7241362, 3.5032403, 0.313805, 3.1445875, -100.87528, 17.93748, -123.62662)
+
+[node name="rock7" parent="Meshes/Waterfall" unique_id=1248934963 instance=ExtResource("11_kcn1r")]
+transform = Transform3D(8.802734, 0, 0, 0, 8.802734, 0, 0, 0, 8.802734, -116.52909, 9.423011, -103.11804)
+
+[node name="rock8" parent="Meshes/Waterfall" unique_id=1026314691 instance=ExtResource("13_futmp")]
+transform = Transform3D(4.4625797, -0.76324016, -0.9850095, 0, 3.6624799, -2.8378932, 1.2461057, 2.733332, 3.5275369, -100.59416, -3.3234348, -119.98912)
+
+[node name="rock9" parent="Meshes/Waterfall" unique_id=533681868 instance=ExtResource("11_kcn1r")]
+transform = Transform3D(8.594929, 0, 0, 0, 8.594929, 0, 0, 0, 8.594929, -108.5077, -10.864418, -87.90211)
+
+[node name="rock10" parent="Meshes/Waterfall" unique_id=1265396993 instance=ExtResource("13_futmp")]
+transform = Transform3D(-2.6002102, -2.8333044, 1.3085257, 2.5308976, -2.910899, -1.2736449, 1.826037, 0, 3.6285722, -91.17663, -10.775668, -103.935745)
+
+[node name="rock11" parent="Meshes/Waterfall" unique_id=390925075 instance=ExtResource("12_ul1u8")]
+transform = Transform3D(-11.056739, -4.2941437, 0, 4.2941437, -11.056739, 0, 0, 0, 11.86133, -108.427666, -15.3328, -104.17373)
+
+[node name="fall" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=2139704521]
+transform = Transform3D(0.89169216, 0, 0.45264238, 0, 1, 0, -0.45264238, 0, 0.89169216, -102.88024, 40.974262, -130.95866)
+amount = 64
+lifetime = 0.61
+process_material = SubResource("ParticleProcessMaterial_iscit")
+draw_pass_1 = SubResource("QuadMesh_m4q0v")
+
+[node name="fall4" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=1489416965]
+transform = Transform3D(0.97810537, 0, 0.20811015, 0, 1, 0, -0.20811015, 0, 0.97810537, -116.45556, 42.08166, -113.426636)
+amount = 120
+lifetime = 1.4
+process_material = SubResource("ParticleProcessMaterial_iscit")
+draw_pass_1 = SubResource("QuadMesh_m4q0v")
+
+[node name="fall2" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=493742706]
+transform = Transform3D(0.90831214, 0, -0.41829312, 0, 1, 0, 0.41829312, 0, 0.90831214, -99.82522, 28.393097, -122.60079)
+amount = 90
+lifetime = 1.34
+process_material = SubResource("ParticleProcessMaterial_iscit")
+draw_pass_1 = SubResource("QuadMesh_m4q0v")
+
+[node name="fall5" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=2081514825]
+transform = Transform3D(0.7472647, 0, 0.6645265, 0, 1, 0, -0.6645265, 0, 0.7472647, -115.21927, 17.841509, -101.95834)
+amount = 150
+lifetime = 1.34
+process_material = SubResource("ParticleProcessMaterial_vu6bh")
+draw_pass_1 = SubResource("QuadMesh_m4q0v")
+
+[node name="fall3" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=1057069940]
+transform = Transform3D(-0.8083185, 0, 0.5887456, 0, 1, 0, -0.5887456, 0, -0.8083185, -99.17223, 28.393097, -123.60132)
+amount = 90
+lifetime = 1.25
+process_material = SubResource("ParticleProcessMaterial_iscit")
+draw_pass_1 = SubResource("QuadMesh_m4q0v")
 
 [node name="Colliders" type="Node3D" parent="." unique_id=964454485]
 
@@ -1443,6 +1643,6 @@ objects = Array[ObjectResource]([SubResource("ObjectResource_70da1")])
 waterDefinition = SubResource("WaterResource_76umi")
 terrainZones = SubResource("ZonesResource_x8ffa")
 physics_interpolation_mode = 2
-metadata/_edit_lock_ = true
+metadata/_edit_lock_ = false
 
 [connection signal="effect" from="Meshes/FollyHouse/Bed/SceneSwitcher" to="." method="trigger_scene_switch"]

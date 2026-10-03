@@ -17,7 +17,7 @@ varying vec2 vertex_position;
 //}
 
 float height(vec2 position, float time) {
-	vec2 offset = 0.025 * (cos(position + time) + time);
+	vec2 offset = 0.04 * (position + time);
 	return texture(noise, position - offset ).x * height_scale;
 }
 
