@@ -18,7 +18,8 @@ func disable_scene() -> void:
 	character.CAMERA.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _ready() -> void:
-	SkyCycle.get_node("AnimationPlayer").advance(550)
+	if SkyCycle != null:
+		SkyCycle.get_node("AnimationPlayer").advance(550)
 
 signal scene_switch(scene:String)
 func trigger_scene_switch(scene:String) -> void:

@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs51y6br7bsdp"
-valid=false
+uid="uid://sdvx27y7ayq3"
+path="res://.godot/imported/marble_cliff_05_disp_1k.png-e6031c09be96704129ad249433dded20.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/Textures/dense_sand_1k.blend/textures/dense_sand_rough_1k.exr"
+source_file="res://Assets/Textures/marble_cliff_05_1k.blend/textures/marble_cliff_05_disp_1k.png"
+dest_files=["res://.godot/imported/marble_cliff_05_disp_1k.png-e6031c09be96704129ad249433dded20.ctex"]
 
 [params]
 

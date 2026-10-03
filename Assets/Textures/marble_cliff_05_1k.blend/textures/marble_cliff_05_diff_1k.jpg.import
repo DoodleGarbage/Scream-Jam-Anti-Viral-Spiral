@@ -2,16 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo4pdpjkj4trt"
-valid=false
+uid="uid://dkn0p63bxpngj"
+path.s3tc="res://.godot/imported/marble_cliff_05_diff_1k.jpg-603173e16e551f34fd98eafb72a89a97.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
 
 [deps]
 
-source_file="res://Assets/Textures/dense_sand_1k.blend/textures/dense_sand_nor_gl_1k.exr"
+source_file="res://Assets/Textures/marble_cliff_05_1k.blend/textures/marble_cliff_05_diff_1k.jpg"
+dest_files=["res://.godot/imported/marble_cliff_05_diff_1k.jpg-603173e16e551f34fd98eafb72a89a97.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/high_quality_mode=0
 compress/lossy_quality=0.7
@@ -20,7 +25,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 mipmaps/preserve_alpha_test_coverage=false
 mipmaps/alpha_test_threshold=0.5
@@ -36,4 +41,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
