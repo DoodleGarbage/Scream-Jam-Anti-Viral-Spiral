@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cqu5inwwjjy0q" path="res://Scripts/3d_root.gd" id="1_wgwvh"]
 [ext_resource type="PackedScene" uid="uid://ckn8k1op01gw4" path="res://Scenes/3DSky/night.tscn" id="2_llesq"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="2_sothc"]
-[ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scripts/interactable3D.gd" id="3_bjhrd"]
 [ext_resource type="Shader" uid="uid://eoe5x3rffg02" path="res://Assets/Shaders/water.gdshader" id="5_aylps"]
 [ext_resource type="Texture2D" uid="uid://b3w0qgmfitt30" path="res://addons/terrabrush/Assets/placeholder_texture.png" id="5_g37um"]
 [ext_resource type="Texture2D" uid="uid://xk4bxscd0dd7" path="res://Assets/Textures/dense_sand_1k.blend/textures/dense_sand_diff_1k.jpg" id="6_2u137"]
@@ -27,40 +26,8 @@
 [ext_resource type="Image" uid="uid://cmgiby6b3miec" path="res://Terrain/Splatmap_0_0_1.res" id="15_d1thh"]
 [ext_resource type="Image" uid="uid://bbv32t06dl4f8" path="res://Terrain/Object_0_0_0.res" id="18_g37um"]
 [ext_resource type="PackedScene" uid="uid://b33744gl3eald" path="res://Assets/Models/mountain-skybox/source/rocks on a montion .fbx" id="23_haq7r"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_8s5l4"]
-size = Vector2(20, 20)
-
-[sub_resource type="BoxMesh" id="BoxMesh_gbt80"]
-size = Vector3(20, 0.5, 20)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4qn5"]
-albedo_color = Color(0.5398569, 0.10386274, 0.17595893, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_8s5l4"]
-material = SubResource("StandardMaterial3D_c4qn5")
-size = Vector3(2, 0.3, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
-size = Vector3(2, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_c4qn5"]
-size = Vector3(20, 5, 0.3)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_c4qn5"]
-size = Vector3(20, 5, 0.3)
-
-[sub_resource type="BoxMesh" id="BoxMesh_fodyg"]
-size = Vector3(0.3, 5, 9)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_fodyg"]
-size = Vector3(1, 5, 9)
-
-[sub_resource type="BoxMesh" id="BoxMesh_2d2xd"]
-size = Vector3(0.3, 2, 2)
-
-[sub_resource type="BoxMesh" id="BoxMesh_m15hl"]
-size = Vector3(20, 1, 20)
+[ext_resource type="PackedScene" uid="uid://blf5u5qejkvcw" path="res://Assets/Models/Raincoat.blend" id="28_kcn1r"]
+[ext_resource type="PackedScene" uid="uid://bbb45njudf1kr" path="res://Assets/Models/house1.blend" id="28_ul1u8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_godah"]
 size = Vector3(90, 1, 11)
@@ -274,99 +241,6 @@ controls = {
 }
 
 [node name="Meshes" type="Node3D" parent="." unique_id=1670238264]
-
-[node name="FollyHouse" type="Node3D" parent="Meshes" unique_id=1796742518]
-transform = Transform3D(-0.38559932, 0, 0.9226664, 0, 1, 0, -0.9226664, 0, -0.38559932, -35.25633, 18.860239, 213.965)
-
-[node name="Floor" type="MeshInstance3D" parent="Meshes/FollyHouse" unique_id=717380720]
-mesh = SubResource("PlaneMesh_8s5l4")
-
-[node name="Ceil" type="MeshInstance3D" parent="Meshes/FollyHouse" unique_id=125274919]
-transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 4.816078, 0)
-mesh = SubResource("BoxMesh_gbt80")
-
-[node name="Bed" type="MeshInstance3D" parent="Meshes/FollyHouse" unique_id=953876094]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6333084, 7.2739806)
-mesh = SubResource("BoxMesh_8s5l4")
-
-[node name="SceneSwitcher" type="Area3D" parent="Meshes/FollyHouse/Bed" unique_id=555222697]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.23773777, 0)
-collision_layer = 2
-script = ExtResource("3_bjhrd")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/FollyHouse/Bed/SceneSwitcher" unique_id=587687351]
-shape = SubResource("BoxShape3D_8s5l4")
-
-[node name="Walls" type="Node3D" parent="Meshes/FollyHouse" unique_id=1352958312]
-
-[node name="Wall" type="MeshInstance3D" parent="Meshes/FollyHouse/Walls" unique_id=1330730733]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.384355, 9.957332)
-mesh = SubResource("BoxMesh_c4qn5")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/FollyHouse/Walls/Wall" unique_id=2101432504]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/FollyHouse/Walls/Wall/StaticBody3D" unique_id=860191705]
-shape = SubResource("BoxShape3D_c4qn5")
-
-[node name="Wall2" type="MeshInstance3D" parent="Meshes/FollyHouse/Walls" unique_id=380308017]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.384355, -9.989051)
-mesh = SubResource("BoxMesh_c4qn5")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/FollyHouse/Walls/Wall2" unique_id=758671612]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/FollyHouse/Walls/Wall2/StaticBody3D" unique_id=1015120343]
-shape = SubResource("BoxShape3D_c4qn5")
-
-[node name="Wall3" type="MeshInstance3D" parent="Meshes/FollyHouse/Walls" unique_id=2063231056]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.874971, 2.384355, -0.033688545)
-mesh = SubResource("BoxMesh_c4qn5")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/FollyHouse/Walls/Wall3" unique_id=378711626]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/FollyHouse/Walls/Wall3/StaticBody3D" unique_id=862239612]
-shape = SubResource("BoxShape3D_c4qn5")
-
-[node name="DoorWall" type="MeshInstance3D" parent="Meshes/FollyHouse/Walls" unique_id=914429674]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.888397, 2.3811476, 5.4966035)
-mesh = SubResource("BoxMesh_fodyg")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/FollyHouse/Walls/DoorWall" unique_id=567103961]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/FollyHouse/Walls/DoorWall/StaticBody3D" unique_id=1485218175]
-shape = SubResource("BoxShape3D_fodyg")
-
-[node name="DoorWall2" type="MeshInstance3D" parent="Meshes/FollyHouse/Walls" unique_id=144772861]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.888397, 2.3811476, -5.4717817)
-mesh = SubResource("BoxMesh_fodyg")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/FollyHouse/Walls/DoorWall2" unique_id=115915034]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/FollyHouse/Walls/DoorWall2/StaticBody3D" unique_id=1024304838]
-shape = SubResource("BoxShape3D_fodyg")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Meshes/FollyHouse/Walls" unique_id=165868703]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.872708, 3.8781981, -0.009689987)
-mesh = SubResource("BoxMesh_2d2xd")
-
-[node name="HouseLayout" type="MeshInstance3D" parent="Meshes" unique_id=18765337]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.9208, 0, -143.93402)
-mesh = SubResource("BoxMesh_m15hl")
-
-[node name="HouseLayout3" type="MeshInstance3D" parent="Meshes" unique_id=1414934101]
-transform = Transform3D(0.9446939, 0, 0.32795328, 0, 1, 0, -0.32795328, 0, 0.9446939, -62.454678, 13.996799, 57.469658)
-mesh = SubResource("BoxMesh_m15hl")
-
-[node name="HouseLayout2" type="MeshInstance3D" parent="Meshes" unique_id=396377616]
-transform = Transform3D(0.79437506, 0, 0.6074276, 0, 1, 0, -0.6074276, 0, 0.79437506, 44.98109, -6.20599, -100.20725)
-mesh = SubResource("BoxMesh_m15hl")
-
-[node name="HouseLayout4" type="MeshInstance3D" parent="Meshes" unique_id=1524544162]
-transform = Transform3D(0.9599798, 0, -0.28006947, 0, 1, 0, 0.28006947, 0, 0.9599798, 98.0246, 4.494602, -25.058205)
-mesh = SubResource("BoxMesh_m15hl")
-
-[node name="HouseLayout5" type="MeshInstance3D" parent="Meshes" unique_id=1460207822]
-transform = Transform3D(0.81419355, 0, 0.58059376, 0, 1, 0, -0.58059376, 0, 0.81419355, 182.02617, 5.4666557, -189.16794)
-mesh = SubResource("BoxMesh_m15hl")
 
 [node name="Bridge" type="MeshInstance3D" parent="Meshes" unique_id=724153932]
 transform = Transform3D(0.61865735, 0, 0.7856609, 0, 1, 0, -0.7856609, 0, 0.61865735, 28.313578, 1.602149, 18.430079)
@@ -588,6 +462,7 @@ process_material = SubResource("ParticleProcessMaterial_iscit")
 draw_pass_1 = SubResource("QuadMesh_m4q0v")
 
 [node name="Colliders" type="Node3D" parent="." unique_id=964454485]
+metadata/_edit_lock_ = true
 
 [node name="TreeBlockerLarge" type="StaticBody3D" parent="Colliders" unique_id=1083313446]
 transform = Transform3D(0.832827, 0, -0.55353343, 0, 1, 0, 0.55353343, 0, 0.832827, -67.93274, 0, 219.3566)
@@ -1643,6 +1518,29 @@ objects = Array[ObjectResource]([SubResource("ObjectResource_70da1")])
 waterDefinition = SubResource("WaterResource_76umi")
 terrainZones = SubResource("ZonesResource_x8ffa")
 physics_interpolation_mode = 2
-metadata/_edit_lock_ = false
+metadata/_edit_lock_ = true
 
-[connection signal="effect" from="Meshes/FollyHouse/Bed/SceneSwitcher" to="." method="trigger_scene_switch"]
+[node name="NPCs" type="Node3D" parent="." unique_id=1267504291]
+
+[node name="Raincoat" parent="NPCs" unique_id=775717676 instance=ExtResource("28_kcn1r")]
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -60.21888, 14.3111515, 69.359024)
+
+[node name="Houses" type="Node3D" parent="." unique_id=2044675819]
+
+[node name="house1" parent="Houses" unique_id=225651544 instance=ExtResource("28_ul1u8")]
+transform = Transform3D(-0.4910589, 0, 0.87112635, 0, 1, 0, -0.87112635, 0, -0.4910589, -34.223263, 14.180237, 210.44441)
+
+[node name="house2" parent="Houses" unique_id=529681720 instance=ExtResource("28_ul1u8")]
+transform = Transform3D(-0.16953881, 0, -0.9855235, 0, 1, 0, 0.9855235, 0, -0.16953881, -62.555153, 14.347015, 57.366943)
+
+[node name="house3" parent="Houses" unique_id=49332583 instance=ExtResource("28_ul1u8")]
+transform = Transform3D(-0.73345834, 0, 0.6797344, 0, 1, 0, -0.6797344, 0, -0.73345834, 97.82031, 2.6914978, -21.063442)
+
+[node name="house4" parent="Houses" unique_id=1149105935 instance=ExtResource("28_ul1u8")]
+transform = Transform3D(0.95628124, 0, 0.29244867, 0, 1, 0, -0.29244867, 0, 0.95628124, 37.535175, -6.9620037, -98.09755)
+
+[node name="house6" parent="Houses" unique_id=1710347068 instance=ExtResource("28_ul1u8")]
+transform = Transform3D(0.9136811, 0, 0.40643182, 0, 1, 0, -0.40643182, 0, 0.9136811, -44.50778, -7.0996337, -142.2108)
+
+[node name="house7" parent="Houses" unique_id=1814463180 instance=ExtResource("28_ul1u8")]
+transform = Transform3D(-0.543212, 0, -0.8395956, 0, 1, 0, 0.8395956, 0, -0.543212, 176.47675, 2.4367142, -186.26283)
