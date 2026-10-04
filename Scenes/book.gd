@@ -1,6 +1,19 @@
 @tool
 extends Node3D
 
+var book_title : String :
+	set(value):
+		book_title = value
+		var node = get_node_or_null("book_title")
+		if node == null:
+			return
+		node.text = value
+		var int3 = get_node_or_null("Interactable3D")
+		if int3 == null:
+			return
+		int3.book_title = value
+		int3.desc = "Pick up \"" + book_title + "\""
+
 var book_index : int :
 	set(value):
 		var node = get_node_or_null("Interactable3D")

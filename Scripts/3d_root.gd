@@ -34,6 +34,32 @@ func loaded(last_scene:String) -> void:
 		_: spawn_pos = folly_exit.global_position
 	character.global_position = spawn_pos
 	$NPCs/Raincoat.player = character
+	if Status.work_complete:
+		load_environment("night" + str(Status.current_day+1))
+	else:
+		load_environment(Status.current_day_string)
+
+func load_environment(enviro:String) -> void:
+	var new_enviro : Node3D
+	match(enviro):
+		"day3":
+			$FogPools.show()
+			new_enviro = preload("res://Scenes/3DSky/day3.tscn").instantiate()
+		"day2":
+			$FogPools.show()
+			new_enviro = preload("res://Scenes/3DSky/day2.tscn").instantiate()
+		"night3":
+			$FogPools.show()
+			new_enviro = preload("res://Scenes/3DSky/night3.tscn").instantiate()
+		"night2":
+			$FogPools.show()
+			new_enviro = preload("res://Scenes/3DSky/night2.tscn").instantiate()
+		"night1":
+			new_enviro = preload("res://Scenes/3DSky/night.tscn").instantiate()
+		_:
+			new_enviro = preload("res://Scenes/3DSky/day.tscn").instantiate()
+	add_child(new_enviro)
+
 
 signal scene_switch(scene:String)
 func trigger_scene_switch(scene:String) -> void:

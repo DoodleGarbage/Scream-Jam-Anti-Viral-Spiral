@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://ckf0gspi3nxde"]
+
+[ext_resource type="Shader" uid="uid://bi82vc74b7pvy" path="res://Scenes/3DSky/stylized-sky.gdshader" id="1_acu6y"]
+[ext_resource type="Texture2D" uid="uid://dblb54qcom8t0" path="res://Scenes/3DSky/Dysnomia-moon-transparent-new12.png" id="2_14iuv"]
+[ext_resource type="Texture2D" uid="uid://0yx8vb7eauve" path="res://Scenes/3DSky/shooting_star_sampler.png" id="3_cmm0y"]
+
+[sub_resource type="Curve" id="Curve_gsmta"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.137725, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.709949), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_30jfc"]
+curve = SubResource("Curve_gsmta")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4re0a"]
+frequency = 0.0111
+fractal_type = 2
+fractal_lacunarity = 1.83
+fractal_gain = 0.49
+cellular_distance_function = 3
+cellular_return_type = 6
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g6uxe"]
+noise = SubResource("FastNoiseLite_4re0a")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8mrmi"]
+seed = 50
+frequency = 0.0076
+fractal_gain = 0.52
+cellular_distance_function = 3
+cellular_return_type = 6
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t4udj"]
+noise = SubResource("FastNoiseLite_8mrmi")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ys1f0"]
+noise_type = 3
+seed = 48
+frequency = 0.0065
+fractal_type = 2
+fractal_lacunarity = 1.83
+fractal_gain = 0.49
+cellular_distance_function = 3
+cellular_return_type = 6
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1dacr"]
+noise = SubResource("FastNoiseLite_ys1f0")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_acu6y"]
+shader = ExtResource("1_acu6y")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_t4udj")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_g6uxe")
+shader_parameter/cloud_curves = SubResource("CurveTexture_30jfc")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.4
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.05
+shader_parameter/clouds_light_color = Color(0.227451, 0.447059, 1, 1)
+shader_parameter/clouds_shadow_intensity = 2.6
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_1dacr")
+shader_parameter/high_clouds_density = 0.0
+shader_parameter/top_color = Color(0.106023155, 0.04609231, 0.14767265, 1)
+shader_parameter/bottom_color = Color(0.09985284, 0.07846785, 0.20285092, 1)
+shader_parameter/sun_scatter = Color(0.12549, 0.0862745, 0.372549, 1)
+shader_parameter/astro_tint = Color(0.760784, 0.870588, 1, 1)
+shader_parameter/astro_sampler = ExtResource("2_14iuv")
+shader_parameter/astro_scale = 2.8
+shader_parameter/astro_intensity = 2.0
+shader_parameter/stars_intensity = 5.0
+shader_parameter/shooting_stars_intensity = 0.5
+shader_parameter/shooting_star_sampler = ExtResource("3_cmm0y")
+shader_parameter/shooting_star_tint = Color(1, 0.662745, 0.419608, 1)
+
+[sub_resource type="Sky" id="Sky_14iuv"]
+sky_material = SubResource("ShaderMaterial_acu6y")
+
+[sub_resource type="Environment" id="Environment_p1ot3"]
+background_mode = 2
+sky = SubResource("Sky_14iuv")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.24032012, 0.19875592, 0.2499133, 1)
+fog_density = 0.005
+fog_sky_affect = 0.0
+fog_height = 7.44
+fog_height_density = 0.0468
+adjustment_enabled = true
+adjustment_saturation = 1.5
+
+[node name="Night" type="Node3D" unique_id=29092725]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=428224833]
+environment = SubResource("Environment_p1ot3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=385846940]
+transform = Transform3D(-0.865612, -0.448219, 0.223193, -0.0266888, 0.486416, 0.87332, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true

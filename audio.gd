@@ -5,6 +5,19 @@ extends Node
 #func _ready() -> void:
 #	play("prudent_folly")
 
+var fade_in_tracks : Array = []
+
+func _process(delta: float) -> void:
+	var indices : Array[int] = []
+	for track in fade_in_tracks.size():
+		fade_in_tracks[track].volume_db = min(fade_in_tracks[track].volume_db + delta*2.5,0)
+		if fade_in_tracks[track].volume_db >= 0:
+			indices.append(track)
+	if indices.size() > 0:
+		indices.reverse()
+		for index in indices:
+			fade_in_tracks.pop_at(index)
+
 func _get_stream(audio:String) -> AudioStream:
 	match(audio):
 		"prudent_folly": return preload("res://Assets/Audio/Prudent Folly.mp3")
@@ -18,7 +31,7 @@ func _get_stream(audio:String) -> AudioStream:
 	return null
 
 ## AudioStreamPlayers do not have a common inheritance class
-func play(audio: String, audio_player = null) -> void:
+func play(audio: String, audio_player = null, fade_in:bool = false) -> void:
 	var stream = _get_stream(audio)
 	if stream == null:
 		push_warning("Tried to play non-existant audio track ", audio)
@@ -27,7 +40,7 @@ func play(audio: String, audio_player = null) -> void:
 	match(audio):
 		"prudent_folly": next_track = "prudent_folly"
 		"alarm_sound": next_track = "alarm_sound"
-	_play_audio(stream, audio, audio_player, next_track)
+	_play_audio(stream, audio, audio_player, next_track, fade_in)
 
 
 
@@ -36,7 +49,7 @@ func stop(audio : String) -> void:
 	print("stopping audio: ", audio)
 	stop_audio.emit(audio)
 
-func _play_audio(audio : AudioStream, audio_name:String, forced_player=null, next_track:String="") -> void:
+func _play_audio(audio : AudioStream, audio_name:String, forced_player=null, next_track:String="", fade_in:bool=false) -> void:
 	var audio_player
 	if forced_player != null:
 		audio_player = forced_player
@@ -50,6 +63,9 @@ func _play_audio(audio : AudioStream, audio_name:String, forced_player=null, nex
 	audio_player.finished.connect(audio_player.queue_free)
 	audio_player.stream = audio
 	audio_player.play()
+	if fade_in:
+		audio_player.volume_db = -40
+		fade_in_tracks.append(audio_player)
 
 func _loop_audio(audio : String) -> void:
 	# insert 'if' conditionals to check if playing the track is appropriate ~ i.e. change to a new track for certain theme loops

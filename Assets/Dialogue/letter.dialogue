@@ -1,11 +1,14 @@
 ~ start
-Letter: Dear Folly, I've been thinking long and hard about writing this letter. After the events, things have been great. We might be amicable right now, but I think that there's still hope for us.
+Letter: Dear Folly, I hada great time on our last hangout. I would love to meet you again sometime. I think that there's still hope for us.
+Letter: Signed, Your BFF
 => END
 
 ~ day2
-Letter: Dear Folly, I took some time to write this letter. After the bad events, things have been terrible. I try not to think about it too much. Coping with it is a lot, y'know? Hard to get over all those emotions.
+Letter: Dear Folly, with how that event went down, I'm going to have to put our friendship on pause. IT ISN'T OVER YET! I just think we need some space to cool off and get our heads back on right. We can go back to being friends right after.
+Letter: Signed, A Former Friend
 => END
 
 ~ day3
-Letter: Dear Folly, I scratched this letter together overnight. After the car crash, I've despised every fiber of your being. Your murdered my parents, and I'll never forgive you for it. I hate you. I hate you.
+Letter: Dear Folly, ever since the car crash, I've despised every fiber of your being. You murdered my parents, and at my lowest, you used it to take everything I ever had, even my love. I'll never forgive you for what you've done. I hate you. I hate you.
+Letter: Signed, Mercury.
 => END

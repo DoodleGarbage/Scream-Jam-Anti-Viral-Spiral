@@ -325,7 +325,9 @@ func update_interaction_display() -> void:
 	if collider is Interactable3D and collider.monitorable:
 		if collider.collects_book and (Status.holding_book == false or Status.held_book_index != collider.book_index):
 			return
-		if collider.is_routine and Status.completed_tasks.has(collider.routine_task):
+		if collider.is_routine and Status.completed_tasks != int(collider.routine_task)-1:
+			return
+		if collider.get_restrictions():
 			return
 		var txt = collider.desc
 		$CL/UserInterface/InteractLabel.text = txt

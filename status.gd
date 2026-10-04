@@ -1,9 +1,19 @@
 extends Node
 
+## increase to 'day2', 'day3', etc.
+var current_day : int = 0
+var current_day_string : String :
+	get:
+		match(current_day):
+			0: return "start"
+			1: return "day2"
+			2: return "day3"
+			_: return "hell"
+
 var in_dialogue : bool = false
 
 const ROUTINE_TASKS : Array[String] = ["food","washup","dress"]
-var completed_tasks : Array[String] = []
+var completed_tasks : int = -1
 
 var game_node : Node
 
@@ -13,12 +23,25 @@ var held_book_index : int = -1
 var woke_up : bool = false
 var waking_up : bool = false
 
-func pickup_book(index:int, material:Material) -> bool:
+
+var returned_books : int = -1
+var total_books : int = 0
+var work_complete : bool :
+	get:
+		return returned_books >= total_books
+
+
+
+
+
+
+func pickup_book(index:int, material:Material, title:String="") -> bool:
 	if holding_book:
 		return false
 	holding_book = true
 	held_book_index = index
 	game_node.player_character.BOOK.book_material = material
+	game_node.player_character.BOOK.book_title = title
 	game_node.player_character.BOOK.show()
 	Audio.play("book_grabbed")
 	return true
@@ -29,17 +52,27 @@ func collect_book(book_index:int) -> bool:
 	holding_book = false
 	held_book_index = -1
 	game_node.player_character.BOOK.hide()
+	returned_books += 1
 	Audio.play("book_delivered")
 	return true
 
 func complete_routine(task:String, audio_player=null) -> bool:
-	if not ROUTINE_TASKS.has(task) or completed_tasks.has(task):
+	var task_num : int = int(task)
+	if completed_tasks != task_num-1:
 		return false
-	completed_tasks.append(task)
-	Audio.play(task, audio_player)
-	if task == "washup":
-		Dialogue.trigger_event("washup")
+	completed_tasks += 1
+	#completed_tasks.append(task)
+	Audio.play(task.right(-1), audio_player)
 	return true
 
 func movement_allowed() -> bool:
 	return not (not Status.woke_up or Status.in_dialogue)
+
+func end_day() -> void:
+	print("Ending day ", current_day)
+	total_books = 0
+	returned_books = -1
+	completed_tasks = -1
+	current_day += 1
+	woke_up = false
+	waking_up = false

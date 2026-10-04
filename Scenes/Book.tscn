@@ -9,7 +9,7 @@ albedo_color = Color(0.9405203, 0.6782533, 0.90860736, 1)
 
 [node name="Book" type="Node3D" unique_id=351063631]
 script = ExtResource("1_fkisk")
-book_albedo = Color(0.9405203, 0.6782533, 0.90860736, 1)
+book_material = SubResource("StandardMaterial3D_fkisk")
 
 [node name="book_paper" parent="." unique_id=387308307 instance=ExtResource("3_qgycy")]
 
@@ -17,3 +17,9 @@ book_albedo = Color(0.9405203, 0.6782533, 0.90860736, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1424987, 0.17688954, 0)
 mesh = ExtResource("1_uok8s")
 surface_material_override/0 = SubResource("StandardMaterial3D_fkisk")
+
+[node name="book_title" type="Label3D" parent="." unique_id=1133121643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15104213, 0.17117509, 0.06446126)
+font_size = 10
+autowrap_mode = 3
+width = 52.0

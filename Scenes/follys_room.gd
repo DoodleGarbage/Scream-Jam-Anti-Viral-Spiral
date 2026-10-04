@@ -18,11 +18,15 @@ extends Node3D
 
 
 func _ready() -> void:
-	Audio.play("alarm_sound", alarm_player)
+	if not Status.woke_up and not Status.work_complete:
+		Audio.play("alarm_sound", alarm_player)
+	else:
+		blackout_screen.hide()
+		wakeup_notice.hide()
 	#Audio.play("alarm_sound")
 
 func loaded(_last_scene:String) -> void:
-	if not Status.woke_up:
+	if not Status.woke_up and not Status.work_complete:
 		character.global_position = wakeup_point.global_position
 	else:
 		character.global_position = loading_point.global_position

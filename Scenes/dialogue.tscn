@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://bu634ku7mufa7"]
 
 [ext_resource type="Texture2D" uid="uid://bcu4n1vsnjv1j" path="res://Assets/Textures/riverphoto.jpg" id="1_5rqxr"]
+[ext_resource type="Script" uid="uid://d1ha3u8fs4mla" path="res://Scenes/dialogue_display.gd" id="1_dgfud"]
+[ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/nodes/dialogue_label/dialogue_label.gd" id="2_p21q5"]
 
 [node name="Dialogue" type="CanvasLayer" unique_id=1271223425]
+script = ExtResource("1_dgfud")
 
 [node name="CL" type="Control" parent="." unique_id=1725542757]
 layout_mode = 3
@@ -30,9 +33,12 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="DiaText" type="RichTextLabel" parent="CL/DlT/DlT" unique_id=156653628]
+[node name="DialogueLabel" type="RichTextLabel" parent="CL/DlT/DlT" unique_id=1032012086]
 layout_mode = 2
 text = "This is dialogue. You read dialogue here. This is a big long thing of dialogue. Despite everything, you're still you."
+script = ExtResource("2_p21q5")
+skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
+metadata/_custom_type_script = "uid://g32um0mltv5d"
 
 [node name="You" type="TextureRect" parent="CL" unique_id=1789911123]
 visible = false

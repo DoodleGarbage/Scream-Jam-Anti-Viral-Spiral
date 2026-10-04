@@ -1,3 +1,4 @@
+@tool
 extends Node3D
 
 var book_color : Material
@@ -18,6 +19,15 @@ var bookshelf_index : int = 0 :
 
 @export var shelves : Array[Node3D] = []
 @export var book_model : PackedScene
+
+@export var book_genre : String = "" :
+	set(value):
+		book_genre = value
+		var node = get_node_or_null("Label3D")
+		if node == null:
+			return
+		node.text = value
+@export var book_titles : Array[String] = [""]
 
 func _load_shelves() -> void:
 	var rand_color : Color = Color(randf(), randf(), randf())
