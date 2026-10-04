@@ -463,7 +463,6 @@ process_material = SubResource("ParticleProcessMaterial_iscit")
 draw_pass_1 = SubResource("QuadMesh_m4q0v")
 
 [node name="Colliders" type="Node3D" parent="." unique_id=964454485]
-visible = false
 metadata/_edit_lock_ = true
 
 [node name="TreeBlockerLarge" type="StaticBody3D" parent="Colliders" unique_id=1083313446]

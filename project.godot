@@ -10,11 +10,15 @@ config_version=5
 
 [application]
 
-config/name="Anti Viral Spiral"
+config/name="Another Day"
 run/main_scene="uid://daug6eloobu1h"
 config/features=PackedStringArray("4.8", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
+
+[autoload]
+
+Status="*uid://crs2v42eoxbir"
 
 [display]
 

@@ -490,7 +490,6 @@ offset_right = 65.0
 offset_bottom = -146.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Press 'E' to Sleep"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1173523026]
 visible = false

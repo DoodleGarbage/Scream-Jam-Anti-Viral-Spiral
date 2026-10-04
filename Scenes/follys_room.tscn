@@ -20,7 +20,17 @@
 [ext_resource type="PackedScene" uid="uid://chyva5d500wec" path="res://Assets/Models/kitchensink.blend" id="8_kfsb4"]
 [ext_resource type="PackedScene" uid="uid://cyvm1gk73d4ns" path="res://Assets/Models/bathroomsink.blend" id="9_lfoc4"]
 [ext_resource type="PackedScene" uid="uid://cjpxsq5osvnts" path="res://Assets/Models/toilet.blend" id="10_i1av2"]
+[ext_resource type="PackedScene" uid="uid://ccudbo1eygq6" path="res://Assets/Models/photoframe.blend" id="11_6nj5c"]
+[ext_resource type="Texture2D" uid="uid://bwvamovgh3qw2" path="res://Assets/Textures/adamphoto.jpg" id="12_uo427"]
+[ext_resource type="Texture2D" uid="uid://bcu4n1vsnjv1j" path="res://Assets/Textures/riverphoto.jpg" id="13_8yugw"]
+[ext_resource type="PackedScene" uid="uid://csrvx5qqpm2nf" path="res://Assets/Models/alarmclock.blend" id="14_uo427"]
+[ext_resource type="AudioStream" uid="uid://7g81v5jtptp3" path="res://Assets/Audio/alarmclock_blare.mp3" id="15_8yugw"]
+[ext_resource type="AudioStream" uid="uid://c7etbp1vetpa5" path="res://Assets/Audio/alarm_clunk.mp3" id="16_qktnr"]
+[ext_resource type="Texture2D" uid="uid://bff834j3rvmiv" path="res://Assets/Textures/Ethanphoto.jpg" id="17_8vo5n"]
+[ext_resource type="Texture2D" uid="uid://brd2uutjuwl0h" path="res://Assets/Textures/beckettphoto.jpg" id="18_h3m8a"]
 [ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scripts/interactable3D.gd" id="19_65x00"]
+[ext_resource type="Texture2D" uid="uid://cg4efx7xi7vke" path="res://Assets/Textures/personphoto.jpg" id="19_ljyki"]
+[ext_resource type="Texture2D" uid="uid://bl0sdvxdbdw3t" path="res://Assets/Textures/papernotes.jpg" id="22_1oxiw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ldkbt"]
 sky_top_color = Color(0.0006620584, 0.06663098, 0.009669079, 1)
@@ -68,8 +78,22 @@ heightmap_texture = ExtResource("4_copye")
 material = SubResource("StandardMaterial3D_kfsb4")
 size = Vector2(4, 6)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dq3ls"]
+albedo_texture = ExtResource("12_uo427")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lnsfr"]
+material = SubResource("StandardMaterial3D_dq3ls")
+size = Vector2(0.15, 0.225)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_r6rqn"]
 size = Vector3(0.809, 1, 0.815)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7iu3l"]
+albedo_texture = ExtResource("13_8yugw")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vgai8"]
+material = SubResource("StandardMaterial3D_7iu3l")
+size = Vector2(0.15, 0.225)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycyxk"]
 size = Vector3(0.84, 2.996, 2.135)
@@ -90,8 +114,39 @@ size = Vector3(0.395, 0.726, 0.093)
 height = 1.0
 radius = 0.75
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qaoyu"]
+albedo_texture = ExtResource("22_1oxiw")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bupmj"]
+material = SubResource("StandardMaterial3D_qaoyu")
+size = Vector2(0.2, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n8lqq"]
+size = Vector3(0.222, 0.068, 0.423)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_pa7af"]
 size = Vector3(0.902, 1.88, 0.808)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7oayw"]
+albedo_texture = ExtResource("17_8vo5n")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ueyei"]
+material = SubResource("StandardMaterial3D_7oayw")
+size = Vector2(0.1, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rfqa"]
+albedo_texture = ExtResource("18_h3m8a")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xd8ey"]
+material = SubResource("StandardMaterial3D_5rfqa")
+size = Vector2(0.1, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ol4ut"]
+albedo_texture = ExtResource("19_ljyki")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l6b4t"]
+material = SubResource("StandardMaterial3D_ol4ut")
+size = Vector2(0.1, 0.15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lfoc4"]
 size = Vector3(1, 1, 2.873)
@@ -155,12 +210,20 @@ size = Vector3(0.336, 3.679, 6.183)
 [sub_resource type="BoxShape3D" id="BoxShape3D_efths"]
 size = Vector3(0.336, 3.679, 16.375)
 
-[node name="FollysRoom" type="Node3D" unique_id=1720987390 node_paths=PackedStringArray("loading_point")]
+[node name="FollysRoom" type="Node3D" unique_id=1720987390 node_paths=PackedStringArray("blackout_screen", "wakeup_notice", "alarm_sound", "alarm_clunk", "loading_point", "wakeup_point")]
 script = ExtResource("1_65x00")
+blackout_screen = NodePath("Wakeup/Control/ColorRect")
+wakeup_notice = NodePath("Wakeup/Control/WakeupNotice")
+alarm_sound = NodePath("Furniture/nightstand/alarmclock/blare")
+alarm_clunk = NodePath("Furniture/nightstand/alarmclock/clunk")
 loading_point = NodePath("SpawnPoint")
+wakeup_point = NodePath("WakeUp")
 
 [node name="SpawnPoint" type="Node3D" parent="." unique_id=339465379]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013667345, -0.011318803, 4.61813)
+
+[node name="WakeUp" type="Node3D" parent="." unique_id=146988728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5318522, 0.66252375, -4.30691)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=381587627]
 environment = SubResource("Environment_ycyxk")
@@ -185,11 +248,35 @@ mesh = SubResource("PlaneMesh_fyksx")
 [node name="nightstand" parent="Furniture" unique_id=1800016291 instance=ExtResource("2_o2tje")]
 transform = Transform3D(0.9777137, 0, 0.20994261, 0, 1, 0, -0.20994261, 0, 0.9777137, 2.2697709, 0.24796999, -5.366059)
 
+[node name="photoframe" parent="Furniture/nightstand" unique_id=1834182943 instance=ExtResource("11_6nj5c")]
+transform = Transform3D(-0.334031, 0, -0.9425621, 0, 1, 0, 0.9425621, 0, -0.334031, 0.14434344, 0.5712075, -0.16726874)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Furniture/nightstand/photoframe" unique_id=736052993]
+transform = Transform3D(-2.9802322e-08, 0.9396926, 0.34202015, 2.9802322e-08, 0.34202015, -0.9396926, -1, 0, -4.371139e-08, 0.0045848605, -0.0007912875, -0.004193317)
+mesh = SubResource("PlaneMesh_lnsfr")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Furniture/nightstand" unique_id=98006096]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/nightstand/StaticBody3D" unique_id=42216278]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.054976523, 0)
 shape = SubResource("BoxShape3D_r6rqn")
+
+[node name="photoframe2" parent="Furniture/nightstand" unique_id=781375659 instance=ExtResource("11_6nj5c")]
+transform = Transform3D(0.008269697, 0, -0.99996585, 0, 1, 0, 0.99996585, 0, 0.008269697, -0.14531317, 0.5712075, -0.15232371)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Furniture/nightstand/photoframe2" unique_id=777286328]
+transform = Transform3D(-2.9802322e-08, 0.9396926, 0.34202015, 2.9802322e-08, 0.34202015, -0.9396926, -1, 0, -4.371139e-08, 0.0045848605, -0.0007912875, -0.004193317)
+mesh = SubResource("PlaneMesh_vgai8")
+
+[node name="alarmclock" parent="Furniture/nightstand" unique_id=2052252357 instance=ExtResource("14_uo427")]
+transform = Transform3D(-0.25270945, 0, 0.117254935, 0, 0.27858716, 0, -0.117254935, 0, -0.25270945, -0.0024242788, 0.5423856, 0.20378265)
+
+[node name="blare" type="AudioStreamPlayer3D" parent="Furniture/nightstand/alarmclock" unique_id=1345964446]
+stream = ExtResource("15_8yugw")
+autoplay = true
+
+[node name="clunk" type="AudioStreamPlayer3D" parent="Furniture/nightstand/alarmclock" unique_id=415523087]
+stream = ExtResource("16_qktnr")
 
 [node name="Dresser" parent="Furniture" unique_id=1340980958 instance=ExtResource("3_ycyxk")]
 transform = Transform3D(-0.9149544, 0, 7.9987856e-08, 0, 0.9149544, 0, -7.9987856e-08, 0, -0.9149544, 5.8024616, 0.3051685, 3.953877)
@@ -224,6 +311,8 @@ shape = SubResource("BoxShape3D_7k3l4")
 
 [node name="Interactable3D" type="Area3D" parent="Furniture/bed" unique_id=1764130073]
 collision_layer = 2
+monitoring = false
+monitorable = false
 script = ExtResource("19_65x00")
 desc = "Go to Sleep"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
@@ -265,6 +354,19 @@ transform = Transform3D(0.93132067, 0, 0.36420023, 0, 1, 0, -0.36420023, 0, 0.93
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06414449, 0)
 shape = SubResource("CylinderShape3D_wfhcw")
 
+[node name="PaperLetter" type="MeshInstance3D" parent="Furniture/table" unique_id=1897459948]
+transform = Transform3D(-0.66116625, 0, 0.75023943, 0, 1, 0, -0.75023943, 0, -0.66116625, -0.18533447, 0.43936288, 0.36400992)
+mesh = SubResource("PlaneMesh_bupmj")
+
+[node name="Interactable3D" type="Area3D" parent="Furniture/table/PaperLetter" unique_id=1835090065]
+collision_layer = 2
+script = ExtResource("19_65x00")
+desc = "Read Letter"
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/table/PaperLetter/Interactable3D" unique_id=1912081772]
+shape = SubResource("BoxShape3D_n8lqq")
+
 [node name="fridge" parent="Furniture" unique_id=1056138188 instance=ExtResource("7_cu0vy")]
 transform = Transform3D(0.7626047, 0, 0.6468648, 0, 1, 0, -0.6468648, 0, 0.7626047, -5.811181, 0.0077465177, 4.614322)
 
@@ -283,6 +385,18 @@ metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/fridge/Interactable3D" unique_id=1894635662]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8043045, 0)
 shape = SubResource("BoxShape3D_pa7af")
+
+[node name="Picture" type="MeshInstance3D" parent="Furniture/fridge" unique_id=1576147305]
+transform = Transform3D(3.162959e-08, 1, -5.311252e-08, -0.245736, -4.3711385e-08, -0.9693368, -0.9693368, 4.371139e-08, 0.245736, 0.43747538, 1.5086334, 0.20859942)
+mesh = SubResource("PlaneMesh_ueyei")
+
+[node name="Picture2" type="MeshInstance3D" parent="Furniture/fridge" unique_id=1876564635]
+transform = Transform3D(4.879533e-08, 1, -3.795244e-08, 0.124028176, -4.3711385e-08, -0.9922787, -0.9922787, 4.371139e-08, -0.124028176, 0.43747485, 1.4788451, -0.002984494)
+mesh = SubResource("PlaneMesh_xd8ey")
+
+[node name="Picture3" type="MeshInstance3D" parent="Furniture/fridge" unique_id=592539455]
+transform = Transform3D(4.041156e-08, 1, -4.6779014e-08, -0.07283518, -4.3711385e-08, -0.99734396, -0.99734396, 4.371139e-08, 0.07283518, 0.43747494, 1.2895246, 0.18813606)
+mesh = SubResource("PlaneMesh_l6b4t")
 
 [node name="kitchensink" parent="Furniture" unique_id=1960800678 instance=ExtResource("8_kfsb4")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.231592, 0.36538553, 5.7894735)
@@ -484,3 +598,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5106144, 3.8900046, -3.610
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/Innerbarrier6" unique_id=684379945]
 shape = SubResource("BoxShape3D_ldkbt")
+
+[node name="Wakeup" type="CanvasLayer" parent="." unique_id=813656607]
+
+[node name="Control" type="Control" parent="Wakeup" unique_id=1654153707]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Wakeup/Control" unique_id=174031669]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="WakeupNotice" type="Label" parent="Wakeup/Control" unique_id=139032026]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "Press 'E' to wake up."

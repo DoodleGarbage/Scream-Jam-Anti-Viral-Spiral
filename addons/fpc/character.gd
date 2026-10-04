@@ -166,6 +166,9 @@ func _ready():
 
 
 func _process(_delta):
+	if not Status.woke_up:
+		return
+	
 	if pausing_enabled:
 		handle_pausing()
 	
@@ -174,6 +177,8 @@ func _process(_delta):
 
 
 func _physics_process(delta): # Most things happen here.
+	if not Status.woke_up:
+		return
 	# Gravity
 	if dynamic_gravity:
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -307,13 +312,13 @@ func get_interactor() -> Object:
 
 func handle_interaction() -> void:
 	var collider = get_interactor()
-	if collider is Interactable3D:
+	if collider is Interactable3D and collider.monitorable:
 		collider.trigger_effects()
 
 func update_interaction_display() -> void:
 	var collider = get_interactor()
 	$CL/UserInterface/InteractLabel.hide()
-	if collider is Interactable3D:
+	if collider is Interactable3D and collider.monitorable:
 		var txt = collider.desc
 		$CL/UserInterface/InteractLabel.text = txt
 		$CL/UserInterface/InteractLabel.show()

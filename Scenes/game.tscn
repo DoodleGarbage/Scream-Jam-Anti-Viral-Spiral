@@ -1,17 +1,20 @@
 [gd_scene format=3 uid="uid://daug6eloobu1h"]
 
 [ext_resource type="Script" uid="uid://lnrm24rx0ug" path="res://Scripts/global_root.gd" id="1_feb5d"]
-[ext_resource type="PackedScene" uid="uid://cla6817oo6prx" path="res://Scenes/3d_game.tscn" id="2_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://drxustew5lp5d" path="res://Scenes/follys_room.tscn" id="2_3dryh"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="2_wrm1d"]
+[ext_resource type="AudioStream" uid="uid://bvxxb5prlmqsq" path="res://Assets/Audio/Prudent Folly.mp3" id="4_3dryh"]
 
 [node name="GlobalRoot" type="Node" unique_id=391369941 node_paths=PackedStringArray("player_character", "active_scene")]
 script = ExtResource("1_feb5d")
 player_character = NodePath("Character")
-active_scene = NodePath("3DRoot")
+active_scene = NodePath("FollysRoom")
+
+[node name="FollysRoom" parent="." unique_id=1720987390 node_paths=PackedStringArray("character") instance=ExtResource("2_3dryh")]
+character = NodePath("../Character")
 
 [node name="Character" parent="." unique_id=1981548183 instance=ExtResource("2_wrm1d")]
 
-[node name="3DRoot" parent="." unique_id=1576440724 node_paths=PackedStringArray("character") instance=ExtResource("2_fc0e3")]
-character = NodePath("../Character")
-
-[connection signal="scene_switch" from="3DRoot" to="." method="switch_scene"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=305921721]
+stream = ExtResource("4_3dryh")
+volume_db = -14.562
