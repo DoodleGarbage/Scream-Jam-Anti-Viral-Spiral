@@ -1,11 +1,13 @@
 extends Node3D
 
 @export var character : Node3D
+
 @export_group("Wakeup Sequence")
 @export var blackout_screen : ColorRect
 @export var wakeup_notice : Control
-@export var alarm_sound : AudioStreamPlayer3D
-@export var alarm_clunk : AudioStreamPlayer3D
+@export var alarm_player : AudioStreamPlayer3D
+#@export var alarm_sound : AudioStreamPlayer3D
+#@export var alarm_clunk : AudioStreamPlayer3D
 
 @export_group("Spawn Points")
 @export var loading_point : Node3D
@@ -16,9 +18,10 @@ extends Node3D
 
 
 func _ready() -> void:
-	pass
+	Audio.play("alarm_sound", alarm_player)
+	#Audio.play("alarm_sound")
 
-func loaded() -> void:
+func loaded(_last_scene:String) -> void:
 	if not Status.woke_up:
 		character.global_position = wakeup_point.global_position
 	else:
@@ -32,9 +35,9 @@ func _process(delta: float) -> void:
 			blackout_screen.hide()
 			Status.waking_up = false
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and not Status.woke_up:
-		alarm_clunk.play()
-		alarm_sound.stop()
+		Audio.play("alarm_clunk")
+		Audio.stop("alarm_sound")
 		Status.woke_up = true
 		Status.waking_up = true

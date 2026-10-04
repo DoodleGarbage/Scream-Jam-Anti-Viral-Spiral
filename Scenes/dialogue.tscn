@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bu634ku7mufa7"]
+
+[ext_resource type="Texture2D" uid="uid://bcu4n1vsnjv1j" path="res://Assets/Textures/riverphoto.jpg" id="1_5rqxr"]
+
+[node name="Dialogue" type="CanvasLayer" unique_id=1271223425]
+
+[node name="CL" type="Control" parent="." unique_id=1725542757]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DlT" type="PanelContainer" parent="CL" unique_id=1165113419]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.66
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DlT" type="MarginContainer" parent="CL/DlT" unique_id=1120894222]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="DiaText" type="RichTextLabel" parent="CL/DlT/DlT" unique_id=156653628]
+layout_mode = 2
+text = "This is dialogue. You read dialogue here. This is a big long thing of dialogue. Despite everything, you're still you."
+
+[node name="You" type="TextureRect" parent="CL" unique_id=1789911123]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.256
+anchor_top = 0.098
+anchor_right = 0.725
+anchor_bottom = 0.741
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5rqxr")
+expand_mode = 3
+stretch_mode = 5

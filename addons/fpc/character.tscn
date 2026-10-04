@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cc1m2a1obsyn4"]
 
 [ext_resource type="Script" uid="uid://hutuis63hgev" path="res://addons/fpc/character.gd" id="1_0t4e8"]
+[ext_resource type="PackedScene" uid="uid://c2dq4seqe3l2b" path="res://Scenes/Book.tscn" id="2_bx7cj"]
 [ext_resource type="Script" uid="uid://dgfl3skp075ft" path="res://addons/fpc/EditorModule.gd" id="3_v3ckk"]
 [ext_resource type="Script" uid="uid://u5u7xxlvmcxx" path="res://addons/fpc/debug.gd" id="3_x1wcc"]
 
@@ -372,6 +373,9 @@ _data = {
 &"land_right": SubResource("Animation_vsknp")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkisk"]
+albedo_color = Color(0.9405203, 0.6782533, 0.90860736, 1)
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_k4wwl"]
 
 [sub_resource type="Theme" id="Theme_wdf0f"]
@@ -380,7 +384,7 @@ MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10
 MarginContainer/constants/margin_top = 10
 
-[node name="Character" type="CharacterBody3D" unique_id=1981548183 node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH", "RAYCAST", "CANVAS")]
+[node name="Character" type="CharacterBody3D" unique_id=1981548183 node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH", "RAYCAST", "CANVAS", "BOOK")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 collision_layer = 15
 script = ExtResource("1_0t4e8")
@@ -394,6 +398,7 @@ CROUCH_ANIMATION = NodePath("CrouchAnimation")
 COLLISION_MESH = NodePath("Collision")
 RAYCAST = NodePath("Head/RayCaster")
 CANVAS = NodePath("CL")
+BOOK = NodePath("Head/Book")
 controls = {
 &"BACKWARD": "backward",
 &"CROUCH": "crouch",
@@ -440,6 +445,11 @@ collide_with_areas = true
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Head" unique_id=995380503]
 current = true
+
+[node name="Book" parent="Head" unique_id=351063631 instance=ExtResource("2_bx7cj")]
+transform = Transform3D(0.9470395, 0.09972948, -0.3052382, -0.09492105, 0.9950146, 0.030593796, 0.30676752, -1.0281219e-08, 0.95178443, 0.34100923, -0.49814272, -0.5786104)
+visible = false
+book_material = SubResource("StandardMaterial3D_fkisk")
 
 [node name="CrouchCeilingDetection" type="ShapeCast3D" parent="." unique_id=760185835]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

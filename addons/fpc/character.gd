@@ -53,6 +53,8 @@ extends CharacterBody3D
 @export var RAYCAST : RayCast3D
 ## A reference to the GUI elements
 @export var CANVAS : CanvasLayer
+## A reference to the book held in the player's hand
+@export var BOOK : Node3D
 
 #endregion
 
@@ -166,19 +168,19 @@ func _ready():
 
 
 func _process(_delta):
-	if not Status.woke_up:
-		return
-	
 	if pausing_enabled:
 		handle_pausing()
-	
 	update_interaction_display()
 	update_debug_menu_per_frame()
 
 
 func _physics_process(delta): # Most things happen here.
-	if not Status.woke_up:
+	if not Status.movement_allowed():
+		if RETICLE:
+			RETICLE.hide()
 		return
+	if RETICLE:
+		RETICLE.show()
 	# Gravity
 	if dynamic_gravity:
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -318,7 +320,13 @@ func handle_interaction() -> void:
 func update_interaction_display() -> void:
 	var collider = get_interactor()
 	$CL/UserInterface/InteractLabel.hide()
+	if not Status.movement_allowed():
+		return
 	if collider is Interactable3D and collider.monitorable:
+		if collider.collects_book and (Status.holding_book == false or Status.held_book_index != collider.book_index):
+			return
+		if collider.is_routine and Status.completed_tasks.has(collider.routine_task):
+			return
 		var txt = collider.desc
 		$CL/UserInterface/InteractLabel.text = txt
 		$CL/UserInterface/InteractLabel.show()

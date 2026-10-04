@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://blxpaea3kb7nt"]
+
+[resource]
+resource_name = "Cover"
+cull_mode = 2
+albedo_color = Color(0.9062963, 0.23922032, 0.20876673, 1)
+roughness = 0.5

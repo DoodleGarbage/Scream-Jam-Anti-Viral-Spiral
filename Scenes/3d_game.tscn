@@ -32,6 +32,7 @@
 [ext_resource type="Script" uid="uid://c3u6fjjtxjurs" path="res://Scripts/raincoat.gd" id="29_m7jd6"]
 [ext_resource type="PackedScene" uid="uid://osf8306fr28h" path="res://Assets/Models/follyshouse.blend" id="31_iscit"]
 [ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scripts/interactable3D.gd" id="32_m4q0v"]
+[ext_resource type="PackedScene" uid="uid://2wlv0w1eipij" path="res://Assets/Models/library.blend" id="33_m4q0v"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_godah"]
 size = Vector3(90, 1, 11)
@@ -234,12 +235,16 @@ size = Vector3(0.2, 1.939, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_iscit"]
 size = Vector3(13, 13, 13)
 
-[node name="3DRoot" type="Node3D" unique_id=1576440724 node_paths=PackedStringArray("loading_point")]
-script = ExtResource("1_wgwvh")
-loading_point = NodePath("SpawnPoint")
+[sub_resource type="BoxShape3D" id="BoxShape3D_m4q0v"]
+size = Vector3(20, 24.506, 20)
 
-[node name="SpawnPoint" type="Node3D" parent="." unique_id=886319531]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.83658, 14.827441, 201.74986)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ci2nm"]
+size = Vector3(0.363, 1.924, 1)
+
+[node name="3DRoot" type="Node3D" unique_id=1576440724 node_paths=PackedStringArray("library_exit", "folly_exit")]
+script = ExtResource("1_wgwvh")
+library_exit = NodePath("Houses/library/LibraryExit")
+folly_exit = NodePath("Houses/follyshouse/FollyExit")
 
 [node name="Day" parent="." unique_id=894646260 instance=ExtResource("2_m7jd6")]
 
@@ -463,6 +468,7 @@ process_material = SubResource("ParticleProcessMaterial_iscit")
 draw_pass_1 = SubResource("QuadMesh_m4q0v")
 
 [node name="Colliders" type="Node3D" parent="." unique_id=964454485]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="TreeBlockerLarge" type="StaticBody3D" parent="Colliders" unique_id=1083313446]
@@ -1694,6 +1700,9 @@ shape = SubResource("BoxShape3D_10j8r")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.4267445, 0)
 shape = SubResource("BoxShape3D_iscit")
 
+[node name="FollyExit" type="Node3D" parent="Houses/follyshouse" unique_id=886319531]
+transform = Transform3D(-0.49723327, 0, -0.8676168, 0, 1, 0, 0.8676168, 0, -0.49723327, 7.624893, 0.7789526, -0.30793762)
+
 [node name="house2" parent="Houses" unique_id=529681720 instance=ExtResource("28_ul1u8")]
 transform = Transform3D(-0.16953881, 0, -0.9855235, 0, 1, 0, 0.9855235, 0, -0.16953881, -62.555153, 14.347015, 57.366943)
 
@@ -1703,8 +1712,29 @@ transform = Transform3D(-0.73345834, 0, 0.6797344, 0, 1, 0, -0.6797344, 0, -0.73
 [node name="house4" parent="Houses" unique_id=1149105935 instance=ExtResource("28_ul1u8")]
 transform = Transform3D(0.95628124, 0, 0.29244867, 0, 1, 0, -0.29244867, 0, 0.95628124, 37.535175, -6.9620037, -98.09755)
 
-[node name="house6" parent="Houses" unique_id=1710347068 instance=ExtResource("28_ul1u8")]
-transform = Transform3D(0.9136811, 0, 0.40643182, 0, 1, 0, -0.40643182, 0, 0.9136811, -44.50778, -7.0996337, -142.2108)
-
 [node name="house7" parent="Houses" unique_id=1814463180 instance=ExtResource("28_ul1u8")]
 transform = Transform3D(-0.543212, 0, -0.8395956, 0, 1, 0, 0.8395956, 0, -0.543212, 176.47675, 2.4367142, -186.26283)
+
+[node name="library" parent="Houses" unique_id=658951811 instance=ExtResource("33_m4q0v")]
+transform = Transform3D(0.81283224, 0, 0.5824979, 0, 1, 0, -0.5824979, 0, 0.81283224, -39.64845, -7.050998, -143.96007)
+
+[node name="LibraryExit" type="Node3D" parent="Houses/library" unique_id=1793730604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.782482, 0, 0.29753113)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Houses/library" unique_id=1360833637]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses/library/StaticBody3D" unique_id=318279531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.9965725, 0)
+shape = SubResource("BoxShape3D_m4q0v")
+
+[node name="Interactable3D" type="Area3D" parent="Houses/library" unique_id=484156089 groups=["Interactables"]]
+collision_layer = 2
+script = ExtResource("32_m4q0v")
+desc = "Go to Work"
+switch_scenes = true
+target_scene = "library_room"
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses/library/Interactable3D" unique_id=2004438752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.073241, 1.0765657, 0.06441501)
+shape = SubResource("BoxShape3D_ci2nm")

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://ddyv0ake7r5r6"]
+
+[ext_resource type="Script" uid="uid://cdenubmam6ofk" path="res://Scenes/bookshelf.gd" id="1_mtf67"]
+[ext_resource type="PackedScene" uid="uid://6xt2alvvhpgu" path="res://Assets/Models/bookshelf.blend" id="1_y1qin"]
+[ext_resource type="PackedScene" uid="uid://c2dq4seqe3l2b" path="res://Scenes/Book.tscn" id="2_ei1oc"]
+[ext_resource type="PackedScene" uid="uid://c202vmmcd07xx" path="res://Assets/Models/book.blend" id="3_ei1oc"]
+[ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scripts/interactable3D.gd" id="5_6q274"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mtf67"]
+size = Vector3(0.594, 2.289, 2.166)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6q274"]
+size = Vector3(0.035, 2.289, 2.166)
+
+[node name="Bookshelf" type="Node3D" unique_id=1947349250 node_paths=PackedStringArray("shelves")]
+script = ExtResource("1_mtf67")
+shelf_width = 1.98
+book_width = 0.05
+book_chance = 0.3
+min_book_scale = 0.4
+shelves = [NodePath("Shelf"), NodePath("Shelf2"), NodePath("Shelf3"), NodePath("Shelf4"), NodePath("Shelf5")]
+book_model = ExtResource("2_ei1oc")
+
+[node name="bookshelf" parent="." unique_id=671078369 instance=ExtResource("1_y1qin")]
+
+[node name="book" parent="." unique_id=1626101347 instance=ExtResource("3_ei1oc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 1.8063239, 0.933)
+visible = false
+
+[node name="Shelf" type="Node3D" parent="." unique_id=2017515988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.06714432, 0.933)
+
+[node name="Shelf2" type="Node3D" parent="." unique_id=1445404755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.4955532, 0.933)
+
+[node name="Shelf3" type="Node3D" parent="." unique_id=2119275416]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.91864604, 0.933)
+
+[node name="Shelf4" type="Node3D" parent="." unique_id=1208756174]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 1.372639, 0.933)
+
+[node name="Shelf5" type="Node3D" parent="." unique_id=272985376]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 1.8063239, 0.933)
+
+[node name="Collider" type="StaticBody3D" parent="." unique_id=1072917487]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collider" unique_id=265511136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1522317, 0)
+shape = SubResource("BoxShape3D_mtf67")
+
+[node name="Interactable3D" type="Area3D" parent="." unique_id=1121849939]
+collision_layer = 2
+script = ExtResource("5_6q274")
+desc = "Return Book"
+collects_book = true
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable3D" unique_id=636466199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29750168, 1.1522317, 0)
+shape = SubResource("BoxShape3D_6q274")

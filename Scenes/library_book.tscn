@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dryyk7ix5ad6g"]
+
+[ext_resource type="PackedScene" uid="uid://c2dq4seqe3l2b" path="res://Scenes/Book.tscn" id="1_dtx4m"]
+[ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scripts/interactable3D.gd" id="2_u6vea"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkisk"]
+albedo_color = Color(0.9405203, 0.6782533, 0.90860736, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u6vea"]
+size = Vector3(0.335, 0.401, 0.122)
+
+[node name="Book" unique_id=351063631 instance=ExtResource("1_dtx4m")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+book_material = SubResource("StandardMaterial3D_fkisk")
+
+[node name="book_cover" parent="." index="1" unique_id=1566799617]
+surface_material_override/0 = SubResource("StandardMaterial3D_fkisk")
+
+[node name="Interactable3D" type="Area3D" parent="." index="2" unique_id=954265494]
+collision_layer = 2
+monitoring = false
+script = ExtResource("2_u6vea")
+desc = "Pick up \"\""
+is_book = true
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable3D" index="0" unique_id=68706564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14818347, 0.1770991, 7.741248e-09)
+shape = SubResource("BoxShape3D_u6vea")
+
+[connection signal="triggered" from="Interactable3D" to="." method="queue_free"]

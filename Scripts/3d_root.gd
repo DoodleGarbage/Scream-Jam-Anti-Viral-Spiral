@@ -1,6 +1,8 @@
 extends Node3D
 
-@export var loading_point : Node3D
+
+@export var library_exit : Node3D
+@export var folly_exit : Node3D
 
 @export var character : Node3D
 @export var SkyCycle : Node3D
@@ -23,8 +25,14 @@ func _ready() -> void:
 	if SkyCycle != null:
 		SkyCycle.get_node("AnimationPlayer").advance(550)
 
-func loaded() -> void:
-	character.global_position = loading_point.global_position
+func loaded(last_scene:String) -> void:
+	var spawn_pos : Vector3
+	#print("matching scene: ", last_scene)
+	match(last_scene):
+		"follys_room": spawn_pos = folly_exit.global_position
+		"library_room": spawn_pos = library_exit.global_position
+		_: spawn_pos = folly_exit.global_position
+	character.global_position = spawn_pos
 	$NPCs/Raincoat.player = character
 
 signal scene_switch(scene:String)

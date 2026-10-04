@@ -1,0 +1,11 @@
+~ start
+Letter: Dear Folly, I've been thinking long and hard about writing this letter. After the events, things have been great. We might be amicable right now, but I think that there's still hope for us.
+=> END
+
+~ day2
+Letter: Dear Folly, I took some time to write this letter. After the bad events, things have been terrible. I try not to think about it too much. Coping with it is a lot, y'know? Hard to get over all those emotions.
+=> END
+
+~ day3
+Letter: Dear Folly, I scratched this letter together overnight. After the car crash, I've despised every fiber of your being. Your murdered my parents, and I'll never forgive you for it. I hate you. I hate you.
+=> END
