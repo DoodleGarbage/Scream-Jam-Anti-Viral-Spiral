@@ -313,7 +313,9 @@ func handle_interaction() -> void:
 func update_interaction_display() -> void:
 	var collider = get_interactor()
 	$CL/UserInterface/InteractLabel.hide()
-	if collider is Area3D:
+	if collider is Interactable3D:
+		var txt = collider.desc
+		$CL/UserInterface/InteractLabel.text = txt
 		$CL/UserInterface/InteractLabel.show()
 
 #endregion

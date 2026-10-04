@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cla6817oo6prx"]
 
 [ext_resource type="Script" uid="uid://cqu5inwwjjy0q" path="res://Scripts/3d_root.gd" id="1_wgwvh"]
-[ext_resource type="PackedScene" uid="uid://ckn8k1op01gw4" path="res://Scenes/3DSky/night.tscn" id="2_llesq"]
-[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="2_sothc"]
+[ext_resource type="PackedScene" uid="uid://ch7inu7dfnmdb" path="res://Scenes/3DSky/day.tscn" id="2_m7jd6"]
 [ext_resource type="Shader" uid="uid://eoe5x3rffg02" path="res://Assets/Shaders/water.gdshader" id="5_aylps"]
 [ext_resource type="Texture2D" uid="uid://b3w0qgmfitt30" path="res://addons/terrabrush/Assets/placeholder_texture.png" id="5_g37um"]
+[ext_resource type="PackedScene" uid="uid://ddqtehcithxt2" path="res://Assets/Models/BrokenBridge.blend" id="5_ul1u8"]
 [ext_resource type="Texture2D" uid="uid://xk4bxscd0dd7" path="res://Assets/Textures/dense_sand_1k.blend/textures/dense_sand_diff_1k.jpg" id="6_2u137"]
 [ext_resource type="Image" uid="uid://b7t1d3s5nulnb" path="res://Terrain/Heightmap_0_0.res" id="7_25e43"]
 [ext_resource type="ArrayMesh" uid="uid://dn8y3ciaoidc7" path="res://Heightmap.tres" id="7_qq7nf"]
@@ -28,15 +28,16 @@
 [ext_resource type="PackedScene" uid="uid://b33744gl3eald" path="res://Assets/Models/mountain-skybox/source/rocks on a montion .fbx" id="23_haq7r"]
 [ext_resource type="PackedScene" uid="uid://blf5u5qejkvcw" path="res://Assets/Models/Raincoat.blend" id="28_kcn1r"]
 [ext_resource type="PackedScene" uid="uid://bbb45njudf1kr" path="res://Assets/Models/house1.blend" id="28_ul1u8"]
+[ext_resource type="Texture2D" uid="uid://dhip56j5404ew" path="res://Assets/Textures/eyes.png" id="29_futmp"]
+[ext_resource type="Script" uid="uid://c3u6fjjtxjurs" path="res://Scripts/raincoat.gd" id="29_m7jd6"]
+[ext_resource type="PackedScene" uid="uid://osf8306fr28h" path="res://Assets/Models/follyshouse.blend" id="31_iscit"]
+[ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scripts/interactable3D.gd" id="32_m4q0v"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_godah"]
 size = Vector3(90, 1, 11)
 
-[sub_resource type="BoxMesh" id="BoxMesh_aylps"]
-size = Vector3(15, 1, 11)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_x1m31"]
-size = Vector3(15, 1, 11)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ul1u8"]
+size = Vector3(2.5, 5, 2.5)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_aylps"]
 frequency = 0.0158
@@ -216,29 +217,34 @@ waterImage = ExtResource("9_ruleg")
 [sub_resource type="ZonesResource" id="ZonesResource_x8ffa"]
 zones = Array[ZoneResource]([SubResource("ZoneResource_m15hl")])
 
-[node name="3DRoot" type="Node3D" unique_id=1576440724 node_paths=PackedStringArray("character")]
-script = ExtResource("1_wgwvh")
-character = NodePath("Character")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7jd6"]
+transparency = 1
+albedo_texture = ExtResource("29_futmp")
 
-[node name="Night" parent="." unique_id=1413221433 instance=ExtResource("2_llesq")]
+[sub_resource type="PlaneMesh" id="PlaneMesh_ul1u8"]
+material = SubResource("StandardMaterial3D_m7jd6")
+size = Vector2(0.3, 0.3)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_maf23"]
+radius = 0.6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_10j8r"]
+size = Vector3(0.2, 1.939, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iscit"]
+size = Vector3(13, 13, 13)
+
+[node name="3DRoot" type="Node3D" unique_id=1576440724 node_paths=PackedStringArray("loading_point")]
+script = ExtResource("1_wgwvh")
+loading_point = NodePath("SpawnPoint")
+
+[node name="SpawnPoint" type="Node3D" parent="." unique_id=886319531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.83658, 14.827441, 201.74986)
+
+[node name="Day" parent="." unique_id=894646260 instance=ExtResource("2_m7jd6")]
 
 [node name="Skybox" parent="." unique_id=1646890893 instance=ExtResource("23_haq7r")]
-transform = Transform3D(172.26163, 0, -471.24194, 0, 501.74, 0, 471.24194, 0, 172.26163, 0, 37.134277, 0)
-
-[node name="Character" parent="." unique_id=1981548183 instance=ExtResource("2_sothc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.145409, 11.939997, 60.97244)
-mouse_sensitivity = 0.35
-controls = {
-&"BACKWARD": "backward",
-&"CROUCH": "crouch",
-&"FORWARD": "forward",
-&"INTERACT": "interact",
-&"JUMP": "jump",
-&"LEFT": "left",
-&"PAUSE": "pause",
-&"RIGHT": "right",
-&"SPRINT": "sprint"
-}
+transform = Transform3D(320.12598, 0, -875.7423, 0, 932.419, 0, 875.7423, 0, 320.12598, 0, 37.134277, 0)
 
 [node name="Meshes" type="Node3D" parent="." unique_id=1670238264]
 
@@ -250,23 +256,18 @@ mesh = SubResource("BoxMesh_godah")
 [node name="BrokenBridge" type="Node3D" parent="Meshes" unique_id=777187507]
 transform = Transform3D(0.84430087, 0, 0.53586936, 0, 1, 0, -0.53586936, 0, 0.84430087, -135.17847, 55.72548, -153.51068)
 
-[node name="Ledge" type="MeshInstance3D" parent="Meshes/BrokenBridge" unique_id=860864675]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.375595, 0, 0.0524292)
-mesh = SubResource("BoxMesh_aylps")
+[node name="BrokenBridge" parent="Meshes/BrokenBridge" unique_id=1423417016 instance=ExtResource("5_ul1u8")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 29.585878, -3.8146973e-06, 0.20787667)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/BrokenBridge/Ledge" unique_id=480937300]
+[node name="BrokenBridge2" parent="Meshes/BrokenBridge" unique_id=809277154 instance=ExtResource("5_ul1u8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.011248, 0, 0.043252707)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/BrokenBridge/Ledge/StaticBody3D" unique_id=1776839936]
-shape = SubResource("BoxShape3D_x1m31")
+[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/BrokenBridge/BrokenBridge2" unique_id=1540393526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.301882, 0, 5.047727)
 
-[node name="Ledge2" type="MeshInstance3D" parent="Meshes/BrokenBridge" unique_id=1415065832]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.472946, 0, 0.0524292)
-mesh = SubResource("BoxMesh_aylps")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/BrokenBridge/Ledge2" unique_id=520898067]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/BrokenBridge/Ledge2/StaticBody3D" unique_id=1762884010]
-shape = SubResource("BoxShape3D_x1m31")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/BrokenBridge/BrokenBridge2/StaticBody3D" unique_id=2083852238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1838629, 2.7772293, 0.39664078)
+shape = SubResource("BoxShape3D_ul1u8")
 
 [node name="Water" type="MeshInstance3D" parent="Meshes" unique_id=1188793962]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.689293, 0)
@@ -462,10 +463,12 @@ process_material = SubResource("ParticleProcessMaterial_iscit")
 draw_pass_1 = SubResource("QuadMesh_m4q0v")
 
 [node name="Colliders" type="Node3D" parent="." unique_id=964454485]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="TreeBlockerLarge" type="StaticBody3D" parent="Colliders" unique_id=1083313446]
 transform = Transform3D(0.832827, 0, -0.55353343, 0, 1, 0, 0.55353343, 0, 0.832827, -67.93274, 0, 219.3566)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge" unique_id=619032788]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -474,6 +477,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge2" type="StaticBody3D" parent="Colliders" unique_id=482940675]
 transform = Transform3D(0.6223737, 0, 0.7827202, 0, 1, 0, -0.7827202, 0, 0.6223737, -71.572815, 0, 204.4406)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge2" unique_id=763836064]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -482,6 +486,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge3" type="StaticBody3D" parent="Colliders" unique_id=2122477619]
 transform = Transform3D(0.95967764, 0, -0.28110304, 0, 1, 0, 0.28110304, 0, 0.95967764, -78.81876, 3.8146973e-06, 182.08026)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge3" unique_id=794953009]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -490,6 +495,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge4" type="StaticBody3D" parent="Colliders" unique_id=933259267]
 transform = Transform3D(0.98988384, 0, -0.14188018, 0, 1, 0, 0.14188018, 0, 0.98988384, -93.700294, 3.8146973e-06, 158.55214)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge4" unique_id=1661128009]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -498,6 +504,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge5" type="StaticBody3D" parent="Colliders" unique_id=216314814]
 transform = Transform3D(0.9615235, 0, -0.27472278, 0, 1, 0, 0.27472278, 0, 0.9615235, -111.087, 3.8146973e-06, 131.6912)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge5" unique_id=262017767]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -506,6 +513,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge6" type="StaticBody3D" parent="Colliders" unique_id=1120901606]
 transform = Transform3D(0.99747825, 0, -0.070973635, 0, 1, 0, 0.070973635, 0, 0.99747825, -126.52122, 3.8146973e-06, 109.59432)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge6" unique_id=1673500416]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -514,6 +522,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge7" type="StaticBody3D" parent="Colliders" unique_id=164249555]
 transform = Transform3D(0.99747825, 0, -0.070973635, 0, 1, 0, 0.070973635, 0, 0.99747825, -145.6156, 3.8146973e-06, 88.15492)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge7" unique_id=1951779299]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -522,6 +531,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge8" type="StaticBody3D" parent="Colliders" unique_id=980856517]
 transform = Transform3D(0.9766625, 0, 0.21478039, 0, 1, 0, -0.21478039, 0, 0.9766625, -164.60776, 3.8146973e-06, 73.09609)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge8" unique_id=1971270133]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -530,6 +540,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge9" type="StaticBody3D" parent="Colliders" unique_id=1646619082]
 transform = Transform3D(0.9943129, 0, 0.10649902, 0, 1, 0, -0.10649902, 0, 0.9943129, -188.36053, 1.1444092e-05, 54.8704)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge9" unique_id=706548151]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -538,6 +549,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge10" type="StaticBody3D" parent="Colliders" unique_id=169072063]
 transform = Transform3D(0.90950763, 0, -0.41568747, 0, 1, 0, 0.41568747, 0, 0.90950763, -209.59941, 1.1444092e-05, 25.257565)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge10" unique_id=2128489982]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -546,6 +558,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge11" type="StaticBody3D" parent="Colliders" unique_id=272819090]
 transform = Transform3D(0.936375, 0, -0.35100135, 0, 1, 0, 0.35100135, 0, 0.936375, -220.56175, 1.1444092e-05, -0.84323883)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge11" unique_id=1164807122]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -554,6 +567,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge12" type="StaticBody3D" parent="Colliders" unique_id=1098080364]
 transform = Transform3D(0.8155484, 0, -0.578689, 0, 1, 0, 0.578689, 0, 0.8155484, -231.89705, 1.1444092e-05, -30.918327)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge12" unique_id=1657107936]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -562,6 +576,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge13" type="StaticBody3D" parent="Colliders" unique_id=1592825781]
 transform = Transform3D(0.7086932, 0, -0.70551693, 0, 1, 0, 0.70551693, 0, 0.7086932, -233.97958, 1.1444092e-05, -63.24589)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge13" unique_id=1204894599]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -570,6 +585,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge14" type="StaticBody3D" parent="Colliders" unique_id=1154233323]
 transform = Transform3D(0.7086932, 0, -0.70551693, 0, 1, 0, 0.70551693, 0, 0.7086932, -233.61058, 1.1444092e-05, -93.72241)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge14" unique_id=1443141238]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -578,6 +594,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge15" type="StaticBody3D" parent="Colliders" unique_id=949456211]
 transform = Transform3D(0.093244135, 0, -0.9956434, 0, 1, 0, 0.9956434, 0, 0.093244135, -224.55655, 1.1444092e-05, -113.545395)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge15" unique_id=1625238337]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -586,6 +603,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge16" type="StaticBody3D" parent="Colliders" unique_id=252651180]
 transform = Transform3D(0.19746897, 0, -0.9803093, 0, 1, 0, 0.9803093, 0, 0.19746897, -208.92001, 1.1444092e-05, -136.3242)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge16" unique_id=1172346634]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -594,6 +612,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge17" type="StaticBody3D" parent="Colliders" unique_id=847862337]
 transform = Transform3D(-0.10393606, 0, -0.99458414, 0, 1, 0, 0.99458414, 0, -0.10393606, -196.21803, 1.1444092e-05, -152.60396)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge17" unique_id=1569266506]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -602,6 +621,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge18" type="StaticBody3D" parent="Colliders" unique_id=1191503472]
 transform = Transform3D(-0.57796323, 0, -0.8160629, 0, 1, 0, 0.8160629, 0, -0.57796323, -166.00093, 1.1444092e-05, -166.22443)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge18" unique_id=2112558911]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -610,6 +630,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge19" type="StaticBody3D" parent="Colliders" unique_id=755664056]
 transform = Transform3D(-0.30549645, 0, -0.95219326, 0, 1, 0, 0.95219326, 0, -0.30549645, -143.26794, 1.1444092e-05, -174.99332)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge19" unique_id=635177978]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -617,7 +638,8 @@ shape = SubResource("BoxShape3D_g37um")
 debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge20" type="StaticBody3D" parent="Colliders" unique_id=1579575856]
-transform = Transform3D(-0.30549645, 0, -0.95219326, 0, 1, 0, 0.95219326, 0, -0.30549645, -126.91283, 1.1444092e-05, -153.19731)
+transform = Transform3D(-0.23991033, 0, -0.9707951, 0, 1, 0, 0.9707951, 0, -0.23991033, -124.43242, 1.1444092e-05, -156.47871)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge20" unique_id=1191145083]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -625,18 +647,20 @@ shape = SubResource("BoxShape3D_g37um")
 debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge22" type="StaticBody3D" parent="Colliders" unique_id=508063291]
-transform = Transform3D(-0.32511732, 0, -0.9456737, 0, 1, 0, 0.9456737, 0, -0.32511732, -149.6266, 1.1444092e-05, -166.60693)
+transform = Transform3D(-0.32555363, 0, -0.94552356, 0, 1, 0, 0.94552356, 0, -0.32555363, -151.8557, 1.1444092e-05, -164.83998)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge22" unique_id=2041178619]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
+transform = Transform3D(0.6292317, 0, 0.77721775, 0, 1, 0, -0.77721775, 0, 0.6292317, -0.37028795, 0, 0.37028795)
 shape = SubResource("BoxShape3D_g37um")
 debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge21" type="StaticBody3D" parent="Colliders" unique_id=702117120]
 transform = Transform3D(-0.20909157, 0, -0.97789603, 0, 1, 0, 0.97789603, 0, -0.20909157, -129.82706, 1.1444092e-05, -132.709)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge21" unique_id=1140001133]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.45106044, 0, 0.45106038)
 shape = SubResource("BoxShape3D_g37um")
 debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
@@ -647,6 +671,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge23" type="StaticBody3D" parent="Colliders" unique_id=1303332340]
 transform = Transform3D(0.05739808, 0, -0.99835134, 0, 1, 0, 0.99835134, 0, 0.05739808, -163.80069, 1.1444092e-05, -97.40316)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge23" unique_id=1678972139]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -655,6 +680,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge24" type="StaticBody3D" parent="Colliders" unique_id=790639857]
 transform = Transform3D(0.65591395, 0, -0.7548356, 0, 1, 0, 0.7548356, 0, 0.65591395, -170.19725, 1.1444092e-05, -80.43731)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge24" unique_id=1837471561]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -663,6 +689,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge25" type="StaticBody3D" parent="Colliders" unique_id=1777047926]
 transform = Transform3D(0.69879526, 0, -0.71532166, 0, 1, 0, 0.71532166, 0, 0.69879526, -170.37137, 1.1444092e-05, -51.820286)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge25" unique_id=1804492787]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -671,6 +698,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge26" type="StaticBody3D" parent="Colliders" unique_id=1676326451]
 transform = Transform3D(0.86726594, 0, -0.49784517, 0, 1, 0, 0.49784517, 0, 0.86726594, -171.14255, 1.1444092e-05, -20.112846)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge26" unique_id=1445103136]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -679,6 +707,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge27" type="StaticBody3D" parent="Colliders" unique_id=1256673998]
 transform = Transform3D(0.6130902, 0, -0.7900129, 0, 1, 0, 0.7900129, 0, 0.6130902, -172.80978, 1.1444092e-05, -42.80859)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge27" unique_id=622230317]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -687,6 +716,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge28" type="StaticBody3D" parent="Colliders" unique_id=383156988]
 transform = Transform3D(0.9421786, 0, -0.33511105, 0, 1, 0, 0.33511105, 0, 0.9421786, -161.76608, 1.1444092e-05, 5.127034)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge28" unique_id=332427571]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -695,6 +725,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge29" type="StaticBody3D" parent="Colliders" unique_id=1748590260]
 transform = Transform3D(0.9802981, 0, 0.19752365, 0, 1, 0, -0.19752365, 0, 0.9802981, -149.12961, 1.1444092e-05, 19.101109)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge29" unique_id=1806649255]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -703,6 +734,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge30" type="StaticBody3D" parent="Colliders" unique_id=1724019103]
 transform = Transform3D(0.9888755, 0, 0.14874536, 0, 1, 0, -0.14874536, 0, 0.9888755, -134.0259, 1.1444092e-05, 30.498163)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge30" unique_id=338878152]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -711,6 +743,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge31" type="StaticBody3D" parent="Colliders" unique_id=2099765236]
 transform = Transform3D(0.90709084, 0, 0.42093468, 0, 1, 0, -0.42093468, 0, 0.90709084, -112.95252, 1.1444092e-05, 42.08637)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge31" unique_id=1822065103]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -719,6 +752,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge32" type="StaticBody3D" parent="Colliders" unique_id=1805237745]
 transform = Transform3D(0.9853562, 0, -0.1705076, 0, 1, 0, 0.1705076, 0, 0.9853562, -100.4676, 1.1444092e-05, 40.675632)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge32" unique_id=1152386931]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -727,6 +761,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge33" type="StaticBody3D" parent="Colliders" unique_id=1051762514]
 transform = Transform3D(0.7132938, 0, -0.7008649, 0, 1, 0, 0.7008649, 0, 0.7132938, -65.99143, 1.1444092e-05, 29.110886)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge33" unique_id=1391699656]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -735,6 +770,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge34" type="StaticBody3D" parent="Colliders" unique_id=2122374049]
 transform = Transform3D(-0.0010847151, 0, -0.99999917, 0, 1, 0, 0.99999917, 0, -0.0010847151, -36.474266, 1.1444092e-05, 40.930927)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge34" unique_id=880897841]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -743,6 +779,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge35" type="StaticBody3D" parent="Colliders" unique_id=1615196154]
 transform = Transform3D(-0.120993316, 0, -0.9926531, 0, 1, 0, 0.9926531, 0, -0.120993316, -24.30648, 1.1444092e-05, 41.385933)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge35" unique_id=31230153]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -751,6 +788,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge37" type="StaticBody3D" parent="Colliders" unique_id=829055281]
 transform = Transform3D(0.09216472, 0, -0.9957435, 0, 1, 0, 0.9957435, 0, 0.09216472, -2.1074052, 9.536743e-06, 26.10887)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge37" unique_id=259543160]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -759,6 +797,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge38" type="StaticBody3D" parent="Colliders" unique_id=1299327066]
 transform = Transform3D(0.09216472, 0, -0.9957435, 0, 1, 0, 0.9957435, 0, 0.09216472, 16.203142, 9.536743e-06, 2.5581207)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge38" unique_id=139758975]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -767,6 +806,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge39" type="StaticBody3D" parent="Colliders" unique_id=926230288]
 transform = Transform3D(0.09216472, 0, -0.9957435, 0, 1, 0, 0.9957435, 0, 0.09216472, 26.96045, 9.536743e-06, -12.090866)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge39" unique_id=477079334]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -775,6 +815,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge40" type="StaticBody3D" parent="Colliders" unique_id=1037700768]
 transform = Transform3D(0.09216472, 0, -0.9957435, 0, 1, 0, 0.9957435, 0, 0.09216472, 34.23391, 9.536743e-06, -34.63011)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge40" unique_id=458285022]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -783,6 +824,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge41" type="StaticBody3D" parent="Colliders" unique_id=634690837]
 transform = Transform3D(0.46892995, 0, -0.8832351, 0, 1, 0, 0.8832351, 0, 0.46892995, 44.628735, 9.536743e-06, -55.06644)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge41" unique_id=1363210922]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -791,6 +833,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge36" type="StaticBody3D" parent="Colliders" unique_id=506225201]
 transform = Transform3D(-0.7343863, 0, -0.6787314, 0, 1, 0, 0.6787314, 0, -0.7343863, -32.011547, 1.335144e-05, 52.504665)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge36" unique_id=712244867]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -799,6 +842,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge43" type="StaticBody3D" parent="Colliders" unique_id=1101628245]
 transform = Transform3D(-0.7343863, 0, -0.6787314, 0, 1, 0, 0.6787314, 0, -0.7343863, 57.044384, 1.335144e-05, -75.596306)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge43" unique_id=690385340]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -807,6 +851,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge44" type="StaticBody3D" parent="Colliders" unique_id=555182755]
 transform = Transform3D(-0.53469485, 0, -0.845045, 0, 1, 0, 0.845045, 0, -0.53469485, 55.204643, 1.335144e-05, -85.60445)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge44" unique_id=1422742889]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -815,6 +860,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge45" type="StaticBody3D" parent="Colliders" unique_id=608307009]
 transform = Transform3D(-0.99009264, 0, -0.14041445, 0, 1, 0, 0.14041445, 0, -0.99009264, 51.058056, 1.335144e-05, -79.36598)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge45" unique_id=956552651]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -823,6 +869,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge70" type="StaticBody3D" parent="Colliders" unique_id=984217004]
 transform = Transform3D(-0.999859, 0, 0.016779602, 0, 1, 0, -0.016779602, 0, -0.999859, 191.47485, 1.335144e-05, -168.05185)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge70" unique_id=2059683943]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -831,6 +878,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge71" type="StaticBody3D" parent="Colliders" unique_id=1621691833]
 transform = Transform3D(-0.984183, 0, -0.1771529, 0, 1, 0, 0.1771529, 0, -0.984183, 188.72615, 1.335144e-05, -159.81754)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge71" unique_id=1748177295]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -839,6 +887,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge46" type="StaticBody3D" parent="Colliders" unique_id=598539347]
 transform = Transform3D(-0.84454036, 0, -0.5354916, 0, 1, 0, 0.5354916, 0, -0.84454036, 35.36845, 1.335144e-05, -74.29772)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge46" unique_id=1134041002]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -847,6 +896,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge42" type="StaticBody3D" parent="Colliders" unique_id=690336677]
 transform = Transform3D(0.9308089, 0, -0.36550552, 0, 1, 0, 0.36550552, 0, 0.9308089, 10.767817, 9.536743e-06, -86.667465)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge42" unique_id=118564064]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -855,6 +905,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge47" type="StaticBody3D" parent="Colliders" unique_id=368677311]
 transform = Transform3D(0.74035716, 0, -0.6722133, 0, 1, 0, 0.6722133, 0, 0.74035716, 3.5384767, 9.536743e-06, -113.52336)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge47" unique_id=412168062]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -863,6 +914,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge48" type="StaticBody3D" parent="Colliders" unique_id=1333531083]
 transform = Transform3D(0.445607, 0, -0.8952284, 0, 1, 0, 0.8952284, 0, 0.445607, -0.7332356, 9.536743e-06, -122.52643)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge48" unique_id=225940409]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -871,6 +923,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge49" type="StaticBody3D" parent="Colliders" unique_id=1671897161]
 transform = Transform3D(0.80637693, 0, -0.5914015, 0, 1, 0, 0.5914015, 0, 0.80637693, -24.230568, 9.536743e-06, -109.32243)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge49" unique_id=2077305945]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -879,6 +932,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge50" type="StaticBody3D" parent="Colliders" unique_id=1411065454]
 transform = Transform3D(0.7258044, 0, -0.68790084, 0, 1, 0, 0.68790084, 0, 0.7258044, -53.589073, 9.536743e-06, -113.47345)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge50" unique_id=915896827]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -887,6 +941,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge51" type="StaticBody3D" parent="Colliders" unique_id=1952692779]
 transform = Transform3D(0.99666786, 0, -0.081565246, 0, 1, 0, 0.081565246, 0, 0.99666786, -68.643326, 1.1444092e-05, -124.60079)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge51" unique_id=2130497211]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -895,6 +950,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge52" type="StaticBody3D" parent="Colliders" unique_id=727469106]
 transform = Transform3D(0.9875759, 0, 0.15714166, 0, 1, 0, -0.15714166, 0, 0.9875759, -72.75729, 1.1444092e-05, -161.23882)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge52" unique_id=1212248890]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -903,6 +959,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge53" type="StaticBody3D" parent="Colliders" unique_id=1014351496]
 transform = Transform3D(0.98259217, 0, -0.18577494, 0, 1, 0, 0.18577494, 0, 0.98259217, -56.735428, 1.1444092e-05, -175.47221)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge53" unique_id=2056169644]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -911,6 +968,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge54" type="StaticBody3D" parent="Colliders" unique_id=1862063160]
 transform = Transform3D(0.45141357, 0, -0.89231473, 0, 1, 0, 0.89231473, 0, 0.45141357, -36.53328, 1.1444092e-05, -181.99757)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge54" unique_id=1046628952]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -919,6 +977,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge55" type="StaticBody3D" parent="Colliders" unique_id=1839236069]
 transform = Transform3D(0.85107684, 0, -0.525041, 0, 1, 0, 0.525041, 0, 0.85107684, -17.456411, 1.1444092e-05, -182.18262)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge55" unique_id=62155192]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -927,6 +986,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge56" type="StaticBody3D" parent="Colliders" unique_id=1465929185]
 transform = Transform3D(0.85107684, 0, -0.525041, 0, 1, 0, 0.525041, 0, 0.85107684, 11.739586, 1.1444092e-05, -189.26572)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge56" unique_id=701330984]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -935,6 +995,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge57" type="StaticBody3D" parent="Colliders" unique_id=1352137794]
 transform = Transform3D(0.94483864, 0, -0.3275358, 0, 1, 0, 0.3275358, 0, 0.94483864, 36.464844, 1.1444092e-05, -198.47287)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge57" unique_id=1524989862]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -943,6 +1004,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge58" type="StaticBody3D" parent="Colliders" unique_id=1367504087]
 transform = Transform3D(0.9502544, 0, 0.3114743, 0, 1, 0, -0.3114743, 0, 0.9502544, 50.90084, 1.1444092e-05, -211.91391)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge58" unique_id=577724621]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -951,6 +1013,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge59" type="StaticBody3D" parent="Colliders" unique_id=671449200]
 transform = Transform3D(0.9234853, 0, -0.38363317, 0, 1, 0, 0.38363317, 0, 0.9234853, 75.79383, 1.1444092e-05, -232.15808)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge59" unique_id=827998544]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -959,6 +1022,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge60" type="StaticBody3D" parent="Colliders" unique_id=1957616915]
 transform = Transform3D(0.66025484, 0, -0.7510413, 0, 1, 0, 0.7510413, 0, 0.66025484, 107.55961, 1.1444092e-05, -236.90643)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge60" unique_id=1631091749]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -967,6 +1031,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge61" type="StaticBody3D" parent="Colliders" unique_id=1393861256]
 transform = Transform3D(0.19377033, 0, -0.9810467, 0, 1, 0, 0.9810467, 0, 0.19377033, 137.83934, 1.1444092e-05, -227.9838)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge61" unique_id=455826269]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -975,6 +1040,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge62" type="StaticBody3D" parent="Colliders" unique_id=2088928678]
 transform = Transform3D(0.5991649, 0, -0.8006254, 0, 1, 0, 0.8006254, 0, 0.5991649, 158.02817, 1.1444092e-05, -219.90253)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge62" unique_id=827700713]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -983,6 +1049,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge63" type="StaticBody3D" parent="Colliders" unique_id=67494779]
 transform = Transform3D(0.14333713, 0, -0.9896737, 0, 1, 0, 0.9896737, 0, 0.14333713, 168.74945, 1.1444092e-05, -222.88577)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge63" unique_id=2009413433]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -991,6 +1058,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge64" type="StaticBody3D" parent="Colliders" unique_id=645541088]
 transform = Transform3D(-0.10794355, 0, -0.9941568, 0, 1, 0, 0.9941568, 0, -0.10794355, 197.22878, 1.1444092e-05, -219.52156)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge64" unique_id=1037477649]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -999,6 +1067,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge65" type="StaticBody3D" parent="Colliders" unique_id=2141907449]
 transform = Transform3D(0.49761206, 0, -0.86739945, 0, 1, 0, 0.86739945, 0, 0.49761206, 213.16162, 1.1444092e-05, -210.08026)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge65" unique_id=24820499]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1007,6 +1076,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge66" type="StaticBody3D" parent="Colliders" unique_id=1388263304]
 transform = Transform3D(0.45010656, 0, -0.8929747, 0, 1, 0, 0.8929747, 0, 0.45010656, 217.317, 1.1444092e-05, -192.37823)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge66" unique_id=1980560575]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1015,6 +1085,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge67" type="StaticBody3D" parent="Colliders" unique_id=1489432589]
 transform = Transform3D(0.87153924, 0, -0.4903254, 0, 1, 0, 0.4903254, 0, 0.87153924, 217.61325, 1.1444092e-05, -173.12164)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge67" unique_id=692402096]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1023,6 +1094,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge68" type="StaticBody3D" parent="Colliders" unique_id=971786407]
 transform = Transform3D(0.87153924, 0, -0.4903254, 0, 1, 0, 0.4903254, 0, 0.87153924, 203.02577, 1.1444092e-05, -154.281)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge68" unique_id=1019652181]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1031,6 +1103,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge69" type="StaticBody3D" parent="Colliders" unique_id=1915397075]
 transform = Transform3D(0.93870145, 0, -0.34473056, 0, 1, 0, 0.34473056, 0, 0.93870145, 198.02434, 1.1444092e-05, -148.74443)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge69" unique_id=304405295]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1039,6 +1112,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge72" type="StaticBody3D" parent="Colliders" unique_id=893135909]
 transform = Transform3D(-0.20015253, 0, -0.9797646, 0, 1, 0, 0.9797646, 0, -0.20015253, 195.08467, 1.1444092e-05, -113.4036)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge72" unique_id=945707703]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1047,6 +1121,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge73" type="StaticBody3D" parent="Colliders" unique_id=564347612]
 transform = Transform3D(-0.8386273, 0, -0.5447054, 0, 1, 0, 0.5447054, 0, -0.8386273, 192.14633, 9.536743e-06, -92.07337)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge73" unique_id=262023958]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1055,6 +1130,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge74" type="StaticBody3D" parent="Colliders" unique_id=251118650]
 transform = Transform3D(-0.9197267, 0, 0.39255878, 0, 1, 0, -0.39255878, 0, -0.9197267, 182.71703, 9.536743e-06, -80.153496)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge74" unique_id=341116334]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1063,6 +1139,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge75" type="StaticBody3D" parent="Colliders" unique_id=2066455573]
 transform = Transform3D(-0.81049323, 0, -0.5857478, 0, 1, 0, 0.5857478, 0, -0.81049323, 174.85493, 5.722046e-06, -69.751015)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge75" unique_id=1185591565]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1071,6 +1148,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge76" type="StaticBody3D" parent="Colliders" unique_id=111317390]
 transform = Transform3D(-0.7505692, 0, -0.6607916, 0, 1, 0, 0.6607916, 0, -0.7505692, 164.51187, 3.8146973e-06, -48.66241)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge76" unique_id=2134057614]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1079,6 +1157,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge77" type="StaticBody3D" parent="Colliders" unique_id=1025084816]
 transform = Transform3D(-0.33864567, 0, -0.9409138, 0, 1, 0, 0.9409138, 0, -0.33864567, 156.40616, 5.722046e-06, -44.55922)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge77" unique_id=41059306]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1087,6 +1166,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge78" type="StaticBody3D" parent="Colliders" unique_id=182079822]
 transform = Transform3D(-0.27529898, 0, -0.9613585, 0, 1, 0, 0.9613585, 0, -0.27529898, 142.19739, 3.8146973e-06, -35.28584)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge78" unique_id=214323230]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1095,6 +1175,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge79" type="StaticBody3D" parent="Colliders" unique_id=1270875794]
 transform = Transform3D(-0.8622698, 0, -0.5064487, 0, 1, 0, 0.5064487, 0, -0.8622698, 132.73523, 3.8146973e-06, -22.974718)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge79" unique_id=815093403]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1103,6 +1184,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge80" type="StaticBody3D" parent="Colliders" unique_id=1183966057]
 transform = Transform3D(-0.9999719, 0, 0.00746274, 0, 1, 0, -0.00746274, 0, -0.9999719, 118.402794, 3.8146973e-06, 2.0050006)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge80" unique_id=1520911446]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1111,6 +1193,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge81" type="StaticBody3D" parent="Colliders" unique_id=78459882]
 transform = Transform3D(-0.6397581, 0, 0.768576, 0, 1, 0, -0.768576, 0, -0.6397581, 91.121315, 3.8146973e-06, 12.767157)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge81" unique_id=2029392082]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1119,6 +1202,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge82" type="StaticBody3D" parent="Colliders" unique_id=954045418]
 transform = Transform3D(-0.46695036, 0, 0.8842833, 0, 1, 0, -0.8842833, 0, -0.46695036, 65.27176, 0, 8.831935)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge82" unique_id=2109977467]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1127,6 +1211,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge83" type="StaticBody3D" parent="Colliders" unique_id=1760780126]
 transform = Transform3D(-0.11671593, 0, 0.9931652, 0, 1, 0, -0.9931652, 0, -0.11671593, 59.614967, 5.722046e-06, 14.173766)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge83" unique_id=1189057743]
 transform = Transform3D(0.7071078, 0, 0.7071077, 0, 1, 0, -0.7071077, 0, 0.7071078, 2.2579134, 0, -2.257913)
@@ -1135,6 +1220,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge84" type="StaticBody3D" parent="Colliders" unique_id=1998916752]
 transform = Transform3D(-0.14945789, 0, 0.9887679, 0, 1, 0, -0.9887679, 0, -0.14945789, 39.013588, 1.9073486e-06, 36.236607)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge84" unique_id=531685922]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1143,6 +1229,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge85" type="StaticBody3D" parent="Colliders" unique_id=1464497409]
 transform = Transform3D(-0.14945789, 0, 0.9887679, 0, 1, 0, -0.9887679, 0, -0.14945789, 22.09477, 5.722046e-06, 58.499504)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge85" unique_id=1685211688]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1151,6 +1238,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge86" type="StaticBody3D" parent="Colliders" unique_id=993754703]
 transform = Transform3D(0.11846993, 0, 0.9929575, 0, 1, 0, -0.9929575, 0, 0.11846993, 4.4316883, 3.8146973e-06, 82.43747)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge86" unique_id=1232722125]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1159,6 +1247,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge87" type="StaticBody3D" parent="Colliders" unique_id=1930365671]
 transform = Transform3D(0.11846993, 0, 0.9929575, 0, 1, 0, -0.9929575, 0, 0.11846993, -9.470427, 3.8146973e-06, 91.31295)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge87" unique_id=838617794]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1167,6 +1256,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge88" type="StaticBody3D" parent="Colliders" unique_id=1132401598]
 transform = Transform3D(-0.27312952, 0, 0.9619771, 0, 1, 0, -0.9619771, 0, -0.27312952, -21.009195, 3.8146973e-06, 99.98438)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge88" unique_id=748877240]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1175,6 +1265,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge89" type="StaticBody3D" parent="Colliders" unique_id=1079140994]
 transform = Transform3D(-0.7960799, 0, 0.60519135, 0, 1, 0, -0.60519135, 0, -0.7960799, -19.785128, 3.8146973e-06, 120.90256)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge89" unique_id=1326022920]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1183,6 +1274,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge90" type="StaticBody3D" parent="Colliders" unique_id=921125459]
 transform = Transform3D(-0.53845376, 0, 0.84265494, 0, 1, 0, -0.84265494, 0, -0.53845376, -20.874758, 3.8146973e-06, 153.383)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge90" unique_id=1673451020]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1191,6 +1283,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge91" type="StaticBody3D" parent="Colliders" unique_id=1087075402]
 transform = Transform3D(-0.9568653, 0, 0.29053152, 0, 1, 0, -0.29053152, 0, -0.9568653, -18.510538, 3.8146973e-06, 171.43188)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge91" unique_id=811541402]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1199,6 +1292,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge94" type="StaticBody3D" parent="Colliders" unique_id=1236128320]
 transform = Transform3D(-0.98641044, 0, 0.16429949, 0, 1, 0, -0.16429949, 0, -0.98641044, -3.8943768, 3.8146973e-06, 192.67009)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge94" unique_id=1054970863]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1207,6 +1301,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge95" type="StaticBody3D" parent="Colliders" unique_id=1954710171]
 transform = Transform3D(-0.9984803, 0, 0.05510886, 0, 1, 0, -0.05510886, 0, -0.9984803, 13.024319, 3.8146973e-06, 215.03175)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge95" unique_id=10174313]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1215,6 +1310,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge96" type="StaticBody3D" parent="Colliders" unique_id=354173297]
 transform = Transform3D(-0.9984803, 0, 0.05510886, 0, 1, 0, -0.05510886, 0, -0.9984803, 6.869001, 5.722046e-06, 240.91907)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge96" unique_id=283649991]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1223,6 +1319,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge97" type="StaticBody3D" parent="Colliders" unique_id=1672373956]
 transform = Transform3D(-0.6752284, 0, -0.7376087, 0, 1, 0, 0.7376087, 0, -0.6752284, -16.325851, 5.722046e-06, 246.3296)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge97" unique_id=1623652150]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1231,6 +1328,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge98" type="StaticBody3D" parent="Colliders" unique_id=455457828]
 transform = Transform3D(-0.59302676, 0, -0.8051828, 0, 1, 0, 0.8051828, 0, -0.59302676, -34.490196, 5.722046e-06, 245.68079)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge98" unique_id=1225667973]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1239,6 +1337,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge99" type="StaticBody3D" parent="Colliders" unique_id=574501591]
 transform = Transform3D(0.1020799, 0, -0.99477625, 0, 1, 0, 0.99477625, 0, 0.1020799, -61.147343, 5.722046e-06, 240.29141)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge99" unique_id=552347877]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1247,6 +1346,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge113" type="StaticBody3D" parent="Colliders" unique_id=261567766]
 transform = Transform3D(0.4756042, 0, -0.8796594, 0, 1, 0, 0.8796594, 0, 0.4756042, 150.30139, 5.722046e-06, -133.23108)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge113" unique_id=617396181]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1255,6 +1355,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge114" type="StaticBody3D" parent="Colliders" unique_id=370323971]
 transform = Transform3D(0.933215, 0, -0.35931852, 0, 1, 0, 0.35931852, 0, 0.933215, 149.14673, 5.722046e-06, -151.22385)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge114" unique_id=1524181627]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1263,6 +1364,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge115" type="StaticBody3D" parent="Colliders" unique_id=966112310]
 transform = Transform3D(0.9797734, 0, 0.2001104, 0, 1, 0, -0.2001104, 0, 0.9797734, 135.77663, 5.722046e-06, -166.03746)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge115" unique_id=10615739]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1271,6 +1373,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge116" type="StaticBody3D" parent="Colliders" unique_id=1650674657]
 transform = Transform3D(0.9093959, 0, 0.41593167, 0, 1, 0, -0.41593167, 0, 0.9093959, 113.08512, 5.722046e-06, -176.9391)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge116" unique_id=1483241430]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1279,6 +1382,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge117" type="StaticBody3D" parent="Colliders" unique_id=1649134206]
 transform = Transform3D(0.991605, 0, -0.12930423, 0, 1, 0, 0.12930423, 0, 0.991605, 97.10731, 5.722046e-06, -180.25682)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge117" unique_id=226356085]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1287,6 +1391,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge118" type="StaticBody3D" parent="Colliders" unique_id=1368863995]
 transform = Transform3D(0.9995668, 0, -0.029431798, 0, 1, 0, 0.029431798, 0, 0.9995668, 86.64862, 5.722046e-06, -174.45032)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge118" unique_id=1069697564]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1295,6 +1400,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge119" type="StaticBody3D" parent="Colliders" unique_id=1691420629]
 transform = Transform3D(0.73921955, 0, -0.6734645, 0, 1, 0, 0.6734645, 0, 0.73921955, 85.69894, 1.9073486e-06, -159.80757)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge119" unique_id=1989845395]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1303,6 +1409,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge120" type="StaticBody3D" parent="Colliders" unique_id=824725141]
 transform = Transform3D(0.9935953, 0, -0.112997055, 0, 1, 0, 0.112997055, 0, 0.9935953, 92.773026, 1.9073486e-06, -142.57431)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge120" unique_id=271347908]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1311,6 +1418,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge121" type="StaticBody3D" parent="Colliders" unique_id=1067237003]
 transform = Transform3D(0.8784935, 0, -0.47775427, 0, 1, 0, 0.47775427, 0, 0.8784935, 108.5868, 1.9073486e-06, -110.97833)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge121" unique_id=990621244]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1319,6 +1427,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge122" type="StaticBody3D" parent="Colliders" unique_id=676049260]
 transform = Transform3D(0.6731607, 0, -0.73949623, 0, 1, 0, 0.73949623, 0, 0.6731607, 137.45699, 1.9073486e-06, -120.90982)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge122" unique_id=406894396]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1327,6 +1436,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge123" type="StaticBody3D" parent="Colliders" unique_id=598807120]
 transform = Transform3D(0.98650515, 0, 0.16373008, 0, 1, 0, -0.16373008, 0, 0.98650515, 128.64165, 1.9073486e-06, -104.38115)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge123" unique_id=1489518623]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -1335,6 +1445,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge92" type="StaticBody3D" parent="Colliders" unique_id=1028227405]
 transform = Transform3D(-0.85145384, 0, 0.52442896, 0, 1, 0, -0.52442896, 0, -0.85145384, -28.070318, 1.335144e-05, 169.75569)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge92" unique_id=1167824325]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1343,6 +1454,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge93" type="StaticBody3D" parent="Colliders" unique_id=554918138]
 transform = Transform3D(-0.99833167, 0, -0.057733953, 0, 1, 0, 0.057733953, 0, -0.99833167, -24.910316, 1.335144e-05, 176.22578)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge93" unique_id=1314236688]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1351,6 +1463,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge100" type="StaticBody3D" parent="Colliders" unique_id=893452633]
 transform = Transform3D(-0.997851, 0, -0.065519184, 0, 1, 0, 0.065519184, 0, -0.997851, -60.496937, 1.335144e-05, 146.60893)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge100" unique_id=1986738084]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1359,6 +1472,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge101" type="StaticBody3D" parent="Colliders" unique_id=1623186999]
 transform = Transform3D(-0.53096366, 0, -0.8473942, 0, 1, 0, 0.8473942, 0, -0.53096366, -67.66766, 1.335144e-05, 139.27353)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge101" unique_id=2052872446]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1367,6 +1481,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge102" type="StaticBody3D" parent="Colliders" unique_id=856890485]
 transform = Transform3D(-0.1592053, 0, -0.9872452, 0, 1, 0, 0.9872452, 0, -0.1592053, -73.07219, 1.335144e-05, 128.3396)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge102" unique_id=1072181509]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1375,6 +1490,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge103" type="StaticBody3D" parent="Colliders" unique_id=419324238]
 transform = Transform3D(-0.42935356, 0, -0.90313613, 0, 1, 0, 0.90313613, 0, -0.42935356, -77.54164, 1.335144e-05, 118.06748)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge103" unique_id=151421689]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1383,6 +1499,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge104" type="StaticBody3D" parent="Colliders" unique_id=692551563]
 transform = Transform3D(0.19128156, 0, -0.98153496, 0, 1, 0, 0.98153496, 0, 0.19128156, -84.36065, 1.335144e-05, 111.633385)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge104" unique_id=1239895115]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1391,6 +1508,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge105" type="StaticBody3D" parent="Colliders" unique_id=1916410271]
 transform = Transform3D(0.28401113, 0, -0.95882076, 0, 1, 0, 0.95882076, 0, 0.28401113, -87.55686, 1.335144e-05, 107.30786)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge105" unique_id=8157970]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1399,6 +1517,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge106" type="StaticBody3D" parent="Colliders" unique_id=1830298166]
 transform = Transform3D(0.75700563, 0, -0.65340805, 0, 1, 0, 0.65340805, 0, 0.75700563, -79.14661, 1.335144e-05, 109.117386)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge106" unique_id=830411412]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1407,6 +1526,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge107" type="StaticBody3D" parent="Colliders" unique_id=44969227]
 transform = Transform3D(0.92495763, 0, -0.38006958, 0, 1, 0, 0.38006958, 0, 0.92495763, -65.26655, 1.335144e-05, 108.81599)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge107" unique_id=276740557]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1415,6 +1535,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge108" type="StaticBody3D" parent="Colliders" unique_id=1172332283]
 transform = Transform3D(0.9991841, 0, -0.040381014, 0, 1, 0, 0.040381014, 0, 0.9991841, -60.54242, 1.335144e-05, 110.84805)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge108" unique_id=148270221]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1423,6 +1544,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge109" type="StaticBody3D" parent="Colliders" unique_id=1292788771]
 transform = Transform3D(0.6620163, 0, -0.7494892, 0, 1, 0, 0.7494892, 0, 0.6620163, -67.090744, 1.335144e-05, 120.53393)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge109" unique_id=1288019300]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1431,6 +1553,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge110" type="StaticBody3D" parent="Colliders" unique_id=353598097]
 transform = Transform3D(0.91460526, 0, -0.40434742, 0, 1, 0, 0.40434742, 0, 0.91460526, -64.54468, 1.335144e-05, 131.1807)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge110" unique_id=1520698003]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1439,6 +1562,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge111" type="StaticBody3D" parent="Colliders" unique_id=909702397]
 transform = Transform3D(0.5783869, 0, -0.8157623, 0, 1, 0, 0.8157623, 0, 0.5783869, -63.726433, 1.335144e-05, 138.4948)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge111" unique_id=2116239315]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1447,6 +1571,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge112" type="StaticBody3D" parent="Colliders" unique_id=1654681240]
 transform = Transform3D(0.7194356, 0, -0.6945588, 0, 1, 0, 0.6945588, 0, 0.7194356, -63.719757, 1.335144e-05, 143.29213)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge112" unique_id=83037498]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1455,6 +1580,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge124" type="StaticBody3D" parent="Colliders" unique_id=1016041115]
 transform = Transform3D(0.8788672, 0, -0.47706598, 0, 1, 0, 0.47706598, 0, 0.8788672, 95.60352, 9.536743e-06, -75.47933)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge124" unique_id=1551704896]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1463,6 +1589,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge125" type="StaticBody3D" parent="Colliders" unique_id=2053739794]
 transform = Transform3D(0.99153376, 0, 0.12984729, 0, 1, 0, -0.12984729, 0, 0.99153376, 103.24117, 7.6293945e-06, -79.1145)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge125" unique_id=890483707]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1471,6 +1598,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge126" type="StaticBody3D" parent="Colliders" unique_id=1189849029]
 transform = Transform3D(0.8488289, 0, -0.5286672, 0, 1, 0, 0.5286672, 0, 0.8488289, 115.07817, 7.6293945e-06, -89.55359)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge126" unique_id=1630925238]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1479,6 +1607,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge127" type="StaticBody3D" parent="Colliders" unique_id=2030784612]
 transform = Transform3D(0.29134455, 0, -0.95661795, 0, 1, 0, 0.95661795, 0, 0.29134455, 123.57671, 7.6293945e-06, -90.52419)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge127" unique_id=936476562]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1487,6 +1616,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge128" type="StaticBody3D" parent="Colliders" unique_id=1485455529]
 transform = Transform3D(-0.07680228, 0, -0.9970461, 0, 1, 0, 0.9970461, 0, -0.07680228, 102.47103, 7.6293945e-06, -100.84006)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge128" unique_id=1606421527]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1495,6 +1625,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge129" type="StaticBody3D" parent="Colliders" unique_id=1815420464]
 transform = Transform3D(0.63080835, 0, -0.7759384, 0, 1, 0, 0.7759384, 0, 0.63080835, 101.88394, 7.6293945e-06, -85.44636)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge129" unique_id=65934574]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1503,6 +1634,7 @@ debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge130" type="StaticBody3D" parent="Colliders" unique_id=895759570]
 transform = Transform3D(0.63080835, 0, -0.7759384, 0, 1, 0, 0.7759384, 0, 0.63080835, 99.70918, 7.6293945e-06, 3.3205547)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge130" unique_id=1012494477]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.8842299, 0, -2.7860472)
@@ -1518,17 +1650,50 @@ objects = Array[ObjectResource]([SubResource("ObjectResource_70da1")])
 waterDefinition = SubResource("WaterResource_76umi")
 terrainZones = SubResource("ZonesResource_x8ffa")
 physics_interpolation_mode = 2
-metadata/_edit_lock_ = true
+metadata/_edit_lock_ = false
 
 [node name="NPCs" type="Node3D" parent="." unique_id=1267504291]
 
-[node name="Raincoat" parent="NPCs" unique_id=775717676 instance=ExtResource("28_kcn1r")]
-transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -60.21888, 14.3111515, 69.359024)
+[node name="Raincoat" type="Node3D" parent="NPCs" unique_id=384855862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.24747, 14.346388, 69.51119)
+script = ExtResource("29_m7jd6")
+
+[node name="Raincoat" parent="NPCs/Raincoat" unique_id=775717676 instance=ExtResource("28_kcn1r")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NPCs/Raincoat/Raincoat" unique_id=1469854291]
+transform = Transform3D(0.14073132, 0.98973703, -0.02480993, -0.0068613775, -0.024083711, -0.9996865, -0.9900241, 0.14085743, 0.0034016257, 0.30986512, 1.3445683, -9.313227e-10)
+mesh = SubResource("PlaneMesh_ul1u8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NPCs/Raincoat" unique_id=1747774792]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/Raincoat/StaticBody3D" unique_id=499094241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9651146, 0)
+shape = SubResource("CapsuleShape3D_maf23")
 
 [node name="Houses" type="Node3D" parent="." unique_id=2044675819]
 
-[node name="house1" parent="Houses" unique_id=225651544 instance=ExtResource("28_ul1u8")]
-transform = Transform3D(-0.4910589, 0, 0.87112635, 0, 1, 0, -0.87112635, 0, -0.4910589, -34.223263, 14.180237, 210.44441)
+[node name="follyshouse" parent="Houses" unique_id=1929102904 instance=ExtResource("31_iscit")]
+transform = Transform3D(-0.49723333, 0, 0.8676169, 0, 1, 0, -0.8676169, 0, -0.49723333, -32.778046, 14.048489, 208.21223)
+
+[node name="Interactable3D" type="Area3D" parent="Houses/follyshouse" unique_id=2087231251 groups=["Interactables"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.569698, 1.3219624, -1.8626451e-09)
+collision_layer = 2
+script = ExtResource("32_m4q0v")
+desc = "End Day"
+switch_scenes = true
+target_scene = "follys_room"
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses/follyshouse/Interactable3D" unique_id=1247767822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.656613e-10, 0.12137413, 0.015285764)
+shape = SubResource("BoxShape3D_10j8r")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Houses/follyshouse" unique_id=619028605]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses/follyshouse/StaticBody3D" unique_id=370907654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.4267445, 0)
+shape = SubResource("BoxShape3D_iscit")
 
 [node name="house2" parent="Houses" unique_id=529681720 instance=ExtResource("28_ul1u8")]
 transform = Transform3D(-0.16953881, 0, -0.9855235, 0, 1, 0, 0.9855235, 0, -0.16953881, -62.555153, 14.347015, 57.366943)

@@ -13,6 +13,7 @@ config_version=5
 config/name="Anti Viral Spiral"
 run/main_scene="uid://daug6eloobu1h"
 config/features=PackedStringArray("4.8", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [display]

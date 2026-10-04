@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf2csuiy8nc4f"
-path.s3tc="res://.godot/imported/cascades1.jpeg-5f8d6e6404cd3317fa91a85bdd1080a8.s3tc.ctex"
+uid="uid://bl8kfbdsxj7nb"
+path.s3tc="res://.godot/imported/granite_tile_disp_1k.png-928fde0a05a8fc71554b1eb40a352703.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/cascades1.jpeg"
-dest_files=["res://.godot/imported/cascades1.jpeg-5f8d6e6404cd3317fa91a85bdd1080a8.s3tc.ctex"]
+source_file="res://Assets/Textures/granite_tile_1k.blend/textures/granite_tile_disp_1k.png"
+dest_files=["res://.godot/imported/granite_tile_disp_1k.png-928fde0a05a8fc71554b1eb40a352703.s3tc.ctex"]
 
 [params]
 
