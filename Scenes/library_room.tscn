@@ -231,9 +231,22 @@ collision_layer = 2
 script = ExtResource("7_7w7pe")
 desc = "Head Home"
 play_audio = true
+fade_in = null
+audio_track = null
+stopped_audio_tracks = null
+invert_restrictions = null
+required_complete_tasks = null
+invert_work = null
 require_completing_work = true
 switch_scenes = true
 target_scene = "3d_game"
+is_book = null
+collects_book = null
+is_routine = null
+routine_task = null
+is_dialogue = null
+event_name = null
+end_day = null
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door/Interactable3D" unique_id=1186390034]

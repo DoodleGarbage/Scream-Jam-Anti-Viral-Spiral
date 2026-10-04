@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://daug6eloobu1h"]
 
-[ext_resource type="Script" uid="uid://lnrm24rx0ug" path="res://Scripts/global_root.gd" id="1_feb5d"]
+[ext_resource type="Script" uid="uid://lnrm24rx0ug" path="res://Scripts/global_root.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://bu634ku7mufa7" path="res://Scenes/dialogue.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://drxustew5lp5d" path="res://Scenes/follys_room.tscn" id="4_wowpa"]
 
 [node name="GlobalRoot" type="Node" unique_id=391369941 node_paths=PackedStringArray("player_character", "active_scene", "dialogue_display")]
-script = ExtResource("1_feb5d")
+script = ExtResource("1_3dryh")
 current_scene = "follys_room"
 player_character = NodePath("Character")
 active_scene = NodePath("FollysRoom")
