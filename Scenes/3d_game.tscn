@@ -33,12 +33,16 @@
 [ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scripts/interactable3D.gd" id="32_m4q0v"]
 [ext_resource type="Texture2D" uid="uid://bd37jum0kmtai" path="res://Assets/Textures/fog.png" id="33_10j8r"]
 [ext_resource type="PackedScene" uid="uid://2wlv0w1eipij" path="res://Assets/Models/library.blend" id="33_m4q0v"]
+[ext_resource type="PackedScene" uid="uid://bymh45a1jxhok" path="res://Assets/Models/fence1.blend" id="34_10j8r"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_godah"]
 size = Vector3(90, 1, 11)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ul1u8"]
 size = Vector3(2.5, 5, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ogtm"]
+size = Vector3(14.619, 10.019, 20.072)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_aylps"]
 frequency = 0.0158
@@ -251,8 +255,12 @@ width = 2048
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1ogtm"]
 emission_shape_scale = Vector3(1, 0.634, 1)
-emission_shape = 2
-emission_sphere_radius = 6.65
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 8.21
+emission_ring_radius = 19.32
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
 gravity = Vector3(0, 0, 0)
 scale_min = 4.0
 scale_max = 4.0
@@ -269,6 +277,9 @@ billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_5pwny"]
 material = SubResource("StandardMaterial3D_e5s3j")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y6ah3"]
+size = Vector3(0.449, 1.915, 4.234)
 
 [node name="3DRoot" type="Node3D" unique_id=1576440724 node_paths=PackedStringArray("library_exit", "folly_exit")]
 script = ExtResource("1_wgwvh")
@@ -300,6 +311,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.301882, 0, 5.047727)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/BrokenBridge/BrokenBridge2/StaticBody3D" unique_id=2083852238]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1838629, 2.7772293, 0.39664078)
 shape = SubResource("BoxShape3D_ul1u8")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Meshes/BrokenBridge/BrokenBridge2" unique_id=932375056]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/BrokenBridge/BrokenBridge2/StaticBody3D2" unique_id=445113827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.940697e-08, -4.0111694, -2.2177665)
+shape = SubResource("BoxShape3D_1ogtm")
 
 [node name="Water" type="MeshInstance3D" parent="Meshes" unique_id=1188793962]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.689293, 0)
@@ -1799,32 +1816,10 @@ shape = SubResource("BoxShape3D_ci2nm")
 [node name="FogPools" type="Node3D" parent="." unique_id=2078080386]
 visible = false
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="FogPools" unique_id=614856120]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.554215, 3.8258724, 44.686184)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D2" type="GPUParticles3D" parent="FogPools" unique_id=1700751153]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.727444, 16.514017, 54.72265)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
 [node name="GPUParticles3D3" type="GPUParticles3D" parent="FogPools" unique_id=2140997176]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.3048, 14.785606, 67.25571)
-amount = 64
-lifetime = 10.0
+transform = Transform3D(1, 0, 0, 0, -7.240578e-08, 1, 0, -1.6564512, -4.371139e-08, -46.73795, 14.785606, 82.27913)
+amount = 101
+lifetime = 4.0
 preprocess = 100.0
 visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
 local_coords = true
@@ -1832,10 +1827,10 @@ draw_order = 2
 process_material = SubResource("ParticleProcessMaterial_1ogtm")
 draw_pass_1 = SubResource("QuadMesh_5pwny")
 
-[node name="GPUParticles3D4" type="GPUParticles3D" parent="FogPools" unique_id=82473745]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.11493, 14.78561, 63.65973)
-amount = 64
-lifetime = 10.0
+[node name="GPUParticles3D4" type="GPUParticles3D" parent="FogPools" unique_id=935797727]
+transform = Transform3D(1, 0, 0, 0, -7.240578e-08, 1, 0, -1.6564512, -4.371139e-08, 82.34745, -0.22407818, -48.460274)
+amount = 101
+lifetime = 4.0
 preprocess = 100.0
 visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
 local_coords = true
@@ -1843,10 +1838,10 @@ draw_order = 2
 process_material = SubResource("ParticleProcessMaterial_1ogtm")
 draw_pass_1 = SubResource("QuadMesh_5pwny")
 
-[node name="GPUParticles3D5" type="GPUParticles3D" parent="FogPools" unique_id=2046752367]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.80809, 14.785603, 104.56407)
-amount = 64
-lifetime = 10.0
+[node name="GPUParticles3D5" type="GPUParticles3D" parent="FogPools" unique_id=1806809059]
+transform = Transform3D(1, 0, 0, 0, -7.240578e-08, 1, 0, -1.6564512, -4.371139e-08, 19.606094, -0.22407818, -153.89345)
+amount = 101
+lifetime = 4.0
 preprocess = 100.0
 visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
 local_coords = true
@@ -1854,10 +1849,10 @@ draw_order = 2
 process_material = SubResource("ParticleProcessMaterial_1ogtm")
 draw_pass_1 = SubResource("QuadMesh_5pwny")
 
-[node name="GPUParticles3D6" type="GPUParticles3D" parent="FogPools" unique_id=1840411053]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.395477, 14.785606, 130.72232)
-amount = 64
-lifetime = 10.0
+[node name="GPUParticles3D6" type="GPUParticles3D" parent="FogPools" unique_id=770892839]
+transform = Transform3D(1, 0, 0, 0, -7.240578e-08, 1, 0, -1.6564512, -4.371139e-08, 65.71294, 5.0583043, -190.55946)
+amount = 214
+lifetime = 6.0
 preprocess = 100.0
 visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
 local_coords = true
@@ -1865,10 +1860,10 @@ draw_order = 2
 process_material = SubResource("ParticleProcessMaterial_1ogtm")
 draw_pass_1 = SubResource("QuadMesh_5pwny")
 
-[node name="GPUParticles3D7" type="GPUParticles3D" parent="FogPools" unique_id=1295828288]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.18364, 14.785599, 200.35538)
-amount = 64
-lifetime = 10.0
+[node name="GPUParticles3D7" type="GPUParticles3D" parent="FogPools" unique_id=826717818]
+transform = Transform3D(1, 0, 0, 0, -7.240578e-08, 1, 0, -1.6564512, -4.371139e-08, 129.40826, 5.058312, -67.4674)
+amount = 214
+lifetime = 6.0
 preprocess = 100.0
 visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
 local_coords = true
@@ -1876,211 +1871,13 @@ draw_order = 2
 process_material = SubResource("ParticleProcessMaterial_1ogtm")
 draw_pass_1 = SubResource("QuadMesh_5pwny")
 
-[node name="GPUParticles3D8" type="GPUParticles3D" parent="FogPools" unique_id=647708248]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.153633, -2.4840364, -40.4459)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
+[node name="Fences" type="Node3D" parent="." unique_id=1701299111]
 
-[node name="GPUParticles3D9" type="GPUParticles3D" parent="FogPools" unique_id=1175914199]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.08475, -3.3654804, -81.40311)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
+[node name="fence1" parent="Fences" unique_id=2041673599 instance=ExtResource("34_10j8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.548187, 13.950975, 94.59352)
 
-[node name="GPUParticles3D10" type="GPUParticles3D" parent="FogPools" unique_id=1292283739]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.347034, -4.7698374, -112.046394)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
+[node name="StaticBody3D" type="StaticBody3D" parent="Fences/fence1" unique_id=1333140599]
 
-[node name="GPUParticles3D11" type="GPUParticles3D" parent="FogPools" unique_id=776590749]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.825714, -3.5228128, -120.01135)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D12" type="GPUParticles3D" parent="FogPools" unique_id=755396067]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.546511, -5.400628, -170.13771)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D13" type="GPUParticles3D" parent="FogPools" unique_id=896692650]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.428198, -5.400626, -133.70683)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D14" type="GPUParticles3D" parent="FogPools" unique_id=1358415837]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.35472, -5.400626, -163.44827)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D15" type="GPUParticles3D" parent="FogPools" unique_id=1987754421]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127.32378, 4.3794355, -75.50952)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D16" type="GPUParticles3D" parent="FogPools" unique_id=1549028591]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.4827, 4.3794355, -70.70464)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D17" type="GPUParticles3D" parent="FogPools" unique_id=24216004]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.03355, 4.3794355, -60.356216)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D18" type="GPUParticles3D" parent="FogPools" unique_id=1834964158]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.44073, 4.3794355, -65.9814)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D19" type="GPUParticles3D" parent="FogPools" unique_id=1294541212]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.071396, 4.3794355, -79.861206)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D20" type="GPUParticles3D" parent="FogPools" unique_id=917396187]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.5907, 3.8876467, -55.167244)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D21" type="GPUParticles3D" parent="FogPools" unique_id=589342107]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.36426, 4.3794355, -195.5757)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D22" type="GPUParticles3D" parent="FogPools" unique_id=579486331]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.52318, 4.3794355, -190.77083)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D23" type="GPUParticles3D" parent="FogPools" unique_id=1459338124]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.074036, 4.3794355, -180.4224)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D24" type="GPUParticles3D" parent="FogPools" unique_id=801632636]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.48122, 4.3794355, -186.04758)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D25" type="GPUParticles3D" parent="FogPools" unique_id=778589078]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.111877, 4.3794355, -199.92738)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D26" type="GPUParticles3D" parent="FogPools" unique_id=2081393293]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.63118, 3.8876467, -175.23343)
-amount = 64
-lifetime = 10.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fences/fence1/StaticBody3D" unique_id=1883838858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89915276, -1.9944687)
+shape = SubResource("BoxShape3D_y6ah3")

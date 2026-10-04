@@ -14,7 +14,7 @@ var next_id : String :
 func _input(_event: InputEvent) -> void:
 	if active_dialogue == null:
 		return
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_just_pressed("advance_dialogue"):
 		advance_dialogue()
 
 func load_dialogue(dia:DialogueResource) -> void:
@@ -35,6 +35,7 @@ func advance_dialogue(initial:bool=false) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		active_dialogue = null
 		Status.in_dialogue = false
+		$CL/You.hide()
 		hide()
 		return
 	dia_label.dialogue_line = current_line

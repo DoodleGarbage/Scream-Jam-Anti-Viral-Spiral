@@ -448,7 +448,7 @@ collide_with_areas = true
 current = true
 
 [node name="Book" parent="Head" unique_id=351063631 instance=ExtResource("2_bx7cj")]
-transform = Transform3D(0.9470395, 0.09972948, -0.3052382, -0.09492105, 0.9950146, 0.030593796, 0.30676752, -1.0281219e-08, 0.95178443, 0.34100923, -0.49814272, -0.5786104)
+transform = Transform3D(0.9470395, 0.09972948, -0.3052382, -0.09492105, 0.9950146, 0.030593796, 0.30676752, -1.0281219e-08, 0.95178443, 0.28102836, -0.36392903, -0.5786104)
 visible = false
 book_material = SubResource("StandardMaterial3D_fkisk")
 

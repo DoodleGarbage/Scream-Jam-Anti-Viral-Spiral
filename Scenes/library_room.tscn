@@ -153,8 +153,8 @@ book_titles = Array[String](["", "Chemistry for Beginners", "Formulas of Rocks",
 
 [node name="Bookshelf6" parent="Bookshelves" unique_id=840501975 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.077025, 0, 4.389592)
-book_genre = "Fiction"
-book_titles = Array[String](["", "Here Be Dragons", "Knights and Princesses", "The Hero's Journey", "", "", "", "No Knight Can Save You Now", "We're Being Overrun by Monsters", "Everyone is the Evil Villain"])
+book_genre = "Fantasy"
+book_titles = Array[String](["", "Here Be Dragons", "Knights and Princesses", "The Hero's Journey", "Hero's Failure", "Princesses and Victims", "No Number of Layers is Enough Armor", "No Knight Can Save You Now", "You're Being Overrun by Monsters", "Everyone is the Evil Villain"])
 
 [node name="Bookshelf7" parent="Bookshelves" unique_id=262360038 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.4809251, 0, 4.389592)
