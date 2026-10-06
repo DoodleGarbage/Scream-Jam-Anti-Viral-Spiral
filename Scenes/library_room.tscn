@@ -85,7 +85,7 @@ loading_point = NodePath("SpawnPos")
 environment = SubResource("Environment_sixqc")
 
 [node name="SpawnPos" type="Node3D" parent="." unique_id=1358393165]
-transform = Transform3D(-0.99998736, 0, 0.005023882, 0, 1, 0, -0.005023882, 0, -0.99998736, 8.740466, 0, 0)
+transform = Transform3D(0.11665046, 0, 0.993173, 0, 1, 0, -0.993173, 0, 0.11665046, 8.740466, 0, 0)
 
 [node name="Placeholders" type="Node3D" parent="." unique_id=1780003977]
 
@@ -100,6 +100,7 @@ shape = SubResource("WorldBoundaryShape3D_hrdqd")
 [node name="LibraryRoomWalls" parent="." unique_id=355040649 instance=ExtResource("1_asdls")]
 
 [node name="LibraryRoomRoof" parent="." unique_id=32318044 instance=ExtResource("3_wmbxv")]
+metadata/_edit_lock_ = true
 
 [node name="Windows" type="Node3D" parent="." unique_id=1188588463]
 
@@ -131,83 +132,83 @@ transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -9.9
 
 [node name="Bookshelf" parent="Bookshelves" unique_id=1947349250 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1555214, 0, 7.0828743)
-book_genre = "Spy Thrillers"
-book_titles = Array[String](["", "Spies and Their Uses", "Covert Ops", "Infiltrating Russia", "Private Eye", "Identity Theft", "The Perfect Hiding Place", "They're Staring At You", "They Could be Anyone", "They're Always Following"])
+book_genre = "Mindfulness"
+book_titles = Array[String](["Meditation and You", "Yoga Techniques", "Candlelit Spaces", "Finding Your Inner Space", "Facing Your Fears & Your Past", "The Hermit and Safety", "Focus: Clarity Through Reflection", "Escape Your Mind", "Accepting Yourself, Even the Bad Parts"])
 
 [node name="Bookshelf2" parent="Bookshelves" unique_id=591094739 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1555214, 0, 4.389592)
 book_genre = "History"
-book_titles = Array[String](["", "The History of Wars", "1960 to Now in a Nutshell", "The Cold War", "Propaganda: The Secret to Power", "Mass Surveillance & The History of Cameras", "USA: The Surveillance State", "Everybody is Watching You", "Everyone Knows Where You've Been", "The Eyes Are Everywhere"])
+book_titles = Array[String](["The History of Wars", "1960 to Now in a Nutshell", "The Cold War", "100 to 0: History of Driving", "Friendships: From Past to Now", "Creekflow & The Shadow", "Reliving the Unforgettable", "No Past Stays Buried Forever", "If Your Shadow Could Speak"])
 
 [node name="Bookshelf3" parent="Bookshelves" unique_id=2042083224 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.5594215, 0, 4.389592)
 book_genre = "Guidebooks"
-book_titles = Array[String](["", "Walking Trails of Washington", "Mastering the Cascades", "Beautiful Lakes", "Guide to Tunnels", "How to Master the World of the Underground", "Looking At Glass (Ice Skater's Guide)", "How to be Towering and Imposing", "Tracking Her Footprints", "Thrones They Rule the World From"])
+book_titles = Array[String](["Walking Trails of Washington", "Mastering the Cascades", "Beautiful Lakes", "Guide to Tunnels", "How to Delve Through Time", "Exploring the Landscapes of the Mind", "I'm Lost and Can't Find My Way Out", "Navigating Brain Fog", "Discover Yourself: Journey Through Memories"])
 
 [node name="Bookshelf4" parent="Bookshelves" unique_id=1497466952 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.5594215, 0, 7.0828743)
 book_genre = "Biographies"
-book_titles = Array[String](["", "The Reagan Presidency", "VSauce's Rise to Fame", "Rockefeller: Oil Tycoon", "A Million and One Birth Certificates", "Reporters Know Too Much", "Collecting Everything on One Person", "I'm More Popular Than You", "Folly's Life Story", "Your Social Security Number!"])
+book_titles = Array[String](["The Reagan Presidency", "VSauce's Rise to Fame", "Rockefeller: Oil Tycoon", "Your Friend", "Fleeting Happy Moment", "Obsession: Everything About Her", "Mercury's Downfall", "Folly's Life Story", "Who Am I Anyway?"])
 
 [node name="Bookshelf5" parent="Bookshelves" unique_id=1004629706 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.077025, 0, 7.0828743)
 book_genre = "Science"
-book_titles = Array[String](["", "Chemistry for Beginners", "Formulas of Rocks", "Rocketry: The Basics", "Murder Weapon Recipes", "The Perfect Thing to Stone You With", "Pitchforks: Advanced", "Things To Kill You With", "Bashing Your Head in With a Rock", "Creating Death in High-Definition"])
+book_titles = Array[String](["Chemistry for Beginners", "Formulas of Rocks", "Rocketry: The Basics", "Building a Bomb", "Preventing Caustic Bubbling Over", "Tarnishing Gems", "You Built Your Torment Nexus", "AM is You", "Android You: Following Instructions"])
 
 [node name="Bookshelf6" parent="Bookshelves" unique_id=840501975 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.077025, 0, 4.389592)
 book_genre = "Fantasy"
-book_titles = Array[String](["", "Here Be Dragons", "Knights and Princesses", "The Hero's Journey", "Hero's Failure", "Princesses and Victims", "No Number of Layers is Enough Armor", "No Knight Can Save You Now", "You're Being Overrun by Monsters", "Everyone is the Evil Villain"])
+book_titles = Array[String](["Here Be Dragons", "Knights and Princesses", "The Odyssey", "Hero's Failure", "Princesses and Victims", "No Number of Layers is Enough Armor", "No Knight Can Save You Now", "You're a Monster", "You're the Evil Villain"])
 
 [node name="Bookshelf7" parent="Bookshelves" unique_id=262360038 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.4809251, 0, 4.389592)
 book_genre = "Handybooks"
-book_titles = Array[String](["", "Furniture 101", "Home Depot's Secret Houses", "Woodworking: The Ultimate Tips", "Making Makeshift Clubs", "DIY Hide-From-You Places", "Carving Your                          Wood", "Everything Is A Weapon", "You Will Never Find Anyone", "Carving Your Skull into an Ornament"])
+book_titles = Array[String](["Furniture 101", "Necromancy", "HAM Radio: The Basics", "Speak With the Dead", "Make Friends Quick", "Broadcast Signals with HAM Radio", "No One Can Hear my Signals", "You Will Not Find Anyone Here", "The Dead Tell No Tales"])
 
 [node name="Bookshelf8" parent="Bookshelves" unique_id=337758824 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.4809251, 0, 7.0828743)
 book_genre = "Astrology"
-book_titles = Array[String](["", "What's Your Sign?", "Mercury in Retrograde", "Mastering the Zodiacs", "What's Mercury Up to?", "The Signs All Point to You", "Killer Zodiacs: Best And Worst", "Mercury Hates You. You Know It.", "The Signs Demand Your Permanent Resignation", "The Zodiac Killer Has Come For You"])
+book_titles = Array[String](["What's Your Sign?", "Mercury in Retrograde", "Mastering the Zodiacs", "What's Mercury Up to?", "The Signs All Point to You", "Killer Zodiacs: Best And Worst", "Mercury Hates You. You Know It.", "The Signs Demand Your Permanent Resignation", "The Zodiac Killer Has Come For You"])
 
 [node name="Bookshelf9" parent="Bookshelves" unique_id=242560192 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9035254, 0, 7.0828743)
 book_genre = "Horror"
-book_titles = Array[String](["", "Cthulu's Call", "Goosebumps", "House of Leaves", "Better a Servant of Cthulu Than Yourself", "I'm Covered in Goosebumps", "Your Life is a Labyrinth", "Eldritch Gods, Take my Forsaken Soul!", "Shiver. Shiver. Fear.", "You Will Never Escape What You Sowed"])
+book_titles = Array[String](["Cthulu's Call", "Goosebumps", "House of Leaves", "Become a Servant of Cthulur", "I'm Covered in Goosebumps", "Your Life is a Labyrinth", "Eldritch Gods, Take my Forsaken Soul!", "Shiver. Shiver. Fear.", "Face The Incomprehensible"])
 
 [node name="Bookshelf10" parent="Bookshelves" unique_id=2045570532 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9035254, 0, 4.389592)
 book_genre = "Comedy"
-book_titles = Array[String](["", "Jokes To Tell Your Friends", "Hitchhiker's Guide to the Galaxy", "Magic Tricks: Pro Edition", "No Friends to Tell Jokes To...", "Not Even Worth Hitchhiking", "Poof! The Everyone You Know Gone Trick!", "Friendless, Unrecoverable Disaster of A Joke", "There's No Way Out of this Galaxy", "You Can Never Magick Your Mistakes"])
+book_titles = Array[String](["Jokes To Tell Your Friends", "Hitchhiker's Guide to the Galaxy", "The Princess Bride", "No Friends to Tell Jokes To", "Tis But a Scratch", "Catch-22", "Friendless Joke of a Disaster", "No Jokes Can Escape This", "You Can't Laugh Away Your Mistakes"])
 
 [node name="Bookshelf11" parent="Bookshelves" unique_id=2102689158 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.499625, 0, 4.389592)
 book_genre = "Superhero"
-book_titles = Array[String](["", "Superman: Another Day", "Gotham's Saviors", "Wonder Woman And The Truth", "Another Day, Another Failed Hero", "Savior of The Enemy", "Wonder Woman's Squeezing the Truth Out of You", "Riddle Me This: How Did You F Up so Bad!?", "No Hero Can Stop Your Predicament", "...Give Up. All Your \"Heroes\" Already Have."])
+book_titles = Array[String](["Superman: Another Day", "Gotham's Saviors", "Wonder Woman And The Truth", "Another Day, Another Failed Hero", "Savior of The Enemy", "Rescuing Defeat From the Jaws of Victory", "Riddle Me This: How Did You F Up so Bad Batman!?", "No Hero Can Stop Your Fate", "Your \"Heroes\" Have Given Up"])
 
 [node name="Bookshelf12" parent="Bookshelves" unique_id=1786712154 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.499625, 0, 7.0828743)
 book_genre = "Fun Fact Corner!"
-book_titles = Array[String](["", "Fun, Interesting Fact!", "Strange, Thought-Provoking Fact!", "Never-Heard Before Fact!", "What's A \"Fun Fact\" Anyway?", "Boring, Uninteresting Facts", "Why Do We Have This Category", "Deeply Unpleasant Facts", "The Cold, Hard Truth You Can't Handle", "I Hate These Facts I Hate This"])
+book_titles = Array[String](["Fun, Interesting Fact!", "Strange, Thought-Provoking Fact!", "Never-Heard Before Fact!", "What's A \"Fun Fact\" Anyway?", "Boring, Uninteresting Facts", "Why Do We Have This Category", "Deeply Unpleasant Facts", "The Cold, Hard Truth You Can't Handle", "I Hate These Facts"])
 
 [node name="Bookshelf13" parent="Bookshelves" unique_id=1688951207 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8253813, 0, 7.0828743)
 book_genre = "Romance"
-book_titles = Array[String](["", "Werewolf Lovers", "Forbidden Love!", "Roses, Perfume, and Sweet Kisses", "He Has a Hidden Double Nature", "Love is Forbbiden.", "The Kisses Were Never Sweet", "The Wolf Lurking Inside You", "You Will Never be Loved", "I Hate Kisses, Actually."])
+book_titles = Array[String](["Werewolf Lovers", "Forbidden Love!", "Roses, Perfume, and Sweet Kisses", "He Has a Hidden Double Nature", "Love is Forbbiden.", "The Kisses Were Never Sweet", "The Knife Inside Your Heart", "You Will Never be Loved", "I Hate Kisses, Actually"])
 
 [node name="Bookshelf14" parent="Bookshelves" unique_id=1932971621 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8253813, 0, 4.389592)
 book_genre = "Astronomy"
-book_titles = Array[String](["", "Learn Your Solar System ABC's!", "Asteroids of The Great Sea", "Mercury's Mercurial Geography", "Lurking Threats: Asteriod Killers", "Rogue Black Holes: We Would Never Know", "Mercury Didn't Do It", "Please Hit Earth, Dear Asteroid", "Celestial Body: Destroy This Shitty System", "You Ruined Mercury"])
+book_titles = Array[String](["Learn Your Solar System ABC's!", "Asteroids of Space", "Mercury's Mercurial Orbit", "Lurking Threats: The Asteriod Killers", "Rogue Black Holes", "Mercury Didn't Do It", "Please Hit Earth, Dear Asteroid", "Celestial Body, Cosmic Wreck", "You Ruined Mercury"])
 
 [node name="Bookshelf15" parent="Bookshelves" unique_id=1365980300 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.4214811, 0, 4.389592)
 book_genre = "Thrillers"
-book_titles = Array[String](["", "The Da Vinci Code", "Fast & Furious: The Novel", "Fighter Pilots: Mission Impossible", "Neuralyzers and How I Want One", "SCP: You're Contained", "Can't Out-Run Anyone", "Get Me Out of Life (Fast and Furious Style)", "Zoom Zoom Cars Into the Wall", "Leaping From High Cliffs"])
+book_titles = Array[String](["The Da Vinci Code", "Fast & Furious: The Novel", "Fighter Pilots: Mission Impossible", "Neuralyzers and How I Want One", "SCP: You're Contained", "Can't Out-Run Anyone", "Get Me Out of Life (Fast and Furious Style)", "Zoom Zoom Cars Into the Wall", "Leaping From High Cliffs"])
 
 [node name="Bookshelf16" parent="Bookshelves" unique_id=520710049 groups=["bookshelves"] instance=ExtResource("5_7w7pe")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.4214811, 0, 7.0828743)
 book_genre = "Sci-Fi"
-book_titles = Array[String](["", "Project Hail Mary", "Cat's Cradle", "The Martian", "Project Humanity's Last Hope", "Stranded, Alone and Isolated", "One Seed Catalyzes The Death of All", "Nothing Can Stop the Aliens. Or Bad People", "All Hope is Lost", "Forever Gone in the Great Black Sea"])
+book_titles = Array[String](["Project Hail Mary", "Cat's Cradle", "The Martian", "Project Humanity's Last Hope", "Stranded and Alone in Space", "Ice-IX", "Nothing Can Stop the Aliens", "The Thin Red Line", "Forever Lost to the Starry Sea"])
 
 [node name="Tables" type="Node3D" parent="." unique_id=521386890]
 

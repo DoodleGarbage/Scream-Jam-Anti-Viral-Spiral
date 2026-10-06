@@ -32,5 +32,5 @@ func rand_point() -> Vector3:
 
 
 func get_title(idx:int) -> String:
-	var index = randi_range(1+3*(Status.current_day-1),3+3*(Status.current_day-1))
+	var index = randi_range(3*(Status.current_day-1),3*(Status.current_day)-1)
 	return book_titles[idx][index]

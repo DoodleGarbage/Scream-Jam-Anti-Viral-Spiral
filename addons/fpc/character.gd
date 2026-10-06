@@ -168,8 +168,8 @@ func _ready():
 
 
 func _process(_delta):
-	if Status.loading:
-		return
+	#if Status.loading:
+		#return
 	if pausing_enabled:
 		handle_pausing()
 	update_interaction_display()
@@ -177,11 +177,12 @@ func _process(_delta):
 
 
 func _physics_process(delta): # Most things happen here.
-	if Status.loading:
-		return
+	#if Status.loading:
+		#return
 	if not Status.movement_allowed():
 		if RETICLE:
 			RETICLE.hide()
+		handle_movement(delta, Vector2.ZERO)
 		return
 	if RETICLE:
 		RETICLE.show()

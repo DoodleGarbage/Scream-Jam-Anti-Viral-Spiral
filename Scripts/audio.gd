@@ -40,8 +40,8 @@ func _get_stream(audio:String) -> AudioStream:
 func _get_volume(audio:String) -> float:
 	var mod : float = 0.0
 	match(audio):
-		"prudent_folly": mod = -10.0
-		"first_day": mod = -10
+		"prudent_folly": mod = 0.0
+		"first_day": mod = 0.0
 	return mod
 
 ## AudioStreamPlayers do not have a common inheritance class
@@ -56,6 +56,8 @@ func play(audio: String, audio_player = null, fade_in:bool = false) -> void:
 		"prudent_folly": next_track = "prudent_folly"
 		"alarm_sound": next_track = "alarm_sound"
 		"library": next_track = "library"
+		"main_menu": next_track = "main_menu"
+		"first_day": next_track = "first_day"
 	var _volume : float = _get_volume(audio)
 	_play_audio(stream, audio, audio_player, _volume, next_track, fade_in)
 

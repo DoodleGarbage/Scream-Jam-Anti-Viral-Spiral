@@ -15,7 +15,7 @@ func _ready() -> void:
 		if node.switch_scenes:
 			node.switch_scene.connect(switch_scene)
 	active_scene.character = player_character
-	#active_scene.loaded("")
+	active_scene.loaded("")
 
 var next_scene : PackedScene
 var currently_loading_scene : String = ""
@@ -26,7 +26,7 @@ func _process(_delta: float) -> void:
 	var status : ResourceLoader.ThreadLoadStatus = ResourceLoader.load_threaded_get_status(currently_loading_scene, arr)
 	if status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_FAILED or status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_INVALID_RESOURCE:
 		return
-	print("Loading status: ", status, " ", arr[0])
+	#print("Loading status: ", status, " ", arr[0])
 	if status != ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED:
 		return
 	var packed_scene = ResourceLoader.load_threaded_get(currently_loading_scene)
