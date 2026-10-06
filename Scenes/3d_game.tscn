@@ -1782,7 +1782,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.4267445, 0)
 shape = SubResource("BoxShape3D_iscit")
 
 [node name="FollyExit" type="Node3D" parent="Houses/follyshouse" unique_id=886319531]
-transform = Transform3D(-0.43004197, 0, -0.90280837, 0, 1, 0, 0.90280837, 0, -0.43004197, 7.624817, 0.7789526, -0.3078308)
+transform = Transform3D(0.9993184, 0, -0.036902346, 0, 1, 0, 0.036902346, 0, 0.9993184, 7.624817, 0.77536774, -0.3078308)
+rotation_edit_mode = 1
 
 [node name="house2" parent="Houses" unique_id=529681720 instance=ExtResource("28_ul1u8")]
 transform = Transform3D(-0.16953881, 0, -0.9855235, 0, 1, 0, 0.9855235, 0, -0.16953881, -62.555153, 14.347015, 57.366943)
@@ -1800,7 +1801,7 @@ transform = Transform3D(-0.543212, 0, -0.8395956, 0, 1, 0, 0.8395956, 0, -0.5432
 transform = Transform3D(0.81283224, 0, 0.5824979, 0, 1, 0, -0.5824979, 0, 0.81283224, -39.64845, -7.050998, -143.96007)
 
 [node name="LibraryExit" type="Node3D" parent="Houses/library" unique_id=1793730604]
-transform = Transform3D(-0.018106587, 0, -0.9998361, 0, 1, 0, 0.9998361, 0, -0.018106587, 11.782482, 0, 0.29753113)
+transform = Transform3D(0.9837546, 0, -0.1795187, 0, 1, 0, 0.1795187, 0, 0.9837546, 11.782482, 0, 0.29753113)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Houses/library" unique_id=1360833637]
 

@@ -85,7 +85,7 @@ loading_point = NodePath("SpawnPos")
 environment = SubResource("Environment_sixqc")
 
 [node name="SpawnPos" type="Node3D" parent="." unique_id=1358393165]
-transform = Transform3D(0.7235345, 0, 0.6902882, 0, 1, 0, -0.6902882, 0, 0.7235345, 8.740466, 0, 0)
+transform = Transform3D(-0.99998736, 0, 0.005023882, 0, 1, 0, -0.005023882, 0, -0.99998736, 8.740466, 0, 0)
 
 [node name="Placeholders" type="Node3D" parent="." unique_id=1780003977]
 

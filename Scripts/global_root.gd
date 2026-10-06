@@ -15,7 +15,7 @@ func _ready() -> void:
 		if node.switch_scenes:
 			node.switch_scene.connect(switch_scene)
 	active_scene.character = player_character
-	active_scene.loaded(current_scene)
+	#active_scene.loaded("")
 
 var next_scene : PackedScene
 var currently_loading_scene : String = ""
@@ -38,10 +38,11 @@ func switch_scene(scene:String) -> void:
 	if not exists:
 		push_error("Tried to load non-existent scene: ", scene)
 		return
+	#print("Character position before everything: ", player_character.position)
+	Status.loading = true
+	active_scene.queue_free()
 	currently_loading_scene = "res://Scenes/" + scene + ".tscn"
 	ResourceLoader.load_threaded_request(currently_loading_scene, "", true)
-	player_character.process_mode = Node.PROCESS_MODE_DISABLED
-	#next_scene = load_scene
 	next_scene_name = scene
 	loading_screen.show()
 	active_scene.hide()
@@ -50,14 +51,25 @@ func switch_scene(scene:String) -> void:
 
 
 func _execute_scene_switch(loaded_scene:Node) -> void:
+	#print("Character position post scene load: ", player_character.position)
 	active_scene = loaded_scene
 	loaded_scene.character = player_character
 	loaded_scene.ready.connect(loaded_scene.loaded.bind(current_scene))
+	#loaded_scene.ready.connect(re_enable_character)
 	add_child(loaded_scene)
+	#loaded_scene.loaded(current_scene)
 	for node in get_tree().get_nodes_in_group("Interactables"):
 		node.switch_scene.connect(switch_scene)
-	player_character.process_mode = Node.PROCESS_MODE_INHERIT
+	#await get_tree().create_timer(0.1).timeout
 	loading_screen.hide()
 	current_scene = next_scene_name
 	next_scene_name = ""
 	next_scene = null
+	Status.loading = false
+	#print("Character position on final load: ", player_character.position)
+	await get_tree().create_timer(1.0).timeout
+	#print("Character position 1.0 seconds later: ", player_character.position)
+
+#func re_enable_character() -> void:
+	#player_character.process_mode = Node.PROCESS_MODE_INHERIT
+	#player_character.set_physics_process(true)

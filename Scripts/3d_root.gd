@@ -26,6 +26,7 @@ func _ready() -> void:
 		SkyCycle.get_node("AnimationPlayer").advance(550)
 
 func loaded(last_scene:String) -> void:
+	print("Loading finishing")
 	Audio.play("prudent_folly")
 	var spawn_pos : Node3D
 	#print("matching scene: ", last_scene)
@@ -33,9 +34,9 @@ func loaded(last_scene:String) -> void:
 		"follys_room": spawn_pos = folly_exit
 		"library_room": spawn_pos = library_exit
 		_: spawn_pos = folly_exit
-	Status.position_character(spawn_pos, character)
 	$NPCs/Raincoat.player = character
 	load_environment(Status.current_day_string)
+	Status.position_character(spawn_pos, character)
 
 func load_environment(enviro:String) -> void:
 	var new_enviro : Node3D

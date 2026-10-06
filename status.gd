@@ -1,5 +1,7 @@
 extends Node
 
+var loading : bool = false
+
 ## increase to 'day2', 'day3', etc.
 var current_day : int = 1
 var current_day_string : String :
@@ -78,6 +80,7 @@ func end_day() -> void:
 	waking_up = false
 
 func position_character(spawn_point:Node3D, character:CharacterBody3D) -> void:
+	#print("Position character called to go to: ", spawn_point.global_position)
 	character.velocity = Vector3(0,0,0)
 	character.global_position = spawn_point.global_position
-	character.HEAD.global_rotation = spawn_point.global_rotation
+	character.HEAD.quaternion = spawn_point.quaternion

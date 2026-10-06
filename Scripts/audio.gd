@@ -41,14 +41,16 @@ func _get_volume(audio:String) -> float:
 	var mod : float = 0.0
 	match(audio):
 		"prudent_folly": mod = -10.0
+		"first_day": mod = -10
 	return mod
 
 ## AudioStreamPlayers do not have a common inheritance class
 func play(audio: String, audio_player = null, fade_in:bool = false) -> void:
 	var stream = _get_stream(audio)
 	if stream == null:
-		push_warning("Tried to play non-existant audio track ", audio)
+		push_warning("Tried to play non-existant audio track: ", audio)
 		return
+	print("Playing track: ", audio)
 	var next_track : String = ""
 	match(audio):
 		"prudent_folly": next_track = "prudent_folly"
