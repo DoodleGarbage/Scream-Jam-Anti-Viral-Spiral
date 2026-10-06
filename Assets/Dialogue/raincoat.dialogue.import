@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://c3887kqta25ni"
+path="res://.godot/imported/raincoat.dialogue-240218100a80134a3af176ec59f6b579.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/raincoat.dialogue"
+dest_files=["res://.godot/imported/raincoat.dialogue-240218100a80134a3af176ec59f6b579.tres"]
+
+[params]
+
+defaults=true

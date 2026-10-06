@@ -26,10 +26,12 @@ func _ready() -> void:
 	#Audio.play("alarm_sound")
 
 func loaded(_last_scene:String) -> void:
+	var spawn_pos : Node3D
 	if not Status.woke_up and not Status.work_complete:
-		character.global_position = wakeup_point.global_position
+		spawn_pos = wakeup_point
 	else:
-		character.global_position = loading_point.global_position
+		spawn_pos = loading_point
+	Status.position_character(spawn_pos, character)
 
 func _process(delta: float) -> void:
 	if Status.waking_up:

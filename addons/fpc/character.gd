@@ -150,7 +150,7 @@ var mouseInput : Vector2 = Vector2(0,0)
 
 func _ready():
 	#It is safe to comment this line if your game doesn't start with the mouse captured
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	# If the controller is rotated in a certain direction for game design purposes, redirect this rotation into the head.
 	HEAD.rotation.y = rotation.y
@@ -314,14 +314,14 @@ func get_interactor() -> Object:
 
 func handle_interaction() -> void:
 	var collider = get_interactor()
-	if collider is Interactable3D and collider.monitorable:
+	if collider is Interactable3D and collider.monitorable and not Status.in_dialogue:
 		collider.trigger_effects()
 
-func update_interaction_display() -> void:
-	var collider = get_interactor()
+func update_interaction_display() -> void:	
 	$CL/UserInterface/InteractLabel.hide()
-	if not Status.movement_allowed():
+	if not Status.movement_allowed() or Status.in_dialogue:
 		return
+	var collider = get_interactor()
 	if collider is Interactable3D and collider.monitorable:
 		if collider.collects_book and (Status.holding_book == false or Status.held_book_index != collider.book_index):
 			return
@@ -495,6 +495,7 @@ func _unhandled_input(event : InputEvent):
 				$CL/UserInterface/DebugPanel.visible = !$CL/UserInterface/DebugPanel.visible
 	if Input.is_action_just_pressed(controls["INTERACT"]):
 		handle_interaction()
+	#get_viewport().set_input_as_handled()QWERGGEWQWEQWEQWERGQWERGEE
 
 #endregion
 

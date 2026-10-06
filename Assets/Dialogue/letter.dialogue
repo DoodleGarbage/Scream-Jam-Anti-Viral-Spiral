@@ -1,4 +1,4 @@
-~ start
+~ day1
 Letter: Dear Folly, I had a great time on our last hangout. I would love to meet you again sometime. I think that there's still hope for us.
 Letter: Signed, Your BFF
 => END
@@ -11,4 +11,13 @@ Letter: Signed, A Former Friend
 ~ day3
 Letter: Dear Folly, ever since the car crash, I've despised every fiber of your being. You murdered my parents, and at my lowest, you used it to take everything I ever had, even my love. I'll never forgive you for what you've done. I hate you. I hate you.
 Letter: Signed, Mercury.
+=> END
+
+~ night1
+=> END
+~ night2
+=> END
+~ night3
+=> END
+~ hell
 => END

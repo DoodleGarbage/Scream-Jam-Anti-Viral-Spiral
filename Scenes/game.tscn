@@ -3,20 +3,61 @@
 [ext_resource type="Script" uid="uid://lnrm24rx0ug" path="res://Scripts/global_root.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://bu634ku7mufa7" path="res://Scenes/dialogue.tscn" id="4_3dryh"]
-[ext_resource type="PackedScene" uid="uid://drxustew5lp5d" path="res://Scenes/follys_room.tscn" id="4_wowpa"]
+[ext_resource type="PackedScene" uid="uid://bps5cqtiv4ei0" path="res://Scenes/main_menu.tscn" id="5_wowpa"]
 
-[node name="GlobalRoot" type="Node" unique_id=391369941 node_paths=PackedStringArray("player_character", "active_scene", "dialogue_display")]
+[node name="GlobalRoot" type="Node" unique_id=391369941 node_paths=PackedStringArray("player_character", "active_scene", "dialogue_display", "loading_screen")]
 script = ExtResource("1_3dryh")
-current_scene = "follys_room"
+current_scene = "main_menu"
 player_character = NodePath("Character")
-active_scene = NodePath("FollysRoom")
+active_scene = NodePath("MainMenu")
 dialogue_display = NodePath("Dialogue")
+loading_screen = NodePath("LoadingScreen")
 
 [node name="Character" parent="." unique_id=1981548183 instance=ExtResource("2_wrm1d")]
 transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 1.0658141e-14, 0, 1, 0, 0, 0)
 
-[node name="FollysRoom" parent="." unique_id=1720987390 instance=ExtResource("4_wowpa")]
+[node name="MainMenu" parent="." unique_id=1692986337 instance=ExtResource("5_wowpa")]
 
 [node name="Dialogue" parent="." unique_id=1725542757 instance=ExtResource("4_3dryh")]
 layer = 2
 visible = false
+
+[node name="LoadingScreen" type="CanvasLayer" parent="." unique_id=1480402831]
+layer = 4
+visible = false
+
+[node name="Control" type="Control" parent="LoadingScreen" unique_id=661745377]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="LoadingScreen/Control" unique_id=906415803]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="Label" type="Label" parent="LoadingScreen/Control" unique_id=1212758123]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 107
+text = "Loading..."
+
+[connection signal="switch_scene" from="MainMenu" to="." method="switch_scene"]

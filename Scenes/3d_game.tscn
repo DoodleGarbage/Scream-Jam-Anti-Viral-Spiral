@@ -29,11 +29,12 @@
 [ext_resource type="PackedScene" uid="uid://bbb45njudf1kr" path="res://Assets/Models/house1.blend" id="28_ul1u8"]
 [ext_resource type="Texture2D" uid="uid://dhip56j5404ew" path="res://Assets/Textures/eyes.png" id="29_futmp"]
 [ext_resource type="Script" uid="uid://c3u6fjjtxjurs" path="res://Scripts/raincoat.gd" id="29_m7jd6"]
+[ext_resource type="Resource" uid="uid://c3887kqta25ni" path="res://Assets/Dialogue/raincoat.dialogue" id="30_ci2nm"]
 [ext_resource type="PackedScene" uid="uid://osf8306fr28h" path="res://Assets/Models/follyshouse.blend" id="31_iscit"]
 [ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scripts/interactable3D.gd" id="32_m4q0v"]
 [ext_resource type="Texture2D" uid="uid://bd37jum0kmtai" path="res://Assets/Textures/fog.png" id="33_10j8r"]
 [ext_resource type="PackedScene" uid="uid://2wlv0w1eipij" path="res://Assets/Models/library.blend" id="33_m4q0v"]
-[ext_resource type="PackedScene" uid="uid://bymh45a1jxhok" path="res://Assets/Models/fence1.blend" id="34_10j8r"]
+[ext_resource type="PackedScene" uid="uid://bwi2h2acc5gs" path="res://Scenes/fence_1.tscn" id="34_10j8r"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_godah"]
 size = Vector3(90, 1, 11)
@@ -117,6 +118,9 @@ transparency = 1
 shading_mode = 0
 albedo_texture = ExtResource("10_haq7r")
 billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_5e55t"]
 material = SubResource("StandardMaterial3D_5e55t")
@@ -231,7 +235,12 @@ material = SubResource("StandardMaterial3D_m7jd6")
 size = Vector2(0.3, 0.3)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_maf23"]
-radius = 0.6
+radius = 0.882
+height = 3.53
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8s5l4"]
+height = 2.549
+radius = 0.914
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_10j8r"]
 size = Vector3(0.2, 1.939, 1)
@@ -274,12 +283,12 @@ albedo_texture = ExtResource("33_10j8r")
 metallic_specular = 1.0
 billboard_mode = 3
 billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_5pwny"]
 material = SubResource("StandardMaterial3D_e5s3j")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_y6ah3"]
-size = Vector3(0.449, 1.915, 4.234)
 
 [node name="3DRoot" type="Node3D" unique_id=1576440724 node_paths=PackedStringArray("library_exit", "folly_exit")]
 script = ExtResource("1_wgwvh")
@@ -1720,6 +1729,19 @@ mesh = SubResource("PlaneMesh_ul1u8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9651146, 0)
 shape = SubResource("CapsuleShape3D_maf23")
 
+[node name="RaincoatInteract" type="Area3D" parent="NPCs/Raincoat" unique_id=406111223]
+collision_layer = 2
+script = ExtResource("32_m4q0v")
+desc = "Talk"
+is_dialogue = true
+event_name = "raincoat"
+dialogue = ExtResource("30_ci2nm")
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/Raincoat/RaincoatInteract" unique_id=1946923754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9548607, 0)
+shape = SubResource("CylinderShape3D_8s5l4")
+
 [node name="Houses" type="Node3D" parent="." unique_id=2044675819]
 
 [node name="follyshouse" parent="Houses" unique_id=1929102904 instance=ExtResource("31_iscit")]
@@ -1760,7 +1782,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.4267445, 0)
 shape = SubResource("BoxShape3D_iscit")
 
 [node name="FollyExit" type="Node3D" parent="Houses/follyshouse" unique_id=886319531]
-transform = Transform3D(-0.49723327, 0, -0.8676168, 0, 1, 0, 0.8676168, 0, -0.49723327, 7.624893, 0.7789526, -0.30793762)
+transform = Transform3D(-0.43004197, 0, -0.90280837, 0, 1, 0, 0.90280837, 0, -0.43004197, 7.624817, 0.7789526, -0.3078308)
 
 [node name="house2" parent="Houses" unique_id=529681720 instance=ExtResource("28_ul1u8")]
 transform = Transform3D(-0.16953881, 0, -0.9855235, 0, 1, 0, 0.9855235, 0, -0.16953881, -62.555153, 14.347015, 57.366943)
@@ -1778,7 +1800,7 @@ transform = Transform3D(-0.543212, 0, -0.8395956, 0, 1, 0, 0.8395956, 0, -0.5432
 transform = Transform3D(0.81283224, 0, 0.5824979, 0, 1, 0, -0.5824979, 0, 0.81283224, -39.64845, -7.050998, -143.96007)
 
 [node name="LibraryExit" type="Node3D" parent="Houses/library" unique_id=1793730604]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.782482, 0, 0.29753113)
+transform = Transform3D(-0.018106587, 0, -0.9998361, 0, 1, 0, 0.9998361, 0, -0.018106587, 11.782482, 0, 0.29753113)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Houses/library" unique_id=1360833637]
 
@@ -1873,11 +1895,50 @@ draw_pass_1 = SubResource("QuadMesh_5pwny")
 
 [node name="Fences" type="Node3D" parent="." unique_id=1701299111]
 
-[node name="fence1" parent="Fences" unique_id=2041673599 instance=ExtResource("34_10j8r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.548187, 13.950975, 94.59352)
+[node name="fence2" parent="Fences" unique_id=1759449798 instance=ExtResource("34_10j8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.548187, 14.322241, 94.59352)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Fences/fence1" unique_id=1333140599]
+[node name="fence3" parent="Fences" unique_id=1177070566 instance=ExtResource("34_10j8r")]
+transform = Transform3D(0.840491, 0, -0.5418256, 0, 1, 0, 0.5418256, 0, 0.840491, -35.953163, 13.666964, 89.459785)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fences/fence1/StaticBody3D" unique_id=1883838858]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89915276, -1.9944687)
-shape = SubResource("BoxShape3D_y6ah3")
+[node name="fence4" parent="Fences" unique_id=2144587616 instance=ExtResource("34_10j8r")]
+transform = Transform3D(0.71886134, 0, -0.69515353, 0, 1, 0, 0.69515353, 0, 0.71886134, -32.018684, 13.112591, 84.917816)
+
+[node name="fence5" parent="Fences" unique_id=251949388 instance=ExtResource("34_10j8r")]
+transform = Transform3D(0.053674597, 0, -0.99855846, 0, 1, 0, 0.99855846, 0, 0.053674597, -70.67983, 14.82395, 98.76129)
+
+[node name="fence6" parent="Fences" unique_id=1690203102 instance=ExtResource("34_10j8r")]
+transform = Transform3D(0.30858496, 0, -0.95119673, 0, 1, 0, 0.95119673, 0, 0.30858496, -59.128956, 14.867891, 97.64829)
+
+[node name="fence7" parent="Fences" unique_id=1313064157 instance=ExtResource("34_10j8r")]
+transform = Transform3D(-0.40864143, 0, -0.912695, 0, 1, 0, 0.912695, 0, -0.40864143, -84.21172, 14.82395, 97.89338)
+
+[node name="fence8" parent="Fences" unique_id=1330019618 instance=ExtResource("34_10j8r")]
+transform = Transform3D(-0.5394213, 0.06329095, -0.83965385, -0.3733436, 0.87582016, 0.30586532, 0.7547443, 0.47846973, -0.44880688, -121.44308, 16.541542, 86.440186)
+
+[node name="fence9" parent="Fences" unique_id=275147526 instance=ExtResource("34_10j8r")]
+transform = Transform3D(-0.8636959, -0.33705023, -0.37473506, -0.4630934, 0.8241461, 0.3260793, 0.1989314, 0.45517075, -0.86789733, -125.93197, 19.469126, 75.78373)
+
+[node name="fence10" parent="Fences" unique_id=1749295251 instance=ExtResource("34_10j8r")]
+transform = Transform3D(0.89657223, 0, 0.44289768, 0, 1, 0, -0.44289768, 0, 0.89657223, 128.0468, 0.31191587, -61.042244)
+
+[node name="fence11" parent="Fences" unique_id=1884708168 instance=ExtResource("34_10j8r")]
+transform = Transform3D(0.6269519, -0.23488745, 0.74280524, 0, 0.95346564, 0.3015019, -0.7790581, -0.18902715, 0.597777, 133.04831, 2.639525, -54.849277)
+
+[node name="fence12" parent="Fences" unique_id=977789809 instance=ExtResource("34_10j8r")]
+transform = Transform3D(0.4530982, 0.08330191, 0.88756007, 0, 0.9956245, -0.0934443, -0.89146066, 0.04233944, 0.45111567, 119.344696, 0.036839873, -75.69196)
+
+[node name="fence13" parent="Fences" unique_id=231784764 instance=ExtResource("34_10j8r")]
+transform = Transform3D(0.55433285, -0.07829217, 0.8286045, 0, 0.9955658, 0.0940678, -0.83229506, -0.052144874, 0.5518748, 69.912796, 1.2914889, -156.53632)
+
+[node name="fence14" parent="Fences" unique_id=1055818031 instance=ExtResource("34_10j8r")]
+transform = Transform3D(0.1055539, 0.044056788, 0.9934372, 0.046951946, 0.9976831, -0.049233805, -0.99330455, 0.051840622, 0.10324076, 58.291897, 0.2952249, -161.16605)
+
+[node name="fence15" parent="Fences" unique_id=746210914 instance=ExtResource("34_10j8r")]
+transform = Transform3D(0.6188766, 0.028969789, 0.7849539, 0.20091318, 0.96023875, -0.1938437, -0.75935876, 0.27767286, 0.5884489, 46.224785, -0.35727412, -162.82834)
+
+[node name="fence16" parent="Fences" unique_id=544240036 instance=ExtResource("34_10j8r")]
+transform = Transform3D(0.89657223, 0, 0.44289768, 0, 1, 0, -0.44289768, 0, 0.89657223, 36.18017, -6.2959676, -123.565636)
+
+[node name="fence17" parent="Fences" unique_id=990398306 instance=ExtResource("34_10j8r")]
+transform = Transform3D(0.54013026, 0, 0.8415816, 0, 1, 0, -0.8415816, 0, 0.54013026, 28.730064, -6.483755, -131.27582)

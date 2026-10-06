@@ -20,17 +20,17 @@ func _input(_event: InputEvent) -> void:
 func load_dialogue(dia:DialogueResource) -> void:
 	active_dialogue = dia
 	#start_dialogue()
-	current_line = await dia.get_next_dialogue_line(Status.current_day_string)
-	advance_dialogue(true)
+	Status.in_dialogue = true
+	advance_dialogue()
 	return
 
 
-func advance_dialogue(initial:bool=false) -> void:
+func advance_dialogue() -> void:
 	if dia_label.is_typing:
-		dia_label.skip_typing()
+		#dia_label.skip_typing()EE
 		return
-	if not initial:
-		current_line = await DialogueManager.get_next_dialogue_line(active_dialogue, next_id)
+	#if not initial:
+	current_line = await DialogueManager.get_next_dialogue_line(active_dialogue, next_id)
 	if current_line == null:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		active_dialogue = null
@@ -39,6 +39,7 @@ func advance_dialogue(initial:bool=false) -> void:
 		hide()
 		return
 	dia_label.dialogue_line = current_line
+	$CL/Name/NameLabel.text = current_line.character
 	dia_label.type_out()
 	#if current_line.text != "null"
 	return

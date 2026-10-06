@@ -2,6 +2,7 @@ extends Node3D
 
 var total_books : int = 0
 
+
 @export var character : Node3D
 @export var loading_point : Node3D
 
@@ -10,7 +11,12 @@ var bookshelf_colors : Array[Material] = []
 var bookshelf_titles : Array = []
 
 func loaded(_last_scene:String) -> void:
-	character.global_position = loading_point.position
+	match(Status.current_day_string):
+		"day1":
+			Audio.play("first_day")
+		_:
+			Audio.play("library")
+	Status.position_character(loading_point, character)
 	var bookshelves = get_tree().get_nodes_in_group("bookshelves")
 	for shelf in bookshelves.size():
 		bookshelves[shelf].bookshelf_index = shelf

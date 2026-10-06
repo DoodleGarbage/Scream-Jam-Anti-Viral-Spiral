@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bwvamovgh3qw2" path="res://Assets/Textures/adamphoto.jpg" id="12_uo427"]
 [ext_resource type="Texture2D" uid="uid://bcu4n1vsnjv1j" path="res://Assets/Textures/riverphoto.jpg" id="13_8yugw"]
 [ext_resource type="PackedScene" uid="uid://csrvx5qqpm2nf" path="res://Assets/Models/alarmclock.blend" id="14_uo427"]
-[ext_resource type="Script" uid="uid://coji4uh3esqdw" path="res://3d_audio_player.gd" id="15_qktnr"]
+[ext_resource type="Script" uid="uid://coji4uh3esqdw" path="res://Scripts/3d_audio_player.gd" id="15_qktnr"]
 [ext_resource type="Texture2D" uid="uid://cl5le744gws8x" path="res://Assets/Textures/papernote.jpg" id="16_n8lqq"]
 [ext_resource type="Texture2D" uid="uid://bff834j3rvmiv" path="res://Assets/Textures/Ethanphoto.jpg" id="17_8vo5n"]
 [ext_resource type="Texture2D" uid="uid://brd2uutjuwl0h" path="res://Assets/Textures/beckettphoto.jpg" id="18_h3m8a"]
@@ -164,6 +164,9 @@ size = Vector3(1, 1, 2.873)
 [sub_resource type="BoxShape3D" id="BoxShape3D_67kd4"]
 size = Vector3(1, 1, 2.98)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
+size = Vector3(1, 0.565, 1.175)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_li1tu"]
 size = Vector3(0.099, 1.06, 2.378)
 
@@ -197,6 +200,9 @@ tangential_accel_max = 0.08999776
 shading_mode = 0
 disable_fog = true
 billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_o2tje"]
 material = SubResource("StandardMaterial3D_1oxiw")
@@ -228,7 +234,7 @@ wakeup_point = NodePath("WakeUp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013667345, -0.011318803, 4.61813)
 
 [node name="WakeUp" type="Node3D" parent="." unique_id=146988728]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5318522, 0.66252375, -4.30691)
+transform = Transform3D(0.9990485, -0.029636815, 0.03200484, 0, 0.73372984, 0.6794413, -0.043619398, -0.6787947, 0.73303145, 2.5060053, 0.66252375, -4.340947)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=381587627]
 environment = SubResource("Environment_ycyxk")
@@ -283,20 +289,20 @@ transform = Transform3D(-0.25270945, 0, 0.117254935, 0, 0.27858716, 0, -0.117254
 script = ExtResource("15_qktnr")
 metadata/_custom_type_script = "uid://coji4uh3esqdw"
 
-[node name="PaperLetter" type="MeshInstance3D" parent="Furniture/nightstand" unique_id=1436853651]
+[node name="PaperNote" type="MeshInstance3D" parent="Furniture/nightstand" unique_id=1436853651]
 transform = Transform3D(0.94021726, 0, 0.34057552, 0, 1, 0, -0.34057552, 0, 0.94021726, 0.14423612, 0.43936282, 0.19383986)
 mesh = SubResource("PlaneMesh_1oxiw")
 
-[node name="Interactable3D" type="Area3D" parent="Furniture/nightstand/PaperLetter" unique_id=100070368]
+[node name="readnote" type="Area3D" parent="Furniture/nightstand/PaperNote" unique_id=100070368]
 collision_layer = 2
 script = ExtResource("19_65x00")
-desc = "Read Notes"
+desc = "Read Note"
 is_dialogue = true
 event_name = "note"
 dialogue = ExtResource("18_n8h3r")
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/nightstand/PaperLetter/Interactable3D" unique_id=1712143395]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/nightstand/PaperNote/readnote" unique_id=1712143395]
 shape = SubResource("BoxShape3D_n8lqq")
 
 [node name="Dresser" parent="Furniture" unique_id=1340980958 instance=ExtResource("3_ycyxk")]
@@ -312,7 +318,7 @@ shape = SubResource("BoxShape3D_ycyxk")
 transform = Transform3D(0.68907374, 0, 0.7246912, 0, 1, 0, -0.7246912, 0, 0.68907374, -0.5768995, 0.08422983, 0.645236)
 shape = SubResource("BoxShape3D_ku1ny")
 
-[node name="Interactable3D" type="Area3D" parent="Furniture/Dresser" unique_id=85368509 node_paths=PackedStringArray("audio_player")]
+[node name="Dress" type="Area3D" parent="Furniture/Dresser" unique_id=85368509 node_paths=PackedStringArray("audio_player")]
 collision_layer = 2
 script = ExtResource("19_65x00")
 desc = "Get Dressed"
@@ -321,7 +327,7 @@ is_routine = true
 routine_task = "0dress"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/Dresser/Interactable3D" unique_id=1413267361]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/Dresser/Dress" unique_id=1413267361]
 shape = SubResource("BoxShape3D_ycyxk")
 
 [node name="AudioPlayer3D" type="AudioStreamPlayer3D" parent="Furniture/Dresser" unique_id=1741758319]
@@ -337,7 +343,7 @@ transform = Transform3D(-0.14631192, 0, -0.98923856, 0, 1, 0, 0.98923856, 0, -0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.043147326, 0)
 shape = SubResource("BoxShape3D_7k3l4")
 
-[node name="Interactable3D" type="Area3D" parent="Furniture/bed" unique_id=1764130073 groups=["Interactables"]]
+[node name="Sleep" type="Area3D" parent="Furniture/bed" unique_id=1764130073 groups=["Interactables"]]
 collision_layer = 2
 monitoring = false
 script = ExtResource("19_65x00")
@@ -348,7 +354,7 @@ target_scene = "follys_room"
 end_day = true
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/bed/Interactable3D" unique_id=964267764]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/bed/Sleep" unique_id=964267764]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.043147326, 0)
 shape = SubResource("BoxShape3D_7k3l4")
 
@@ -389,7 +395,7 @@ shape = SubResource("CylinderShape3D_wfhcw")
 transform = Transform3D(-0.66116625, 0, 0.75023943, 0, 1, 0, -0.75023943, 0, -0.66116625, -0.18533447, 0.43936288, 0.36400992)
 mesh = SubResource("PlaneMesh_bupmj")
 
-[node name="Interactable3D" type="Area3D" parent="Furniture/table/PaperLetter" unique_id=1835090065]
+[node name="readletter" type="Area3D" parent="Furniture/table/PaperLetter" unique_id=1835090065]
 collision_layer = 2
 script = ExtResource("19_65x00")
 desc = "Read Letter"
@@ -398,7 +404,7 @@ event_name = "letter"
 dialogue = ExtResource("22_n8lqq")
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/table/PaperLetter/Interactable3D" unique_id=1912081772]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/table/PaperLetter/readletter" unique_id=1912081772]
 shape = SubResource("BoxShape3D_n8lqq")
 
 [node name="fridge" parent="Furniture" unique_id=1056138188 instance=ExtResource("7_cu0vy")]
@@ -410,7 +416,7 @@ transform = Transform3D(0.7626047, 0, 0.6468648, 0, 1, 0, -0.6468648, 0, 0.76260
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8043045, 0)
 shape = SubResource("BoxShape3D_pa7af")
 
-[node name="Interactable3D" type="Area3D" parent="Furniture/fridge" unique_id=1994972236 node_paths=PackedStringArray("audio_player")]
+[node name="eat" type="Area3D" parent="Furniture/fridge" unique_id=1994972236 node_paths=PackedStringArray("audio_player")]
 collision_layer = 2
 script = ExtResource("19_65x00")
 desc = "Get Food"
@@ -419,7 +425,7 @@ is_routine = true
 routine_task = "1food"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/fridge/Interactable3D" unique_id=1894635662]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/fridge/eat" unique_id=1894635662]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8043045, 0)
 shape = SubResource("BoxShape3D_pa7af")
 
@@ -455,19 +461,29 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/bathroomsink/StaticBody3D" unique_id=433630909]
 shape = SubResource("BoxShape3D_67kd4")
 
-[node name="Interactable3D" type="Area3D" parent="Furniture/bathroomsink" unique_id=714655241 node_paths=PackedStringArray("audio_player")]
+[node name="WashUp" type="Area3D" parent="Furniture/bathroomsink" unique_id=714655241 node_paths=PackedStringArray("audio_player")]
 collision_layer = 2
 script = ExtResource("19_65x00")
 desc = "Wash Up"
 audio_player = NodePath("../AudioPlayer3D")
 is_routine = true
 routine_task = "2washup"
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture/bathroomsink/WashUp" unique_id=40850865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56393826, 0)
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="ExamineSelf" type="Area3D" parent="Furniture/bathroomsink" unique_id=1231830733]
+collision_layer = 2
+script = ExtResource("19_65x00")
+desc = "Examine Yourself"
 is_dialogue = true
 event_name = "washup"
 dialogue = ExtResource("31_rxs4m")
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/bathroomsink/Interactable3D" unique_id=1604266677]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/bathroomsink/ExamineSelf" unique_id=867821157]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4236154, 1.3419904, 0)
 shape = SubResource("BoxShape3D_li1tu")
 
@@ -496,7 +512,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.03
 collision_layer = 2
 script = ExtResource("19_65x00")
 desc = "Leave for Work"
-play_audio = true
 fade_in = true
 audio_track = "prudent_folly"
 required_complete_tasks = 3
@@ -686,3 +701,5 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 28
 text = "Press 'E' to wake up."
+
+[connection signal="triggered" from="Furniture/bathroomsink/WashUp" to="Furniture/bathroomsink/WashUp" method="queue_free"]

@@ -1,14 +1,14 @@
 extends Node
 
 ## increase to 'day2', 'day3', etc.
-var current_day : int = 0
+var current_day : int = 1
 var current_day_string : String :
 	get:
-		match(current_day):
-			0: return "start"
-			1: return "day2"
-			2: return "day3"
-			_: return "hell"
+		if current_day > 3:
+			return "hell"
+		if work_complete:
+			return "night" + str(current_day)
+		return "day" + str(current_day)
 
 var in_dialogue : bool = false
 
@@ -76,3 +76,8 @@ func end_day() -> void:
 	current_day += 1
 	woke_up = false
 	waking_up = false
+
+func position_character(spawn_point:Node3D, character:CharacterBody3D) -> void:
+	character.velocity = Vector3(0,0,0)
+	character.global_position = spawn_point.global_position
+	character.HEAD.global_rotation = spawn_point.global_rotation

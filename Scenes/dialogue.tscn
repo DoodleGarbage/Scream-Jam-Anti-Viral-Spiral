@@ -1,8 +1,35 @@
 [gd_scene format=3 uid="uid://bu634ku7mufa7"]
 
-[ext_resource type="Texture2D" uid="uid://bcu4n1vsnjv1j" path="res://Assets/Textures/riverphoto.jpg" id="1_5rqxr"]
 [ext_resource type="Script" uid="uid://d1ha3u8fs4mla" path="res://Scenes/dialogue_display.gd" id="1_dgfud"]
 [ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/nodes/dialogue_label/dialogue_label.gd" id="2_p21q5"]
+[ext_resource type="Texture2D" uid="uid://dcv38gaf14303" path="res://Assets/Textures/FollySketchTransparent.png" id="3_p21q5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p21q5"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.09985284, 0.09985284, 0.09985284, 0.69600004)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_pjl42"]
+font_size = 33
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjl42"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.43155825, 0.43155828, 0.4315584, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [node name="Dialogue" type="CanvasLayer" unique_id=1271223425]
 script = ExtResource("1_dgfud")
@@ -14,6 +41,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="DlT" type="PanelContainer" parent="CL" unique_id=1165113419]
 z_index = 2
@@ -29,7 +57,7 @@ grow_vertical = 0
 [node name="DlT" type="MarginContainer" parent="CL/DlT" unique_id=1120894222]
 layout_mode = 2
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 26
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
@@ -37,6 +65,7 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 text = "This is dialogue. You read dialogue here. This is a big long thing of dialogue. Despite everything, you're still you."
 script = ExtResource("2_p21q5")
+skip_action = &""
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 metadata/_custom_type_script = "uid://g32um0mltv5d"
 
@@ -54,6 +83,45 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_5rqxr")
+texture = ExtResource("3_p21q5")
 expand_mode = 3
 stretch_mode = 5
+
+[node name="Info" type="PanelContainer" parent="CL" unique_id=606817531]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.716
+anchor_top = 0.945
+anchor_right = 0.921
+anchor_bottom = 0.966
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p21q5")
+
+[node name="ClicktoCont" type="Label" parent="CL/Info" unique_id=1023262878]
+layout_mode = 2
+text = "Click to continue"
+label_settings = SubResource("LabelSettings_pjl42")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="PanelContainer" parent="CL" unique_id=409965978]
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.067
+anchor_top = 0.662
+anchor_right = 0.308
+anchor_bottom = 0.686
+offset_top = -23.0
+offset_right = 1.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pjl42")
+
+[node name="NameLabel" type="Label" parent="CL/Name" unique_id=1177972268]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+text = "Folly Prudent"
+horizontal_alignment = 1
