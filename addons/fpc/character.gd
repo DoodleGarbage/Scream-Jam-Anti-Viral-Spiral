@@ -55,6 +55,8 @@ extends CharacterBody3D
 @export var CANVAS : CanvasLayer
 ## A reference to the book held in the player's hand
 @export var BOOK : Node3D
+## A reference to the rock model in the player's hand
+@export var ROCK : Node3D
 
 #endregion
 
@@ -321,6 +323,9 @@ func handle_interaction() -> void:
 	var collider = get_interactor()
 	if collider is Interactable3D and collider.monitorable and not Status.in_dialogue:
 		collider.trigger_effects()
+		return
+	if Status.holding_rock:
+		Status.throw_rock()
 
 func update_interaction_display() -> void:	
 	$CL/UserInterface/InteractLabel.hide()

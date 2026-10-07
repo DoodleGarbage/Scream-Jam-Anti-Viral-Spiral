@@ -22,9 +22,10 @@ class_name Interactable3D
 @export_subgroup("Scene Switch")
 @export var switch_scenes : bool = false
 @export var target_scene : String = ""
-@export_subgroup("Book")
+@export_subgroup("Object")
 @export var is_book : bool = false
 @export var collects_book : bool = false
+@export var is_rock : bool = false
 var book_material : Material
 var book_title
 var book_index : int = -1
@@ -59,6 +60,8 @@ func trigger_effects() -> void:
 	# pickup_book returns false when it fails
 	if is_book and not Status.pickup_book(book_index, book_material, book_title):
 		return
+	if is_rock:
+		Status.pickup_rock()
 	if is_dialogue and dialogue != null:
 		Dialogue.trigger_event(event_name, dialogue)
 	if end_day:

@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 
 func _get_stream(audio:String) -> AudioStream:
 	match(audio):
-		"prudent_folly": return preload("res://Assets/Audio/Prudent Folly.mp3")
+		"prudent_folly": return preload("res://Assets/Audio/Prudent Folly Upd Air.mp3")
 		"book_delivered": return preload("res://Assets/Audio/book_thump.mp3")
 		"book_grabbed": return preload("res://Assets/Audio/book_page.mp3")
 		"alarm_sound": return preload("res://Assets/Audio/alarmclock_blare.mp3")

@@ -129,7 +129,7 @@ advance_dialogue={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Assets/Dialogue/letter.dialogue", "res://Assets/Dialogue/mirror.dialogue", "res://Assets/Dialogue/note.dialogue", "res://Assets/Dialogue/raincoat.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Assets/Dialogue/letter.dialogue", "res://Assets/Dialogue/mirror.dialogue", "res://Assets/Dialogue/note.dialogue", "res://Assets/Dialogue/raincoat.dialogue", "res://Assets/Dialogue/brawny.dialogue")
 
 [physics]
 

@@ -1,0 +1,21 @@
+~ day1
+Brawny: I guard this town. If you have a problem, I can fix it.
+=> END!
+~ night1
+=> END!
+~ day2
+Brawny: Things aren't like how they usually are. You better not have anything to do with this.
+Folly: I didn't do anything!
+Brawny: If you're causing trouble around town and I find out, you'll be sorry you did.
+=> END!
+~ night2
+=> END!
+~ day3
+Brawny: I can't let you near the library right now.
+Folly: Why? What did I do?
+Brawny: You know what you did.
+=> END!
+~ night3
+=> END!
+~ hell
+=> END!

@@ -22,6 +22,8 @@ var game_node : Node
 var holding_book : bool = false
 var held_book_index : int = -1
 
+var holding_rock : bool = false
+
 var woke_up : bool = false
 var waking_up : bool = false
 
@@ -57,6 +59,28 @@ func collect_book(book_index:int) -> bool:
 	returned_books += 1
 	Audio.play("book_delivered")
 	return true
+
+func pickup_rock() -> void:
+	holding_rock = true
+	game_node.player_character.ROCK.show()
+
+const rock_throw_force : float = 10.0
+func throw_rock() -> void:
+	clear_rock()
+	var thrown_rock : RigidBody3D = preload("res://Scenes/rock_projectile.tscn").instantiate()
+	game_node.add_child(thrown_rock)
+	#thrown_rock.global_transform = game_node.player_character.HEAD.global_transform
+	thrown_rock.global_position = game_node.player_character.global_position + game_node.player_character.HEAD.position
+	#print("Firing in direction: ", game_node.player_character.HEAD.quaternion * Vector3(0,0,-1))
+	var basis = -game_node.player_character.HEAD.global_transform.basis.z.normalized()
+	print(basis)
+	#var direction = basis * Vector3.FORWARD
+	thrown_rock.apply_central_impulse(basis * rock_throw_force)
+
+func clear_rock()-> void:
+	holding_rock = false
+	game_node.player_character.ROCK.hide()
+
 
 func complete_routine(task:String, audio_player=null) -> bool:
 	var task_num : int = int(task)

@@ -35,6 +35,7 @@ func loaded(last_scene:String) -> void:
 		"library_room": spawn_pos = library_exit
 		_: spawn_pos = folly_exit
 	$NPCs/Raincoat.player = character
+	$NPCs/Brawny.player = character
 	load_environment(Status.current_day_string)
 	Status.position_character(spawn_pos, character)
 

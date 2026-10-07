@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cr2wnpppmkgyn"
+path="res://.godot/imported/Prudent Folly Upd.mp3-c32bae35467dbc92ba4fd8182c2a3004.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Prudent Folly Upd.mp3"
+dest_files=["res://.godot/imported/Prudent Folly Upd.mp3-c32bae35467dbc92ba4fd8182c2a3004.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -30,11 +30,15 @@
 [ext_resource type="Texture2D" uid="uid://dhip56j5404ew" path="res://Assets/Textures/eyes.png" id="29_futmp"]
 [ext_resource type="Script" uid="uid://c3u6fjjtxjurs" path="res://Scripts/raincoat.gd" id="29_m7jd6"]
 [ext_resource type="Resource" uid="uid://c3887kqta25ni" path="res://Assets/Dialogue/raincoat.dialogue" id="30_ci2nm"]
+[ext_resource type="PackedScene" uid="uid://cgte1snfiroo7" path="res://Assets/Models/Brawny.blend" id="31_1ogtm"]
 [ext_resource type="PackedScene" uid="uid://osf8306fr28h" path="res://Assets/Models/follyshouse.blend" id="31_iscit"]
+[ext_resource type="Script" uid="uid://1a3reamxrbe1" path="res://Scripts/brawny.gd" id="31_y6ah3"]
 [ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scripts/interactable3D.gd" id="32_m4q0v"]
 [ext_resource type="Texture2D" uid="uid://bd37jum0kmtai" path="res://Assets/Textures/fog.png" id="33_10j8r"]
 [ext_resource type="PackedScene" uid="uid://2wlv0w1eipij" path="res://Assets/Models/library.blend" id="33_m4q0v"]
+[ext_resource type="Resource" uid="uid://bmch1n8uqt1fx" path="res://Assets/Dialogue/brawny.dialogue" id="33_sb7e8"]
 [ext_resource type="PackedScene" uid="uid://bwi2h2acc5gs" path="res://Scenes/fence_1.tscn" id="34_10j8r"]
+[ext_resource type="PackedScene" uid="uid://dj0l1b4wofgpu" path="res://Assets/Models/rock_pile.blend" id="39_vufqp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_godah"]
 size = Vector3(90, 1, 11)
@@ -144,6 +148,7 @@ billboard_mode = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_m4q0v"]
 material = SubResource("StandardMaterial3D_qbgsn")
+custom_aabb = AABB(0.004, -53.395, 0, 9.027, 59.599, 10.258)
 size = Vector2(2, 2)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vu6bh"]
@@ -242,6 +247,16 @@ radius = 0.914
 radius = 0.882
 height = 3.53
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
+size = Vector3(1.844, 14.589, 43.58)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c4qn5"]
+size = Vector3(2.136, 2.732, 2.422)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8s5l4"]
+radius = 1.255
+height = 3.377
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_10j8r"]
 size = Vector3(0.2, 1.939, 1)
 
@@ -296,6 +311,19 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 35
+
+[sub_resource type="Curve3D" id="Curve3D_sb7e8"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 66.32435, -3.999785, -69.03063, 0, 0, 0, 0, 0, 0, 88.35517, -4.0006523, -71.32455),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sb7e8"]
+size = Vector3(12.645, 7.887, 2.231)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fodyg"]
+size = Vector3(2.25, 1.394, 2.415)
 
 [node name="3DRoot" type="Node3D" unique_id=1576440724 node_paths=PackedStringArray("library_exit", "folly_exit")]
 script = ExtResource("1_wgwvh")
@@ -1726,12 +1754,12 @@ bounding_box = NodePath("1")
 static_positions = [NodePath("../../RaincoatPositions/1"), NodePath("../../RaincoatPositions/2"), NodePath("../../RaincoatPositions/3"), NodePath("../../RaincoatPositions/4"), NodePath("../../RaincoatPositions/5"), NodePath("../../RaincoatPositions/6")]
 stalk_distance = 40.0
 speed_mod = 5.0
-stalk_path = NodePath("../../RaincoatPath/Rainpath")
+stalk_path = NodePath("../../Paths/Rainpath")
 
-[node name="Raincoat" parent="NPCs/Raincoat" unique_id=775717676 instance=ExtResource("28_kcn1r")]
+[node name="Model" parent="NPCs/Raincoat" unique_id=775717676 instance=ExtResource("28_kcn1r")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NPCs/Raincoat/Raincoat" unique_id=1469854291]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NPCs/Raincoat/Model" unique_id=1469854291]
 transform = Transform3D(0.14073132, 0.98973703, -0.02480993, -0.0068613775, -0.024083711, -0.9996865, -0.9900241, 0.14085743, 0.0034016257, 0.30986512, 1.3445683, -9.313227e-10)
 mesh = SubResource("PlaneMesh_ul1u8")
 
@@ -1757,6 +1785,49 @@ aabb = AABB(-1, 0.499, -1, 2, 2, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1866817, 0)
 shape = SubResource("CapsuleShape3D_maf23")
 
+[node name="Brawny" type="Node3D" parent="NPCs" unique_id=80400159 node_paths=PackedStringArray("walk_path", "collider")]
+transform = Transform3D(0.26931465, 0, -0.9630522, 0, 1, 0, 0.9630522, 0, 0.26931465, 76.94003, -4.050014, -70.324234)
+script = ExtResource("31_y6ah3")
+walk_path = NodePath("../../Paths/BrawnyPath")
+collider = NodePath("Wall")
+
+[node name="Model" parent="NPCs/Brawny" unique_id=1348584369 instance=ExtResource("31_1ogtm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Wall" type="StaticBody3D" parent="NPCs/Brawny" unique_id=1140725082]
+transform = Transform3D(0.121352166, 0, -0.9926095, 0, 1, 0, 0.9926095, 0, 0.121352166, 76.95284, -4.050014, -69.75973)
+top_level = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/Brawny/Wall" unique_id=2016635430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.920952, 0)
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="BrawnyInteract" type="Area3D" parent="NPCs/Brawny" unique_id=1590846175]
+collision_layer = 2
+script = ExtResource("32_m4q0v")
+desc = "Talk"
+is_dialogue = true
+event_name = "brawny"
+dialogue = ExtResource("33_sb7e8")
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/Brawny/BrawnyInteract" unique_id=967135849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84536505, 0)
+shape = SubResource("BoxShape3D_c4qn5")
+
+[node name="LeftEnd" type="Node3D" parent="NPCs/Brawny" unique_id=377079913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21483707, 0, 14.346808)
+
+[node name="RightEnd" type="Node3D" parent="NPCs/Brawny" unique_id=293634260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7314749, -1.9073486e-06, -14.497202)
+
+[node name="Body" type="StaticBody3D" parent="NPCs/Brawny" unique_id=606032796]
+collision_layer = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/Brawny/Body" unique_id=31671596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85941505, 0)
+shape = SubResource("CapsuleShape3D_8s5l4")
+
 [node name="Houses" type="Node3D" parent="." unique_id=2044675819]
 
 [node name="follyshouse" parent="Houses" unique_id=1929102904 instance=ExtResource("31_iscit")]
@@ -1767,23 +1838,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.569698, 1.3219624, -1.86264
 collision_layer = 2
 script = ExtResource("32_m4q0v")
 desc = "End Day"
-play_audio = null
-fade_in = null
-audio_track = null
 stopped_audio_tracks = Array[String](["prudent_folly"])
-invert_restrictions = null
-required_complete_tasks = null
-invert_work = null
 require_completing_work = true
 switch_scenes = true
 target_scene = "follys_room"
-is_book = null
-collects_book = null
-is_routine = null
-routine_task = null
-is_dialogue = null
-event_name = null
-end_day = null
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Houses/follyshouse/Interactable3D" unique_id=1247767822]
@@ -1828,23 +1886,11 @@ shape = SubResource("BoxShape3D_m4q0v")
 collision_layer = 2
 script = ExtResource("32_m4q0v")
 desc = "Go to Work"
-play_audio = null
-fade_in = null
-audio_track = null
 stopped_audio_tracks = Array[String](["prudent_folly"])
 invert_restrictions = true
-required_complete_tasks = null
-invert_work = null
 require_completing_work = true
 switch_scenes = true
 target_scene = "library_room"
-is_book = null
-collects_book = null
-is_routine = null
-routine_task = null
-is_dialogue = null
-event_name = null
-end_day = null
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Houses/library/Interactable3D" unique_id=2004438752]
@@ -1985,9 +2031,42 @@ aabb = AABB(-1, 0.499, -1, 2, 2, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.736609, -7.314726, -137.18436)
 aabb = AABB(-1, 0.499, -1, 2, 2, 2)
 
-[node name="RaincoatPath" type="Node3D" parent="." unique_id=765986371]
+[node name="Paths" type="Node3D" parent="." unique_id=765986371]
 
-[node name="Rainpath" type="Path3D" parent="RaincoatPath" unique_id=653983992]
+[node name="Rainpath" type="Path3D" parent="Paths" unique_id=653983992]
+top_level = true
 curve = SubResource("Curve3D_ci2nm")
 
+[node name="BrawnyPath" type="Path3D" parent="Paths" unique_id=53178398]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+curve = SubResource("Curve3D_sb7e8")
+
+[node name="BridgeIncident" type="Node3D" parent="." unique_id=191743409]
+transform = Transform3D(0.798416, 0, -0.60210615, 0, 1, 0, 0.60210615, 0, 0.798416, 28.0348, 3.363119, 19.271593)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BridgeIncident" unique_id=1015992275]
+process_mode = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BridgeIncident/StaticBody3D" unique_id=157523084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4566526, 0)
+shape = SubResource("BoxShape3D_sb7e8")
+
+[node name="RockPile" type="Node3D" parent="." unique_id=943188009]
+transform = Transform3D(0.9983646, 0.057095822, -0.0028440468, -0.055380613, 0.97831446, 0.19958362, 0.014177762, -0.19909975, 0.97987664, -8.425048, 3.2877157, 52.27045)
+
+[node name="rock_pile" parent="RockPile" unique_id=1824800602 instance=ExtResource("39_vufqp")]
+transform = Transform3D(0.38403034, 0, 0, 0, 0.38403034, 0, 0, 0, 0.38403034, 0, 0.5323356, 0)
+
+[node name="GrabRock" type="Area3D" parent="RockPile" unique_id=1444912270]
+collision_layer = 2
+script = ExtResource("32_m4q0v")
+desc = "Grab Rock"
+is_rock = true
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RockPile/GrabRock" unique_id=1576789599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.566996e-10, 0.25011018, -3.7252903e-09)
+shape = SubResource("BoxShape3D_fodyg")
+
 [connection signal="triggered" from="NPCs/Raincoat/RaincoatInteract" to="NPCs/Raincoat/RaincoatInteract" method="queue_free"]
+[connection signal="triggered" from="NPCs/Brawny/BrawnyInteract" to="NPCs/Brawny" method="_on_brawny_interact_triggered"]
