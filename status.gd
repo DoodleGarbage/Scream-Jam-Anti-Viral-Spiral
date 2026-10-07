@@ -96,6 +96,7 @@ func movement_allowed() -> bool:
 
 func end_day() -> void:
 	print("Ending day ", current_day)
+	clear_rock()
 	total_books = 0
 	returned_books = -1
 	completed_tasks = -1
@@ -108,3 +109,12 @@ func position_character(spawn_point:Node3D, character:CharacterBody3D) -> void:
 	character.velocity = Vector3(0,0,0)
 	character.global_position = spawn_point.global_position
 	character.HEAD.quaternion = spawn_point.quaternion
+
+func restart_day() -> void:
+	clear_rock()
+	total_books = 0
+	returned_books = -1
+	completed_tasks = -1
+	woke_up = false
+	waking_up = false
+	game_node.switch_scene("follys_room")

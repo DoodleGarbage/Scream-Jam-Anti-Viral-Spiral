@@ -6,6 +6,9 @@ extends Node3D
 @export var collider : StaticBody3D
 @export var bridge_incident : Node3D
 @export var bridge_collider : StaticBody3D
+@export var bridge_floor : StaticBody3D
+@export var bridge_wall : StaticBody3D
+@export var bridge_timer : Timer
 
 var player : Node3D
 
@@ -36,6 +39,7 @@ func day_1() -> void:
 func day_2() -> void:
 	follow_player = true
 	move_with_player = true
+	collider.process_mode = Node.PROCESS_MODE_INHERIT
 	return
 func day_3() -> void:
 	follow_player = true
@@ -55,3 +59,21 @@ func _on_brawny_interact_triggered() -> void:
 		"day2":
 			collider.process_mode = Node.PROCESS_MODE_DISABLED
 			move_with_player = false
+
+signal brawny_murdered()
+func _on_rock_collider_body_entered(_body: Node3D) -> void:
+	print("Brawny was hit by rock")
+	if Status.current_day_string != "day3":
+		return
+	follow_player = false
+	quaternion = Quaternion(0, 0, 1, 0)
+	bridge_collider.process_mode = Node.PROCESS_MODE_DISABLED
+	bridge_timer.start()
+	brawny_murdered.emit()
+
+
+func _on_bridge_collapse_timeout() -> void:
+	#player.immobile = true
+	bridge_wall.process_mode = Node.PROCESS_MODE_INHERIT
+	bridge_floor.process_mode = Node.PROCESS_MODE_DISABLED
+	bridge_floor.process_mode = Node.PROCESS_MODE_DISABLED

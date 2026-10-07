@@ -7,11 +7,16 @@ extends Node3D
 @export var stalk_distance : float = 0.0
 @export var speed_mod : float = 10.0
 @export var stalk_path : Path3D
+@export var rainy_movementspeed : float = 3.0
 
 var behavior : int = 0
 var follow_player : bool = false
 var follow_static_position : bool = false
 var stalk_player : bool = false
+var chase_player : bool = false
+var falling : bool = false
+const gravity = 9.81
+var velocity_y : float = 0.0
 
 func _process(_delta: float) -> void:
 	if not player:
@@ -58,6 +63,11 @@ func _process(_delta: float) -> void:
 		#set_axis_velocity(global_position.direction_to(points[closest_idx_player-1]) * speed_mod)
 		
 		#global_position = lerp()
+	if chase_player:
+		global_position = global_position.move_toward(player.global_position, _delta*rainy_movementspeed)
+	if falling:
+		velocity_y += gravity*_delta
+		global_position.y -= velocity_y*_delta
 
 func _ready() -> void:
 	match(Status.current_day_string):
@@ -85,3 +95,27 @@ func day_2() -> void:
 func day_3() -> void:
 	follow_player = true
 	stalk_player = true
+
+
+func _on_brawny_brawny_murdered() -> void:
+	if Status.current_day_string != "day3":
+		return
+	chase_player = true
+	stalk_player = false
+	#Audio.play("chase_scream")
+
+
+func _on_chase_detector_body_entered(_body: Node3D) -> void:
+	if not chase_player:
+		return
+	print("Caught you!")
+	Status.restart_day()
+
+
+func _on_raincoat_catcher_body_entered(_body: Node3D) -> void:
+	#print(body.name)
+	if not chase_player:
+		return
+	print("I've been caught!")
+	chase_player = false
+	falling = true

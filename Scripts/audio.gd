@@ -9,7 +9,7 @@ extends Node
 
 var fade_in_tracks : Array = []
 
-var themes : Array[String] = ["prudent_folly", "library", "main_menu", "first_day"]
+var themes : Array[String] = ["prudent_folly", "library", "main_menu", "first_day", "being_followed"]
 
 func _process(delta: float) -> void:
 	var indices : Array[int] = []
@@ -35,6 +35,7 @@ func _get_stream(audio:String) -> AudioStream:
 		"library": return preload("res://Assets/Audio/Library.mp3")
 		"main_menu": return preload("res://Assets/Audio/Title_Theme.mp3")
 		"first_day": return preload("res://Assets/Audio/First_Day_on_the_Job.mp3")
+		"being_followed": return preload("res://Assets/Audio/i_am_being_followed.mp3")
 	return null
 
 func _get_volume(audio:String) -> float:
@@ -58,6 +59,7 @@ func play(audio: String, audio_player = null, fade_in:bool = false) -> void:
 		"library": next_track = "library"
 		"main_menu": next_track = "main_menu"
 		"first_day": next_track = "first_day"
+		"being_followed": next_track = "being_followed"
 	var _volume : float = _get_volume(audio)
 	_play_audio(stream, audio, audio_player, _volume, next_track, fade_in)
 

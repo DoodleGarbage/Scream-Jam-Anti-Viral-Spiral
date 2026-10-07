@@ -27,7 +27,9 @@ func _ready() -> void:
 
 func loaded(last_scene:String) -> void:
 	print("Loading finishing")
-	Audio.play("prudent_folly")
+	match(Status.current_day_string):
+		"day3": Audio.play("being_followed")
+		_:Audio.play("prudent_folly")
 	var spawn_pos : Node3D
 	#print("matching scene: ", last_scene)
 	match(last_scene):

@@ -95,8 +95,14 @@ size = Vector3(1.5, 5, 5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_c88i1"]
 size = Vector3(1.5, 5, 4)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ue6wd"]
+size = Vector3(13.41, 1.972, 23.79)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_godah"]
 size = Vector3(90, 1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4440r"]
+size = Vector3(23.034, 16.869, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mskaw"]
 render_priority = 0
@@ -247,6 +253,9 @@ radius = 0.914
 radius = 0.882
 height = 3.53
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c4qn5"]
+radius = 1.562
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
 size = Vector3(1.844, 14.589, 43.58)
 
@@ -256,6 +265,10 @@ size = Vector3(2.136, 2.732, 2.422)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8s5l4"]
 radius = 1.255
 height = 3.377
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c4qn5"]
+radius = 0.665
+height = 3.435176
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_10j8r"]
 size = Vector3(0.2, 1.939, 1)
@@ -322,6 +335,12 @@ point_count = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb7e8"]
 size = Vector3(12.645, 7.887, 2.231)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_2d2xd"]
+size = Vector3(10.413, 6.664, 4.647)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ww0ml"]
+size = Vector3(31.849, 1, 62.315)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_fodyg"]
 size = Vector3(2.25, 1.394, 2.415)
 
@@ -382,41 +401,52 @@ mesh = ExtResource("12_x1m31")
 [node name="TownBridge" parent="Meshes" unique_id=1045979897 instance=ExtResource("9_25e43")]
 transform = Transform3D(0.79036367, 0, -0.61263794, 0, 1, 0, 0.61263794, 0, 0.79036367, 27.152027, 2.3565292, 19.830751)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/TownBridge" unique_id=949404978]
+[node name="BridgePosts" type="StaticBody3D" parent="Meshes/TownBridge" unique_id=949404978]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/TownBridge/StaticBody3D" unique_id=280082222]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/TownBridge/BridgePosts" unique_id=280082222]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8715086, 2.3815384, 44.799847)
 shape = SubResource("BoxShape3D_25e43")
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="Meshes/TownBridge/StaticBody3D" unique_id=495380089]
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Meshes/TownBridge/BridgePosts" unique_id=495380089]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9775476, -0.08531523, 40.875076)
 shape = SubResource("BoxShape3D_haq7r")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Meshes/TownBridge/StaticBody3D" unique_id=1390504206]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Meshes/TownBridge/BridgePosts" unique_id=1390504206]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1271267, 2.1162271, 45.173264)
 shape = SubResource("BoxShape3D_25e43")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Meshes/TownBridge/StaticBody3D" unique_id=172158186]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Meshes/TownBridge/BridgePosts" unique_id=172158186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7538643, 2.230492, -45.551502)
 shape = SubResource("BoxShape3D_25e43")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Meshes/TownBridge/StaticBody3D" unique_id=68465266]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Meshes/TownBridge/BridgePosts" unique_id=68465266]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.127123, 2.2378864, -45.551502)
 shape = SubResource("BoxShape3D_25e43")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Meshes/TownBridge/StaticBody3D" unique_id=1290804557]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Meshes/TownBridge/BridgePosts" unique_id=1290804557]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0711837, 0.1259737, -42.08239)
 shape = SubResource("BoxShape3D_utvkp")
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="Meshes/TownBridge/StaticBody3D" unique_id=2041470681]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Meshes/TownBridge/BridgePosts" unique_id=2041470681]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8369, -0.08297539, -42.65261)
 shape = SubResource("BoxShape3D_c88i1")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Meshes/TownBridge" unique_id=2043247930]
+[node name="Unbroken" type="CollisionShape3D" parent="Meshes/TownBridge/BridgePosts" unique_id=236229650]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.911555e-06, 0, -33.396236)
+shape = SubResource("BoxShape3D_ue6wd")
+
+[node name="BridgeFloor" type="StaticBody3D" parent="Meshes/TownBridge" unique_id=2043247930]
 transform = Transform3D(0.0076386034, 0, 0.9999708, 0, 1, 0, -0.9999708, 0, 0.0076386034, 0.04569472, 0.53506565, 0.046228528)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/TownBridge/StaticBody3D2" unique_id=97068386]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/TownBridge/BridgeFloor" unique_id=97068386]
 shape = SubResource("BoxShape3D_godah")
+
+[node name="BridgeBlocker" type="StaticBody3D" parent="Meshes/TownBridge" unique_id=142337614]
+process_mode = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/TownBridge/BridgeBlocker" unique_id=1955377332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 8.161851, -21.902822)
+shape = SubResource("BoxShape3D_4440r")
 
 [node name="Water2" type="MeshInstance3D" parent="Meshes" unique_id=745119432]
 transform = Transform3D(0.70362735, 0, -0.71056914, 0, 1, 0, 0.71056914, 0, 0.70362735, -202.87549, 43.59043, -220.3664)
@@ -1755,6 +1785,7 @@ static_positions = [NodePath("../../RaincoatPositions/1"), NodePath("../../Rainc
 stalk_distance = 40.0
 speed_mod = 5.0
 stalk_path = NodePath("../../Paths/Rainpath")
+rainy_movementspeed = 14.0
 
 [node name="Model" parent="NPCs/Raincoat" unique_id=775717676 instance=ExtResource("28_kcn1r")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
@@ -1785,16 +1816,30 @@ aabb = AABB(-1, 0.499, -1, 2, 2, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1866817, 0)
 shape = SubResource("CapsuleShape3D_maf23")
 
-[node name="Brawny" type="Node3D" parent="NPCs" unique_id=80400159 node_paths=PackedStringArray("walk_path", "collider")]
+[node name="ChaseDetector" type="Area3D" parent="NPCs/Raincoat" unique_id=1586757925]
+collision_layer = 128
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/Raincoat/ChaseDetector" unique_id=1744786124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9819231, 0)
+shape = SubResource("CylinderShape3D_c4qn5")
+
+[node name="Brawny" type="Node3D" parent="NPCs" unique_id=80400159 node_paths=PackedStringArray("walk_path", "collider", "bridge_incident", "bridge_collider", "bridge_floor", "bridge_wall", "bridge_timer")]
 transform = Transform3D(0.26931465, 0, -0.9630522, 0, 1, 0, 0.9630522, 0, 0.26931465, 76.94003, -4.050014, -70.324234)
 script = ExtResource("31_y6ah3")
 walk_path = NodePath("../../Paths/BrawnyPath")
 collider = NodePath("Wall")
+bridge_incident = NodePath("../../BridgeIncident")
+bridge_collider = NodePath("../../BridgeIncident/BridgeCollider")
+bridge_floor = NodePath("../../Meshes/TownBridge/BridgeFloor")
+bridge_wall = NodePath("../../Meshes/TownBridge/BridgeBlocker")
+bridge_timer = NodePath("../../BridgeIncident/BridgeCollapse")
 
 [node name="Model" parent="NPCs/Brawny" unique_id=1348584369 instance=ExtResource("31_1ogtm")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="Wall" type="StaticBody3D" parent="NPCs/Brawny" unique_id=1140725082]
+process_mode = 4
 transform = Transform3D(0.121352166, 0, -0.9926095, 0, 1, 0, 0.9926095, 0, 0.121352166, 76.95284, -4.050014, -69.75973)
 top_level = true
 
@@ -1822,11 +1867,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21483707, 0, 14.346808)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7314749, -1.9073486e-06, -14.497202)
 
 [node name="Body" type="StaticBody3D" parent="NPCs/Brawny" unique_id=606032796]
-collision_layer = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/Brawny/Body" unique_id=31671596]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85941505, 0)
 shape = SubResource("CapsuleShape3D_8s5l4")
+
+[node name="RockCollider" type="Area3D" parent="NPCs/Brawny" unique_id=424167932]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/Brawny/RockCollider" unique_id=1312401695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46258783, 0)
+shape = SubResource("CapsuleShape3D_c4qn5")
 
 [node name="Houses" type="Node3D" parent="." unique_id=2044675819]
 
@@ -2044,12 +2096,33 @@ curve = SubResource("Curve3D_sb7e8")
 [node name="BridgeIncident" type="Node3D" parent="." unique_id=191743409]
 transform = Transform3D(0.798416, 0, -0.60210615, 0, 1, 0, 0.60210615, 0, 0.798416, 28.0348, 3.363119, 19.271593)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="BridgeIncident" unique_id=1015992275]
+[node name="BridgeCollider" type="StaticBody3D" parent="BridgeIncident" unique_id=1015992275]
 process_mode = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BridgeIncident/StaticBody3D" unique_id=157523084]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BridgeIncident/BridgeCollider" unique_id=157523084]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4566526, 0)
 shape = SubResource("BoxShape3D_sb7e8")
+
+[node name="RaincoatCatcher" type="Area3D" parent="BridgeIncident" unique_id=1804451315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841858e-07, 0, -27.700045)
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BridgeIncident/RaincoatCatcher" unique_id=955598798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0436068, 0)
+shape = SubResource("BoxShape3D_2d2xd")
+
+[node name="PlayerCatcher" type="Area3D" parent="BridgeIncident" unique_id=1741052125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.151718, 0)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BridgeIncident/PlayerCatcher" unique_id=1920244756]
+shape = SubResource("BoxShape3D_ww0ml")
+
+[node name="BridgeCollapse" type="Timer" parent="BridgeIncident" unique_id=79049877]
+wait_time = 5.0
+one_shot = true
 
 [node name="RockPile" type="Node3D" parent="." unique_id=943188009]
 transform = Transform3D(0.9983646, 0.057095822, -0.0028440468, -0.055380613, 0.97831446, 0.19958362, 0.014177762, -0.19909975, 0.97987664, -8.425048, 3.2877157, 52.27045)
@@ -2069,4 +2142,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.566996e-10, 0.25011018, -3
 shape = SubResource("BoxShape3D_fodyg")
 
 [connection signal="triggered" from="NPCs/Raincoat/RaincoatInteract" to="NPCs/Raincoat/RaincoatInteract" method="queue_free"]
+[connection signal="body_entered" from="NPCs/Raincoat/ChaseDetector" to="NPCs/Raincoat" method="_on_chase_detector_body_entered"]
+[connection signal="brawny_murdered" from="NPCs/Brawny" to="NPCs/Raincoat" method="_on_brawny_brawny_murdered"]
 [connection signal="triggered" from="NPCs/Brawny/BrawnyInteract" to="NPCs/Brawny" method="_on_brawny_interact_triggered"]
+[connection signal="body_entered" from="NPCs/Brawny/RockCollider" to="NPCs/Brawny" method="_on_rock_collider_body_entered"]
+[connection signal="area_entered" from="BridgeIncident/RaincoatCatcher" to="NPCs/Raincoat" method="_on_raincoat_catcher_body_entered"]
+[connection signal="body_entered" from="BridgeIncident/PlayerCatcher" to="NPCs/Raincoat" method="_on_chase_detector_body_entered"]
+[connection signal="timeout" from="BridgeIncident/BridgeCollapse" to="NPCs/Brawny" method="_on_bridge_collapse_timeout"]
