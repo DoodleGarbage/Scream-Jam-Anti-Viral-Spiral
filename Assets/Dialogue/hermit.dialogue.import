@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://c30734y2kerin"
+path="res://.godot/imported/hermit.dialogue-00a7a5f2bf3194dd54e053f0c977b63d.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/hermit.dialogue"
+dest_files=["res://.godot/imported/hermit.dialogue-00a7a5f2bf3194dd54e053f0c977b63d.tres"]
+
+[params]
+
+defaults=true

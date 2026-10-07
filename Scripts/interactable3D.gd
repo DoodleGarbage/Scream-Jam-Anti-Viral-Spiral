@@ -40,7 +40,7 @@ var book_index : int = -1
 @export var end_day : bool = false
 
 func get_restrictions() -> bool:
-	var routine : bool = (required_complete_tasks > -1 and not Status.completed_tasks+1 == required_complete_tasks)
+	var routine : bool = (required_complete_tasks > -1 and not Status.completed_tasks_names.size() >= required_complete_tasks) or (is_routine and Status.completed_tasks_names.has(routine_task))
 	#print("reoutine: ", routine)
 	var work : bool = ((require_completing_work and not Status.work_complete) and not invert_work) or (not (require_completing_work and not Status.work_complete) and invert_work)
 	#print("Work: ", work)

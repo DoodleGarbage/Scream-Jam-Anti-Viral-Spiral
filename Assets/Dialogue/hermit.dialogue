@@ -1,0 +1,43 @@
+~ day1
+Folly: Hello? Anybody there?
+Hermit: What do you want?
+Folly: I wanted to introduce myself.
+Hermit: I don't have time for that.
+=> END!
+~ night1
+Folly: Are you there?
+Hermit: It's late.
+Folly: Lore Relevant Question
+=> END!
+~ day2
+Folly: Do you know why Brawny and Raincoat are suspicious of me?
+Hermit: Yes.
+Folly: Is it because of LORE
+=> END!
+~ night2
+Folly: Hello [again].
+Hermit: You know you aren't wanted here.
+Folly: You don't like me?
+Hermit: The others are the ones who don't like you. They glimpse what you are and it scares them.
+Folly: Are you scared of me?
+Hermit: ...No. I was in your place once, and I never got out. I'll help you. 
+=> END!
+~ day3
+Folly: I did something awful.
+Hermit: What did you do?
+Folly: MEMENTO TEST I threw a stone at Brawny and knocked him off the bridge!
+Hermit: ...You haven't learned anything.
+=> END!
+~ night3
+Folly: What do I do now? Everything I touch is falling apart!
+Hermit: It is time you left. If you stay any longer, you will be entrenched here, trapped in the cobwebs of doubt, like me.
+Folly: How do I leave? The bridge is broken.
+Hermit: Forgive yourself.
+=> END!
+~ hell
+Hermit: You chose to stay.
+Folly: I couldn't figure out how to leave.
+Hermit: ...
+Folly: Are you there?
+Hermit: ...Leave me be. Your stay here will never be welcomed.
+=> END!

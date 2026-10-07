@@ -3,6 +3,7 @@ extends Node3D
 @export var player : Node3D
 @export var bounding_box : VisibleOnScreenNotifier3D
 @export var static_positions : Array[VisibleOnScreenNotifier3D] = []
+@export var bridge_mesh : Node3D
 ## In meters
 @export var stalk_distance : float = 0.0
 @export var speed_mod : float = 10.0
@@ -68,6 +69,7 @@ func _process(_delta: float) -> void:
 	if falling:
 		velocity_y += gravity*_delta
 		global_position.y -= velocity_y*_delta
+		bridge_mesh.global_position.y -= velocity_y*_delta
 
 func _ready() -> void:
 	match(Status.current_day_string):
@@ -119,3 +121,7 @@ func _on_raincoat_catcher_body_entered(_body: Node3D) -> void:
 	print("I've been caught!")
 	chase_player = false
 	falling = true
+
+
+func _on_bridge_collapse_timeout() -> void:
+	bridge_mesh.show()

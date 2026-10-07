@@ -15,6 +15,7 @@ var current_day_string : String :
 var in_dialogue : bool = false
 
 const ROUTINE_TASKS : Array[String] = ["food","washup","dress"]
+var completed_tasks_names : Array[String] = []
 var completed_tasks : int = -1
 
 var game_node : Node
@@ -66,6 +67,8 @@ func pickup_rock() -> void:
 
 const rock_throw_force : float = 10.0
 func throw_rock() -> void:
+	if not holding_rock or in_dialogue:
+		return
 	clear_rock()
 	var thrown_rock : RigidBody3D = preload("res://Scenes/rock_projectile.tscn").instantiate()
 	game_node.add_child(thrown_rock)
@@ -83,12 +86,14 @@ func clear_rock()-> void:
 
 
 func complete_routine(task:String, audio_player=null) -> bool:
-	var task_num : int = int(task)
-	if completed_tasks != task_num-1:
+	if completed_tasks_names.has(task):
 		return false
+	#var task_num : int = int(task)
+	#if completed_tasks != task_num-1:
+		#return false
 	completed_tasks += 1
-	#completed_tasks.append(task)
-	Audio.play(task.right(-1), audio_player)
+	completed_tasks_names.append(task)
+	Audio.play(task, audio_player)
 	return true
 
 func movement_allowed() -> bool:
@@ -103,6 +108,7 @@ func end_day() -> void:
 	current_day += 1
 	woke_up = false
 	waking_up = false
+	completed_tasks_names = []
 
 func position_character(spawn_point:Node3D, character:CharacterBody3D) -> void:
 	#print("Position character called to go to: ", spawn_point.global_position)
@@ -115,6 +121,7 @@ func restart_day() -> void:
 	total_books = 0
 	returned_books = -1
 	completed_tasks = -1
+	completed_tasks_names = []
 	woke_up = false
 	waking_up = false
 	game_node.switch_scene("follys_room")

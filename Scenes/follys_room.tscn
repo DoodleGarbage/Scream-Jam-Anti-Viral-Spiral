@@ -324,7 +324,7 @@ script = ExtResource("19_65x00")
 desc = "Get Dressed"
 audio_player = NodePath("../AudioPlayer3D")
 is_routine = true
-routine_task = "0dress"
+routine_task = "dress"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/Dresser/Dress" unique_id=1413267361]
@@ -422,7 +422,7 @@ script = ExtResource("19_65x00")
 desc = "Get Food"
 audio_player = NodePath("../AudioPlayer3D")
 is_routine = true
-routine_task = "1food"
+routine_task = "food"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/fridge/eat" unique_id=1894635662]
@@ -467,7 +467,7 @@ script = ExtResource("19_65x00")
 desc = "Wash Up"
 audio_player = NodePath("../AudioPlayer3D")
 is_routine = true
-routine_task = "2washup"
+routine_task = "washup"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Furniture/bathroomsink/WashUp" unique_id=40850865]

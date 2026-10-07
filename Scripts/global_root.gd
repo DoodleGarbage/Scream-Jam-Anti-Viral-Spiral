@@ -39,6 +39,7 @@ func switch_scene(scene:String) -> void:
 		push_error("Tried to load non-existent scene: ", scene)
 		return
 	Status.clear_rock()
+	dialogue_display.end_dialogue()
 	#print("Character position before everything: ", player_character.position)
 	Status.loading = true
 	active_scene.queue_free()

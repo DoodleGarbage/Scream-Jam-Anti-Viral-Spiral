@@ -181,19 +181,28 @@ func _process(_delta):
 func _physics_process(delta): # Most things happen here.
 	#if Status.loading:
 		#return
-	if not Status.movement_allowed():
-		if RETICLE:
-			RETICLE.hide()
-		handle_movement(delta, Vector2.ZERO)
-		return
-	if RETICLE:
-		RETICLE.show()
+	
+	
 	# Gravity
 	if dynamic_gravity:
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	if not is_on_floor() and gravity and gravity_enabled:
 		velocity.y -= gravity * delta
-
+	
+	# Dialogue etc.
+	if not Status.movement_allowed():
+		if RETICLE:
+			RETICLE.hide()
+		handle_movement(delta, Vector2.ZERO)
+		handle_head_rotation()
+		if dynamic_fov:
+			update_camera_fov()
+		was_on_floor = is_on_floor()
+		return
+	
+	if RETICLE:
+		RETICLE.show()
+	
 	handle_jumping()
 
 	var input_dir = Vector2.ZERO
@@ -321,13 +330,13 @@ func get_interactor() -> Object:
 
 func handle_interaction() -> void:
 	var collider = get_interactor()
-	if collider is Interactable3D and collider.monitorable and not Status.in_dialogue:
+	if collider is Interactable3D and collider.monitorable and not (Status.in_dialogue or not Status.woke_up):
 		collider.trigger_effects()
 		return
-	if Status.holding_rock:
+	if Status.holding_rock and not Status.in_dialogue:
 		Status.throw_rock()
 
-func update_interaction_display() -> void:	
+func update_interaction_display() -> void:
 	$CL/UserInterface/InteractLabel.hide()
 	if not Status.movement_allowed() or Status.in_dialogue:
 		return
@@ -335,8 +344,8 @@ func update_interaction_display() -> void:
 	if collider is Interactable3D and collider.monitorable:
 		if collider.collects_book and (Status.holding_book == false or Status.held_book_index != collider.book_index):
 			return
-		if collider.is_routine and Status.completed_tasks != int(collider.routine_task)-1:
-			return
+		#if collider.is_routine and Status.completed_tasks != int(collider.routine_task)-1:
+			#return
 		if collider.get_restrictions():
 			return
 		var txt = collider.desc

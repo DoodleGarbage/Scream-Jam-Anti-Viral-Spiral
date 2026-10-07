@@ -2,7 +2,7 @@
 Raincoat: ...
 Raincoat: You're the new librarian?
 Folly: Yes.
-Raincoat: I vist the library often. It's a good place to revisit the old memories left behind by shadows of the past. I enjoy reading the books they have.
+Raincoat: I visit the library often. It's a good place to revisit the old memories left behind by shadows of the past. I enjoy reading the books they have.
 => END!
 ~ night1
 => END!
@@ -17,4 +17,8 @@ Raincoat: I'm watching you.
 ~ night3
 => END!
 ~ hell
+Raincoat: Help. Help. Help. Help. Help. Help. Help. Help. Help. Help. Help. Help. Help.
+Folly: Are you okay!? How can I help??
+Raincoat: Help. Help. Help. Help. Help. Help. Help. Help. Help...........
+Folly: I'm sorry. I'm sorry...
 => END!

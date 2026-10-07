@@ -36,6 +36,7 @@ func _get_stream(audio:String) -> AudioStream:
 		"main_menu": return preload("res://Assets/Audio/Title_Theme.mp3")
 		"first_day": return preload("res://Assets/Audio/First_Day_on_the_Job.mp3")
 		"being_followed": return preload("res://Assets/Audio/i_am_being_followed.mp3")
+		"knock": return preload("res://Assets/Audio/knockknock.mp3")
 	return null
 
 func _get_volume(audio:String) -> float:
