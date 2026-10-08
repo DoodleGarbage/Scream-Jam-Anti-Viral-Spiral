@@ -194,7 +194,7 @@ func _physics_process(delta): # Most things happen here.
 		if RETICLE:
 			RETICLE.hide()
 		handle_movement(delta, Vector2.ZERO)
-		handle_head_rotation()
+		#handle_head_rotation()
 		if dynamic_fov:
 			update_camera_fov()
 		was_on_floor = is_on_floor()
@@ -342,8 +342,8 @@ func update_interaction_display() -> void:
 		return
 	var collider = get_interactor()
 	if collider is Interactable3D and collider.monitorable:
-		if collider.collects_book and (Status.holding_book == false or Status.held_book_index != collider.book_index):
-			return
+		#if collider.collects_book and (Status.holding_book == false or Status.held_book_index != collider.book_index):
+			#return
 		#if collider.is_routine and Status.completed_tasks != int(collider.routine_task)-1:
 			#return
 		if collider.get_restrictions():

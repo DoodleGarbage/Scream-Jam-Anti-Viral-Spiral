@@ -34,9 +34,12 @@ func _get_stream(audio:String) -> AudioStream:
 		"washup": return preload("res://Assets/Audio/wash_up.mp3")
 		"library": return preload("res://Assets/Audio/Library.mp3")
 		"main_menu": return preload("res://Assets/Audio/Title_Theme.mp3")
-		"first_day": return preload("res://Assets/Audio/First_Day_on_the_Job.mp3")
+		"second_day": return preload("res://Assets/Audio/First_Day_on_the_Job.mp3")
+		"first_day": return preload("res://Assets/Audio/First_Day_on_the_Job_with_Librarian.mp3")
 		"being_followed": return preload("res://Assets/Audio/i_am_being_followed.mp3")
 		"knock": return preload("res://Assets/Audio/knockknock.mp3")
+		"someplace_calm": return preload("res://Assets/Audio/Someplace_Calm.mp3")
+		"hell": return preload("res://Assets/Audio/Hellscape.mp3")
 	return null
 
 func _get_volume(audio:String) -> float:
@@ -44,6 +47,7 @@ func _get_volume(audio:String) -> float:
 	match(audio):
 		"prudent_folly": mod = 0.0
 		"first_day": mod = 0.0
+		"someplace_calm": mod = -15
 	return mod
 
 ## AudioStreamPlayers do not have a common inheritance class
@@ -55,12 +59,7 @@ func play(audio: String, audio_player = null, fade_in:bool = false) -> void:
 	print("Playing track: ", audio)
 	var next_track : String = ""
 	match(audio):
-		"prudent_folly": next_track = "prudent_folly"
-		"alarm_sound": next_track = "alarm_sound"
-		"library": next_track = "library"
-		"main_menu": next_track = "main_menu"
-		"first_day": next_track = "first_day"
-		"being_followed": next_track = "being_followed"
+		"prudent_folly","alarm_sound","library","main_menu","first_day","being_followed","someplace_calm","hell": next_track = audio
 	var _volume : float = _get_volume(audio)
 	_play_audio(stream, audio, audio_player, _volume, next_track, fade_in)
 

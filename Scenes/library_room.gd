@@ -14,6 +14,8 @@ func loaded(_last_scene:String) -> void:
 	match(Status.current_day_string):
 		"day1":
 			Audio.play("first_day")
+		"day2":
+			Audio.play("second_day")
 		_:
 			Audio.play("library")
 	Status.position_character(loading_point, character)

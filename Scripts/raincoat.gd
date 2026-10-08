@@ -4,6 +4,8 @@ extends Node3D
 @export var bounding_box : VisibleOnScreenNotifier3D
 @export var static_positions : Array[VisibleOnScreenNotifier3D] = []
 @export var bridge_mesh : Node3D
+@export var broken_bridge : Node3D
+@export var bridge_blocker : StaticBody3D
 ## In meters
 @export var stalk_distance : float = 0.0
 @export var speed_mod : float = 10.0
@@ -58,7 +60,7 @@ func _process(_delta: float) -> void:
 		show()
 		var dist_to_player : float = stalk_path.curve.get_closest_point(player.global_position).distance_to(player.global_position)
 		var closest_offset : float = stalk_path.curve.get_closest_offset(player.global_position) - max((stalk_distance)-dist_to_player, 0)
-		if closest_offset < 0.0 and stalk_path.curve.sample_baked(closest_offset, true).distance_to(player.global_position) < stalk_distance:
+		if closest_offset <= 0.01 and stalk_path.curve.sample_baked(closest_offset, true).distance_to(player.global_position) < stalk_distance:
 			hide()
 		global_position = stalk_path.curve.sample_baked(closest_offset, true)
 		#set_axis_velocity(global_position.direction_to(points[closest_idx_player-1]) * speed_mod)
@@ -121,7 +123,9 @@ func _on_raincoat_catcher_body_entered(_body: Node3D) -> void:
 	print("I've been caught!")
 	chase_player = false
 	falling = true
+	broken_bridge.show()
+	bridge_blocker.process_mode = Node.PROCESS_MODE_INHERIT
 
 
-func _on_bridge_collapse_timeout() -> void:
-	bridge_mesh.show()
+#func _on_bridge_collapse_timeout() -> void:
+	#bridge_mesh.show()

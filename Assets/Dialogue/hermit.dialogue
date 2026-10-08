@@ -6,7 +6,7 @@ Hermit: I don't have time for that.
 => END!
 ~ night1
 Folly: Are you there?
-Hermit: It's late.
+Hermit: Yes. We are creatures of the dark, after all.
 Folly: Lore Relevant Question
 => END!
 ~ day2
@@ -20,24 +20,21 @@ Hermit: You know you aren't wanted here.
 Folly: You don't like me?
 Hermit: The others are the ones who don't like you. They glimpse what you are and it scares them.
 Folly: Are you scared of me?
-Hermit: ...No. I was in your place once, and I never got out. I'll help you. 
+Hermit: ...No. I was in your place once. Perhaps we're here to stay, forever and ever, stuck in an endless loop of sameness.
 => END!
 ~ day3
 Folly: I did something awful.
 Hermit: What did you do?
 Folly: MEMENTO TEST I threw a stone at Brawny and knocked him off the bridge!
-Hermit: ...You haven't learned anything.
+Hermit: ...You haven't learned anything. Meet me tomorrow.
 => END!
 ~ night3
 Folly: What do I do now? Everything I touch is falling apart!
 Hermit: It is time you left. If you stay any longer, you will be entrenched here, trapped in the cobwebs of doubt, like me.
-Folly: How do I leave? The bridge is broken.
-Hermit: Forgive yourself.
+Folly: How do I leave?
+Hermit: Seek forgiveness. But not from others. From yourself. Go home. I will help you tomorrow.
 => END!
 ~ hell
-Hermit: You chose to stay.
-Folly: I couldn't figure out how to leave.
-Hermit: ...
-Folly: Are you there?
-Hermit: ...Leave me be. Your stay here will never be welcomed.
+=> END!
+~ hellnight
 => END!

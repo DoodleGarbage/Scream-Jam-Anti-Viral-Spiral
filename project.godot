@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="Another Day"
+config/description="Scream Jam Game Dev - Anti-Viral Spiral Team - Another Day psychological horror"
 run/main_scene="uid://daug6eloobu1h"
 config/features=PackedStringArray("4.7", "Forward Plus")
 run/max_fps=60
 boot_splash/bg_color=Color(0.30544716, 0.62893337, 0.70889413, 1)
 boot_splash/image="uid://dcv38gaf14303"
-config/icon="res://icon.svg"
+config/icon="uid://dcv38gaf14303"
 boot_splash/minimum_display_time=200
 
 [autoload]
@@ -112,6 +113,7 @@ crouch={
 interact={
 "deadzone": 0.19,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(230.77539, 17.268555),"global_position":Vector2(244.77539, 90.268555),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 pause={
@@ -124,12 +126,13 @@ advance_dialogue={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(369.90625, 28.328125),"global_position":Vector2(383.90625, 101.328125),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 , Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(279.96973, 16.233398),"global_position":Vector2(293.96973, 89.2334),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
 , Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":4,"position":Vector2(338.49023, 12.50293),"global_position":Vector2(352.49023, 85.50293),"factor":1.0,"button_index":3,"canceled":false,"pressed":true,"double_click":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
 ]
 }
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Assets/Dialogue/letter.dialogue", "res://Assets/Dialogue/mirror.dialogue", "res://Assets/Dialogue/note.dialogue", "res://Assets/Dialogue/raincoat.dialogue", "res://Assets/Dialogue/brawny.dialogue", "res://Assets/Dialogue/hermit.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Assets/Dialogue/letter.dialogue", "res://Assets/Dialogue/mirror.dialogue", "res://Assets/Dialogue/note.dialogue", "res://Assets/Dialogue/raincoat.dialogue", "res://Assets/Dialogue/brawny.dialogue", "res://Assets/Dialogue/hermit.dialogue", "res://Assets/Dialogue/memento_engraving.dialogue")
 
 [physics]
 

@@ -7,12 +7,15 @@ var current_day : int = 1
 var current_day_string : String :
 	get:
 		if current_day > 3:
+			if work_complete:
+				return "hellnight"
 			return "hell"
 		if work_complete:
 			return "night" + str(current_day)
 		return "day" + str(current_day)
 
 var in_dialogue : bool = false
+var allow_dialogue : bool = true
 
 const ROUTINE_TASKS : Array[String] = ["food","washup","dress"]
 var completed_tasks_names : Array[String] = []
@@ -34,8 +37,6 @@ var total_books : int = 0
 var work_complete : bool :
 	get:
 		return returned_books >= total_books
-
-
 
 
 

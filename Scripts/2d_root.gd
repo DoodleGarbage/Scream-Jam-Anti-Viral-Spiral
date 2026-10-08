@@ -5,10 +5,10 @@ extends Node2D
 #func _ready() -> void:
 #	disable_scene()
 
-func activate_scene() -> void:
-	show()
-	process_mode = Node.PROCESS_MODE_INHERIT
-	player.set_physics_process(true)
+#func activate_scene() -> void:
+	#show()
+	#process_mode = Node.PROCESS_MODE_INHERIT
+	#player.set_physics_process(true)
 
 #func disable_scene() -> void:
 	#hide()

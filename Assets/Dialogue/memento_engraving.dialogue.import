@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dl7443p3bwp5k"
+path="res://.godot/imported/memento_engraving.dialogue-d2eeac2d5abc91110fd6a91d878af32b.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/memento_engraving.dialogue"
+dest_files=["res://.godot/imported/memento_engraving.dialogue-d2eeac2d5abc91110fd6a91d878af32b.tres"]
+
+[params]
+
+defaults=true

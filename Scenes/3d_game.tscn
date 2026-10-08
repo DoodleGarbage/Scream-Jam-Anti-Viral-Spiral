@@ -39,11 +39,13 @@
 [ext_resource type="Resource" uid="uid://bmch1n8uqt1fx" path="res://Assets/Dialogue/brawny.dialogue" id="33_sb7e8"]
 [ext_resource type="PackedScene" uid="uid://bwi2h2acc5gs" path="res://Scenes/fence_1.tscn" id="34_10j8r"]
 [ext_resource type="PackedScene" uid="uid://jdy3kep3fl1f" path="res://Assets/Models/hermit_house.blend" id="37_bcvxy"]
+[ext_resource type="Resource" uid="uid://c30734y2kerin" path="res://Assets/Dialogue/hermit.dialogue" id="38_d0v6r"]
 [ext_resource type="Script" uid="uid://coji4uh3esqdw" path="res://Scripts/3d_audio_player.gd" id="38_ufl2o"]
 [ext_resource type="PackedScene" uid="uid://dj0l1b4wofgpu" path="res://Assets/Models/rock_pile.blend" id="39_vufqp"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_godah"]
-size = Vector3(90, 1, 11)
+[ext_resource type="PackedScene" uid="uid://d0mwi2bg02g8w" path="res://Assets/Models/hermit_house_open.blend" id="40_nhdq1"]
+[ext_resource type="PackedScene" uid="uid://b52fo32rxcjua" path="res://Assets/Models/FollyTree.blend" id="43_tsajd"]
+[ext_resource type="Texture2D" uid="uid://bmrhqgcnl0f8i" path="res://Assets/Textures/follymercurytreeengraving.png" id="44_5rlxj"]
+[ext_resource type="Resource" uid="uid://dl7443p3bwp5k" path="res://Assets/Dialogue/memento_engraving.dialogue" id="45_f20d5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ul1u8"]
 size = Vector3(2.5, 5, 2.5)
@@ -97,14 +99,8 @@ size = Vector3(1.5, 5, 5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_c88i1"]
 size = Vector3(1.5, 5, 4)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ue6wd"]
-size = Vector3(13.41, 1.972, 18.028)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_godah"]
 size = Vector3(90, 1, 10)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4440r"]
-size = Vector3(23.034, 16.869, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mskaw"]
 render_priority = 0
@@ -136,7 +132,7 @@ particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_5e55t"]
 material = SubResource("StandardMaterial3D_5e55t")
-size = Vector2(3, 3)
+size = Vector2(6, 6)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iscit"]
 direction = Vector3(0, -1, 1)
@@ -157,7 +153,7 @@ billboard_mode = 2
 [sub_resource type="QuadMesh" id="QuadMesh_m4q0v"]
 material = SubResource("StandardMaterial3D_qbgsn")
 custom_aabb = AABB(0.004, -53.395, 0, 9.027, 59.599, 10.258)
-size = Vector2(2, 2)
+size = Vector2(2, 8)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vu6bh"]
 direction = Vector3(0, -1, 1)
@@ -168,6 +164,12 @@ initial_velocity_max = 28.0
 gravity = Vector3(0, -30, 0)
 linear_accel_min = -32.08
 linear_accel_max = -18.640001
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4440r"]
+size = Vector3(23.034, 16.869, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ue6wd"]
+size = Vector3(13.41, 1.972, 18.028)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g37um"]
 size = Vector3(30, 300, 30)
@@ -291,7 +293,10 @@ size = Vector3(6.759, 11.155, 13.083)
 size = Vector3(7.025, 7.985, 3.952)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vvq6s"]
-size = Vector3(0.497, 2.069, 1)
+size = Vector3(0.497, 2.069, 1.074)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nhdq1"]
+size = Vector3(0.555, 2.151, 1.129)
 
 [sub_resource type="Gradient" id="Gradient_ci2nm"]
 offsets = PackedFloat32Array(0, 0.36252877, 0.706276, 1)
@@ -350,10 +355,23 @@ size = Vector3(12.645, 7.887, 2.231)
 size = Vector3(10.413, 6.664, 4.647)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ww0ml"]
-size = Vector3(31.849, 1, 62.315)
+size = Vector3(31.849, 13.4, 62.315)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fodyg"]
 size = Vector3(2.25, 1.394, 2.415)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fodyg"]
+height = 3.799
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4qn5"]
+transparency = 1
+albedo_texture = ExtResource("44_5rlxj")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8s5l4"]
+material = SubResource("StandardMaterial3D_c4qn5")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3jhd4"]
+size = Vector3(0.392, 0.602, 0.674)
 
 [node name="3DRoot" type="Node3D" unique_id=1576440724 node_paths=PackedStringArray("library_exit", "folly_exit")]
 script = ExtResource("1_wgwvh")
@@ -365,30 +383,25 @@ transform = Transform3D(320.12598, 0, -875.7423, 0, 932.419, 0, 875.7423, 0, 320
 
 [node name="Meshes" type="Node3D" parent="." unique_id=1670238264]
 
-[node name="Bridge" type="MeshInstance3D" parent="Meshes" unique_id=724153932]
-transform = Transform3D(0.61865735, 0, 0.7856609, 0, 1, 0, -0.7856609, 0, 0.61865735, 28.313578, 1.602149, 18.430079)
-visible = false
-mesh = SubResource("BoxMesh_godah")
-
-[node name="BrokenBridge" type="Node3D" parent="Meshes" unique_id=777187507]
+[node name="WaterfallBridge" type="Node3D" parent="Meshes" unique_id=777187507]
 transform = Transform3D(0.84430087, 0, 0.53586936, 0, 1, 0, -0.53586936, 0, 0.84430087, -135.17847, 55.72548, -153.51068)
 
-[node name="BrokenBridge" parent="Meshes/BrokenBridge" unique_id=1423417016 instance=ExtResource("5_ul1u8")]
+[node name="BrokenBridge" parent="Meshes/WaterfallBridge" unique_id=1423417016 instance=ExtResource("5_ul1u8")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 29.585878, -3.8146973e-06, 0.20787667)
 
-[node name="BrokenBridge2" parent="Meshes/BrokenBridge" unique_id=809277154 instance=ExtResource("5_ul1u8")]
+[node name="BrokenBridge2" parent="Meshes/WaterfallBridge" unique_id=809277154 instance=ExtResource("5_ul1u8")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.011248, 0, 0.043252707)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/BrokenBridge/BrokenBridge2" unique_id=1540393526]
+[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/WaterfallBridge/BrokenBridge2" unique_id=1540393526]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.301882, 0, 5.047727)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/BrokenBridge/BrokenBridge2/StaticBody3D" unique_id=2083852238]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/WaterfallBridge/BrokenBridge2/StaticBody3D" unique_id=2083852238]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1838629, 2.7772293, 0.39664078)
 shape = SubResource("BoxShape3D_ul1u8")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Meshes/BrokenBridge/BrokenBridge2" unique_id=932375056]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Meshes/WaterfallBridge/BrokenBridge2" unique_id=932375056]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/BrokenBridge/BrokenBridge2/StaticBody3D2" unique_id=445113827]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/WaterfallBridge/BrokenBridge2/StaticBody3D2" unique_id=445113827]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.940697e-08, -4.0111694, -2.2177665)
 shape = SubResource("BoxShape3D_1ogtm")
 
@@ -442,28 +455,11 @@ shape = SubResource("BoxShape3D_utvkp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8369, -0.08297539, -42.65261)
 shape = SubResource("BoxShape3D_c88i1")
 
-[node name="Unbroken" type="CollisionShape3D" parent="Meshes/TownBridge/BridgePosts" unique_id=236229650]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0233135e-06, 0, -37.38562)
-shape = SubResource("BoxShape3D_ue6wd")
-
 [node name="BridgeFloor" type="StaticBody3D" parent="Meshes/TownBridge" unique_id=2043247930]
 transform = Transform3D(0.0076386034, 0, 0.9999708, 0, 1, 0, -0.9999708, 0, 0.0076386034, 0.04569472, 0.53506565, 0.046228528)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/TownBridge/BridgeFloor" unique_id=97068386]
 shape = SubResource("BoxShape3D_godah")
-
-[node name="BridgeBlocker" type="StaticBody3D" parent="Meshes/TownBridge" unique_id=142337614]
-process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3841858e-07, 0, -6.761176)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/TownBridge/BridgeBlocker" unique_id=1955377332]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 8.161851, -21.902822)
-shape = SubResource("BoxShape3D_4440r")
-
-[node name="BrokenBridge" parent="Meshes/TownBridge" unique_id=213599783 instance=ExtResource("5_ul1u8")]
-transform = Transform3D(-0.7903637, 0, 0.6126379, 0, 1, 0, -0.6126379, 0, -0.7903637, 51.895622, 2.3565292, -11.898304)
-top_level = true
-visible = false
 
 [node name="Water2" type="MeshInstance3D" parent="Meshes" unique_id=745119432]
 transform = Transform3D(0.70362735, 0, -0.71056914, 0, 1, 0, 0.71056914, 0, 0.70362735, -202.87549, 43.59043, -220.3664)
@@ -473,7 +469,7 @@ mesh = SubResource("PlaneMesh_mskaw")
 
 [node name="Spray" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=1459128436]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.55552, -9.620382, -93.813255)
-amount = 241
+amount = 15
 lifetime = 0.8
 explosiveness = 0.07
 randomness = 0.57
@@ -482,7 +478,7 @@ draw_pass_1 = SubResource("QuadMesh_5e55t")
 
 [node name="Spray2" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=1231234632]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.78748, -9.6203785, -101.81777)
-amount = 241
+amount = 15
 lifetime = 0.8
 explosiveness = 0.07
 randomness = 0.57
@@ -491,7 +487,7 @@ draw_pass_1 = SubResource("QuadMesh_5e55t")
 
 [node name="Spray3" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=561654803]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.03457, -9.6203785, -115.58105)
-amount = 241
+amount = 15
 lifetime = 0.8
 explosiveness = 0.07
 randomness = 0.57
@@ -500,7 +496,7 @@ draw_pass_1 = SubResource("QuadMesh_5e55t")
 
 [node name="Spray4" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=1570724224]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.17055, -9.620371, -83.11848)
-amount = 241
+amount = 15
 lifetime = 0.8
 explosiveness = 0.07
 randomness = 0.57
@@ -509,7 +505,7 @@ draw_pass_1 = SubResource("QuadMesh_5e55t")
 
 [node name="Spray5" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=951894511]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.20014, -9.620371, -92.50064)
-amount = 241
+amount = 15
 lifetime = 0.8
 explosiveness = 0.07
 randomness = 0.57
@@ -517,8 +513,8 @@ process_material = SubResource("ParticleProcessMaterial_ruleg")
 draw_pass_1 = SubResource("QuadMesh_5e55t")
 
 [node name="Spray7" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=1221924237]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.64394, -5.37644, -128.14789)
-amount = 241
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.64394, -8.431557, -128.14789)
+amount = 15
 lifetime = 0.8
 explosiveness = 0.07
 randomness = 0.57
@@ -527,7 +523,7 @@ draw_pass_1 = SubResource("QuadMesh_5e55t")
 
 [node name="Spray6" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=727519093]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.32723, -9.620375, -111.53286)
-amount = 241
+amount = 15
 lifetime = 0.8
 explosiveness = 0.07
 randomness = 0.57
@@ -569,38 +565,56 @@ transform = Transform3D(-11.056739, -4.2941437, 0, 4.2941437, -11.056739, 0, 0, 
 
 [node name="fall" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=2139704521]
 transform = Transform3D(0.89169216, 0, 0.45264238, 0, 1, 0, -0.45264238, 0, 0.89169216, -102.88024, 40.974262, -130.95866)
-amount = 64
 lifetime = 0.61
 process_material = SubResource("ParticleProcessMaterial_iscit")
 draw_pass_1 = SubResource("QuadMesh_m4q0v")
 
 [node name="fall4" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=1489416965]
-transform = Transform3D(0.97810537, 0, 0.20811015, 0, 1, 0, -0.20811015, 0, 0.97810537, -116.45556, 42.08166, -113.426636)
-amount = 120
+transform = Transform3D(0.9605836, 0, 0.2779911, 0, 1, 0, -0.2779911, 0, 0.9605836, -116.42124, 42.08166, -113.43394)
+amount = 15
 lifetime = 1.4
 process_material = SubResource("ParticleProcessMaterial_iscit")
 draw_pass_1 = SubResource("QuadMesh_m4q0v")
 
 [node name="fall2" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=493742706]
 transform = Transform3D(0.90831214, 0, -0.41829312, 0, 1, 0, 0.41829312, 0, 0.90831214, -99.82522, 28.393097, -122.60079)
-amount = 90
+amount = 20
 lifetime = 1.34
 process_material = SubResource("ParticleProcessMaterial_iscit")
 draw_pass_1 = SubResource("QuadMesh_m4q0v")
 
 [node name="fall5" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=2081514825]
 transform = Transform3D(0.7472647, 0, 0.6645265, 0, 1, 0, -0.6645265, 0, 0.7472647, -115.21927, 17.841509, -101.95834)
-amount = 150
+amount = 80
 lifetime = 1.34
 process_material = SubResource("ParticleProcessMaterial_vu6bh")
 draw_pass_1 = SubResource("QuadMesh_m4q0v")
 
 [node name="fall3" type="GPUParticles3D" parent="Meshes/Waterfall" unique_id=1057069940]
-transform = Transform3D(-0.8083185, 0, 0.5887456, 0, 1, 0, -0.5887456, 0, -0.8083185, -99.17223, 28.393097, -123.60132)
-amount = 90
-lifetime = 1.25
+transform = Transform3D(-0.48055318, 0, 0.87696576, 0, 1, 0, -0.87696576, 0, -0.48055318, -99.17223, 28.393097, -123.60132)
+amount = 20
+lifetime = 1.43
 process_material = SubResource("ParticleProcessMaterial_iscit")
 draw_pass_1 = SubResource("QuadMesh_m4q0v")
+
+[node name="BrokenBridge2" parent="Meshes" unique_id=213599783 instance=ExtResource("5_ul1u8")]
+transform = Transform3D(-0.7895733, 0, 0.6120253, 0, 0.999, 0, -0.6120253, 0, -0.7895733, 51.062626, 2.3565292, -10.823656)
+top_level = true
+visible = false
+
+[node name="BridgeBlocker" type="StaticBody3D" parent="Meshes/BrokenBridge2" unique_id=142337614]
+process_mode = 4
+transform = Transform3D(-1, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -1, 0.118019104, 0, -33.47518)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/BrokenBridge2/BridgeBlocker" unique_id=1955377332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1525574e-07, 8.161851, -21.902822)
+shape = SubResource("BoxShape3D_4440r")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Meshes/BrokenBridge2" unique_id=944745048]
+
+[node name="Unbroken" type="CollisionShape3D" parent="Meshes/BrokenBridge2/StaticBody3D" unique_id=236229650]
+transform = Transform3D(-1, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -1, 0.118011475, 0, -2.8507385)
+shape = SubResource("BoxShape3D_ue6wd")
 
 [node name="Colliders" type="Node3D" parent="." unique_id=964454485]
 visible = false
@@ -1794,12 +1808,14 @@ metadata/_edit_lock_ = false
 
 [node name="NPCs" type="Node3D" parent="." unique_id=1267504291]
 
-[node name="Raincoat" type="Node3D" parent="NPCs" unique_id=1869058471 node_paths=PackedStringArray("bounding_box", "static_positions", "bridge_mesh", "stalk_path")]
+[node name="Raincoat" type="Node3D" parent="NPCs" unique_id=1869058471 node_paths=PackedStringArray("bounding_box", "static_positions", "bridge_mesh", "broken_bridge", "bridge_blocker", "stalk_path")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.24747, 14.346388, 69.51119)
 script = ExtResource("29_m7jd6")
 bounding_box = NodePath("1")
 static_positions = [NodePath("../../RaincoatPositions/1"), NodePath("../../RaincoatPositions/2"), NodePath("../../RaincoatPositions/3"), NodePath("../../RaincoatPositions/4"), NodePath("../../RaincoatPositions/5"), NodePath("../../RaincoatPositions/6")]
 bridge_mesh = NodePath("../../Meshes/TownBridge")
+broken_bridge = NodePath("../../Meshes/BrokenBridge2")
+bridge_blocker = NodePath("../../Meshes/BrokenBridge2/BridgeBlocker")
 stalk_distance = 40.0
 speed_mod = 5.0
 stalk_path = NodePath("../../Paths/Rainpath")
@@ -1842,7 +1858,7 @@ collision_mask = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9819231, 0)
 shape = SubResource("CylinderShape3D_c4qn5")
 
-[node name="Brawny" type="Node3D" parent="NPCs" unique_id=80400159 node_paths=PackedStringArray("walk_path", "collider", "bridge_incident", "bridge_collider", "bridge_floor", "bridge_wall", "bridge_timer")]
+[node name="Brawny" type="Node3D" parent="NPCs" unique_id=80400159 node_paths=PackedStringArray("walk_path", "collider", "bridge_incident", "bridge_collider", "bridge_floor", "bridge_wall")]
 transform = Transform3D(0.26931465, 0, -0.9630522, 0, 1, 0, 0.9630522, 0, 0.26931465, 76.94003, -4.050014, -70.324234)
 script = ExtResource("31_y6ah3")
 walk_path = NodePath("../../Paths/BrawnyPath")
@@ -1850,8 +1866,7 @@ collider = NodePath("Wall")
 bridge_incident = NodePath("../../BridgeIncident")
 bridge_collider = NodePath("../../BridgeIncident/BridgeCollider")
 bridge_floor = NodePath("../../Meshes/TownBridge/BridgeFloor")
-bridge_wall = NodePath("../../Meshes/TownBridge/BridgeBlocker")
-bridge_timer = NodePath("../../BridgeIncident/BridgeCollapse")
+bridge_wall = NodePath("../../Meshes/BrokenBridge2/BridgeBlocker")
 
 [node name="Model" parent="NPCs/Brawny" unique_id=1348584369 instance=ExtResource("31_1ogtm")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
@@ -1909,7 +1924,7 @@ collision_layer = 2
 script = ExtResource("32_m4q0v")
 desc = "End Day"
 stopped_audio_tracks = Array[String](["prudent_folly"])
-require_completing_work = true
+enabled_restrictions = 1
 switch_scenes = true
 target_scene = "follys_room"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
@@ -1955,7 +1970,6 @@ script = ExtResource("32_m4q0v")
 desc = "Go to Work"
 stopped_audio_tracks = Array[String](["prudent_folly"])
 invert_restrictions = true
-require_completing_work = true
 switch_scenes = true
 target_scene = "library_room"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
@@ -1964,21 +1978,25 @@ metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.073241, 1.0765657, 0.06441501)
 shape = SubResource("BoxShape3D_ci2nm")
 
-[node name="hermit_house" parent="Houses" unique_id=1851365163 instance=ExtResource("37_bcvxy")]
-transform = Transform3D(-0.9065721, 0, -0.422051, 0, 1, 0, 0.422051, 0, -0.9065721, 174.44885, 2.5604692, -188.05785)
+[node name="HermitHouse" type="Node3D" parent="Houses" unique_id=365709857]
+transform = Transform3D(-0.90630776, 0, -0.42261833, 0, 1, 0, 0.42261833, 0, -0.90630776, 174.44885, 2.5604692, -188.05785)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Houses/hermit_house" unique_id=1733608208]
+[node name="StaticBody3D" type="StaticBody3D" parent="Houses/HermitHouse" unique_id=1733608208]
+transform = Transform3D(0.9999998, 0, -0.0006258786, 0, 1, 0, 0.0006258786, 0, 0.9999998, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses/hermit_house/StaticBody3D" unique_id=1528459049]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses/HermitHouse/StaticBody3D" unique_id=1528459049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7693481, -0.03689313)
 shape = SubResource("BoxShape3D_exseg")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Houses/hermit_house/StaticBody3D" unique_id=1219797511]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0567298, 2.850903, -3.6093497)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Houses/HermitHouse/StaticBody3D" unique_id=1219797511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0567298, 2.850903, -2.6093497)
 shape = SubResource("BoxShape3D_3l17x")
 
-[node name="Hermit" type="Area3D" parent="Houses/hermit_house" unique_id=1065957551 node_paths=PackedStringArray("audio_player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6189966, 1.516871, -4.2529726)
+[node name="hermit_house" parent="Houses/HermitHouse" unique_id=1851365163 instance=ExtResource("37_bcvxy")]
+transform = Transform3D(0.9999998, 0, -0.0006258786, 0, 1, 0, 0.0006258786, 0, 0.9999998, 0, 0, 0)
+
+[node name="Hermit" type="Area3D" parent="Houses/HermitHouse" unique_id=1065957551 node_paths=PackedStringArray("audio_player")]
+transform = Transform3D(0.9999998, 0, -0.0006258786, 0, 1, 0, 0.0006258786, 0, 0.9999998, 6.6210475, 1.516871, -3.2488253)
 collision_layer = 2
 script = ExtResource("32_m4q0v")
 desc = "Knock"
@@ -1987,66 +2005,41 @@ play_audio = true
 audio_track = "knock"
 is_dialogue = true
 event_name = "hermit"
+dialogue = ExtResource("38_d0v6r")
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="KnockHermit" type="AudioStreamPlayer3D" parent="Houses/hermit_house/Hermit" unique_id=2016807623]
+[node name="KnockHermit" type="AudioStreamPlayer3D" parent="Houses/HermitHouse/Hermit" unique_id=2016807623]
 script = ExtResource("38_ufl2o")
 metadata/_custom_type_script = "uid://coji4uh3esqdw"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses/hermit_house/Hermit" unique_id=2125423950]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses/HermitHouse/Hermit" unique_id=2125423950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.06978741)
 shape = SubResource("BoxShape3D_vvq6s")
 
-[node name="FogPools" type="Node3D" parent="." unique_id=2078080386]
+[node name="EnterHermit" type="Area3D" parent="Houses/HermitHouse" unique_id=642437243 groups=["Interactables"]]
+transform = Transform3D(0.9999998, 0, -0.0006258786, 0, 1, 0, 0.0006258786, 0, 0.9999998, 6.6210475, 1.516871, -3.2488253)
+collision_layer = 2
+script = ExtResource("32_m4q0v")
+desc = "Enter"
+enabled_restrictions = 1
+require_day = 3
+switch_scenes = true
+target_scene = "hermits_house"
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses/HermitHouse/EnterHermit" unique_id=1715604899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.06978741)
+shape = SubResource("BoxShape3D_nhdq1")
+
+[node name="hermit_house_open" parent="Houses/HermitHouse" unique_id=24900527 instance=ExtResource("40_nhdq1")]
 visible = false
 
+[node name="FogPools" type="Node3D" parent="." unique_id=2078080386]
+
 [node name="GPUParticles3D3" type="GPUParticles3D" parent="FogPools" unique_id=2140997176]
-transform = Transform3D(1, 0, 0, 0, -7.240578e-08, 1, 0, -1.6564512, -4.371139e-08, -46.73795, 14.785606, 82.27913)
+transform = Transform3D(1, 0, 0, 0, -7.240578e-08, 1, 0, -1.6564512, -4.371139e-08, 26.686169, -3.2114887, 21.392849)
 amount = 101
 lifetime = 4.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D4" type="GPUParticles3D" parent="FogPools" unique_id=935797727]
-transform = Transform3D(1, 0, 0, 0, -7.240578e-08, 1, 0, -1.6564512, -4.371139e-08, 82.34745, -0.22407818, -48.460274)
-amount = 101
-lifetime = 4.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D5" type="GPUParticles3D" parent="FogPools" unique_id=1806809059]
-transform = Transform3D(1, 0, 0, 0, -7.240578e-08, 1, 0, -1.6564512, -4.371139e-08, 19.606094, -0.22407818, -153.89345)
-amount = 101
-lifetime = 4.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D6" type="GPUParticles3D" parent="FogPools" unique_id=770892839]
-transform = Transform3D(1, 0, 0, 0, -7.240578e-08, 1, 0, -1.6564512, -4.371139e-08, 65.71294, 5.0583043, -190.55946)
-amount = 214
-lifetime = 6.0
-preprocess = 100.0
-visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
-local_coords = true
-draw_order = 2
-process_material = SubResource("ParticleProcessMaterial_1ogtm")
-draw_pass_1 = SubResource("QuadMesh_5pwny")
-
-[node name="GPUParticles3D7" type="GPUParticles3D" parent="FogPools" unique_id=826717818]
-transform = Transform3D(1, 0, 0, 0, -7.240578e-08, 1, 0, -1.6564512, -4.371139e-08, 129.40826, 5.058312, -67.4674)
-amount = 214
-lifetime = 6.0
 preprocess = 100.0
 visibility_aabb = AABB(-16, -16, -16, 32, 32, 32)
 local_coords = true
@@ -2151,7 +2144,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4566526, 0)
 shape = SubResource("BoxShape3D_sb7e8")
 
 [node name="RaincoatCatcher" type="Area3D" parent="BridgeIncident" unique_id=1804451315]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841858e-07, 0, -32.578144)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841858e-07, 0, -29.099245)
 collision_layer = 0
 collision_mask = 128
 
@@ -2165,11 +2158,8 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BridgeIncident/PlayerCatcher" unique_id=1920244756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.039146423, -6.0422688, 0.09898472)
 shape = SubResource("BoxShape3D_ww0ml")
-
-[node name="BridgeCollapse" type="Timer" parent="BridgeIncident" unique_id=79049877]
-wait_time = 5.0
-one_shot = true
 
 [node name="RockPile" type="Node3D" parent="." unique_id=943188009]
 transform = Transform3D(0.9983646, 0.057095822, -0.0028440468, -0.055380613, 0.97831446, 0.19958362, 0.014177762, -0.19909975, 0.97987664, -8.425048, 3.2877157, 52.27045)
@@ -2188,11 +2178,40 @@ metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.566996e-10, 0.25011018, -3.7252903e-09)
 shape = SubResource("BoxShape3D_fodyg")
 
+[node name="Mementos" type="Node3D" parent="." unique_id=1035166529]
+
+[node name="FollysTree" type="Node3D" parent="Mementos" unique_id=240913911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.01706, 14.302059, 196.50493)
+
+[node name="FollyTree" parent="Mementos/FollysTree" unique_id=1605203411 instance=ExtResource("43_tsajd")]
+transform = Transform3D(0.766, 0, 0, 0, 0.766, 0, 0, 0, 0.766, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Mementos/FollysTree" unique_id=321204309]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mementos/FollysTree/StaticBody3D" unique_id=1502629831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2795753, 0)
+shape = SubResource("CylinderShape3D_fodyg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mementos/FollysTree" unique_id=138099975]
+transform = Transform3D(0, 0.25424916, -1.1113582e-08, 1.1113584e-08, -1.1113583e-08, -0.25424916, -0.25424916, 0, -1.1113584e-08, 0.46060944, 1.9197102, -2.3330684e-23)
+mesh = SubResource("PlaneMesh_8s5l4")
+
+[node name="Interactable3D" type="Area3D" parent="Mementos/FollysTree" unique_id=1060887963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36909103, 1.9308491, 0)
+collision_layer = 2
+script = ExtResource("32_m4q0v")
+desc = "Examine"
+is_dialogue = true
+event_name = "memento_engraving"
+dialogue = ExtResource("45_f20d5")
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mementos/FollysTree/Interactable3D" unique_id=900438722]
+shape = SubResource("BoxShape3D_3jhd4")
+
 [connection signal="body_entered" from="NPCs/Raincoat/ChaseDetector" to="NPCs/Raincoat" method="_on_chase_detector_body_entered"]
 [connection signal="brawny_murdered" from="NPCs/Brawny" to="NPCs/Raincoat" method="_on_brawny_brawny_murdered"]
 [connection signal="triggered" from="NPCs/Brawny/BrawnyInteract" to="NPCs/Brawny" method="_on_brawny_interact_triggered"]
 [connection signal="body_entered" from="NPCs/Brawny/RockCollider" to="NPCs/Brawny" method="_on_rock_collider_body_entered"]
 [connection signal="area_entered" from="BridgeIncident/RaincoatCatcher" to="NPCs/Raincoat" method="_on_raincoat_catcher_body_entered"]
 [connection signal="body_entered" from="BridgeIncident/PlayerCatcher" to="NPCs/Raincoat" method="_on_chase_detector_body_entered"]
-[connection signal="timeout" from="BridgeIncident/BridgeCollapse" to="NPCs/Raincoat" method="_on_bridge_collapse_timeout"]
-[connection signal="timeout" from="BridgeIncident/BridgeCollapse" to="NPCs/Brawny" method="_on_bridge_collapse_timeout"]

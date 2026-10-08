@@ -7,12 +7,12 @@ extends Node3D
 @export var character : Node3D
 @export var SkyCycle : Node3D
 
-func activate_scene() -> void:
-	show()
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	process_mode = Node.PROCESS_MODE_INHERIT
-	character.CANVAS.show()
-	character.CAMERA.process_mode = Node.PROCESS_MODE_INHERIT
+#func activate_scene() -> void:
+	#show()
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#process_mode = Node.PROCESS_MODE_INHERIT
+	#character.CANVAS.show()
+	#character.CAMERA.process_mode = Node.PROCESS_MODE_INHERIT
 
 #func disable_scene() -> void:
 	#hide()
@@ -29,6 +29,13 @@ func loaded(last_scene:String) -> void:
 	print("Loading finishing")
 	match(Status.current_day_string):
 		"day3": Audio.play("being_followed")
+		"night3":
+			$Houses/HermitHouse/hermit_house.hide()
+			$Houses/HermitHouse/hermit_house_open.show()
+		"hell":
+			Audio.play("hell")
+			$RockPile/GrabRock.desc = "I really shouldn't."
+			$RockPile/GrabRock.is_rock = false
 		_:Audio.play("prudent_folly")
 	var spawn_pos : Node3D
 	#print("matching scene: ", last_scene)
@@ -38,6 +45,8 @@ func loaded(last_scene:String) -> void:
 		_: spawn_pos = folly_exit
 	$NPCs/Raincoat.player = character
 	$NPCs/Brawny.player = character
+	if $Houses/HermitHouse/EnterHermit.get_restrictions():
+		$Houses/HermitHouse/EnterHermit.queue_free()
 	load_environment(Status.current_day_string)
 	Status.position_character(spawn_pos, character)
 

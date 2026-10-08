@@ -13,11 +13,12 @@ class_name Interactable3D
 @export var stopped_audio_tracks : Array[String] = []
 @export_group("Restrictions")
 @export var invert_restrictions : bool = false
-@export_subgroup("Routine Task")
+@export_flags("Require Work Completed") var enabled_restrictions : int = 0b0
+@export var require_day : int = -1
+#@export_subgroup("Routine Task")
 @export var required_complete_tasks : int = -1
-@export_subgroup("Work Task")
-@export var invert_work : bool = false
-@export var require_completing_work : bool = false
+#@export_subgroup("Work Task")
+#@export var require_completing_work : bool = false
 @export_group("Effects")
 @export_subgroup("Scene Switch")
 @export var switch_scenes : bool = false
@@ -40,13 +41,45 @@ var book_index : int = -1
 @export var end_day : bool = false
 
 func get_restrictions() -> bool:
-	var routine : bool = (required_complete_tasks > -1 and not Status.completed_tasks_names.size() >= required_complete_tasks) or (is_routine and Status.completed_tasks_names.has(routine_task))
-	#print("reoutine: ", routine)
-	var work : bool = ((require_completing_work and not Status.work_complete) and not invert_work) or (not (require_completing_work and not Status.work_complete) and invert_work)
-	#print("Work: ", work)
-	var restriction : bool = routine or work or not monitorable
-	#print("Restriction: ", rWWWEestriction)
-	return (invert_restrictions and !restriction) or (not invert_restrictions and restriction)
+	var _enabled_restrictions : int = 0b0000
+	var restrictions : int = 0b00000
+	if require_day > -1:
+		_enabled_restrictions += 0b01000
+	if Status.current_day < require_day:
+		restrictions += 0b1000
+	if required_complete_tasks > -1:
+		_enabled_restrictions += 0b0100
+	if not Status.completed_tasks_names.size() >= required_complete_tasks:
+		restrictions += 0b00100
+	if is_routine:
+		_enabled_restrictions += 0b00010
+	if Status.completed_tasks_names.has(routine_task):
+		restrictions += 0b00010
+	if collects_book:
+		_enabled_restrictions += 0b10000
+	if (Status.holding_book == false or Status.held_book_index != book_index):
+		restrictions += 0b10000
+	#if require_completing_work:
+		#enabled_restrictions += 0b0001
+	if not Status.work_complete:
+		restrictions += 0b00001
+	_enabled_restrictions += enabled_restrictions
+	
+	if invert_restrictions:
+		restrictions = restrictions ^ 0b11111 # xor operator - false if 0 = 0, 1 = 1, true for 0 = 1 or 1 = 0
+	var total_restrictions : int = _enabled_restrictions & restrictions # If a restriction is enabled, and the restriction is also active, then it will evaluate to 1, and if total_restrictions != 0 (anything is enabled and restricted) will return restricted
+	#print("enableds ", _enabled_restrictions)
+	#print("restri ", restrictions)
+	#print("tot rest ", total_restrictions)
+	return bool(total_restrictions)
+	
+	#var routine : bool = (required_complete_tasks > -1 and not Status.completed_tasks_names.size() >= required_complete_tasks) or (is_routine and Status.completed_tasks_names.has(routine_task)) or (require_day > -1 and require_day != Status.current_day)
+	##print("reoutine: ", routine)
+	#var work : bool = ((require_completing_work and not Status.work_complete) and not invert_work) or (not (require_completing_work and not Status.work_complete) and invert_work)
+	##print("Work: ", work)
+	#var restriction : bool = routine or work or not monitorable
+	##print("Restriction: ", rWWWEestriction)
+	#return (invert_restrictions and !restriction) or (not invert_restrictions and restriction)
 
 signal triggered
 signal switch_scene
@@ -62,7 +95,7 @@ func trigger_effects() -> void:
 		return
 	if is_rock:
 		Status.pickup_rock()
-	if is_dialogue and dialogue != null:
+	if is_dialogue and dialogue != null and Status.allow_dialogue:
 		Dialogue.trigger_event(event_name, dialogue)
 	if end_day:
 		monitorable = false # prevent double triggers

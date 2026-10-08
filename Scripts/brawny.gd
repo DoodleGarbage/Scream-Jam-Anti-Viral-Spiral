@@ -69,7 +69,7 @@ func _on_rock_collider_body_entered(_body: Node3D) -> void:
 	quaternion = Quaternion(0, 0, 1, 0)
 	bridge_collider.process_mode = Node.PROCESS_MODE_DISABLED
 	$Body.process_mode = Node.PROCESS_MODE_DISABLED
-	bridge_timer.start()
+	#bridge_timer.start()
 	brawny_murdered.emit()
 
 
