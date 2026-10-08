@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bdalmiv0o45cc"]
+
+[node name="TunnelHallwayLight" type="OmniLight3D" unique_id=152510013]
+shadow_enabled = true
+omni_range = 3.5

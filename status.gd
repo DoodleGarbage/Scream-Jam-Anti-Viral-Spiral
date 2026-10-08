@@ -46,9 +46,9 @@ func pickup_book(index:int, material:Material, title:String="") -> bool:
 		return false
 	holding_book = true
 	held_book_index = index
-	game_node.player_character.BOOK.book_material = material
-	game_node.player_character.BOOK.book_title = title
-	game_node.player_character.BOOK.show()
+	game_node.character.BOOK.book_material = material
+	game_node.character.BOOK.book_title = title
+	game_node.character.BOOK.show()
 	Audio.play("book_grabbed")
 	return true
 
@@ -57,14 +57,14 @@ func collect_book(book_index:int) -> bool:
 		return false
 	holding_book = false
 	held_book_index = -1
-	game_node.player_character.BOOK.hide()
+	game_node.character.BOOK.hide()
 	returned_books += 1
 	Audio.play("book_delivered")
 	return true
 
 func pickup_rock() -> void:
 	holding_rock = true
-	game_node.player_character.ROCK.show()
+	game_node.character.ROCK.show()
 
 const rock_throw_force : float = 10.0
 func throw_rock() -> void:
@@ -73,17 +73,17 @@ func throw_rock() -> void:
 	clear_rock()
 	var thrown_rock : RigidBody3D = preload("res://Scenes/rock_projectile.tscn").instantiate()
 	game_node.add_child(thrown_rock)
-	#thrown_rock.global_transform = game_node.player_character.HEAD.global_transform
-	thrown_rock.global_position = game_node.player_character.global_position + game_node.player_character.HEAD.position
-	#print("Firing in direction: ", game_node.player_character.HEAD.quaternion * Vector3(0,0,-1))
-	var basis = -game_node.player_character.HEAD.global_transform.basis.z.normalized()
+	#thrown_rock.global_transform = game_node.character.HEAD.global_transform
+	thrown_rock.global_position = game_node.character.global_position + game_node.character.HEAD.position
+	#print("Firing in direction: ", game_node.character.HEAD.quaternion * Vector3(0,0,-1))
+	var basis = -game_node.character.HEAD.global_transform.basis.z.normalized()
 	print(basis)
 	#var direction = basis * Vector3.FORWARD
 	thrown_rock.apply_central_impulse(basis * rock_throw_force)
 
 func clear_rock()-> void:
 	holding_rock = false
-	game_node.player_character.ROCK.hide()
+	game_node.character.ROCK.hide()
 
 
 func complete_routine(task:String, audio_player=null) -> bool:

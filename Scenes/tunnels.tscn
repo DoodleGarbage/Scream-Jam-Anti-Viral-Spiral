@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://1i0w8v4abtpl"]
+
+[ext_resource type="Script" uid="uid://bypf0sp3nqtax" path="res://Scenes/tunnels.gd" id="1_5cff0"]
+[ext_resource type="PackedScene" uid="uid://dpil3r33glvff" path="res://Scenes/Tunnels/tunnel_straight.tscn" id="1_ncarf"]
+[ext_resource type="PackedScene" uid="uid://bivce7ch4us4i" path="res://Scenes/Tunnels/tunnel_4way.tscn" id="2_wu8v7"]
+[ext_resource type="PackedScene" uid="uid://bh1mx8k3yra4s" path="res://Scenes/Tunnels/tunnel_straight_alternate.tscn" id="3_avyhr"]
+[ext_resource type="PackedScene" uid="uid://cxsdeawm8bsfx" path="res://Scenes/Tunnels/tunnel_3way.tscn" id="4_mw333"]
+[ext_resource type="PackedScene" uid="uid://v4vqgactt24n" path="res://Scenes/Tunnels/tunnel_corner_alt.tscn" id="5_5cff0"]
+[ext_resource type="PackedScene" uid="uid://bn4vl6pot1iq2" path="res://Scenes/Tunnels/tunnel_straight_flat_nopipes.tscn" id="6_mw333"]
+[ext_resource type="PackedScene" uid="uid://d0d5e18qsn8ex" path="res://Scenes/Tunnels/tunnel_3_way_alternate.tscn" id="8_5cff0"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_c4qn5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4qn5"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8s5l4"]
+material = SubResource("StandardMaterial3D_c4qn5")
+
+[sub_resource type="Environment" id="Environment_8s5l4"]
+background_energy_multiplier = 0.15
+ambient_light_energy = 0.25
+
+[node name="Tunnels" type="Node3D" unique_id=1426143558 node_paths=PackedStringArray("spawnpoint")]
+script = ExtResource("1_5cff0")
+spawnpoint = NodePath("Spawnpoint")
+
+[node name="Spawnpoint" type="Node3D" parent="." unique_id=713126745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2537537, 0)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1616329484]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1379022490]
+shape = SubResource("WorldBoundaryShape3D_c4qn5")
+
+[node name="Hallway1" type="Node3D" parent="." unique_id=1945222922]
+
+[node name="TunnelStraight" parent="Hallway1" unique_id=14649706 instance=ExtResource("1_ncarf")]
+
+[node name="TunnelStraight2" parent="Hallway1" unique_id=1530360990 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="TunnelStraight4" parent="Hallway1" unique_id=650549051 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+
+[node name="TunnelStraight5" parent="Hallway1" unique_id=1658474118 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="TunnelStraight7" parent="Hallway1" unique_id=1991015997 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="TunnelStraight8" parent="Hallway1" unique_id=1975083766 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="TunnelStraight9" parent="Hallway1" unique_id=992657407 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24)
+
+[node name="TunnelStraight11" parent="Hallway1" unique_id=1120119606 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31)
+
+[node name="TunnelStraight12" parent="Hallway1" unique_id=1477169541 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 34)
+
+[node name="TunnelStraight13" parent="Hallway1" unique_id=309006417 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="TunnelStraight14" parent="Hallway1" unique_id=1850210130 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="TunnelStraight15" parent="Hallway1" unique_id=1728865835 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
+
+[node name="TunnelStraight16" parent="Hallway1" unique_id=290659418 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21)
+
+[node name="TunnelStraight18" parent="Hallway1" unique_id=1182295969 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21)
+
+[node name="TunnelStraight19" parent="Hallway1" unique_id=1061461147 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
+
+[node name="TunnelStraight20" parent="Hallway1" unique_id=677591272 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+
+[node name="TunnelStraight21" parent="Hallway1" unique_id=267765880 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -37)
+
+[node name="TunnelStraight22" parent="Hallway1" unique_id=123252015 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -34)
+
+[node name="TunnelStraight23" parent="Hallway1" unique_id=2002750264 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -31)
+
+[node name="TunnelStraight24" parent="Hallway1" unique_id=1160972793 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28)
+
+[node name="TunnelStraight3" parent="Hallway1" unique_id=551484717 instance=ExtResource("2_wu8v7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
+
+[node name="TunnelStraight6" parent="Hallway1" unique_id=74930483 instance=ExtResource("3_avyhr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="TunnelStraight10" parent="Hallway1" unique_id=1907625595 instance=ExtResource("3_avyhr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="TunnelStraight17" parent="Hallway1" unique_id=506115919 instance=ExtResource("2_wu8v7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 26.5)
+
+[node name="TunnelStraight25" parent="Hallway1" unique_id=765789175 instance=ExtResource("4_mw333")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 37)
+
+[node name="TunnelCornerAlt" parent="Hallway1" unique_id=1539171217 instance=ExtResource("5_5cff0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
+
+[node name="Hallway2" type="Node3D" parent="." unique_id=1703519818]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5, 0, 0.5)
+
+[node name="TunnelStraightFlatNopipes" parent="Hallway2" unique_id=1328994293 instance=ExtResource("6_mw333")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -4)
+
+[node name="TunnelStraightFlatNopipes2" parent="Hallway2" unique_id=2001590078 instance=ExtResource("6_mw333")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -7)
+
+[node name="Tunnel3WayAlternate" parent="Hallway2" unique_id=1550822185 instance=ExtResource("8_5cff0")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26, 0, -9.5)
+
+[node name="SpawnHole" type="MeshInstance3D" parent="." unique_id=1448504279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6608763, 0)
+mesh = SubResource("BoxMesh_8s5l4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1753826497]
+environment = SubResource("Environment_8s5l4")

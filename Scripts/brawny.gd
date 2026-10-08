@@ -66,7 +66,7 @@ func _on_rock_collider_body_entered(_body: Node3D) -> void:
 	if Status.current_day_string != "day3":
 		return
 	follow_player = false
-	quaternion = Quaternion(0, 0, 1, 0)
+	quaternion = Quaternion(-0.707107,0,0,0.7071)
 	bridge_collider.process_mode = Node.PROCESS_MODE_DISABLED
 	$Body.process_mode = Node.PROCESS_MODE_DISABLED
 	#bridge_timer.start()

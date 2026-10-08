@@ -2,7 +2,7 @@ extends Node
 
 
 @export var current_scene : String = ""
-@export var player_character : Node
+@export var character : Node
 @export var active_scene : Node
 @export var dialogue_display : CanvasLayer
 @export var loading_screen : CanvasLayer
@@ -14,7 +14,7 @@ func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("Interactables"):
 		if node.switch_scenes:
 			node.switch_scene.connect(switch_scene)
-	active_scene.character = player_character
+	active_scene.character = character
 	active_scene.loaded("")
 
 var next_scene : PackedScene
@@ -40,7 +40,7 @@ func switch_scene(scene:String) -> void:
 		return
 	Status.clear_rock()
 	dialogue_display.end_dialogue()
-	#print("Character position before everything: ", player_character.position)
+	#print("Character position before everything: ", character.position)
 	Status.loading = true
 	active_scene.queue_free()
 	currently_loading_scene = "res://Scenes/" + scene + ".tscn"
@@ -53,9 +53,9 @@ func switch_scene(scene:String) -> void:
 
 
 func _execute_scene_switch(loaded_scene:Node) -> void:
-	#print("Character position post scene load: ", player_character.position)
+	#print("Character position post scene load: ", character.position)
 	active_scene = loaded_scene
-	loaded_scene.character = player_character
+	loaded_scene.character = character
 	loaded_scene.ready.connect(loaded_scene.loaded.bind(current_scene))
 	#loaded_scene.ready.connect(re_enable_character)
 	add_child(loaded_scene)
@@ -68,10 +68,10 @@ func _execute_scene_switch(loaded_scene:Node) -> void:
 	next_scene_name = ""
 	next_scene = null
 	Status.loading = false
-	#print("Character position on final load: ", player_character.position)
+	#print("Character position on final load: ", character.position)
 	await get_tree().create_timer(1.0).timeout
-	#print("Character position 1.0 seconds later: ", player_character.position)
+	#print("Character position 1.0 seconds later: ", character.position)
 
 #func re_enable_character() -> void:
-	#player_character.process_mode = Node.PROCESS_MODE_INHERIT
-	#player_character.set_physics_process(true)
+	#character.process_mode = Node.PROCESS_MODE_INHERIT
+	#character.set_physics_process(true)

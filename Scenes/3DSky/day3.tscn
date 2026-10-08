@@ -36,7 +36,7 @@ shader_parameter/clouds_smoothness = 0.03
 shader_parameter/clouds_light_color = Color(1, 1, 1, 1)
 shader_parameter/clouds_shadow_intensity = 1.0
 shader_parameter/high_clouds_sampler = ExtResource("3_x00ao")
-shader_parameter/high_clouds_density = 0.2
+shader_parameter/high_clouds_density = 0.65000000968578
 shader_parameter/top_color = Color(0.069454595, 0.09129339, 0.12405377, 1)
 shader_parameter/bottom_color = Color(0.09188145, 0.1406937, 0.1668874, 1)
 shader_parameter/sun_scatter = Color(0.298039, 0.298039, 0.298039, 1)
@@ -58,6 +58,7 @@ tonemap_mode = 2
 glow_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.03
+volumetric_fog_sky_affect = 0.693
 adjustment_enabled = true
 adjustment_saturation = 1.5
 

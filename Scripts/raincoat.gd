@@ -3,11 +3,17 @@ extends Node3D
 @export var player : Node3D
 @export var bounding_box : VisibleOnScreenNotifier3D
 @export var static_positions : Array[VisibleOnScreenNotifier3D] = []
+@export var stalk_positions : Array[Path3D] = []
 @export var bridge_mesh : Node3D
 @export var broken_bridge : Node3D
 @export var bridge_blocker : StaticBody3D
+@export var audio_player : AudioPlayer3D
 ## In meters
 @export var stalk_distance : float = 0.0
+## Speed to exit a stalk position
+@export var stalk_out : float = 0.5
+## Speed to enter into a stalk position
+@export var stalk_in : float = 1.2
 @export var speed_mod : float = 10.0
 @export var stalk_path : Path3D
 @export var rainy_movementspeed : float = 3.0
@@ -20,6 +26,12 @@ var chase_player : bool = false
 var falling : bool = false
 const gravity = 9.81
 var velocity_y : float = 0.0
+
+## Stalking behavior
+var current_stalk_position : int = -1
+var waiting_for_walk_out : bool = false
+## in meters
+var current_offset : float = 0.0
 
 func _process(_delta: float) -> void:
 	if not player:
@@ -58,11 +70,55 @@ func _process(_delta: float) -> void:
 		if not stalk_path:
 			return
 		show()
-		var dist_to_player : float = stalk_path.curve.get_closest_point(player.global_position).distance_to(player.global_position)
-		var closest_offset : float = stalk_path.curve.get_closest_offset(player.global_position) - max((stalk_distance)-dist_to_player, 0)
-		if closest_offset <= 0.01 and stalk_path.curve.sample_baked(closest_offset, true).distance_to(player.global_position) < stalk_distance:
-			hide()
-		global_position = stalk_path.curve.sample_baked(closest_offset, true)
+		if current_stalk_position > -1:
+			var dist_to_player : float =  stalk_positions[current_stalk_position].curve.sample_baked(0.0).distance_to(player.global_position)
+			#if waiting_for_walk_out:
+				#print("true")
+			if dist_to_player < stalk_distance or waiting_for_walk_out:
+				current_offset = min(current_offset + stalk_out*_delta, stalk_positions[current_stalk_position].curve.get_baked_length())
+				#print("offsets ", current_offset, " ", stalk_positions[current_stalk_position].curve.get_baked_length(). stalk_out)
+				global_position = stalk_positions[current_stalk_position].curve.sample_baked(current_offset)
+				if current_offset >= stalk_positions[current_stalk_position].curve.get_baked_length():
+					hide()
+					waiting_for_walk_out = false
+					current_stalk_position = -1
+				#print("return 2")
+				return
+			current_offset = max(current_offset - stalk_in*_delta, 0.0)
+			global_position = stalk_positions[current_stalk_position].curve.sample_baked(current_offset)
+			#print("return 1")
+			#return
+		
+		
+		var closest : int = -1
+		var closest_dist : float = 99999999999.9
+		for path in stalk_positions.size():
+			var dist_to_player : float = stalk_positions[path].curve.sample_baked(0.0).distance_to(player.global_position)
+			if dist_to_player < stalk_distance:
+				continue
+			if dist_to_player < closest_dist:
+				closest = path
+				closest_dist = dist_to_player
+		if current_stalk_position != closest:
+			#print("running")
+			waiting_for_walk_out = true if current_stalk_position > -1 else false
+			if current_offset >= stalk_positions[current_stalk_position].curve.get_baked_length() or not waiting_for_walk_out:
+				current_offset = stalk_positions[closest].curve.get_baked_length()
+				current_stalk_position = closest
+				waiting_for_walk_out = false
+		#if current_stalk_position < 0:
+			#global_position = Vector3(0,0,0)
+			#hide()
+			#return
+		## below is the code to follow one long continuous path at a certain distance from the player
+		#global_position = stalk_positions[current_stalk_position].curve.sample_baked(0.0)
+		#current_offset = 0.0
+		
+		#var dist_to_player : float = stalk_path.curve.get_closest_point(player.global_position).distance_to(player.global_position)
+		#var closest_offset : float = stalk_path.curve.get_closest_offset(player.global_position) - max((stalk_distance)-dist_to_player, 0)
+		#if closest_offset <= 0.01 and stalk_path.curve.sample_baked(closest_offset, true).distance_to(player.global_position) < stalk_distance:
+			#hide()
+		#global_position = stalk_path.curve.sample_baked(closest_offset, true)
 		#set_axis_velocity(global_position.direction_to(points[closest_idx_player-1]) * speed_mod)
 		
 		#global_position = lerp()
@@ -106,7 +162,8 @@ func _on_brawny_brawny_murdered() -> void:
 		return
 	chase_player = true
 	stalk_player = false
-	#Audio.play("chase_scream")
+	Audio.play("whatdidyoudo", audio_player)
+	Audio.stop("being_followed")
 
 
 func _on_chase_detector_body_entered(_body: Node3D) -> void:

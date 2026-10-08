@@ -14,12 +14,15 @@ class_name Interactable3D
 @export_group("Restrictions")
 @export var invert_restrictions : bool = false
 @export_flags("Require Work Completed") var enabled_restrictions : int = 0b0
-@export var require_day : int = -1
+@export var require_day : Array[String] = []
 #@export_subgroup("Routine Task")
 @export var required_complete_tasks : int = -1
 #@export_subgroup("Work Task")
 #@export var require_completing_work : bool = false
 @export_group("Effects")
+@export_subgroup("Teleport")
+@export var is_teleport : bool = false
+@export var teleport_point : Node3D
 @export_subgroup("Scene Switch")
 @export var switch_scenes : bool = false
 @export var target_scene : String = ""
@@ -43,9 +46,9 @@ var book_index : int = -1
 func get_restrictions() -> bool:
 	var _enabled_restrictions : int = 0b0000
 	var restrictions : int = 0b00000
-	if require_day > -1:
+	if require_day.size():
 		_enabled_restrictions += 0b01000
-	if Status.current_day < require_day:
+	if not require_day.has(Status.current_day_string):
 		restrictions += 0b1000
 	if required_complete_tasks > -1:
 		_enabled_restrictions += 0b0100
@@ -93,6 +96,8 @@ func trigger_effects() -> void:
 	# pickup_book returns false when it fails
 	if is_book and not Status.pickup_book(book_index, book_material, book_title):
 		return
+	if is_teleport:
+		Status.position_character(teleport_point, Status.game_node.character)
 	if is_rock:
 		Status.pickup_rock()
 	if is_dialogue and dialogue != null and Status.allow_dialogue:

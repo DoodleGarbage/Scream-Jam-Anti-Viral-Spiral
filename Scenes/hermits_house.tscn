@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cg8ksoh5a2y86" path="res://Scenes/window.tscn" id="2_8nq5k"]
 [ext_resource type="PackedScene" uid="uid://cqfpginbqfnif" path="res://Assets/Models/hermit_house_interior.blend" id="3_dv45c"]
 [ext_resource type="PackedScene" uid="uid://ds2sqhah24a3d" path="res://Assets/Models/hermit_house_interior_upper.blend" id="4_lo8v2"]
+[ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scripts/interactable3D.gd" id="5_dv45c"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8s5l4"]
 size = Vector3(9, 0.249, 1)
@@ -34,6 +35,43 @@ size = Vector3(12.53, 12.110875, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vrcme"]
 size = Vector3(13.374, 4.878, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x1qgn"]
+size = Vector3(12.53, 12.226, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8s5l4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c4qn5"]
+size = Vector3(0.9, 4.827, 0.38)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2d2xd"]
+size = Vector3(1, 2.613, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ww0ml"]
+size = Vector3(1, 4.358, 0.385)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2d2xd"]
+albedo_color = Color(0.21398121, 0.21398121, 0.21398118, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fodyg"]
+material = SubResource("StandardMaterial3D_2d2xd")
+size = Vector3(1.096, 0.281, 1.064)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2d2xd"]
+size = Vector3(1.272, 0.175, 1.278)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4440r"]
+size = Vector3(1.165, 0.296, 1.134)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4440r"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ww0ml"]
+material = SubResource("StandardMaterial3D_4440r")
+size = Vector3(0.251, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ue6wd"]
+size = Vector3(0.266, 2.006, 1)
 
 [node name="hermits_house" type="Node3D" unique_id=207153106 node_paths=PackedStringArray("folly_spawn")]
 script = ExtResource("1_qahk0")
@@ -69,7 +107,7 @@ mesh = SubResource("PlaneMesh_c4qn5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1822977, -2.5105357)
 
 [node name="floor" type="CollisionShape3D" parent="upper/Colliders/collideee" unique_id=172118031]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15632677)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.205544, 0.014888763)
 shape = SubResource("BoxShape3D_8s5l4")
 
 [node name="roof1" type="CollisionShape3D" parent="upper/Colliders/collideee" unique_id=1198880067]
@@ -90,6 +128,14 @@ shape = SubResource("BoxShape3D_dv45c")
 
 [node name="roof5" type="CollisionShape3D" parent="upper/Colliders/collideee" unique_id=452528129]
 transform = Transform3D(0.25776684, 0.7071067, 0.65845, -0.25776672, 0.7071067, -0.6584499, -0.9311887, -5.2461196e-08, 0.36453718, -0.41904318, 4.9629326, 3.8624492)
+shape = SubResource("BoxShape3D_dv45c")
+
+[node name="roof6" type="CollisionShape3D" parent="upper/Colliders/collideee" unique_id=1938735517]
+transform = Transform3D(9.2725855e-08, -9.2725855e-08, -1, 0.80192614, 0.5974232, 1.8962709e-08, 0.5974232, -0.80192614, 1.2975585e-07, 14.762653, 3.793971, -0.21344757)
+shape = SubResource("BoxShape3D_dv45c")
+
+[node name="roof7" type="CollisionShape3D" parent="upper/Colliders/collideee" unique_id=1121464615]
+transform = Transform3D(-4.049746e-08, 2.2619247e-08, 1, 0.80192614, 0.5974232, 1.8962709e-08, -0.5974232, 0.80192614, -4.233307e-08, 14.831523, 3.793971, 0.008199215)
 shape = SubResource("BoxShape3D_dv45c")
 
 [node name="lower" type="Node3D" parent="." unique_id=2048489700]
@@ -135,8 +181,115 @@ shape = SubResource("BoxShape3D_fodyg")
 
 [node name="Wall7" type="CollisionShape3D" parent="lower/Collider/lower" unique_id=332025700]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.034507, 0.90114, -2.397906)
-shape = SubResource("BoxShape3D_fodyg")
+shape = SubResource("BoxShape3D_x1qgn")
 
 [node name="Wall8" type="CollisionShape3D" parent="lower/Collider/lower" unique_id=612885401]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31209, 0.90114, -4.9963455)
 shape = SubResource("BoxShape3D_fodyg")
+
+[node name="globalfloor" type="StaticBody3D" parent="lower/Collider" unique_id=513013719]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lower/Collider/globalfloor" unique_id=771461047]
+shape = SubResource("WorldBoundaryShape3D_8s5l4")
+
+[node name="Furniture" type="Node3D" parent="lower" unique_id=961316888]
+
+[node name="ladder" type="MeshInstance3D" parent="lower/Furniture" unique_id=1561124565]
+transform = Transform3D(1, 0, 0, 0, 0.97592294, 0.21811554, 0, -0.21811554, 0.97592294, 0, 1.3816938, 3.0902333)
+mesh = SubResource("BoxMesh_c4qn5")
+
+[node name="climb" type="Area3D" parent="lower/Furniture/ladder" unique_id=746901656 node_paths=PackedStringArray("teleport_point")]
+collision_layer = 2
+script = ExtResource("5_dv45c")
+desc = "Climb"
+is_teleport = true
+teleport_point = NodePath("../../../../Climbpoint")
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lower/Furniture/ladder/climb" unique_id=1189964437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25448352, -7.450581e-09)
+shape = SubResource("BoxShape3D_2d2xd")
+
+[node name="collider" type="StaticBody3D" parent="lower/Furniture/ladder" unique_id=1388830722]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lower/Furniture/ladder/collider" unique_id=2000187776]
+shape = SubResource("BoxShape3D_ww0ml")
+
+[node name="trapdoor" type="MeshInstance3D" parent="lower/Furniture" unique_id=269613229]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2193499, 0, -5.462759)
+mesh = SubResource("BoxMesh_fodyg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="lower/Furniture/trapdoor" unique_id=116207571]
+transform = Transform3D(-0.19028088, 0.9817297, 0, -0.9817297, -0.19028088, 0, 0, 0, 1, 0.6460669, 0.70861924, 0)
+mesh = SubResource("BoxMesh_2d2xd")
+
+[node name="Interactable3D" type="Area3D" parent="lower/Furniture/trapdoor" unique_id=572727544 groups=["Interactables"]]
+collision_layer = 2
+script = ExtResource("5_dv45c")
+desc = "Descend"
+switch_scenes = true
+target_scene = "tunnels"
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lower/Furniture/trapdoor/Interactable3D" unique_id=1490467422]
+shape = SubResource("BoxShape3D_4440r")
+
+[node name="door" type="MeshInstance3D" parent="lower/Furniture" unique_id=305872452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.479859, 0.982571, -3.356337)
+mesh = SubResource("BoxMesh_ww0ml")
+
+[node name="Interactable3D" type="Area3D" parent="lower/Furniture/door" unique_id=1254163177 groups=["Interactables"]]
+collision_layer = 2
+script = ExtResource("5_dv45c")
+desc = "Leave"
+switch_scenes = true
+target_scene = "3d_game"
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lower/Furniture/door/Interactable3D" unique_id=1194672797]
+shape = SubResource("BoxShape3D_ue6wd")
+
+[node name="Lights" type="Node3D" parent="lower" unique_id=377810932]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="lower/Lights" unique_id=884492090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050802052, 6.6404657, 2.874916)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="lower/Lights" unique_id=1823862887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050802052, 6.6404657, -4.5300207)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="lower/Lights" unique_id=1118566208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050802052, 2.9516594, -0.5656568)
+omni_range = 5.19
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="lower/Lights" unique_id=130520077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58653045, 2.9516594, -5.407906)
+omni_range = 5.19
+
+[node name="Windows" type="Node3D" parent="lower" unique_id=1429890898]
+
+[node name="Window" parent="lower/Windows" unique_id=2031095597 instance=ExtResource("2_8nq5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0202713, 1.597383, 2.2803705)
+
+[node name="Window2" parent="lower/Windows" unique_id=1378038964 instance=ExtResource("2_8nq5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0202713, 1.597383, 4.929903)
+
+[node name="Window3" parent="lower/Windows" unique_id=390600032 instance=ExtResource("2_8nq5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0202713, 1.597383, -3.1524353)
+
+[node name="Window4" parent="lower/Windows" unique_id=630666362 instance=ExtResource("2_8nq5k")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.3964167, 1.597383, 6.3750606)
+
+[node name="Window5" parent="lower/Windows" unique_id=566205777 instance=ExtResource("2_8nq5k")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.3598561, 1.597383, 6.3750606)
+
+[node name="Window6" parent="lower/Windows" unique_id=9504923 instance=ExtResource("2_8nq5k")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.0281556, 1.597383, 3.147477)
+
+[node name="Window7" parent="lower/Windows" unique_id=823912695 instance=ExtResource("2_8nq5k")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.520958, 1.5973825, -1.7907071)
+
+[node name="Window8" parent="lower/Windows" unique_id=995895466 instance=ExtResource("2_8nq5k")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0.121994376, 4.9470778, -6.2877293)
+
+[node name="Climbpoint" type="Node3D" parent="." unique_id=1955337987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9080453, 1.7468209)

@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://bu634ku7mufa7" path="res://Scenes/dialogue.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://bps5cqtiv4ei0" path="res://Scenes/main_menu.tscn" id="5_wowpa"]
 
-[node name="GlobalRoot" type="Node" unique_id=391369941 node_paths=PackedStringArray("player_character", "active_scene", "dialogue_display", "loading_screen")]
+[node name="GlobalRoot" type="Node" unique_id=391369941 node_paths=PackedStringArray("character", "active_scene", "dialogue_display", "loading_screen")]
 script = ExtResource("1_3dryh")
 current_scene = "main_menu"
-player_character = NodePath("Character")
+character = NodePath("Character")
 active_scene = NodePath("MainMenu")
 dialogue_display = NodePath("Dialogue")
 loading_screen = NodePath("LoadingScreen")

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bh1mx8k3yra4s"]
+
+[ext_resource type="PackedScene" uid="uid://cex7vlnryv3f" path="res://Assets/Models/tunnels/tunnelstraightalternate.blend" id="1_g0n8a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
+size = Vector3(1, 3, 3)
+
+[node name="TunnelStraightAlternate" type="Node3D" unique_id=14649706]
+
+[node name="collider" type="StaticBody3D" parent="." unique_id=86906622]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="collider" unique_id=1345410876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.5, 0)
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="collider" unique_id=752541404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, 0)
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="tunnelstraightalternate" parent="." unique_id=57582357 instance=ExtResource("1_g0n8a")]

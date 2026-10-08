@@ -509,11 +509,10 @@ shape = SubResource("BoxShape3D_i1av2")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.037, 1.13, 6.304)
 
 [node name="Interactable3D" type="Area3D" parent="door" unique_id=1392243277 groups=["Interactables"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.027409017)
 collision_layer = 2
 script = ExtResource("19_65x00")
 desc = "Leave for Work"
-fade_in = true
-audio_track = "prudent_folly"
 required_complete_tasks = 3
 switch_scenes = true
 target_scene = "3d_game"

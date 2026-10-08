@@ -329,12 +329,20 @@ func get_interactor() -> Object:
 	return RAYCAST.get_collider()
 
 func handle_interaction() -> void:
+	
 	var collider = get_interactor()
 	if collider is Interactable3D and collider.monitorable and not (Status.in_dialogue or not Status.woke_up):
+		if collider.is_rock and Status.holding_rock:
+			return
+		if Status.holding_rock and not Status.in_dialogue:
+			Status.throw_rock()
+			return
 		collider.trigger_effects()
 		return
 	if Status.holding_rock and not Status.in_dialogue:
 		Status.throw_rock()
+		return
+	
 
 func update_interaction_display() -> void:
 	$CL/UserInterface/InteractLabel.hide()

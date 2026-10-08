@@ -47,6 +47,70 @@
 [ext_resource type="Texture2D" uid="uid://bmrhqgcnl0f8i" path="res://Assets/Textures/follymercurytreeengraving.png" id="44_5rlxj"]
 [ext_resource type="Resource" uid="uid://dl7443p3bwp5k" path="res://Assets/Dialogue/memento_engraving.dialogue" id="45_f20d5"]
 
+[sub_resource type="TextureSetResource" id="TextureSetResource_ioamw"]
+name = "Placeholder"
+albedoTexture = ExtResource("5_g37um")
+resource_name = "Placeholder"
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_gty17"]
+name = "Sand"
+albedoTexture = ExtResource("6_2u137")
+resource_name = "Sand"
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_rembb"]
+name = "Grass"
+albedoTexture = ExtResource("8_17okr")
+resource_name = "Grass"
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_sb7fu"]
+name = "Asphalt"
+albedoTexture = ExtResource("9_261nc")
+resource_name = "Asphalt"
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_pvo4f"]
+name = "Dirt Road"
+albedoTexture = ExtResource("10_aylps")
+resource_name = "Dirt Road"
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_pp1t6"]
+name = "Rock"
+albedoTexture = ExtResource("10_godah")
+resource_name = "Rock"
+
+[sub_resource type="TextureSetsResource" id="TextureSetsResource_fdhix"]
+textureSets = Array[TextureSetResource]([SubResource("TextureSetResource_ioamw"), SubResource("TextureSetResource_gty17"), SubResource("TextureSetResource_rembb"), SubResource("TextureSetResource_sb7fu"), SubResource("TextureSetResource_pvo4f"), SubResource("TextureSetResource_pp1t6")])
+
+[sub_resource type="FoliageDefinitionResource" id="FoliageDefinitionResource_7iigo"]
+mesh = ExtResource("12_x1m31")
+albedo = Color(0.09277914, 0.21553746, 0, 1)
+
+[sub_resource type="FoliageResource" id="FoliageResource_vkx31"]
+definition = SubResource("FoliageDefinitionResource_7iigo")
+
+[sub_resource type="ObjectDefinitionResource" id="ObjectDefinitionResource_d0yj4"]
+objectFrequency = 5
+randomSize = true
+randomSizeFactorMin = 0.4
+randomSizeFactorMax = 2.2
+objectScenes = Array[PackedScene]([ExtResource("14_jtqtu")])
+
+[sub_resource type="ObjectResource" id="ObjectResource_70da1"]
+definition = SubResource("ObjectDefinitionResource_d0yj4")
+
+[sub_resource type="WaterResource" id="WaterResource_76umi"]
+waterColor = Color(0.2509804, 0.45490196, 1, 1)
+
+[sub_resource type="ZoneResource" id="ZoneResource_m15hl"]
+heightMapImage = ExtResource("7_25e43")
+colorImage = ExtResource("10_x8ffa")
+splatmapsImage = Array[Image]([ExtResource("8_haq7r"), ExtResource("15_d1thh")])
+foliagesImage = Array[Image]([ExtResource("14_d1thh")])
+objectsImage = Array[Image]([ExtResource("18_g37um")])
+waterImage = ExtResource("9_ruleg")
+
+[sub_resource type="ZonesResource" id="ZonesResource_x8ffa"]
+zones = Array[ZoneResource]([SubResource("ZoneResource_m15hl")])
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ul1u8"]
 size = Vector3(2.5, 5, 2.5)
 
@@ -177,70 +241,6 @@ size = Vector3(30, 300, 30)
 [sub_resource type="BoxShape3D" id="BoxShape3D_1og8k"]
 size = Vector3(13, 300, 13)
 
-[sub_resource type="TextureSetResource" id="TextureSetResource_ioamw"]
-name = "Placeholder"
-albedoTexture = ExtResource("5_g37um")
-resource_name = "Placeholder"
-
-[sub_resource type="TextureSetResource" id="TextureSetResource_gty17"]
-name = "Sand"
-albedoTexture = ExtResource("6_2u137")
-resource_name = "Sand"
-
-[sub_resource type="TextureSetResource" id="TextureSetResource_rembb"]
-name = "Grass"
-albedoTexture = ExtResource("8_17okr")
-resource_name = "Grass"
-
-[sub_resource type="TextureSetResource" id="TextureSetResource_sb7fu"]
-name = "Asphalt"
-albedoTexture = ExtResource("9_261nc")
-resource_name = "Asphalt"
-
-[sub_resource type="TextureSetResource" id="TextureSetResource_pvo4f"]
-name = "Dirt Road"
-albedoTexture = ExtResource("10_aylps")
-resource_name = "Dirt Road"
-
-[sub_resource type="TextureSetResource" id="TextureSetResource_pp1t6"]
-name = "Rock"
-albedoTexture = ExtResource("10_godah")
-resource_name = "Rock"
-
-[sub_resource type="TextureSetsResource" id="TextureSetsResource_fdhix"]
-textureSets = Array[TextureSetResource]([SubResource("TextureSetResource_ioamw"), SubResource("TextureSetResource_gty17"), SubResource("TextureSetResource_rembb"), SubResource("TextureSetResource_sb7fu"), SubResource("TextureSetResource_pvo4f"), SubResource("TextureSetResource_pp1t6")])
-
-[sub_resource type="FoliageDefinitionResource" id="FoliageDefinitionResource_7iigo"]
-mesh = ExtResource("12_x1m31")
-albedo = Color(0.09277914, 0.21553746, 0, 1)
-
-[sub_resource type="FoliageResource" id="FoliageResource_vkx31"]
-definition = SubResource("FoliageDefinitionResource_7iigo")
-
-[sub_resource type="ObjectDefinitionResource" id="ObjectDefinitionResource_d0yj4"]
-objectFrequency = 5
-randomSize = true
-randomSizeFactorMin = 0.4
-randomSizeFactorMax = 2.2
-objectScenes = Array[PackedScene]([ExtResource("14_jtqtu")])
-
-[sub_resource type="ObjectResource" id="ObjectResource_70da1"]
-definition = SubResource("ObjectDefinitionResource_d0yj4")
-
-[sub_resource type="WaterResource" id="WaterResource_76umi"]
-waterColor = Color(0.2509804, 0.45490196, 1, 1)
-
-[sub_resource type="ZoneResource" id="ZoneResource_m15hl"]
-heightMapImage = ExtResource("7_25e43")
-colorImage = ExtResource("10_x8ffa")
-splatmapsImage = Array[Image]([ExtResource("8_haq7r"), ExtResource("15_d1thh")])
-foliagesImage = Array[Image]([ExtResource("14_d1thh")])
-objectsImage = Array[Image]([ExtResource("18_g37um")])
-waterImage = ExtResource("9_ruleg")
-
-[sub_resource type="ZonesResource" id="ZonesResource_x8ffa"]
-zones = Array[ZoneResource]([SubResource("ZoneResource_m15hl")])
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7jd6"]
 transparency = 1
 albedo_texture = ExtResource("29_futmp")
@@ -279,6 +279,12 @@ size = Vector3(0.2, 1.939, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iscit"]
 size = Vector3(13, 13, 13)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mhnlt"]
+size = Vector3(13, 20, 13)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t4jen"]
+size = Vector3(8, 9, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m4q0v"]
 size = Vector3(20, 24.506, 20)
@@ -334,6 +340,90 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_5pwny"]
 material = SubResource("StandardMaterial3D_e5s3j")
 
+[sub_resource type="Curve3D" id="Curve3D_nhdq1"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -40.738472, 14.402026, 177.34355, 0, 0, 0, 0, 0, 0, -29.983843, 14.400974, 171.12244),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_jfhdo"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -55.159878, 15.135781, 113.85871, 0, 0, 0, 0, 0, 0, -65.369225, 14.401357, 112.09617),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_ycl1m"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.51063955, 3.382422, 55.83428, 0, 0, 0, 0, 0, 0, 6.1088552, 2.6764863, 78.32536),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_tlfy0"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -97.67375, 14.4021015, 53.0386, 0, 0, 0, 0, 0, 0, -98.64395, 14.4021015, 42.600445),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_cp8qb"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -170.76134, 35.930557, 47.303, 0, 0, 0, 0, 0, 0, -176.88942, 35.965088, 57.122177),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_u1oy7"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -188.73433, 43.371666, -20.085003, 0, 0, 0, 0, 0, 0, -184.7763, 43.336575, -24.743263),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_33vmk"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -223.5503, 56.70166, -98.716965, 0, 0, 0, 0, 0, 0, -227.90878, 56.70166, -107.29603),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_0ho0u"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -177.15959, 56.701653, -102.47308, 0, 0, 0, 0, 0, 0, -167.03505, 56.701668, -100.822105),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_2uq0s"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -117.72079, 56.701176, -163.466, 0, 0, 0, 0, 0, 0, -93.55349, 56.701668, -184.52576),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_j0dxl"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -89.64793, 14.4021015, 139.86096, 0, 0, 0, 0, 0, 0, -102.87802, 14.4021015, 145.09914),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_yaio0"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -26.061777, 14.411171, 229.23022, 0, 0, 0, 0, 0, 0, -26.850698, 14.4021015, 237.94902),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_lok0r"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -42.42761, 14.397238, 59.14016, 0, 0, 0, 0, 0, 0, -39.002174, 14.3945055, 50.209923),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [sub_resource type="Curve3D" id="Curve3D_ci2nm"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, -172.46616, 35.977116, 31.77039, 0, 0, 0, 0, 0, 0, -168.75749, 35.976437, 36.600204, 0, 0, 0, 0, 0, 0, -166.85333, 35.62511, 38.45907, 0, 0, 0, 0, 0, 0, -156.6588, 32.438847, 47.51516, 0, 0, 0, 0, 0, 0, -152.53123, 30.182228, 53.24443, 0, 0, 0, 0, 0, 0, -135.31044, 25.124113, 61.29063, 0, 0, 0, 0, 0, 0, -124.57258, 20.933945, 67.21562, 0, 0, 0, 0, 0, 0, -113.64671, 18.237087, 68.727776, 0, 0, 0, 0, 0, 0, -108.09955, 16.799349, 68.04066, 0, 0, 0, 0, 0, 0, -104.488, 14.754814, 69.42928, 0, 0, 0, 0, 0, 0, -52.568745, 14.404509, 74.90933, 0, 0, 0, 0, 0, 0, -43.31836, 13.110062, 74.999756, 0, 0, 0, 0, 0, 0, -38.935776, 12.058606, 73.24918, 0, 0, 0, 0, 0, 0, -29.396536, 10.866383, 70.91781, 0, 0, 0, 0, 0, 0, -23.81497, 8.504842, 67.8998, 0, 0, 0, 0, 0, 0, -19.19506, 7.7096334, 66.21799, 0, 0, 0, 0, 0, 0, -14.520472, 5.968109, 64.516266, 0, 0, 0, 0, 0, 0, -9.669317, 4.752765, 61.65189, 0, 0, 0, 0, 0, 0, -4.2799187, 4.3187633, 60.788322, 0, 0, 0, 0, 0, 0, -0.48244643, 3.369668, 55.816135, 0, 0, 0, 0, 0, 0, 55.442772, 3.3586454, -15.709352, 0, 0, 0, 0, 0, 0, 60.823223, 1.0501072, -21.654636, 0, 0, 0, 0, 0, 0, 61.593735, -0.99824, -29.864056, 0, 0, 0, 0, 0, 0, 62.159367, -3.9050665, -35.890568, 0, 0, 0, 0, 0, 0, 68.18205, -3.9775572, -79.88179, 0, 0, 0, 0, 0, 0, 67.29806, -4.063547, -95.815735, 0, 0, 0, 0, 0, 0, 64.82715, -4.7147045, -104.50988, 0, 0, 0, 0, 0, 0, 63.682808, -4.61957, -107.22201, 0, 0, 0, 0, 0, 0, 54.99894, -4.2809863, -119.47587, 0, 0, 0, 0, 0, 0, 53.15162, -4.627494, -121.57791, 0, 0, 0, 0, 0, 0, 49.8297, -6.289427, -123.97971, 0, 0, 0, 0, 0, 0, 33.162853, -7.1733932, -134.05974, 0, 0, 0, 0, 0, 0, 14.2017355, -6.9553814, -142.19926, 0, 0, 0, 0, 0, 0, -1.8367639, -6.9446826, -145.17676, 0, 0, 0, 0, 0, 0, -19.39794, -6.9343615, -132.05844),
@@ -373,10 +463,22 @@ material = SubResource("StandardMaterial3D_c4qn5")
 [sub_resource type="BoxShape3D" id="BoxShape3D_3jhd4"]
 size = Vector3(0.392, 0.602, 0.674)
 
-[node name="3DRoot" type="Node3D" unique_id=1576440724 node_paths=PackedStringArray("library_exit", "folly_exit")]
+[node name="3DRoot" type="Node3D" unique_id=1576440724 node_paths=PackedStringArray("library_exit", "folly_exit", "hermit_exit")]
 script = ExtResource("1_wgwvh")
 library_exit = NodePath("Houses/library/LibraryExit")
 folly_exit = NodePath("Houses/follyshouse/FollyExit")
+hermit_exit = NodePath("Houses/HermitHouse/HermitExit")
+
+[node name="Map" type="TerraBrush" parent="." unique_id=2011839165]
+dataPath = "res://Terrain"
+zonesSize = 512
+textureSets = SubResource("TextureSetsResource_fdhix")
+foliages = Array[FoliageResource]([SubResource("FoliageResource_vkx31")])
+objects = Array[ObjectResource]([SubResource("ObjectResource_70da1")])
+waterDefinition = SubResource("WaterResource_76umi")
+terrainZones = SubResource("ZonesResource_x8ffa")
+physics_interpolation_mode = 2
+metadata/_edit_lock_ = false
 
 [node name="Skybox" parent="." unique_id=1646890893 instance=ExtResource("23_haq7r")]
 transform = Transform3D(320.12598, 0, -875.7423, 0, 932.419, 0, 875.7423, 0, 320.12598, 0, 37.134277, 0)
@@ -1795,31 +1897,24 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 shape = SubResource("BoxShape3D_1og8k")
 debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
-[node name="Map" type="TerraBrush" parent="." unique_id=2011839165]
-dataPath = "res://Terrain"
-zonesSize = 512
-textureSets = SubResource("TextureSetsResource_fdhix")
-foliages = Array[FoliageResource]([SubResource("FoliageResource_vkx31")])
-objects = Array[ObjectResource]([SubResource("ObjectResource_70da1")])
-waterDefinition = SubResource("WaterResource_76umi")
-terrainZones = SubResource("ZonesResource_x8ffa")
-physics_interpolation_mode = 2
-metadata/_edit_lock_ = false
-
 [node name="NPCs" type="Node3D" parent="." unique_id=1267504291]
 
-[node name="Raincoat" type="Node3D" parent="NPCs" unique_id=1869058471 node_paths=PackedStringArray("bounding_box", "static_positions", "bridge_mesh", "broken_bridge", "bridge_blocker", "stalk_path")]
+[node name="Raincoat" type="Node3D" parent="NPCs" unique_id=1869058471 node_paths=PackedStringArray("bounding_box", "static_positions", "stalk_positions", "bridge_mesh", "broken_bridge", "bridge_blocker", "audio_player", "stalk_path")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.24747, 14.346388, 69.51119)
 script = ExtResource("29_m7jd6")
 bounding_box = NodePath("1")
 static_positions = [NodePath("../../RaincoatPositions/1"), NodePath("../../RaincoatPositions/2"), NodePath("../../RaincoatPositions/3"), NodePath("../../RaincoatPositions/4"), NodePath("../../RaincoatPositions/5"), NodePath("../../RaincoatPositions/6")]
+stalk_positions = [NodePath("../../RaincoatPositions/Day3Tracks/Path3D"), NodePath("../../RaincoatPositions/Day3Tracks/Path3D2"), NodePath("../../RaincoatPositions/Day3Tracks/Path3D3"), NodePath("../../RaincoatPositions/Day3Tracks/Path3D4"), NodePath("../../RaincoatPositions/Day3Tracks/Path3D5"), NodePath("../../RaincoatPositions/Day3Tracks/Path3D6"), NodePath("../../RaincoatPositions/Day3Tracks/Path3D7"), NodePath("../../RaincoatPositions/Day3Tracks/Path3D8"), NodePath("../../RaincoatPositions/Day3Tracks/Path3D9"), NodePath("../../RaincoatPositions/Day3Tracks/Path3D10"), NodePath("../../RaincoatPositions/Day3Tracks/Path3D11"), NodePath("../../RaincoatPositions/Day3Tracks/Path3D12")]
 bridge_mesh = NodePath("../../Meshes/TownBridge")
 broken_bridge = NodePath("../../Meshes/BrokenBridge2")
 bridge_blocker = NodePath("../../Meshes/BrokenBridge2/BridgeBlocker")
-stalk_distance = 40.0
+audio_player = NodePath("ChaseScream")
+stalk_distance = 15.0
+stalk_out = 19.0
+stalk_in = 16.0
 speed_mod = 5.0
 stalk_path = NodePath("../../Paths/Rainpath")
-rainy_movementspeed = 12.0
+rainy_movementspeed = 10.0
 
 [node name="Model" parent="NPCs/Raincoat" unique_id=775717676 instance=ExtResource("28_kcn1r")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
@@ -1857,6 +1952,10 @@ collision_mask = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/Raincoat/ChaseDetector" unique_id=1744786124]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9819231, 0)
 shape = SubResource("CylinderShape3D_c4qn5")
+
+[node name="ChaseScream" type="AudioStreamPlayer3D" parent="NPCs/Raincoat" unique_id=1562264319]
+script = ExtResource("38_ufl2o")
+metadata/_custom_type_script = "uid://coji4uh3esqdw"
 
 [node name="Brawny" type="Node3D" parent="NPCs" unique_id=80400159 node_paths=PackedStringArray("walk_path", "collider", "bridge_incident", "bridge_collider", "bridge_floor", "bridge_wall")]
 transform = Transform3D(0.26931465, 0, -0.9630522, 0, 1, 0, 0.9630522, 0, 0.26931465, 76.94003, -4.050014, -70.324234)
@@ -1943,8 +2042,18 @@ shape = SubResource("BoxShape3D_iscit")
 transform = Transform3D(0.9993184, 0, -0.036902346, 0, 1, 0, 0.036902346, 0, 0.9993184, 7.624817, 0.77536774, -0.3078308)
 rotation_edit_mode = 1
 
-[node name="house2" parent="Houses" unique_id=529681720 instance=ExtResource("28_ul1u8")]
+[node name="raincoathouse" parent="Houses" unique_id=529681720 instance=ExtResource("28_ul1u8")]
 transform = Transform3D(-0.16953881, 0, -0.9855235, 0, 1, 0, 0.9855235, 0, -0.16953881, -62.555153, 14.347015, 57.366943)
+
+[node name="collider" type="StaticBody3D" parent="Houses/raincoathouse" unique_id=1328344217]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses/raincoathouse/collider" unique_id=221265721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7508621, 0)
+shape = SubResource("BoxShape3D_mhnlt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Houses/raincoathouse/collider" unique_id=1774481738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.559408, 2.2422848, 0)
+shape = SubResource("BoxShape3D_t4jen")
 
 [node name="house3" parent="Houses" unique_id=49332583 instance=ExtResource("28_ul1u8")]
 transform = Transform3D(-0.73345834, 0, 0.6797344, 0, 1, 0, -0.6797344, 0, -0.73345834, 97.82031, 2.6914978, -21.063442)
@@ -2021,8 +2130,7 @@ transform = Transform3D(0.9999998, 0, -0.0006258786, 0, 1, 0, 0.0006258786, 0, 0
 collision_layer = 2
 script = ExtResource("32_m4q0v")
 desc = "Enter"
-enabled_restrictions = 1
-require_day = 3
+require_day = Array[String](["hell", "hellnight"])
 switch_scenes = true
 target_scene = "hermits_house"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
@@ -2033,6 +2141,9 @@ shape = SubResource("BoxShape3D_nhdq1")
 
 [node name="hermit_house_open" parent="Houses/HermitHouse" unique_id=24900527 instance=ExtResource("40_nhdq1")]
 visible = false
+
+[node name="HermitExit" type="Node3D" parent="Houses/HermitHouse" unique_id=1690168837]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.2634416, 0.48014426, -3.358345)
 
 [node name="FogPools" type="Node3D" parent="." unique_id=2078080386]
 
@@ -2123,6 +2234,44 @@ aabb = AABB(-1, 0.499, -1, 2, 2, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.736609, -7.314726, -137.18436)
 aabb = AABB(-1, 0.499, -1, 2, 2, 2)
 
+[node name="Day3Tracks" type="Node3D" parent="RaincoatPositions" unique_id=1645579202]
+
+[node name="Path3D" type="Path3D" parent="RaincoatPositions/Day3Tracks" unique_id=1731155484]
+curve = SubResource("Curve3D_nhdq1")
+
+[node name="Path3D2" type="Path3D" parent="RaincoatPositions/Day3Tracks" unique_id=90866778]
+curve = SubResource("Curve3D_jfhdo")
+
+[node name="Path3D3" type="Path3D" parent="RaincoatPositions/Day3Tracks" unique_id=1050813336]
+curve = SubResource("Curve3D_ycl1m")
+
+[node name="Path3D4" type="Path3D" parent="RaincoatPositions/Day3Tracks" unique_id=1883176987]
+curve = SubResource("Curve3D_tlfy0")
+
+[node name="Path3D5" type="Path3D" parent="RaincoatPositions/Day3Tracks" unique_id=1977887797]
+curve = SubResource("Curve3D_cp8qb")
+
+[node name="Path3D6" type="Path3D" parent="RaincoatPositions/Day3Tracks" unique_id=1514450042]
+curve = SubResource("Curve3D_u1oy7")
+
+[node name="Path3D7" type="Path3D" parent="RaincoatPositions/Day3Tracks" unique_id=1259032338]
+curve = SubResource("Curve3D_33vmk")
+
+[node name="Path3D8" type="Path3D" parent="RaincoatPositions/Day3Tracks" unique_id=1541175434]
+curve = SubResource("Curve3D_0ho0u")
+
+[node name="Path3D9" type="Path3D" parent="RaincoatPositions/Day3Tracks" unique_id=877083671]
+curve = SubResource("Curve3D_2uq0s")
+
+[node name="Path3D10" type="Path3D" parent="RaincoatPositions/Day3Tracks" unique_id=91509745]
+curve = SubResource("Curve3D_j0dxl")
+
+[node name="Path3D11" type="Path3D" parent="RaincoatPositions/Day3Tracks" unique_id=339279991]
+curve = SubResource("Curve3D_yaio0")
+
+[node name="Path3D12" type="Path3D" parent="RaincoatPositions/Day3Tracks" unique_id=917999399]
+curve = SubResource("Curve3D_lok0r")
+
 [node name="Paths" type="Node3D" parent="." unique_id=765986371]
 
 [node name="Rainpath" type="Path3D" parent="Paths" unique_id=653983992]
@@ -2170,8 +2319,7 @@ transform = Transform3D(0.38403034, 0, 0, 0, 0.38403034, 0, 0, 0, 0.38403034, 0,
 [node name="GrabRock" type="Area3D" parent="RockPile" unique_id=1444912270]
 collision_layer = 2
 script = ExtResource("32_m4q0v")
-desc = "Grab Rock"
-is_rock = true
+desc = "I don't need one of these right now."
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RockPile/GrabRock" unique_id=1576789599]

@@ -14,16 +14,6 @@ extends Node3D
 @export var wakeup_point : Node3D
 
 
-
-
-
-#func _ready() -> void:
-	#if not Status.woke_up and not Status.work_complete:
-		#
-	#else:
-		#
-	##Audio.play("alarm_sound")
-
 func loaded(_last_scene:String) -> void:
 	var spawn_pos : Node3D
 	if not Status.woke_up and not Status.work_complete:
@@ -45,7 +35,7 @@ func _process(delta: float) -> void:
 			Status.waking_up = false
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("interact") and not Status.woke_up:
+	if not Status.woke_up and Input.is_action_just_pressed("wakeup"):
 		Audio.play("alarm_clunk")
 		Audio.stop("alarm_sound")
 		Audio.play("someplace_calm", null, true)

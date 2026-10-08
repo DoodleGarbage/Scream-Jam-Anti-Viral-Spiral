@@ -13,11 +13,11 @@ var bookshelf_titles : Array = []
 func loaded(_last_scene:String) -> void:
 	match(Status.current_day_string):
 		"day1":
-			Audio.play("first_day")
+			Audio.play("first_day", null, true)
 		"day2":
-			Audio.play("second_day")
+			Audio.play("second_day", null, true)
 		_:
-			Audio.play("library")
+			Audio.play("library", null, true)
 	Status.position_character(loading_point, character)
 	var bookshelves = get_tree().get_nodes_in_group("bookshelves")
 	for shelf in bookshelves.size():
