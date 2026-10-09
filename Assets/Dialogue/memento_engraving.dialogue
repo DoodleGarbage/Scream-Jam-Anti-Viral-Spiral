@@ -2,13 +2,13 @@
 Folly: I wonder who carved this.
 => END!
 ~ night1
-Folly: I remember carving this...
+Folly: I remember carving this.
 => END!
 ~ day2
-Folly: Who is M?
+Folly: M is my friend.
 => END!
 ~ night2
-Folly: M was my former friend.
+Folly: M is my former friend.
 => END!
 ~ day3
 Folly: I want to gouge her name out of this tree.
@@ -20,4 +20,5 @@ Folly: I'm so sorry...
 Folly: I'll never escape her.
 => END!
 ~ hellnight
+Folly: I need to escape her.
 => END!

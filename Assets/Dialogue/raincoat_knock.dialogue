@@ -1,24 +1,24 @@
 ~ day1
-You: The house's owner is right next to you.
+Raincoat: The house's owner is right next to you.
 => END!
 ~ night1
-You: Raincoat's eyes peek out of the windows to look at you, but they don't answer the door.
+Folly: Raincoat likes to watch things. Always keeping an eye out.
 => END!
 ~ day2
-You: Scuffling can be heard on the other side of the door.
+Raincoat: Scuffling can be heard on the other side of the door.
 => END!
 ~ night2
-You: Raincoat is no where to be seen.
+Folly: Why am I always awake when everyone is asleep?
 => END!
 ~ day3
 Raincoat: I'm watching you. Don't do anything rash.
 => END!
 ~ night3
-You: You pretend the house is still there.
+Folly: You didn't deserve that, Raincoat...
 => END!
 ~ hell
-$(#U!@#): The hermit seeks you
+$(#U!@#): The Hermit seeks you
 => END!
 ~ hellnight
-*($I!@#*$: In boarded up doors, new opportunities present
+Folly: Look at what I've done. Raincoat is an unrecoverable mess because of me.
 => END!

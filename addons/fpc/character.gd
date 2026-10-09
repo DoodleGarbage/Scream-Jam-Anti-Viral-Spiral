@@ -190,18 +190,20 @@ func _physics_process(delta): # Most things happen here.
 		velocity.y -= gravity * delta
 	
 	# Dialogue etc.
-	if not Status.movement_allowed():
-		if RETICLE:
-			RETICLE.hide()
-		handle_movement(delta, Vector2.ZERO)
-		#handle_head_rotation()
-		if dynamic_fov:
-			update_camera_fov()
-		was_on_floor = is_on_floor()
-		return
+	#if not Status.movement_allowed():
+		#if RETICLE:
+			#RETICLE.hide()
+		#handle_movement(delta, Vector2.ZERO)
+		##handle_head_rotation()
+		#if dynamic_fov:
+			#update_camera_fov()
+		#was_on_floor = is_on_floor()
+		#return
 	
-	if RETICLE:
+	if RETICLE and Status.movement_allowed():
 		RETICLE.show()
+	else:
+		RETICLE.hide()
 	
 	handle_jumping()
 
@@ -236,7 +238,7 @@ func _physics_process(delta): # Most things happen here.
 #region Input HandlingWWWW
 
 func handle_jumping():
-	if jumping_enabled:
+	if jumping_enabled and Status.movement_allowed():
 		if continuous_jumping: # Hold down the jump button
 			if Input.is_action_pressed(controls.JUMP) and is_on_floor() and !low_ceiling:
 				if jump_animation:
@@ -252,7 +254,8 @@ func handle_jumping():
 func handle_movement(delta, input_dir):
 	var direction = input_dir.rotated(-HEAD.rotation.y)
 	direction = Vector3(direction.x, 0, direction.y)
-	move_and_slide()
+	if Status.movement_allowed():
+		move_and_slide()
 
 	if in_air_momentum:
 		if is_on_floor():
@@ -357,6 +360,8 @@ func update_interaction_display() -> void:
 		if collider.get_restrictions():
 			return
 		var txt = collider.desc
+		if Status.holding_rock and not collider.is_rock:
+			txt = "Throw Rock"
 		$CL/UserInterface/InteractLabel.text = txt
 		$CL/UserInterface/InteractLabel.show()
 

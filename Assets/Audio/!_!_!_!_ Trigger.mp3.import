@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dk1jol2xh2svp"
+path="res://.godot/imported/!_!_!_!_ Trigger.mp3-14c1fe28ea72524334fd5bfa36157e1d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/!_!_!_!_ Trigger.mp3"
+dest_files=["res://.godot/imported/!_!_!_!_ Trigger.mp3-14c1fe28ea72524334fd5bfa36157e1d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

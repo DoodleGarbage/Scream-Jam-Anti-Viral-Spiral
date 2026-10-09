@@ -24,6 +24,8 @@ func loaded(_last_scene:String) -> void:
 		spawn_pos = loading_point
 		blackout_screen.hide()
 		wakeup_notice.hide()
+	if Status.work_complete:
+		$door/Interactable3D.monitorable = false
 	Status.position_character(spawn_pos, character)
 
 func _process(delta: float) -> void:

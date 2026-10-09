@@ -1,23 +1,27 @@
 ~ day1
-You: It's you. You look good.
+Folly: It's me. I look good.
 => END!
 ~ night1
-=> day1
+Folly: It's me. I look alright.
+=> END!
 
 ~ day2
-You: Could've chosen anyone better than you.
+Folly: It's me. I look a bit dreary
 => END!
 ~ night2
-=> day2
+Folly: I don't like this place.
+=> END!
 
 ~ day3
-You: Hate. Pain. Suffering. That's all there is to see.
+Folly: It's me. I'm exhausted.
 => END!
 ~ night3
-=> day3
+Folly: Hate. Pain. Suffering. That's all there is to see.
+=> END!
 
 ~ hell
-You: You fucked up.
+Folly: I fucked up.
 => END!
 ~ hellnight
+Folly: Maybe the Hermit can help?
 => END!

@@ -1,27 +1,31 @@
 ~ day1
 Letter: Dear Folly, I had a great time on our last hangout. I would love to meet you again sometime. I think that there's still hope for us.
 Letter: Signed, Your BFF
-=> END
+=> END!
 
 ~ day2
 Letter: Dear Folly, with how that event went down, I'm going to have to put our friendship on pause. IT ISN'T OVER YET! I just think we need some space to cool off and get our heads back on right. We can go back to being friends right after.
 Letter: Signed, A Former Friend
-=> END
+=> END!
 
 ~ day3
 Letter: Dear Folly, ever since the car crash, I've despised every fiber of your being. You murdered my parents, and at my lowest, you used it to take everything I ever had, even my love. I'll never forgive you for what you've done. I hate you. I hate you.
 Letter: Signed, Mercury.
-=> END
+=> END!
 
 ~ night1
+Folly: I love my friend.
 => day1
 ~ night2
+Folly: I miss my friend. 
 => day2
 ~ night3
+Folly: I did it again. Raincoat, Brawny, Mercury... Everyone meets the same fate around me.
 => day3
 ~ hell
 Mercury: I'm here to stay. And I'm going to make sure you regret what you did.
-=> END
+=> END!
 ~ hellnight
+Folly: Mercury will never forgive me for what I did...
 Mercury: Not even the Hermit can save you. You're stuck here. Trapped by your own actions.
 => END!

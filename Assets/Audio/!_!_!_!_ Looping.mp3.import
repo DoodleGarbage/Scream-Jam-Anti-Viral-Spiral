@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhmktnuncejur"
+path="res://.godot/imported/!_!_!_!_ Looping.mp3-3f7fa9ca3f618fd7450eec0868c6cd2a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/!_!_!_!_ Looping.mp3"
+dest_files=["res://.godot/imported/!_!_!_!_ Looping.mp3-3f7fa9ca3f618fd7450eec0868c6cd2a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

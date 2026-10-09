@@ -8,6 +8,7 @@ extends Node3D
 @export var broken_bridge : Node3D
 @export var bridge_blocker : StaticBody3D
 @export var audio_player : AudioPlayer3D
+@export var bridge_audio : AudioPlayer3D
 ## In meters
 @export var stalk_distance : float = 0.0
 ## Speed to exit a stalk position
@@ -163,6 +164,7 @@ func _on_brawny_brawny_murdered() -> void:
 	chase_player = true
 	stalk_player = false
 	Audio.play("whatdidyoudo", audio_player)
+	Audio.play("chase_trigger", null, true, 80)
 	Audio.stop("being_followed")
 
 
@@ -182,6 +184,9 @@ func _on_raincoat_catcher_body_entered(_body: Node3D) -> void:
 	falling = true
 	broken_bridge.show()
 	bridge_blocker.process_mode = Node.PROCESS_MODE_INHERIT
+	Audio.stop("chase_trigger", true, 7)
+	Audio.stop("chase_loop", true, 7)
+	Audio.play("bridge_collapse", bridge_audio)
 
 
 #func _on_bridge_collapse_timeout() -> void:

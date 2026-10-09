@@ -98,7 +98,7 @@ func complete_routine(task:String, audio_player=null) -> bool:
 	return true
 
 func movement_allowed() -> bool:
-	return not (not Status.woke_up or Status.in_dialogue)
+	return Status.woke_up and not Status.in_dialogue
 
 func end_day() -> void:
 	print("Ending day ", current_day)
