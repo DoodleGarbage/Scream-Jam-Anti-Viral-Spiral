@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bvmmhr7uqnuy5"]
+
+[ext_resource type="PackedScene" uid="uid://cdn341h5n1oko" path="res://Assets/Models/broken_window.blend" id="1_1w83h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xhjo"]
+size = Vector3(0.2, 3, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_efths"]
+size = Vector3(0.2, 3, 0.1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_efths"]
+emission_shape = 1
+emission_sphere_radius = 1.83
+gravity = Vector3(0, -0.08, 0)
+tangential_accel_min = -0.09000223
+tangential_accel_max = 0.08999776
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2tje"]
+shading_mode = 0
+disable_fog = true
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_0xhjo"]
+material = SubResource("StandardMaterial3D_o2tje")
+size = Vector2(0.01, 0.01)
+
+[node name="BrokenWindow" type="Node3D" unique_id=212477045]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=312367790]
+transform = Transform3D(-4.371139e-08, 0.4463693, -0.8948488, 0, 0.8948488, 0.4463693, 1, 1.9511422e-08, -3.9115083e-08, -4.3062086, 2.2527297, -2.3841858e-07)
+light_energy = 16.0
+light_indirect_energy = 0.5
+light_volumetric_fog_energy = 0.6
+shadow_enabled = true
+shadow_caster_mask = 4294967294
+spot_range = 9.0
+spot_angle = 17.46
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1033572418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.63423944, 2.2087996, 0)
+visible = false
+layers = 2
+mesh = SubResource("BoxMesh_0xhjo")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=42861614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62870526, 0.30050755, -2.497495)
+visible = false
+layers = 2
+mesh = SubResource("BoxMesh_0xhjo")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1946309461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6358216, -0.31162763, 2.461535)
+visible = false
+layers = 2
+mesh = SubResource("BoxMesh_0xhjo")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1789061193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.63423944, -2.0931325, 0)
+layers = 2
+mesh = SubResource("BoxMesh_0xhjo")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=395096930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.63423944, -0.080978155, 0)
+visible = false
+layers = 2
+mesh = SubResource("BoxMesh_efths")
+
+[node name="Dust" type="GPUParticles3D" parent="." unique_id=2047836045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3999991, 0, 0)
+amount = 15
+lifetime = 4.22
+preprocess = 3.0
+process_material = SubResource("ParticleProcessMaterial_efths")
+draw_pass_1 = SubResource("QuadMesh_0xhjo")
+
+[node name="broken_window" parent="." unique_id=1797702735 instance=ExtResource("1_1w83h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.084920466, 0.011616051, 0)

@@ -28,7 +28,7 @@ var held_book_index : int = -1
 
 var holding_rock : bool = false
 
-var woke_up : bool = false
+var woke_up : bool = true
 var waking_up : bool = false
 
 

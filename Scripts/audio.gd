@@ -9,7 +9,7 @@ var fade_in_tracks : Array = []
 var fade_out_tracks : Array = []
 var loaded_players : Array = []
 
-var themes : Array[String] = ["prudent_folly", "library", "main_menu", "first_day", "being_followed", "someplace_calm", "hell", "through_the_tunnels"]
+var themes : Array[String] = ["prudent_folly", "library", "main_menu", "first_day", "being_followed", "someplace_calm", "hell", "tunneling_through"]
 
 func _process(delta: float) -> void:
 	var indices : Array[int] = []
@@ -52,7 +52,9 @@ func _get_stream(audio:String) -> AudioStream:
 		"someplace_calm": return preload("res://Assets/Audio/Someplace_Calm.mp3")
 		"hell": return preload("res://Assets/Audio/Hellscape.mp3")
 		"whatdidyoudo": return preload("res://Assets/Audio/whatdidyoudo.mp3")
-		"through_the_tunnels": return preload("res://Assets/Audio/Through_the_Tunnels.mp3")
+		"tunneling_through": return preload("res://Assets/Audio/Tunneling_Through.mp3")
+		"generator": return preload("res://Assets/Audio/generator.mp3")
+		"broken_generator": return preload("res://Assets/Audio/broken_generator.mp3")
 	return null
 
 func _get_volume(audio:String) -> float:
@@ -62,6 +64,7 @@ func _get_volume(audio:String) -> float:
 		"first_day": mod = 0.0
 		"someplace_calm": mod = -10
 		"whatdidyoudo": mod = 10
+		"generator": mod = 24
 	return mod
 
 ## AudioStreamPlayers do not have a common inheritance class
@@ -73,7 +76,7 @@ func play(audio: String, audio_player = null, fade_in:bool = false, fade_in_spee
 	print("Playing track: ", audio)
 	var next_track : String = ""
 	match(audio):
-		"prudent_folly","alarm_sound","library","main_menu","first_day","being_followed","someplace_calm","hell","through_the_tunnels": next_track = audio
+		"prudent_folly","alarm_sound","library","main_menu","first_day","being_followed","someplace_calm","hell","tunneling_through","generator","broken_generator": next_track = audio
 	var _volume : float = _get_volume(audio)
 	_play_audio(stream, audio, audio_player, _volume, next_track, fade_in, fade_in_speed)
 	
@@ -105,8 +108,9 @@ func _play_audio(audio : AudioStream, audio_name:String, forced_player=null, _vo
 		add_child(audio_player)
 		audio_player.finished.connect(audio_player.queue_free)
 	audio_player.playing_audio = audio_name
-	stop_audio.connect(audio_player.end_play)
-	if next_track != "":
+	if not stop_audio.is_connected(audio_player.end_play):
+		stop_audio.connect(audio_player.end_play)
+	if next_track != "" and not audio_player.finished.is_connected(_loop_audio):
 		audio_player.finished.connect(_loop_audio.bind(next_track, forced_player))
 	audio_player.stream = audio
 	audio_player.volume_db = _volume

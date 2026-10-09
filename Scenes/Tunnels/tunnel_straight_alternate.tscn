@@ -19,3 +19,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, 0)
 shape = SubResource("BoxShape3D_8s5l4")
 
 [node name="tunnelstraightalternate" parent="." unique_id=57582357 instance=ExtResource("1_g0n8a")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1501101933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2075794, 2.1830885, 0)
+light_color = Color(0.72453827, 0, 0.06270393, 1)
+light_energy = 0.832
+shadow_enabled = true
+omni_range = 1.553

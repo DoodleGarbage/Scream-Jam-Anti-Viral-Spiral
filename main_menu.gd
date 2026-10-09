@@ -18,4 +18,11 @@ func _process(_delta: float) -> void:
 
 signal switch_scene(scene:String)
 func _on_start_pressed() -> void:
-	switch_scene.emit(start_scene)
+	var target_scene : String = start_scene
+	if $CL/Debug/LineEdit.text != "":
+		target_scene = $CL/Debug/LineEdit.text
+	if $CL/Debug/SpinBox.value > -1:
+		Status.current_day = $CL/Debug/SpinBox.value
+	if target_scene == "follys_room":
+		Status.woke_up = false
+	switch_scene.emit(target_scene)

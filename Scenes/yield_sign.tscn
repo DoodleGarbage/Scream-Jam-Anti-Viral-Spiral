@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://djfcds4rupy7a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mimny"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_l6oxx"]
+material = SubResource("StandardMaterial3D_mimny")
+size = Vector3(1, 1, 0.022)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njh3p"]
+albedo_color = Color(0.6917803, 0.6917805, 0.69178045, 1)
+metallic = 0.39
+
+[sub_resource type="BoxMesh" id="BoxMesh_vtsf3"]
+material = SubResource("StandardMaterial3D_njh3p")
+size = Vector3(0.1, 2.4, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jn7uj"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_4joqx"]
+material = SubResource("StandardMaterial3D_jn7uj")
+size = Vector3(1, 1.096, 0.022)
+
+[node name="YieldSign" type="Node3D" unique_id=896966544]
+
+[node name="signshape" type="MeshInstance3D" parent="." unique_id=1632855052]
+transform = Transform3D(-4.371139e-08, 0, -1, -8.742278e-08, -1, 3.821371e-15, -1, 8.742278e-08, 4.371139e-08, -0.05436915, 2.045035, 0.01414898)
+mesh = SubResource("PrismMesh_l6oxx")
+
+[node name="pole" type="MeshInstance3D" parent="." unique_id=1956744592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+mesh = SubResource("BoxMesh_vtsf3")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=117931545]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.069233656, 2.3254151, 0.01414898)
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "YIELD"
+font_size = 27
+
+[node name="signshape2" type="MeshInstance3D" parent="." unique_id=1997001913]
+transform = Transform3D(-2.9376379e-08, 0, -1.103271, -5.8752757e-08, -0.5918474, 4.216008e-15, -0.6720532, 5.1740944e-08, 4.822551e-08, -0.05436915, 2.139928, 0.01414898)
+mesh = SubResource("PrismMesh_4joqx")

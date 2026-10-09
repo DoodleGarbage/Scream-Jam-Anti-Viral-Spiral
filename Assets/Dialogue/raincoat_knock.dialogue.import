@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://kfm73j0pwn5k"
+path="res://.godot/imported/raincoat_knock.dialogue-f5cf8f49536108250013c480ccc98697.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/raincoat_knock.dialogue"
+dest_files=["res://.godot/imported/raincoat_knock.dialogue-f5cf8f49536108250013c480ccc98697.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://csgjch33rvxth"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6oxx"]
+albedo_color = Color(1, 0, 0.099999905, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fodyg"]
+material = SubResource("StandardMaterial3D_l6oxx")
+height = 0.01
+radial_segments = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njh3p"]
+albedo_color = Color(0.6917803, 0.6917805, 0.69178045, 1)
+metallic = 0.39
+
+[sub_resource type="BoxMesh" id="BoxMesh_8s5l4"]
+material = SubResource("StandardMaterial3D_njh3p")
+size = Vector3(0.1, 2.4, 0.1)
+
+[node name="StopSign" type="Node3D" unique_id=1821023168]
+
+[node name="signshape" type="MeshInstance3D" parent="." unique_id=36175960]
+transform = Transform3D(-4.0931614e-08, -1, -1.5339115e-08, 0.92322475, -4.3683293e-08, 0.38426048, -0.38426048, 1.5669513e-09, 0.92322475, -0.05436915, 2.045035, 0.01414898)
+mesh = SubResource("CylinderMesh_fodyg")
+
+[node name="pole" type="MeshInstance3D" parent="." unique_id=952813823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+mesh = SubResource("BoxMesh_8s5l4")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=719910349]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.05941564, 2.045035, 0.01414898)
+outline_modulate = Color(0, 0, 0, 0)
+text = "STOP"
+font_size = 68

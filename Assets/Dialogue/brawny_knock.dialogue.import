@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://chvxocv66rhty"
+path="res://.godot/imported/brawny_knock.dialogue-bdbb5191e14e254df22aa2690bc73f84.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/brawny_knock.dialogue"
+dest_files=["res://.godot/imported/brawny_knock.dialogue-bdbb5191e14e254df22aa2690bc73f84.tres"]
+
+[params]
+
+defaults=true

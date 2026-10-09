@@ -19,3 +19,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, 0)
 shape = SubResource("BoxShape3D_8s5l4")
 
 [node name="tunnelstraightflatnopipes" parent="." unique_id=206802341 instance=ExtResource("1_av1v6")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=694530938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9372296, 0.09103304, 0)
+light_color = Color(0.72453827, 0, 0.06270393, 1)
+light_energy = 0.832
+omni_range = 1.553
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=696054463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91561395, 0.09103304, 0)
+light_color = Color(0.72453827, 0, 0.06270393, 1)
+light_energy = 0.832
+omni_range = 1.553

@@ -102,6 +102,8 @@ func trigger_effects() -> void:
 		Status.pickup_rock()
 	if is_dialogue and dialogue != null and Status.allow_dialogue:
 		Dialogue.trigger_event(event_name, dialogue)
+	if is_dialogue and not Status.allow_dialogue:
+		return
 	if end_day:
 		monitorable = false # prevent double triggers
 		Status.end_day()

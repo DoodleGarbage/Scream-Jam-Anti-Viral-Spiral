@@ -56,4 +56,27 @@ allow_lesser = true
 layout_mode = 2
 text = "%XX"
 
+[node name="Debug" type="VBoxContainer" parent="CL" unique_id=2094587942]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DL" type="Label" parent="CL/Debug" unique_id=1005913025]
+layout_mode = 2
+text = "Debug Tools"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="CL/Debug" unique_id=109100573]
+custom_minimum_size = Vector2(162.416, 0)
+layout_mode = 2
+placeholder_text = "Scene Initalizer"
+
+[node name="SpinBox" type="SpinBox" parent="CL/Debug" unique_id=1583078753]
+layout_mode = 2
+min_value = -1.0
+value = 1.0
+rounded = true
+allow_greater = true
+prefix = "Day"
+
 [connection signal="pressed" from="CL/LS/Start" to="." method="_on_start_pressed"]

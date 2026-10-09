@@ -14,6 +14,7 @@ size = Vector3(1, 3, 1)
 [node name="Tunnel4WayNopipes" type="Node3D" unique_id=14649706]
 
 [node name="collider" type="StaticBody3D" parent="." unique_id=86906622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0.5)
 visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="collider" unique_id=1345410876]
@@ -33,3 +34,4 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5
 shape = SubResource("BoxShape3D_cjx2n")
 
 [node name="tunnel4waynopipes" parent="." unique_id=63741791 instance=ExtResource("1_dsygy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0.5)
