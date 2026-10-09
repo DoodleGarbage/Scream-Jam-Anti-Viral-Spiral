@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dsudbjeywuxfj"]
+
+[ext_resource type="PackedScene" uid="uid://yu8p7eplm5f3" path="res://Assets/Models/tunnels/tunnelend.blend" id="2_mybly"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
+size = Vector3(1, 3, 3)
+
+[node name="TunnelEnd" type="Node3D" unique_id=14649706]
+
+[node name="collider" type="StaticBody3D" parent="." unique_id=86906622]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="collider" unique_id=1345410876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.5, 0)
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="collider" unique_id=752541404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, 0)
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="collider" unique_id=761056315]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.5, -2)
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="tunnelend" parent="." unique_id=995252146 instance=ExtResource("2_mybly")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=246817223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022252262, 1.8258913, -1.5761979)
+light_color = Color(0.72453827, 0, 0.06270393, 1)
+light_energy = 0.832
+shadow_enabled = true
+omni_range = 1.553

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dekgjbw2rvt7p"]
+
+[ext_resource type="PackedScene" uid="uid://bdalmiv0o45cc" path="res://Scenes/Tunnels/tunnel_hallway_light.tscn" id="1_ml6s6"]
+[ext_resource type="PackedScene" uid="uid://by37s8rioqfrf" path="res://Assets/Models/tunnels/tunnelstraight1mnopipe.blend" id="2_230rr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
+size = Vector3(1, 3, 1)
+
+[node name="TunnelStraight1mNopipe" type="Node3D" unique_id=14649706]
+
+[node name="collider" type="StaticBody3D" parent="." unique_id=86906622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="collider" unique_id=1345410876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.5, 0)
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="collider" unique_id=752541404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, 0)
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="TunnelHallwayLight" parent="." unique_id=152510013 instance=ExtResource("1_ml6s6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -0.5)
+
+[node name="tunnelstraight1mnopipe" parent="." unique_id=1444914773 instance=ExtResource("2_230rr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
