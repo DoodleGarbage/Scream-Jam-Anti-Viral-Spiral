@@ -1,7 +1,20 @@
 [gd_scene format=3 uid="uid://bdalmiv0o45cc"]
 
-[node name="TunnelHallwayLight" type="OmniLight3D" unique_id=152510013]
+[ext_resource type="Script" uid="uid://b3injkqqc82ms" path="res://Scenes/Tunnels/tunnel_hallway_light.gd" id="1_5wynu"]
+
+[node name="TunnelHallwayLight" type="OmniLight3D" unique_id=152510013 groups=["TunnelLight"]]
 light_energy = 0.25
 light_indirect_energy = 0.3
 shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 35.0
+distance_fade_shadow = 20.0
+distance_fade_length = 5.0
 omni_range = 3.5
+script = ExtResource("1_5wynu")
+flicker_chance = 0.3
+flicker_timer = 6.5
+flick_duration = 0.25
+flick_duration_variance = 0.15
+flick_count = 5
+flick_count_variance = 3

@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cpwcgx528nymu" path="res://Assets/Models/hand_rock.blend" id="3_qaoyu"]
 [ext_resource type="Script" uid="uid://dgfl3skp075ft" path="res://addons/fpc/EditorModule.gd" id="3_v3ckk"]
 [ext_resource type="Script" uid="uid://u5u7xxlvmcxx" path="res://addons/fpc/debug.gd" id="3_x1wcc"]
+[ext_resource type="Material" uid="uid://buslmp025nuqh" path="res://Assets/Textures/generator_piece_1.tres" id="4_4fv23"]
+[ext_resource type="Material" uid="uid://b5i2y0flkc2xs" path="res://Assets/Textures/generator_piece_2.tres" id="5_q62an"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
 albedo_color = Color(0.909804, 0.596078, 0, 1)
@@ -377,6 +379,14 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkisk"]
 albedo_color = Color(0.9405203, 0.6782533, 0.90860736, 1)
 
+[sub_resource type="BoxMesh" id="BoxMesh_8s5l4"]
+material = ExtResource("4_4fv23")
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q34qd"]
+material = ExtResource("5_q62an")
+size = Vector3(0.2, 0.2, 0.2)
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_k4wwl"]
 
 [sub_resource type="Theme" id="Theme_wdf0f"]
@@ -385,7 +395,7 @@ MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10
 MarginContainer/constants/margin_top = 10
 
-[node name="Character" type="CharacterBody3D" unique_id=1981548183 node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH", "RAYCAST", "CANVAS", "BOOK", "ROCK")]
+[node name="Character" type="CharacterBody3D" unique_id=1981548183 node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH", "RAYCAST", "CANVAS", "BOOK", "ROCK", "GEN_PIECES")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 collision_layer = 11
 script = ExtResource("1_0t4e8")
@@ -402,6 +412,7 @@ RAYCAST = NodePath("Head/RayCaster")
 CANVAS = NodePath("CL")
 BOOK = NodePath("Head/Book")
 ROCK = NodePath("Head/Rock")
+GEN_PIECES = [NodePath("Head/GenPiece1"), NodePath("Head/GenPiece2")]
 controls = {
 &"BACKWARD": "backward",
 &"CROUCH": "crouch",
@@ -457,6 +468,16 @@ book_material = SubResource("StandardMaterial3D_fkisk")
 [node name="Rock" parent="Head" unique_id=209571981 instance=ExtResource("3_qaoyu")]
 transform = Transform3D(0.14120616, 0, 0, 0, 0.14120616, 0, 0, 0, 0.14120616, 0.5549023, -0.30271506, -0.50212306)
 visible = false
+
+[node name="GenPiece1" type="MeshInstance3D" parent="Head" unique_id=559090938]
+transform = Transform3D(0.65427345, 0.7229125, 0.22208981, -0.42457432, 0.59414405, -0.68317616, -0.6258299, 0.35269034, 0.6956627, -0.5479722, -0.1885333, -0.50212306)
+visible = false
+mesh = SubResource("BoxMesh_8s5l4")
+
+[node name="GenPiece2" type="MeshInstance3D" parent="Head" unique_id=637644853]
+transform = Transform3D(0.55893326, 0.8288339, -0.025060823, -0.82385457, 0.5584981, 0.09666106, 0.0941124, -0.03338059, 0.9950018, -0.38336167, -0.3305596, -0.47727016)
+visible = false
+mesh = SubResource("BoxMesh_q34qd")
 
 [node name="CrouchCeilingDetection" type="ShapeCast3D" parent="." unique_id=760185835]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

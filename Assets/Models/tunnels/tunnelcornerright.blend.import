@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d3eqctiefqgla"
-path="res://.godot/imported/tunnelcorneralt.blend-8ce47f07bce077fb0a9c94f7bc287808.scn"
+uid="uid://db434koga6dee"
+path="res://.godot/imported/tunnelcornerright.blend-e2411dc5e2af2f5015491a9eeef01d07.scn"
 
 [deps]
 
-source_file="res://Assets/Models/tunnels/tunnelcorneralt.blend"
-dest_files=["res://.godot/imported/tunnelcorneralt.blend-8ce47f07bce077fb0a9c94f7bc287808.scn"]
+source_file="res://Assets/Models/tunnels/tunnelcornerright.blend"
+dest_files=["res://.godot/imported/tunnelcornerright.blend-e2411dc5e2af2f5015491a9eeef01d07.scn"]
 
 [params]
 

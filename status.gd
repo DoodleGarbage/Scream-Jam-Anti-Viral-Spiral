@@ -25,6 +25,8 @@ var game_node : Node
 
 var holding_book : bool = false
 var held_book_index : int = -1
+var generated_books : Array[String] = []
+
 
 var holding_rock : bool = false
 
@@ -38,8 +40,8 @@ var work_complete : bool :
 	get:
 		return returned_books >= total_books
 
-
-
+var collected_pieces : Array[int] = []
+var held_pieces : Array[int] = []
 
 func pickup_book(index:int, material:Material, title:String="") -> bool:
 	if holding_book:
@@ -61,6 +63,21 @@ func collect_book(book_index:int) -> bool:
 	returned_books += 1
 	Audio.play("book_delivered")
 	return true
+
+func pickup_generator_piece(gen_piece:int) -> bool:
+	if collected_pieces.has(gen_piece) or held_pieces.has(gen_piece):
+		return false
+	game_node.character.GEN_PIECES[gen_piece-1].show()
+	held_pieces.append(gen_piece)
+	return true
+
+func collect_generator_piece() -> void:
+	for piece in held_pieces:
+		game_node.character.GEN_PIECES[piece-1].hide()
+	collected_pieces.append_array(held_pieces)
+	held_pieces = []
+	return
+
 
 func pickup_rock() -> void:
 	holding_rock = true
@@ -105,6 +122,7 @@ func end_day() -> void:
 	clear_rock()
 	total_books = 0
 	returned_books = -1
+	generated_books = []
 	completed_tasks = -1
 	current_day += 1
 	woke_up = false

@@ -66,6 +66,10 @@ func _get_stream(audio:String) -> AudioStream:
 		"chase_trigger": return preload("res://Assets/Audio/!_!_!_!_ Trigger.mp3")
 		"chase_loop": return preload("res://Assets/Audio/!_!_!_!_ Looping.mp3")
 		"bridge_collapse": return preload("res://Assets/Audio/bridge_collapse.mp3")
+		"generator_glitch": return preload("res://Assets/Audio/generator_glitch.mp3")
+		"power_down": return preload("res://Assets/Audio/tunnel_power_down.mp3")
+		"gear_clunk": return preload("res://Assets/Audio/gear_clunk.mp3")
+		"power_on": return preload("res://Assets/Audio/generator_power_on.mp3")
 	return null
 
 func _get_volume(audio:String) -> float:
@@ -78,6 +82,7 @@ func _get_volume(audio:String) -> float:
 		"generator": mod = 24
 		"bridge_collapse": mod = 20
 		"chase_trigger","chase_loop": mod = -11
+		"tunneling_through": mod = -13
 	return mod
 
 ## AudioStreamPlayers do not have a common inheritance class
@@ -89,8 +94,9 @@ func play(audio: String, audio_player = null, fade_in:bool = false, fade_in_spee
 	print("Playing track: ", audio)
 	var next_track : String = ""
 	match(audio):
-		"prudent_folly","alarm_sound","library","main_menu","first_day","being_followed","someplace_calm","hell","tunneling_through","generator","broken_generator","chase_loop": next_track = audio
+		"prudent_folly","alarm_sound","library","main_menu","first_day", "second_day","being_followed","someplace_calm","hell","tunneling_through","generator","broken_generator","chase_loop": next_track = audio
 		"chase_trigger": next_track = "chase_loop"
+		"power_on": next_track = "generator"
 	var _volume : float = _get_volume(audio)
 	_play_audio(stream, audio, audio_player, _volume, next_track, fade_in, fade_in_speed)
 	
@@ -125,8 +131,11 @@ func _play_audio(audio : AudioStream, audio_name:String, forced_player=null, _vo
 	audio_player.playing_audio = audio_name
 	if not stop_audio.is_connected(audio_player.end_play):
 		stop_audio.connect(audio_player.end_play)
-	if next_track != "" and not audio_player.finished.is_connected(_loop_audio):
+	if next_track != "":
+		if audio_player.finished.is_connected(_loop_audio):
+			audio_player.finished.disconnect(_loop_audio)
 		audio_player.finished.connect(_loop_audio.bind(audio_player, next_track, forced_player))
+		
 	audio_player.stream = audio
 	audio_player.volume_db = _volume
 	audio_player.base_volume = _volume
@@ -134,7 +143,10 @@ func _play_audio(audio : AudioStream, audio_name:String, forced_player=null, _vo
 	if fade_in:
 		audio_player.fade_in_speed = fade_in_speed
 		audio_player.volume_db = -50 + _volume
-		fade_in_tracks.append(audio_player)
+		if not fade_in_tracks.has(audio_player):
+			fade_in_tracks.append(audio_player)
+	if loaded_players.has(audio_player):
+		return
 	loaded_players.append(audio_player)
 
 func _loop_audio(source, audio : String, forced_player=null) -> void:

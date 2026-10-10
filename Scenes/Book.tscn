@@ -21,5 +21,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_fkisk")
 [node name="book_title" type="Label3D" parent="." unique_id=1133121643]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15104213, 0.17117509, 0.06446126)
 font_size = 10
-autowrap_mode = 3
+autowrap_mode = 2
 width = 52.0

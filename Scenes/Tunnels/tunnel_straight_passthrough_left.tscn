@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bqgkeb5n0y13e"]
+
+[ext_resource type="PackedScene" uid="uid://dyqbqteq035kb" path="res://Assets/Models/tunnels/tunnelstraight.blend" id="1_m2ex7"]
+[ext_resource type="PackedScene" uid="uid://bdalmiv0o45cc" path="res://Scenes/Tunnels/tunnel_hallway_light.tscn" id="2_vjq84"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
+size = Vector3(1, 3, 3)
+
+[node name="TunnelStraightPassthrough" type="Node3D" unique_id=14649706]
+
+[node name="tunnelstraight" parent="." unique_id=518763531 instance=ExtResource("1_m2ex7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="collider" type="StaticBody3D" parent="." unique_id=86906622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="collider" unique_id=1345410876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.5, 0)
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="TunnelHallwayLight" parent="." unique_id=152510013 instance=ExtResource("2_vjq84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -0.5)

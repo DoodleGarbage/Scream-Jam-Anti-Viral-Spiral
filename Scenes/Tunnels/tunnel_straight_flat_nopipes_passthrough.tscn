@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://v2vxwoabgecs"]
+
+[ext_resource type="PackedScene" uid="uid://i82luy8rfwns" path="res://Assets/Models/tunnels/tunnelstraightflatnopipes.blend" id="1_vip0t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
+size = Vector3(1, 3, 3)
+
+[node name="TunnelStraightFlatNopipesPassthrough" type="Node3D" unique_id=14649706]
+
+[node name="collider" type="StaticBody3D" parent="." unique_id=86906622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="collider" unique_id=752541404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, 0)
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="tunnelstraightflatnopipes" parent="." unique_id=206802341 instance=ExtResource("1_vip0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=694530938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9372296, 0.09103304, -0.5)
+light_color = Color(0.72453827, 0, 0.06270393, 1)
+light_energy = 0.832
+omni_range = 1.553
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=696054463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91561395, 0.09103304, -0.5)
+light_color = Color(0.72453827, 0, 0.06270393, 1)
+light_energy = 0.832
+omni_range = 1.553

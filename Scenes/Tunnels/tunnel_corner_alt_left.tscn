@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://v4vqgactt24n"]
 
-[ext_resource type="PackedScene" uid="uid://d3eqctiefqgla" path="res://Assets/Models/tunnels/tunnelcorneralt.blend" id="1_4a2l6"]
+[ext_resource type="PackedScene" uid="uid://d3eqctiefqgla" path="res://Assets/Models/tunnels/tunnelcorneraltleft.blend" id="1_4a2l6"]
 [ext_resource type="PackedScene" uid="uid://bdalmiv0o45cc" path="res://Scenes/Tunnels/tunnel_hallway_light.tscn" id="2_jrv30"]
+[ext_resource type="PackedScene" uid="uid://u8twu4v7ch84" path="res://Scenes/Tunnels/tunnel_straight_1m_flat_nopipe.tscn" id="3_1sfir"]
+[ext_resource type="PackedScene" uid="uid://gdq4jhskg8i0" path="res://Scenes/Tunnels/tunnel_straight_1m.tscn" id="4_slti7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
 size = Vector3(1, 3, 3)
@@ -12,6 +14,7 @@ size = Vector3(1, 3, 1)
 [node name="TunnelCornerAlt" type="Node3D" unique_id=14649706]
 
 [node name="collider" type="StaticBody3D" parent="." unique_id=86906622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="collider" unique_id=1345410876]
@@ -27,6 +30,13 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.5
 shape = SubResource("BoxShape3D_8s5l4")
 
 [node name="tunnelcorneralt" parent="." unique_id=105051213 instance=ExtResource("1_4a2l6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 
 [node name="TunnelHallwayLight" parent="." unique_id=152510013 instance=ExtResource("2_jrv30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -1)
+
+[node name="TunnelStraight1mFlatNopipe" parent="." unique_id=371757870 instance=ExtResource("3_1sfir")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, 0, 0)
+
+[node name="TunnelStraight1m" parent="." unique_id=2114053615 instance=ExtResource("4_slti7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)

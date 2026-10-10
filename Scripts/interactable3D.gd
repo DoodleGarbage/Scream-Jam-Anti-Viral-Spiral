@@ -42,6 +42,10 @@ var book_index : int = -1
 @export var dialogue : DialogueResource
 @export_subgroup("Day")
 @export var end_day : bool = false
+@export_subgroup("Tunnels")
+@export var is_generator_piece : bool = false
+@export var piece_id : int = 0
+@export var collects_generator_pieces : bool = false
 
 func get_restrictions() -> bool:
 	var _enabled_restrictions : int = 0b0000
@@ -89,6 +93,10 @@ signal switch_scene
 func trigger_effects() -> void:
 	if get_restrictions():
 		return
+	if is_generator_piece and not Status.pickup_generator_piece(piece_id):
+		return
+	if collects_generator_pieces:
+		Status.collect_generator_piece()
 	if is_routine and not Status.complete_routine(routine_task, audio_player):
 		return
 	if collects_book and not Status.collect_book(book_index):

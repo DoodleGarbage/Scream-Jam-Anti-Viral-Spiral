@@ -361,6 +361,7 @@ scale_curve = SubResource("CurveTexture_2uq0s")
 color_ramp = SubResource("GradientTexture1D_cp8qb")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0dxl"]
+render_priority = 42
 transparency = 1
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("10_haq7r")
@@ -522,7 +523,7 @@ point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_lok0r"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -42.42761, 14.397238, 59.14016, 0, 0, 0, 0, 0, 0, -39.002174, 14.3945055, 50.209923),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -69.61655, 14.649016, 64.77695, 0, 0, 0, 0, 0, 0, -69.10901, 14.717698, 62.199886),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2

@@ -4,19 +4,38 @@
 [ext_resource type="PackedScene" uid="uid://dpil3r33glvff" path="res://Scenes/Tunnels/tunnel_straight.tscn" id="1_ncarf"]
 [ext_resource type="PackedScene" uid="uid://bivce7ch4us4i" path="res://Scenes/Tunnels/tunnel_4way.tscn" id="2_wu8v7"]
 [ext_resource type="PackedScene" uid="uid://bh1mx8k3yra4s" path="res://Scenes/Tunnels/tunnel_straight_alternate.tscn" id="3_avyhr"]
+[ext_resource type="Material" uid="uid://buslmp025nuqh" path="res://Assets/Textures/generator_piece_1.tres" id="4_03w7q"]
 [ext_resource type="PackedScene" uid="uid://cxsdeawm8bsfx" path="res://Scenes/Tunnels/tunnel_3way.tscn" id="4_mw333"]
-[ext_resource type="PackedScene" uid="uid://v4vqgactt24n" path="res://Scenes/Tunnels/tunnel_corner_alt.tscn" id="5_5cff0"]
+[ext_resource type="Material" uid="uid://b5i2y0flkc2xs" path="res://Assets/Textures/generator_piece_2.tres" id="6_3kmcx"]
 [ext_resource type="PackedScene" uid="uid://bn4vl6pot1iq2" path="res://Scenes/Tunnels/tunnel_straight_flat_nopipes.tscn" id="6_mw333"]
 [ext_resource type="PackedScene" uid="uid://be32momqcgiqy" path="res://Scenes/Tunnels/tunnel_3way_nopipes.tscn" id="7_5cff0"]
 [ext_resource type="PackedScene" uid="uid://d0d5e18qsn8ex" path="res://Scenes/Tunnels/tunnel_3_way_alternate.tscn" id="8_5cff0"]
 [ext_resource type="PackedScene" uid="uid://x4l7ikhej127" path="res://Scenes/Tunnels/tunnel_room_1.tscn" id="10_6vrye"]
 [ext_resource type="PackedScene" uid="uid://bvwtn5mxfpl3j" path="res://Scenes/Tunnels/tunnel_end_nopipes.tscn" id="10_8k7il"]
 [ext_resource type="PackedScene" uid="uid://blbuovbjs4w10" path="res://Scenes/Tunnels/tunnel_3way_inverted.tscn" id="11_34i02"]
-[ext_resource type="PackedScene" uid="uid://cojyw0pvmmggy" path="res://Scenes/Tunnels/tunnel_corner_alt_nopipes.tscn" id="12_cg66g"]
+[ext_resource type="PackedScene" uid="uid://cojyw0pvmmggy" path="res://Scenes/Tunnels/tunnel_corner_alt_left_nopipes.tscn" id="12_cg66g"]
 [ext_resource type="PackedScene" uid="uid://c4venk7bqvwyr" path="res://Scenes/Tunnels/tunnel_straight_nopipes.tscn" id="13_cg66g"]
 [ext_resource type="PackedScene" uid="uid://rgqe5jb37umy" path="res://Scenes/Tunnels/tunnel_end_flat_nopipes.tscn" id="15_4d4vy"]
 [ext_resource type="PackedScene" uid="uid://u8twu4v7ch84" path="res://Scenes/Tunnels/tunnel_straight_1m_flat_nopipe.tscn" id="16_5ovyp"]
 [ext_resource type="PackedScene" uid="uid://gdq4jhskg8i0" path="res://Scenes/Tunnels/tunnel_straight_1m.tscn" id="17_1kfi2"]
+[ext_resource type="PackedScene" uid="uid://dekgjbw2rvt7p" path="res://Scenes/Tunnels/tunnel_straight_1m_nopipe.tscn" id="17_w2e75"]
+[ext_resource type="PackedScene" uid="uid://e2a4nocymrav" path="res://Scenes/Tunnels/tunnel_corner_nopipes.tscn" id="19_i87ee"]
+[ext_resource type="PackedScene" uid="uid://ci1oxcvv4eydj" path="res://Scenes/Tunnels/tunnel_straight_transition_inverted.tscn" id="20_f87q1"]
+[ext_resource type="PackedScene" uid="uid://brppa7xhmcnrh" path="res://Scenes/Tunnels/tunnel_straight_transition.tscn" id="21_p2wcw"]
+[ext_resource type="PackedScene" uid="uid://v2vxwoabgecs" path="res://Scenes/Tunnels/tunnel_straight_flat_nopipes_passthrough.tscn" id="22_pdon3"]
+[ext_resource type="PackedScene" uid="uid://caxvp72im2yio" path="res://Scenes/Tunnels/tunnel_corner_alt_right.tscn" id="23_i87ee"]
+[ext_resource type="PackedScene" uid="uid://b3a1j11ya36ao" path="res://Scenes/Tunnels/tunnel_corner_right.tscn" id="23_qvowm"]
+[ext_resource type="PackedScene" uid="uid://b625ss2gc7lde" path="res://Scenes/Tunnels/tunnel_corner_alt_right_nopipes.tscn" id="24_rs6m0"]
+[ext_resource type="PackedScene" uid="uid://cc3rbqij5xw3w" path="res://Scenes/Tunnels/tunnel_straight_passthrough_right.tscn" id="25_ly0fj"]
+[ext_resource type="PackedScene" uid="uid://dhi5ib57u7j6a" path="res://Scenes/Tunnels/tunnel_end_alt.tscn" id="26_3kmcx"]
+[ext_resource type="PackedScene" uid="uid://clcbgjy56e6u6" path="res://Scenes/Tunnels/tunnel_4way_nopipes.tscn" id="26_peo30"]
+[ext_resource type="PackedScene" uid="uid://conmom24sv1ah" path="res://Assets/Models/generator.blend" id="27_o5c2d"]
+[ext_resource type="Script" uid="uid://dvtslqwkjjat3" path="res://Scripts/tunnel_generator.gd" id="27_peo30"]
+[ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scripts/interactable3D.gd" id="28_03w7q"]
+[ext_resource type="PackedScene" uid="uid://ckb4tfafsfe7t" path="res://Scenes/Tunnels/tunnel_corner_left.tscn" id="29_3kmcx"]
+[ext_resource type="Script" uid="uid://coji4uh3esqdw" path="res://Scripts/3d_audio_player.gd" id="30_o5c2d"]
+[ext_resource type="PackedScene" uid="uid://pjw1dnysff31" path="res://Scenes/Tunnels/tunnel_corner_flat_nopipes.tscn" id="31_a1r6t"]
+[ext_resource type="PackedScene" uid="uid://dsudbjeywuxfj" path="res://Scenes/Tunnels/tunnel_end.tscn" id="34_o5c2d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4qn5"]
 albedo_color = Color(0, 0, 0, 1)
@@ -24,226 +43,706 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_8s5l4"]
 material = SubResource("StandardMaterial3D_c4qn5")
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_c4qn5"]
-
 [sub_resource type="Environment" id="Environment_8s5l4"]
 background_energy_multiplier = 0.15
 ambient_light_energy = 0.25
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_c4qn5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c4qn5"]
+material = ExtResource("4_03w7q")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_a1r6t"]
+material = ExtResource("6_3kmcx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r5lkv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8s5l4"]
+radius = 0.608
+
 [node name="Tunnels" type="Node3D" unique_id=1426143558 node_paths=PackedStringArray("spawnpoint")]
 script = ExtResource("1_5cff0")
-spawnpoint = NodePath("Spawnpoint")
+spawnpoint = NodePath("SpawnTunnel/Spawnpoint")
 
-[node name="Spawnpoint" type="Node3D" parent="." unique_id=713126745]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2537537, 6)
+[node name="SpawnTunnel" parent="." unique_id=1907625595 instance=ExtResource("3_avyhr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
-[node name="SpawnHole" type="MeshInstance3D" parent="." unique_id=1448504279]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6608763, 6)
+[node name="Spawnpoint" type="Node3D" parent="SpawnTunnel" unique_id=713126745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2537537, 0)
+
+[node name="SpawnHole" type="MeshInstance3D" parent="SpawnTunnel/Spawnpoint" unique_id=1448504279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4071226, 0)
 mesh = SubResource("BoxMesh_8s5l4")
-
-[node name="Floor" type="StaticBody3D" parent="." unique_id=1616329484]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1379022490]
-shape = SubResource("WorldBoundaryShape3D_c4qn5")
-
-[node name="Hallway1" type="Node3D" parent="." unique_id=1945222922]
-
-[node name="TunnelStraight" parent="Hallway1" unique_id=14649706 instance=ExtResource("1_ncarf")]
-
-[node name="TunnelStraight2" parent="Hallway1" unique_id=1530360990 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
-
-[node name="TunnelStraight4" parent="Hallway1" unique_id=650549051 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
-
-[node name="TunnelStraight5" parent="Hallway1" unique_id=1658474118 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
-
-[node name="TunnelStraight7" parent="Hallway1" unique_id=1991015997 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
-
-[node name="TunnelStraight8" parent="Hallway1" unique_id=1975083766 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
-
-[node name="TunnelStraight9" parent="Hallway1" unique_id=992657407 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24)
-
-[node name="TunnelStraight11" parent="Hallway1" unique_id=1120119606 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31)
-
-[node name="TunnelStraight12" parent="Hallway1" unique_id=1477169541 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 34)
-
-[node name="TunnelStraight13" parent="Hallway1" unique_id=309006417 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
-
-[node name="TunnelStraight14" parent="Hallway1" unique_id=1850210130 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
-
-[node name="TunnelStraight15" parent="Hallway1" unique_id=1728865835 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
-
-[node name="TunnelStraight16" parent="Hallway1" unique_id=290659418 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21)
-
-[node name="TunnelStraight18" parent="Hallway1" unique_id=1182295969 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21)
-
-[node name="TunnelStraight19" parent="Hallway1" unique_id=1061461147 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
-
-[node name="TunnelStraight20" parent="Hallway1" unique_id=677591272 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
-
-[node name="TunnelStraight21" parent="Hallway1" unique_id=267765880 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -37)
-
-[node name="TunnelStraight22" parent="Hallway1" unique_id=123252015 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -34)
-
-[node name="TunnelStraight23" parent="Hallway1" unique_id=2002750264 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -31)
-
-[node name="TunnelStraight24" parent="Hallway1" unique_id=1160972793 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28)
-
-[node name="TunnelStraight3" parent="Hallway1" unique_id=551484717 instance=ExtResource("2_wu8v7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -25.5)
-
-[node name="TunnelStraight6" parent="Hallway1" unique_id=74930483 instance=ExtResource("3_avyhr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
-
-[node name="TunnelStraight10" parent="Hallway1" unique_id=1907625595 instance=ExtResource("3_avyhr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
-
-[node name="TunnelStraight17" parent="Hallway1" unique_id=506115919 instance=ExtResource("2_wu8v7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 26.5)
-
-[node name="TunnelStraight25" parent="Hallway1" unique_id=765789175 instance=ExtResource("4_mw333")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 36.5)
-
-[node name="TunnelCornerAlt" parent="Hallway1" unique_id=1539171217 instance=ExtResource("5_5cff0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
-
-[node name="Hallway2" type="Node3D" parent="." unique_id=1703519818]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5, 0, 0.5)
-
-[node name="TunnelStraightFlatNopipes" parent="Hallway2" unique_id=1328994293 instance=ExtResource("6_mw333")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -4)
-
-[node name="TunnelStraightFlatNopipes2" parent="Hallway2" unique_id=2001590078 instance=ExtResource("6_mw333")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -7)
-
-[node name="Tunnel3WayAlternate" parent="Hallway2" unique_id=1550822185 instance=ExtResource("8_5cff0")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26, 0, -9.5)
-
-[node name="TunnelStraight" parent="Hallway2" unique_id=1129182829 instance=ExtResource("1_ncarf")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 28.5, 0, -10.499999)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1753826497]
 environment = SubResource("Environment_8s5l4")
 
-[node name="rooms" type="Node3D" parent="." unique_id=1748357849]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1616329484]
+visible = false
 
-[node name="TunnelRoom1" parent="rooms" unique_id=1175114171 instance=ExtResource("10_6vrye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -19.5)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1379022490]
+shape = SubResource("WorldBoundaryShape3D_c4qn5")
 
-[node name="TunnelEndNopipes" parent="rooms" unique_id=1112816559 instance=ExtResource("10_8k7il")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.5, 0, -18.5)
+[node name="Rooms" type="Node3D" parent="." unique_id=1748357849]
 
-[node name="Hallway3" type="Node3D" parent="." unique_id=735337209]
+[node name="ItemRoom1" parent="Rooms" unique_id=1175114171 instance=ExtResource("10_6vrye")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -19)
 
-[node name="TunnelStraightAlternate" parent="Hallway3" unique_id=1316933071 instance=ExtResource("3_avyhr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -13)
+[node name="Item1" type="Node3D" parent="Rooms/ItemRoom1" unique_id=818809495]
+transform = Transform3D(0.74029845, -0.069952756, 0.66862905, 0.4264449, 0.8177303, -0.38660306, -0.51971424, 0.5713351, 0.63519543, 0, 1.224796, 1)
 
-[node name="TunnelStraight" parent="Hallway3" unique_id=432859534 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -10)
+[node name="ItemModel" type="MeshInstance3D" parent="Rooms/ItemRoom1/Item1" unique_id=2064118858]
+mesh = SubResource("BoxMesh_c4qn5")
 
-[node name="TunnelStraight2" parent="Hallway3" unique_id=1687560978 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -7)
+[node name="Item1Collector" type="Area3D" parent="Rooms/ItemRoom1/Item1" unique_id=85363302]
+collision_layer = 2
+script = ExtResource("28_03w7q")
+desc = "Take Part"
+is_generator_piece = true
+piece_id = 1
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="TunnelStraight3" parent="Hallway3" unique_id=1059453489 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -4)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/ItemRoom1/Item1/Item1Collector" unique_id=1332463543]
+shape = SubResource("BoxShape3D_8s5l4")
 
-[node name="TunnelStraight4" parent="Hallway3" unique_id=1792365553 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -1)
+[node name="ItemRoom2" parent="Rooms" unique_id=14649706 instance=ExtResource("10_6vrye")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -20)
 
-[node name="Tunnel3WayInverted" parent="Hallway3" unique_id=1522799591 instance=ExtResource("11_34i02")]
-transform = Transform3D(1, 0, -1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -11, 0, 1.5)
+[node name="Item2" type="Node3D" parent="Rooms/ItemRoom2" unique_id=775158530]
+transform = Transform3D(0.74029845, -0.069952756, 0.66862905, 0.4264449, 0.8177303, -0.38660306, -0.51971424, 0.5713351, 0.63519543, 0, 1.224796, 1)
 
-[node name="TunnelEndNopipes" parent="Hallway3" unique_id=1381881109 instance=ExtResource("10_8k7il")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.5, 0, 2.5)
+[node name="ItemModel" type="MeshInstance3D" parent="Rooms/ItemRoom2/Item2" unique_id=2011227719]
+mesh = SubResource("BoxMesh_a1r6t")
 
-[node name="TunnelStraightFlatNopipes" parent="Hallway3" unique_id=1585345061 instance=ExtResource("6_mw333")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13.5, 0, 2.5)
+[node name="Item2Collector" type="Area3D" parent="Rooms/ItemRoom2/Item2" unique_id=1780787969]
+collision_layer = 2
+script = ExtResource("28_03w7q")
+desc = "Take Part"
+is_generator_piece = true
+piece_id = 2
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="TunnelStraightFlatNopipes2" parent="Hallway3" unique_id=686600517 instance=ExtResource("6_mw333")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.5, 0, 2.5)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/ItemRoom2/Item2/Item2Collector" unique_id=917868320]
+shape = SubResource("BoxShape3D_r5lkv")
 
-[node name="TunnelStraightFlatNopipes3" parent="Hallway3" unique_id=1954161573 instance=ExtResource("6_mw333")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19.5, 0, 2.5)
+[node name="GeneratorRoom" parent="Rooms" unique_id=561966396 instance=ExtResource("10_6vrye")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30, 0, 47)
 
-[node name="TunnelStraightFlatNopipes4" parent="Hallway3" unique_id=501090912 instance=ExtResource("6_mw333")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -22.5, 0, 2.5)
+[node name="Generator" type="Node3D" parent="Rooms/GeneratorRoom" unique_id=476859693 node_paths=PackedStringArray("audio_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.792788, 1)
+script = ExtResource("27_peo30")
+audio_player = NodePath("genny_noises")
 
-[node name="TunnelStraightFlatNopipes5" parent="Hallway3" unique_id=1509499218 instance=ExtResource("6_mw333")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -25.5, 0, 2.5)
+[node name="generator" parent="Rooms/GeneratorRoom/Generator" unique_id=774565413 instance=ExtResource("27_o5c2d")]
+transform = Transform3D(0.074344724, 0.39903128, 0.9139185, 0.62555766, -0.7323801, 0.26888138, 0.7766278, 0.5517188, -0.30406553, -0.03787613, -0.028351426, 0.0146923065)
 
-[node name="TunnelCornerAltNopipes" parent="Hallway3" unique_id=1582632175 instance=ExtResource("12_cg66g")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -29, 0, 2)
+[node name="GeneratorInteract" type="Area3D" parent="Rooms/GeneratorRoom/Generator" unique_id=1332663819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.054073334, 0, 0.041999817)
+collision_layer = 2
+script = ExtResource("28_03w7q")
+desc = "I need to fix this. It's missing a few parts."
+collects_generator_pieces = true
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="TunnelStraightNopipes" parent="Hallway3" unique_id=50406968 instance=ExtResource("13_cg66g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0, -1)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/GeneratorRoom/Generator/GeneratorInteract" unique_id=534024438]
+shape = SubResource("SphereShape3D_8s5l4")
 
-[node name="TunnelStraightNopipes2" parent="Hallway3" unique_id=1129244927 instance=ExtResource("13_cg66g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0, -4)
+[node name="Collider" type="StaticBody3D" parent="Rooms/GeneratorRoom/Generator" unique_id=1396257000]
 
-[node name="Tunnel3WayNopipes" parent="Hallway3" unique_id=728814357 instance=ExtResource("7_5cff0")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -30, 0, -6.5)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/GeneratorRoom/Generator/Collider" unique_id=1779626973]
+shape = SubResource("SphereShape3D_8s5l4")
 
-[node name="TunnelStraightFlatNopipes6" parent="Hallway3" unique_id=21582790 instance=ExtResource("6_mw333")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -25.5, 0, -7.5)
+[node name="genny_noises" type="AudioStreamPlayer3D" parent="Rooms/GeneratorRoom/Generator" unique_id=420684975]
+max_db = 5.001
+script = ExtResource("30_o5c2d")
+metadata/_custom_type_script = "uid://coji4uh3esqdw"
 
-[node name="TunnelStraightFlatNopipes7" parent="Hallway3" unique_id=253889777 instance=ExtResource("6_mw333")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -22.5, 0, -7.5)
+[node name="Item1Section" type="Node3D" parent="." unique_id=1271169833]
 
-[node name="TunnelEndFlatNopipes" parent="Hallway3" unique_id=715273254 instance=ExtResource("15_4d4vy")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.5, 0, -7.5)
+[node name="TunnelStraightFlatNopipes" parent="Item1Section" unique_id=1053622565 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -17, 0, -18)
 
-[node name="Hallway4" type="Node3D" parent="." unique_id=1271169833]
+[node name="TunnelStraightFlatNopipes2" parent="Item1Section" unique_id=177794187 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20, 0, -18)
 
-[node name="TunnelStraightFlatNopipes" parent="Hallway4" unique_id=1053622565 instance=ExtResource("6_mw333")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.5, 0, -18.5)
+[node name="TunnelStraightFlatNopipes3" parent="Item1Section" unique_id=520697825 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23, 0, -18)
 
-[node name="TunnelStraightFlatNopipes2" parent="Hallway4" unique_id=177794187 instance=ExtResource("6_mw333")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.5, 0, -18.5)
+[node name="TunnelStraightFlatNopipes4" parent="Item1Section" unique_id=1935055109 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26, 0, -18)
 
-[node name="TunnelStraightFlatNopipes3" parent="Hallway4" unique_id=520697825 instance=ExtResource("6_mw333")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.5, 0, -18.5)
+[node name="TunnelStraightFlatNopipes5" parent="Item1Section" unique_id=1040166306 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -29, 0, -18)
 
-[node name="TunnelStraightFlatNopipes4" parent="Hallway4" unique_id=1935055109 instance=ExtResource("6_mw333")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.5, 0, -18.5)
+[node name="TunnelStraightFlatNopipes6" parent="Item1Section" unique_id=2054339120 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -32, 0, -18)
 
-[node name="TunnelStraightFlatNopipes5" parent="Hallway4" unique_id=1040166306 instance=ExtResource("6_mw333")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.5, 0, -18.5)
+[node name="Tunnel4Way" parent="Item1Section" unique_id=1584229445 instance=ExtResource("2_wu8v7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -19)
 
-[node name="TunnelStraightFlatNopipes6" parent="Hallway4" unique_id=2054339120 instance=ExtResource("6_mw333")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.5, 0, -18.5)
+[node name="TunnelStraight2" parent="Item1Section" unique_id=1958348574 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 0, -12)
 
-[node name="Tunnel4Way" parent="Hallway4" unique_id=1584229445 instance=ExtResource("2_wu8v7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 0, -19.5)
+[node name="Tunnel3WayAlternate" parent="Item1Section" unique_id=991888683 instance=ExtResource("8_5cff0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -10)
 
-[node name="TunnelStraight" parent="Hallway4" unique_id=1837549215 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -15)
+[node name="TunnelStraight1m2" parent="Item1Section" unique_id=573162749 instance=ExtResource("17_1kfi2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 0, -14)
 
-[node name="TunnelStraight2" parent="Hallway4" unique_id=1958348574 instance=ExtResource("1_ncarf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -12)
+[node name="TunnelStraight1m3" parent="Item1Section" unique_id=29001481 instance=ExtResource("17_1kfi2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 0, -15)
 
-[node name="Tunnel3WayAlternate" parent="Hallway4" unique_id=991888683 instance=ExtResource("8_5cff0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 0, -8.5)
+[node name="TunnelStraight1mFlatNopipe2" parent="Item1Section" unique_id=2042708146 instance=ExtResource("16_5ovyp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -33, 0, -18)
 
-[node name="TunnelStraight1mFlatNopipe" parent="Hallway4" unique_id=2130683454 instance=ExtResource("16_5ovyp")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -31.5, 0, -7.5)
+[node name="TunnelStraight1mFlatNopipe3" parent="Item1Section" unique_id=541832965 instance=ExtResource("16_5ovyp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -34, 0, -18)
 
-[node name="TunnelStraight1m" parent="Hallway4" unique_id=1673720512 instance=ExtResource("17_1kfi2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, -9.5)
+[node name="TunnelStraight" parent="Item1Section" unique_id=2137194571 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="TunnelStraight3" parent="Item1Section" unique_id=1530360990 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="TunnelStraight5" parent="Item1Section" unique_id=1658474118 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+
+[node name="TunnelStraight7" parent="Item1Section" unique_id=1991015997 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="TunnelStraight8" parent="Item1Section" unique_id=1975083766 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="TunnelStraight19" parent="Item1Section" unique_id=1061461147 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+
+[node name="TunnelStraight20" parent="Item1Section" unique_id=677591272 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17)
+
+[node name="TunnelStraight21" parent="Item1Section" unique_id=267765880 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36)
+
+[node name="TunnelStraight22" parent="Item1Section" unique_id=123252015 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -33)
+
+[node name="TunnelStraight23" parent="Item1Section" unique_id=2002750264 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+
+[node name="TunnelStraight24" parent="Item1Section" unique_id=1160972793 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27)
+
+[node name="TunnelStraight4" parent="Item1Section" unique_id=551484717 instance=ExtResource("2_wu8v7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -25)
+
+[node name="TunnelStraight6" parent="Item1Section" unique_id=74930483 instance=ExtResource("3_avyhr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+
+[node name="TunnelCornerAlt2" parent="Item1Section" unique_id=314813328 instance=ExtResource("23_i87ee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -41)
+
+[node name="TunnelStraightAlternate" parent="Item1Section" unique_id=1316933071 instance=ExtResource("3_avyhr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -12)
+
+[node name="TunnelStraight9" parent="Item1Section" unique_id=432859534 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -9)
+
+[node name="TunnelStraight10" parent="Item1Section" unique_id=1687560978 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -6)
+
+[node name="TunnelStraight11" parent="Item1Section" unique_id=1059453489 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -3)
+
+[node name="TunnelStraight12" parent="Item1Section" unique_id=1792365553 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 0)
+
+[node name="Tunnel3WayInverted" parent="Item1Section" unique_id=1522799591 instance=ExtResource("11_34i02")]
+transform = Transform3D(1, 0, -1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -12.002021, 0, 3)
+
+[node name="TunnelEndNopipes" parent="Item1Section" unique_id=1381881109 instance=ExtResource("10_8k7il")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8, 0, 4)
+
+[node name="TunnelStraightFlatNopipes7" parent="Item1Section" unique_id=686600517 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -17, 0, 4)
+
+[node name="TunnelStraightFlatNopipes8" parent="Item1Section" unique_id=1954161573 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -20, 0, 4)
+
+[node name="TunnelStraightFlatNopipes9" parent="Item1Section" unique_id=501090912 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23, 0, 4)
+
+[node name="TunnelStraightFlatNopipes10" parent="Item1Section" unique_id=1509499218 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -26, 0, 4)
+
+[node name="TunnelCornerAltNopipes" parent="Item1Section" unique_id=1582632175 instance=ExtResource("12_cg66g")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -31, 0, 3)
+
+[node name="TunnelStraightNopipes" parent="Item1Section" unique_id=50406968 instance=ExtResource("13_cg66g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0, 0)
+
+[node name="TunnelStraightNopipes2" parent="Item1Section" unique_id=1129244927 instance=ExtResource("13_cg66g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0, -4)
+
+[node name="Tunnel3WayNopipes" parent="Item1Section" unique_id=728814357 instance=ExtResource("7_5cff0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -32, 0, -8)
+
+[node name="TunnelStraightFlatNopipes11" parent="Item1Section" unique_id=21582790 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -27.000711, -0.0018100739, -8.995546)
+
+[node name="TunnelStraightFlatNopipes12" parent="Item1Section" unique_id=253889777 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -24.000711, -0.0018100739, -8.995546)
+
+[node name="TunnelEndFlatNopipes" parent="Item1Section" unique_id=715273254 instance=ExtResource("15_4d4vy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22.000711, -0.0018100739, -8.995546)
+
+[node name="TunnelStraight1mFlatNopipe" parent="Item1Section" unique_id=2044414851 instance=ExtResource("16_5ovyp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -33, 0, -9)
+
+[node name="TunnelStraight1mNopipe" parent="Item1Section" unique_id=1359401959 instance=ExtResource("17_w2e75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0, -2)
+
+[node name="TunnelStraightFlatNopipes13" parent="Item1Section" unique_id=1328994293 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.0000012, 0, -24)
+
+[node name="TunnelStraightFlatNopipes14" parent="Item1Section" unique_id=2001590078 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.000001, 0, -24)
+
+[node name="Tunnel3WayAlternate2" parent="Item1Section" unique_id=1550822185 instance=ExtResource("8_5cff0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.000001, 0, -25)
+
+[node name="TunnelStraight13" parent="Item1Section" unique_id=1129182829 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -27)
+
+[node name="TunnelEndNopipes2" parent="Item1Section" unique_id=1112816559 instance=ExtResource("10_8k7il")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, 0, -18)
+
+[node name="TunnelEnd" parent="Item1Section" unique_id=719520128 instance=ExtResource("34_o5c2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 0, -21)
+
+[node name="TunnelEndAlt" parent="Item1Section" unique_id=716286603 instance=ExtResource("26_3kmcx")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -37, 0, -6)
+
+[node name="TunnelEndFlatNopipes2" parent="Item1Section" unique_id=2002672182 instance=ExtResource("15_4d4vy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -40, 0, -18)
+
+[node name="TunnelEnd2" parent="Item1Section" unique_id=504266222 instance=ExtResource("34_o5c2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -30)
+
+[node name="TunnelEndAlt2" parent="Item1Section" unique_id=961841168 instance=ExtResource("26_3kmcx")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17, 0, -41)
+
+[node name="TunnelEndFlatNopipes3" parent="Item1Section" unique_id=1107146921 instance=ExtResource("15_4d4vy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11, 0, -21)
+
+[node name="Item2Section" type="Node3D" parent="." unique_id=2141848140]
+
+[node name="TunnelEnd" parent="Item2Section" unique_id=288049687 instance=ExtResource("34_o5c2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -24)
+
+[node name="TunnelStraightFlatNopipes" parent="Item2Section" unique_id=428374307 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 0, -24)
+
+[node name="TunnelStraight21" parent="Item2Section" unique_id=743627084 instance=ExtResource("1_ncarf")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8, 0, -41)
+
+[node name="TunnelStraightTransitionInverted" parent="Item2Section" unique_id=1467682803 instance=ExtResource("20_f87q1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 0, -41)
+
+[node name="Tunnel4Way" parent="Item2Section" unique_id=1893090421 instance=ExtResource("2_wu8v7")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, -42)
+
+[node name="TunnelStraightTransitionInverted2" parent="Item2Section" unique_id=1577494704 instance=ExtResource("20_f87q1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -38)
+
+[node name="TunnelStraight23" parent="Item2Section" unique_id=881512487 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -34)
+
+[node name="TunnelStraight24" parent="Item2Section" unique_id=86934040 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -31)
+
+[node name="TunnelStraightTransitionInverted3" parent="Item2Section" unique_id=533825564 instance=ExtResource("20_f87q1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6, 0, -24)
+
+[node name="Tunnel4Way2" parent="Item2Section" unique_id=1149502666 instance=ExtResource("2_wu8v7")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, -25)
+
+[node name="TunnelStraight1m" parent="Item2Section" unique_id=325914573 instance=ExtResource("17_1kfi2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, 0, -24)
+
+[node name="Tunnel3Way" parent="Item2Section" unique_id=262074627 instance=ExtResource("4_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15, 0, -25)
+
+[node name="TunnelStraightTransitionInverted4" parent="Item2Section" unique_id=1993607087 instance=ExtResource("20_f87q1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -21)
+
+[node name="TunnelStraight25" parent="Item2Section" unique_id=564661521 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -27)
+
+[node name="TunnelStraight1m2" parent="Item2Section" unique_id=1734319287 instance=ExtResource("17_1kfi2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -29)
+
+[node name="TunnelStraightTransitionInverted5" parent="Item2Section" unique_id=2068198367 instance=ExtResource("20_f87q1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 16, 0, -27)
+
+[node name="TunnelStraight26" parent="Item2Section" unique_id=994011843 instance=ExtResource("1_ncarf")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 16, 0, -31)
+
+[node name="TunnelCornerAlt" parent="Item2Section" unique_id=1468635357 instance=ExtResource("23_i87ee")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 28, 0, -29)
+
+[node name="TunnelCorner" parent="Item2Section" unique_id=27195124 instance=ExtResource("23_qvowm")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 16, 0, -34)
+
+[node name="TunnelStraight27" parent="Item2Section" unique_id=973687860 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 16, 0, -17)
+
+[node name="TunnelStraightFlatNopipes2" parent="Item2Section" unique_id=1266369288 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21, 0, -35)
+
+[node name="TunnelStraightFlatNopipes3" parent="Item2Section" unique_id=104681823 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24, 0, -35)
+
+[node name="TunnelCornerFlatNopipes" parent="Item2Section" unique_id=1305673363 instance=ExtResource("31_a1r6t")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 27, 0, -35)
+
+[node name="TunnelStraight22" parent="Item2Section" unique_id=2085445948 instance=ExtResource("1_ncarf")]
+transform = Transform3D(-2.1855693e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855693e-07, 33, 0, -29)
+
+[node name="Tunnel3WayInverted" parent="Item2Section" unique_id=792860846 instance=ExtResource("11_34i02")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 36, 0, -20)
+
+[node name="Tunnel3Way2" parent="Item2Section" unique_id=1853877270 instance=ExtResource("4_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 36, 0, -30)
+
+[node name="TunnelStraightTransitionInverted6" parent="Item2Section" unique_id=501035790 instance=ExtResource("20_f87q1")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 37, 0, -32)
+
+[node name="TunnelEndAlt" parent="Item2Section" unique_id=1129845335 instance=ExtResource("26_3kmcx")]
+transform = Transform3D(-1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, -1, 37, 0, -35)
+
+[node name="TunnelStraightFlatNopipes4" parent="Item2Section" unique_id=1704184474 instance=ExtResource("6_mw333")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 37, 0, -26)
+
+[node name="TunnelStraightFlatNopipes5" parent="Item2Section" unique_id=664937437 instance=ExtResource("6_mw333")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 37, 0, -23)
+
+[node name="Tunnel4Way3" parent="Item2Section" unique_id=1163493054 instance=ExtResource("2_wu8v7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -15)
+
+[node name="TunnelCornerFlatNopipes2" parent="Item2Section" unique_id=448050831 instance=ExtResource("31_a1r6t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, -18)
+
+[node name="TunnelStraight28" parent="Item2Section" unique_id=334719067 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -13)
+
+[node name="TunnelStraight29" parent="Item2Section" unique_id=425815536 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -10)
+
+[node name="TunnelStraight30" parent="Item2Section" unique_id=923350915 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -7)
+
+[node name="TunnelStraight31" parent="Item2Section" unique_id=1490954646 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -4)
+
+[node name="TunnelStraight32" parent="Item2Section" unique_id=758621576 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -1)
+
+[node name="TunnelStraightTransition" parent="Item2Section" unique_id=269737423 instance=ExtResource("21_p2wcw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 1)
+
+[node name="TunnelCornerFlatNopipes3" parent="Item2Section" unique_id=607604082 instance=ExtResource("31_a1r6t")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 30, 0, 6)
+
+[node name="TunnelStraight1mFlatNopipe7" parent="Item2Section" unique_id=255528488 instance=ExtResource("16_5ovyp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 4)
+
+[node name="TunnelStraightFlatNopipes6" parent="Item2Section" unique_id=780933868 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22, 0, 7)
+
+[node name="TunnelStraightFlatNopipes7" parent="Item2Section" unique_id=89325190 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25, 0, 7)
+
+[node name="TunnelEndFlatNopipes" parent="Item2Section" unique_id=1034699379 instance=ExtResource("15_4d4vy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 23, 0, -15)
+
+[node name="TunnelEndAlt2" parent="Item2Section" unique_id=1353631582 instance=ExtResource("26_3kmcx")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14, 0, -41)
+
+[node name="TunnelEndFlatNopipes2" parent="Item2Section" unique_id=1093349857 instance=ExtResource("15_4d4vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -44)
+
+[node name="TunnelEndFlatNopipes3" parent="Item2Section" unique_id=1276696502 instance=ExtResource("15_4d4vy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 37, 0, -16)
+
+[node name="TunnelEndFlatNopipes4" parent="Item2Section" unique_id=1239863157 instance=ExtResource("15_4d4vy")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 19, 0, -14)
+
+[node name="TunnelEndFlatNopipes5" parent="Item2Section" unique_id=649908361 instance=ExtResource("15_4d4vy")]
+transform = Transform3D(-2.1855693e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855693e-07, 13, 0, -14)
+
+[node name="TunnelEndAlt3" parent="Item2Section" unique_id=503844481 instance=ExtResource("26_3kmcx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -11)
+
+[node name="GeneratorSection" type="Node3D" parent="." unique_id=1312724965]
+
+[node name="TunnelStraight1m" parent="GeneratorSection" unique_id=1047231626 instance=ExtResource("17_1kfi2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 27, 0, 47)
+
+[node name="TunnelStraightFlatNopipes" parent="GeneratorSection" unique_id=1171965454 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 0, 25)
+
+[node name="TunnelStraightFlatNopipes2" parent="GeneratorSection" unique_id=1628434014 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7, 0, 25)
+
+[node name="TunnelRoom1" parent="GeneratorSection" unique_id=519138237 instance=ExtResource("10_6vrye")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 24)
+
+[node name="Tunnel3Way" parent="GeneratorSection" unique_id=345822229 instance=ExtResource("4_mw333")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 31)
+
+[node name="Tunnel4Way" parent="GeneratorSection" unique_id=30068947 instance=ExtResource("2_wu8v7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 18)
+
+[node name="TunnelStraight" parent="GeneratorSection" unique_id=687467915 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 16)
+
+[node name="TunnelStraightTransitionInverted" parent="GeneratorSection" unique_id=1628279332 instance=ExtResource("20_f87q1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 12)
+
+[node name="TunnelCornerNopipes" parent="GeneratorSection" unique_id=918984443 instance=ExtResource("19_i87ee")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 12, 0, 8)
+
+[node name="TunnelStraightFlatNopipes3" parent="GeneratorSection" unique_id=1183586846 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16, 0, 7)
+
+[node name="TunnelStraightFlatNopipes4" parent="GeneratorSection" unique_id=1885353556 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19, 0, 7)
+
+[node name="TunnelStraightTransition" parent="GeneratorSection" unique_id=1711585794 instance=ExtResource("21_p2wcw")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18, 0, 25)
+
+[node name="TunnelStraight1mFlatNopipe" parent="GeneratorSection" unique_id=715755026 instance=ExtResource("16_5ovyp")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, 32)
+
+[node name="TunnelStraight1mFlatNopipe2" parent="GeneratorSection" unique_id=990563864 instance=ExtResource("16_5ovyp")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8, 0, 32)
+
+[node name="TunnelStraightFlatNopipesPassthrough" parent="GeneratorSection" unique_id=1194866612 instance=ExtResource("22_pdon3")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 0, 36)
+
+[node name="TunnelStraightTransition2" parent="GeneratorSection" unique_id=1949398894 instance=ExtResource("21_p2wcw")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8, 0, 36)
+
+[node name="TunnelStraight3" parent="GeneratorSection" unique_id=2081604281 instance=ExtResource("1_ncarf")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, 36)
+
+[node name="TunnelStraight4" parent="GeneratorSection" unique_id=410843983 instance=ExtResource("1_ncarf")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13, 0, 36)
+
+[node name="TunnelStraight5" parent="GeneratorSection" unique_id=1643484772 instance=ExtResource("1_ncarf")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16, 0, 36)
+
+[node name="TunnelStraight6" parent="GeneratorSection" unique_id=1682686685 instance=ExtResource("1_ncarf")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19, 0, 36)
+
+[node name="TunnelStraight7" parent="GeneratorSection" unique_id=974160460 instance=ExtResource("1_ncarf")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22, 0, 36)
+
+[node name="Tunnel4Way2" parent="GeneratorSection" unique_id=2004380473 instance=ExtResource("2_wu8v7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 27, 0, 37)
+
+[node name="TunnelStraight8" parent="GeneratorSection" unique_id=1896204901 instance=ExtResource("1_ncarf")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23, 0, 25)
+
+[node name="TunnelCornerAlt" parent="GeneratorSection" unique_id=971094396 instance=ExtResource("23_i87ee")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 31, 0, 25)
+
+[node name="TunnelCornerNopipes2" parent="GeneratorSection" unique_id=446793798 instance=ExtResource("19_i87ee")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 25, 0, 31)
+
+[node name="TunnelCornerNopipes3" parent="GeneratorSection" unique_id=117824039 instance=ExtResource("19_i87ee")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 0, 31)
+
+[node name="TunnelCornerAltNopipes" parent="GeneratorSection" unique_id=1252499367 instance=ExtResource("24_rs6m0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 32, 0, 31)
+
+[node name="TunnelStraightPassthrough" parent="GeneratorSection" unique_id=1761552298 instance=ExtResource("25_ly0fj")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20, 0, 25)
+
+[node name="TunnelStraight1mFlatNopipe4" parent="GeneratorSection" unique_id=949500596 instance=ExtResource("16_5ovyp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 28)
+
+[node name="TunnelStraight1mFlatNopipe5" parent="GeneratorSection" unique_id=598837074 instance=ExtResource("16_5ovyp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 27)
+
+[node name="TunnelStraight2" parent="GeneratorSection" unique_id=907606943 instance=ExtResource("1_ncarf")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 29, 0, 36)
+
+[node name="TunnelStraightTransition3" parent="GeneratorSection" unique_id=548631774 instance=ExtResource("21_p2wcw")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 40, 0, 36)
+
+[node name="TunnelStraightTransitionInverted2" parent="GeneratorSection" unique_id=654952966 instance=ExtResource("20_f87q1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 33, 0, 36)
+
+[node name="Tunnel4WayNopipes" parent="GeneratorSection" unique_id=2066363343 instance=ExtResource("26_peo30")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 35, 0, 32)
+
+[node name="TunnelEndFlatNopipes" parent="GeneratorSection" unique_id=351590186 instance=ExtResource("15_4d4vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 28)
+
+[node name="TunnelEndNopipes" parent="GeneratorSection" unique_id=334397092 instance=ExtResource("10_8k7il")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 39, 0, 31)
+
+[node name="Tunnel4WayNopipes2" parent="GeneratorSection" unique_id=1935375012 instance=ExtResource("26_peo30")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 35, 0, 37)
+
+[node name="TunnelStraight1mFlatNopipe6" parent="GeneratorSection" unique_id=708061769 instance=ExtResource("16_5ovyp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 34)
+
+[node name="TunnelEndFlatNopipes2" parent="GeneratorSection" unique_id=272716931 instance=ExtResource("15_4d4vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, 42)
+
+[node name="TunnelCornerAlt3" parent="GeneratorSection" unique_id=1065170969 instance=ExtResource("23_i87ee")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 0, 47)
+
+[node name="TunnelCorner" parent="GeneratorSection" unique_id=402033000 instance=ExtResource("29_3kmcx")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41, 0, 47)
+
+[node name="TunnelCornerFlatNopipes" parent="GeneratorSection" unique_id=40764144 instance=ExtResource("31_a1r6t")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 37, 0, 41)
+
+[node name="TunnelCornerFlatNopipes2" parent="GeneratorSection" unique_id=2028398878 instance=ExtResource("31_a1r6t")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 26, 0, 40)
+
+[node name="TunnelCornerFlatNopipes3" parent="GeneratorSection" unique_id=252297034 instance=ExtResource("31_a1r6t")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 20, 0, 42)
+
+[node name="TunnelCornerFlatNopipes4" parent="GeneratorSection" unique_id=1328748804 instance=ExtResource("31_a1r6t")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 41, 0, 41)
+
+[node name="TunnelStraight9" parent="GeneratorSection" unique_id=455687640 instance=ExtResource("1_ncarf")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 25, 0, 47)
+
+[node name="TunnelStraight10" parent="GeneratorSection" unique_id=1045204857 instance=ExtResource("1_ncarf")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 38, 0, 47)
+
+[node name="TunnelStraight1m2" parent="GeneratorSection" unique_id=280785610 instance=ExtResource("17_1kfi2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 36, 0, 47)
+
+[node name="TunnelEndFlatNopipes3" parent="GeneratorSection" unique_id=782110874 instance=ExtResource("15_4d4vy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 31, 0, 52)
+
+[node name="TunnelStraight11" parent="GeneratorSection" unique_id=2080413553 instance=ExtResource("1_ncarf")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26, 0, 25)
+
+[node name="TunnelEnd" parent="GeneratorSection" unique_id=144623711 instance=ExtResource("34_o5c2d")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 42, 0, 36)
+
+[node name="TunnelCornerNopipes4" parent="GeneratorSection" unique_id=2104043482 instance=ExtResource("19_i87ee")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5, 0, 33)
+
+[node name="TunnelStraight12" parent="GeneratorSection" unique_id=403080475 instance=ExtResource("1_ncarf")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9, 0, 25)
+
+[node name="TunnelStraight13" parent="GeneratorSection" unique_id=145928294 instance=ExtResource("1_ncarf")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9, 0, 36)
+
+[node name="TunnelCorner2" parent="GeneratorSection" unique_id=949917919 instance=ExtResource("23_qvowm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10, 0, 43)
+
+[node name="TunnelCornerAlt2" parent="GeneratorSection" unique_id=1136495481 instance=ExtResource("23_i87ee")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14, 0, 36)
+
+[node name="TunnelStraightFlatNopipes7" parent="GeneratorSection" unique_id=75837683 instance=ExtResource("6_mw333")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 32)
+
+[node name="TunnelStraightFlatNopipes8" parent="GeneratorSection" unique_id=893127226 instance=ExtResource("6_mw333")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 29)
+
+[node name="Tunnel3WayInverted" parent="GeneratorSection" unique_id=76706932 instance=ExtResource("11_34i02")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13, 0, 26)
+
+[node name="TunnelStraightFlatNopipes9" parent="GeneratorSection" unique_id=766733470 instance=ExtResource("6_mw333")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 22)
+
+[node name="TunnelStraightFlatNopipes10" parent="GeneratorSection" unique_id=1097246498 instance=ExtResource("6_mw333")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 19)
+
+[node name="TunnelStraightFlatNopipes11" parent="GeneratorSection" unique_id=1377183136 instance=ExtResource("6_mw333")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 16)
+
+[node name="TunnelStraightFlatNopipes12" parent="GeneratorSection" unique_id=793932310 instance=ExtResource("6_mw333")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 13)
+
+[node name="TunnelStraightFlatNopipes13" parent="GeneratorSection" unique_id=1642606335 instance=ExtResource("6_mw333")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 10)
+
+[node name="TunnelStraightFlatNopipes14" parent="GeneratorSection" unique_id=1366028363 instance=ExtResource("6_mw333")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 7)
+
+[node name="TunnelStraightFlatNopipesPassthrough2" parent="GeneratorSection" unique_id=1400804433 instance=ExtResource("22_pdon3")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15, 0, 4)
+
+[node name="TunnelStraight14" parent="GeneratorSection" unique_id=650549051 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="TunnelStraight15" parent="GeneratorSection" unique_id=992657407 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22)
+
+[node name="TunnelStraight16" parent="GeneratorSection" unique_id=1120119606 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 29)
+
+[node name="TunnelStraight17" parent="GeneratorSection" unique_id=1477169541 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32)
+
+[node name="TunnelStraight18" parent="GeneratorSection" unique_id=309006417 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="TunnelStraight19" parent="GeneratorSection" unique_id=1850210130 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13)
+
+[node name="TunnelStraight20" parent="GeneratorSection" unique_id=1728865835 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+
+[node name="TunnelStraight21" parent="GeneratorSection" unique_id=290659418 instance=ExtResource("1_ncarf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
+
+[node name="TunnelStraight22" parent="GeneratorSection" unique_id=506115919 instance=ExtResource("2_wu8v7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 24)
+
+[node name="TunnelStraight25" parent="GeneratorSection" unique_id=765789175 instance=ExtResource("4_mw333")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 35)
+
+[node name="TunnelStraight1mFlatNopipe3" parent="GeneratorSection" unique_id=1818699634 instance=ExtResource("16_5ovyp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, 36)
+
+[node name="TunnelStraightTransition4" parent="GeneratorSection" unique_id=1986000606 instance=ExtResource("21_p2wcw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7, 0, 25.000006)
+
+[node name="TunnelStraightTransition5" parent="GeneratorSection" unique_id=447611516 instance=ExtResource("21_p2wcw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7, 0, 36.000008)
+
+[node name="TunnelStraightFlatNopipes5" parent="GeneratorSection" unique_id=4847607 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 0, 25)
+
+[node name="TunnelStraightFlatNopipes6" parent="GeneratorSection" unique_id=1015607485 instance=ExtResource("6_mw333")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 0, 36)
+
+[node name="TunnelEndFlatNopipes4" parent="GeneratorSection" unique_id=586364045 instance=ExtResource("15_4d4vy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, 0, 19)
+
+[node name="TunnelEndFlatNopipes5" parent="GeneratorSection" unique_id=1621734444 instance=ExtResource("15_4d4vy")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 15, 0, 19)
+
+[node name="TunnelEndFlatNopipes7" parent="GeneratorSection" unique_id=1049310450 instance=ExtResource("15_4d4vy")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 15, 0, 32)
+
+[node name="TunnelStraight1mFlatNopipe7" parent="GeneratorSection" unique_id=320606859 instance=ExtResource("16_5ovyp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 11)
+
+[connection signal="triggered" from="Rooms/ItemRoom1/Item1/Item1Collector" to="Rooms/ItemRoom1/Item1" method="queue_free"]
+[connection signal="triggered" from="Rooms/ItemRoom1/Item1/Item1Collector" to="Rooms/GeneratorRoom/Generator" method="part_collected"]
+[connection signal="triggered" from="Rooms/ItemRoom2/Item2/Item2Collector" to="Rooms/ItemRoom2/Item2" method="queue_free"]
+[connection signal="triggered" from="Rooms/ItemRoom2/Item2/Item2Collector" to="Rooms/GeneratorRoom/Generator" method="part_collected"]
+[connection signal="triggered" from="Rooms/GeneratorRoom/Generator/GeneratorInteract" to="Rooms/GeneratorRoom/Generator" method="_on_generator_interact_triggered"]

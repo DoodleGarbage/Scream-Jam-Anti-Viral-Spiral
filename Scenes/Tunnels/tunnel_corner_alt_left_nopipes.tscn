@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cojyw0pvmmggy"]
 
-[ext_resource type="PackedScene" uid="uid://dsvwcn5mb8amv" path="res://Assets/Models/tunnels/tunnelcorneraltnopipes.blend" id="1_psldk"]
+[ext_resource type="PackedScene" uid="uid://dsvwcn5mb8amv" path="res://Assets/Models/tunnels/tunnelcorneraltleftnopipes.blend" id="1_psldk"]
+[ext_resource type="PackedScene" uid="uid://u8twu4v7ch84" path="res://Scenes/Tunnels/tunnel_straight_1m_flat_nopipe.tscn" id="2_q13jt"]
+[ext_resource type="PackedScene" uid="uid://dekgjbw2rvt7p" path="res://Scenes/Tunnels/tunnel_straight_1m_nopipe.tscn" id="3_teo8w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
 size = Vector3(1, 3, 3)
@@ -11,6 +13,7 @@ size = Vector3(1, 3, 1)
 [node name="TunnelCornerAltNopipes" type="Node3D" unique_id=14649706]
 
 [node name="collider" type="StaticBody3D" parent="." unique_id=86906622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="collider" unique_id=1345410876]
@@ -26,9 +29,16 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.5
 shape = SubResource("BoxShape3D_8s5l4")
 
 [node name="tunnelcorneraltnopipes" parent="." unique_id=1027400341 instance=ExtResource("1_psldk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=124226868]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.062770426, 3.0106277, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.062770426, 3.0106277, -1.5)
 light_color = Color(0.72453827, 0, 0.06270393, 1)
 light_energy = 0.832
 omni_range = 3.81
+
+[node name="TunnelStraight1mFlatNopipe" parent="." unique_id=2003101548 instance=ExtResource("2_q13jt")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, -1)
+
+[node name="TunnelStraight1mNopipe" parent="." unique_id=1730314419 instance=ExtResource("3_teo8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)

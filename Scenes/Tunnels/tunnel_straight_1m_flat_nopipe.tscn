@@ -20,6 +20,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, 0)
 shape = SubResource("BoxShape3D_8s5l4")
 
 [node name="TunnelHallwayLight" parent="." unique_id=152510013 instance=ExtResource("1_8rvjp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -1)
 
 [node name="tunnelstraight1mflatnopipes" parent="." unique_id=142111544 instance=ExtResource("2_wkypa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)

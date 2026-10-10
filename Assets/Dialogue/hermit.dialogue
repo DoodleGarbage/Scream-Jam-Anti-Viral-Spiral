@@ -7,15 +7,19 @@ Hermit: I don't have time for that.
 ~ night1
 Folly: Are you there?
 Hermit: Yes. We are creatures of the dark, after all.
-Folly: Lore Relevant Question
+Folly: But I'm awake in the day.
+Hermit: And yet, do you see anyone awake now? This is our turf.
 => END!
 ~ day2
 Folly: Do you know why Brawny and Raincoat are suspicious of me?
 Hermit: Yes.
-Folly: Is it because of LORE
+Folly: Will you tell me?
+Hermit: mmm. No. It will make things worse.
+Folly: Make things worse? How?
+Hermit: I've said too much already.
 => END!
 ~ night2
-Folly: Hello [again].
+Folly: Hello again.
 Hermit: You know you aren't wanted here.
 Folly: You don't like me?
 Hermit: The others are the ones who don't like you. They glimpse what you are and it scares them.
@@ -23,16 +27,16 @@ Folly: Are you scared of me?
 Hermit: ...No. I was in your place once. Perhaps we're here to stay, forever and ever, stuck in an endless loop of sameness.
 => END!
 ~ day3
-Folly: I did something awful.
+Folly: I did something awful!
 Hermit: What did you do?
-Folly: MEMENTO TEST I threw a stone at Brawny and knocked him off the bridge!
+Folly: I threw a stone at Brawny and killed him! Raincoat too!
 Hermit: ...You haven't learned anything. Meet me tomorrow.
 => END!
 ~ night3
 Folly: What do I do now? Everything I touch is falling apart!
 Hermit: It is time you left. If you stay any longer, you will be entrenched here, trapped in the cobwebs of doubt, like me.
 Folly: How do I leave?
-Hermit: Seek forgiveness. But not from others. From yourself. Go home. I will help you tomorrow.
+Hermit: Go home. I will help you tomorrow.
 => END!
 ~ hell
 => END!

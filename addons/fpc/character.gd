@@ -57,6 +57,8 @@ extends CharacterBody3D
 @export var BOOK : Node3D
 ## A reference to the rock model in the player's hand
 @export var ROCK : Node3D
+## References (in correct order) to the generator pieces collected in the Tunnels.
+@export var GEN_PIECES : Array[Node3D] = []
 
 #endregion
 
@@ -254,8 +256,9 @@ func handle_jumping():
 func handle_movement(delta, input_dir):
 	var direction = input_dir.rotated(-HEAD.rotation.y)
 	direction = Vector3(direction.x, 0, direction.y)
-	if Status.movement_allowed():
-		move_and_slide()
+	if not Status.movement_allowed():
+		direction = Vector3.ZERO
+	move_and_slide()
 
 	if in_air_momentum:
 		if is_on_floor():
@@ -370,7 +373,7 @@ func update_interaction_display() -> void:
 #region State Handling
 
 func handle_state(moving):
-	if sprint_enabled:
+	if sprint_enabled and Status.movement_allowed():
 		if sprint_mode == 0:
 			if Input.is_action_pressed(controls.SPRINT) and state != "crouching":
 				if moving:
@@ -395,7 +398,7 @@ func handle_state(moving):
 			elif state == "sprinting":
 				enter_normal_state()
 
-	if crouch_enabled:
+	if crouch_enabled and Status.movement_allowed():
 		if crouch_mode == 0:
 			if Input.is_action_pressed(controls.CROUCH) and state != "sprinting":
 				if state != "crouching":

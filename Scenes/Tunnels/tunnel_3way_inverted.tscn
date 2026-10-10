@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ciqvucxalqrsd" path="res://Assets/Models/tunnels/tunnel3wayinverted.blend" id="1_7b84x"]
 [ext_resource type="PackedScene" uid="uid://bdalmiv0o45cc" path="res://Scenes/Tunnels/tunnel_hallway_light.tscn" id="2_rmth8"]
+[ext_resource type="PackedScene" uid="uid://gdq4jhskg8i0" path="res://Scenes/Tunnels/tunnel_straight_1m.tscn" id="3_t70od"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
 size = Vector3(1, 3, 1)
@@ -34,3 +35,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1.5)
 
 [node name="TunnelHallwayLight" parent="." unique_id=152510013 instance=ExtResource("2_rmth8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="TunnelStraight1m" parent="." unique_id=977277502 instance=ExtResource("3_t70od")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)

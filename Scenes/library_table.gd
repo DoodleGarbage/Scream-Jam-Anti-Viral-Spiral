@@ -20,8 +20,12 @@ func _load_books() -> int:
 		new_book.position = pos
 		
 		var index : int = randi_range(0, book_colors.size()-1)
-		new_book.book_material = book_colors[index]
 		new_book.book_title = get_title(index)
+		while Status.generated_books.has(new_book.book_title):
+			index = randi_range(0, book_colors.size()-1)
+			new_book.book_title = get_title(index)
+		Status.generated_books.append(new_book.book_title)
+		new_book.book_material = book_colors[index]
 		new_book.book_index = index
 	return amnt
 
