@@ -1,0 +1,5 @@
+res://Assets/Textures/HermitTextures/floor.tres
+res://Assets/Textures/HermitTextures/walls.tres
+res://Scenes/UIUX/MainMenu/main_menu.tscn
+res://Scenes/Town/Environments/cloudnoise.tres
+res://Assets/UIUX/Themes/menu_theme.tres
