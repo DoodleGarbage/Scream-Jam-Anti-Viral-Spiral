@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://d3erf4bf5fvup"]
+
+[ext_resource type="Texture2D" uid="uid://dhfs7my0n33op" path="res://user_interface/menus/Menu Screen Background (Day 1).png" id="1_cq70r"]
+[ext_resource type="Theme" uid="uid://b2mymlyfomh0k" path="res://user_interface/menus/menu_theme.tres" id="2_jlp4j"]
+
+[node name="Option Menu" type="Control" unique_id=1691569862]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1710692605]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cq70r")
+expand_mode = 1
+
+[node name="Title Container" type="BoxContainer" parent="." unique_id=447101868]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.132
+offset_left = 50.0
+offset_top = 17.0
+offset_right = 593.0
+offset_bottom = 151.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("2_jlp4j")
+vertical = true
+
+[node name="Title" type="RichTextLabel" parent="Title Container" unique_id=821930509]
+layout_mode = 2
+theme_type_variation = &"richtextlabeltitle"
+bbcode_enabled = true
+text = "Another Day "
+fit_content = true
+autowrap_mode = 0
+autowrap_trim_flags = 0
+
+[node name="Menu_Container" type="VBoxContainer" parent="." unique_id=2087906685]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 208.0
+offset_right = 1042.0
+offset_bottom = 546.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_visual_only = false
+theme = ExtResource("2_jlp4j")
