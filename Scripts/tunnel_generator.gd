@@ -20,6 +20,9 @@ func _on_generator_interact_triggered() -> void:
 		await get_tree().create_timer(1.5).timeout
 		Audio.play("power_on", audio_player)
 		Audio.play("tunneling_through", null, true, 2.0)
+		for light in get_tree().get_nodes_in_group("TunnelLight"):
+			light.visible = true
+			light.flicker_chance = 0.05
 		return
 	
 	Audio.play("power_down")
@@ -42,8 +45,8 @@ func _on_generator_interact_triggered() -> void:
 func part_collected() -> void:
 	for light in get_tree().get_nodes_in_group("TunnelLight"):
 		light.visible = false
-		light.flicker_chance = 0.80
-	await get_tree().create_timer(1.5).timeout
+		light.flicker_chance = 0.95
+	await get_tree().create_timer(2.0).timeout
 	for light in get_tree().get_nodes_in_group("TunnelLight"):
 		light.flicker_chance = 0.3
 	return

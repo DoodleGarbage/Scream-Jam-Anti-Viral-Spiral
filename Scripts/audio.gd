@@ -9,7 +9,7 @@ var fade_in_tracks : Array = []
 var fade_out_tracks : Array = []
 var loaded_players : Array = []
 
-var themes : Array[String] = ["prudent_folly", "library", "main_menu", "first_day", "being_followed", "someplace_calm", "hell", "tunneling_through"]
+var themes : Array[String] = ["prudent_folly", "library", "main_menu", "first_day", "being_followed", "someplace_calm", "hell", "tunneling_through", "second_day"]
 
 func _process(delta: float) -> void:
 	var indices : Array[int] = []

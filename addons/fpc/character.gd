@@ -278,6 +278,8 @@ func handle_movement(delta, input_dir):
 
 
 func handle_head_rotation():
+	if not Status.movement_allowed():
+		return
 	if invert_camera_x_axis:
 		HEAD.rotation_degrees.y -= mouseInput.x * mouse_sensitivity * -1
 	else:

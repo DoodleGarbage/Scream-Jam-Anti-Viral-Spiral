@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bivce7ch4us4i" path="res://Scenes/Tunnels/tunnel_4way.tscn" id="2_wu8v7"]
 [ext_resource type="PackedScene" uid="uid://bh1mx8k3yra4s" path="res://Scenes/Tunnels/tunnel_straight_alternate.tscn" id="3_avyhr"]
 [ext_resource type="Material" uid="uid://buslmp025nuqh" path="res://Assets/Textures/generator_piece_1.tres" id="4_03w7q"]
+[ext_resource type="PackedScene" uid="uid://caynn82a6ydqv" path="res://Assets/Models/tunnels/GeneratorPart1.blend" id="4_a1r6t"]
 [ext_resource type="PackedScene" uid="uid://cxsdeawm8bsfx" path="res://Scenes/Tunnels/tunnel_3way.tscn" id="4_mw333"]
 [ext_resource type="Material" uid="uid://b5i2y0flkc2xs" path="res://Assets/Textures/generator_piece_2.tres" id="6_3kmcx"]
 [ext_resource type="PackedScene" uid="uid://bn4vl6pot1iq2" path="res://Scenes/Tunnels/tunnel_straight_flat_nopipes.tscn" id="6_mw333"]
@@ -53,6 +54,7 @@ ambient_light_energy = 0.25
 material = ExtResource("4_03w7q")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
+size = Vector3(1.3745117, 1.222168, 1.1889648)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a1r6t"]
 material = ExtResource("6_3kmcx")
@@ -91,9 +93,12 @@ shape = SubResource("WorldBoundaryShape3D_c4qn5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -19)
 
 [node name="Item1" type="Node3D" parent="Rooms/ItemRoom1" unique_id=818809495]
-transform = Transform3D(0.74029845, -0.069952756, 0.66862905, 0.4264449, 0.8177303, -0.38660306, -0.51971424, 0.5713351, 0.63519543, 0, 1.224796, 1)
+transform = Transform3D(0.27168953, -0.02567268, 0.24538687, 0.15650529, 0.30010703, -0.1418833, -0.19073513, 0.20967998, 0.23311676, 0, 1.224796, 1)
+
+[node name="GeneratorPart1" parent="Rooms/ItemRoom1/Item1" unique_id=503282253 instance=ExtResource("4_a1r6t")]
 
 [node name="ItemModel" type="MeshInstance3D" parent="Rooms/ItemRoom1/Item1" unique_id=2064118858]
+visible = false
 mesh = SubResource("BoxMesh_c4qn5")
 
 [node name="Item1Collector" type="Area3D" parent="Rooms/ItemRoom1/Item1" unique_id=85363302]
@@ -105,6 +110,7 @@ piece_id = 1
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/ItemRoom1/Item1/Item1Collector" unique_id=1332463543]
+transform = Transform3D(1.0000001, 2.9802322e-08, -8.34465e-07, 2.9802322e-08, 1, -8.940697e-08, 0, -2.9802322e-08, 1.000001, -0.18725777, 0.111091614, -0.09447479)
 shape = SubResource("BoxShape3D_8s5l4")
 
 [node name="ItemRoom2" parent="Rooms" unique_id=14649706 instance=ExtResource("10_6vrye")]

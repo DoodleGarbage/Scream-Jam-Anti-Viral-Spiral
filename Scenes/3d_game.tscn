@@ -249,6 +249,9 @@ size = Vector3(30, 300, 30)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2uq0s"]
 size = Vector3(6.947, 300, 6.329)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yaio0"]
+size = Vector3(32.08014, 300, 30)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_j0dxl"]
 size = Vector3(14.736, 300, 30)
 
@@ -1060,8 +1063,8 @@ shape = SubResource("BoxShape3D_g37um")
 debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge21" unique_id=116700080]
-transform = Transform3D(0.75869405, 0, 0.651449, 0, 1, 0, -0.651449, 0, 0.75869405, 46.96538, -3.8146973e-06, 24.118286)
-shape = SubResource("BoxShape3D_g37um")
+transform = Transform3D(0.6060315, 0, 0.7954455, 0, 1, 0, -0.7954455, 0, 0.6060315, 53.83671, -3.8146973e-06, 18.686432)
+shape = SubResource("BoxShape3D_yaio0")
 debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
 [node name="TreeBlockerLarge23" type="StaticBody3D" parent="Colliders" unique_id=1303332340]
@@ -2346,7 +2349,7 @@ draw_pass_1 = SubResource("PlaneMesh_yaio0")
 [node name="handyman_spot" type="Node3D" parent="Houses" unique_id=979943099]
 
 [node name="Van" type="Node3D" parent="Houses/handyman_spot" unique_id=334372458]
-transform = Transform3D(1, 0, 0, 0, 0.9996101, 0.02792164, 0, -0.02792164, 0.9996101, 111.4764, 4.5334315, -27.682251)
+transform = Transform3D(0.637, 0, 0, 0, 0.63675165, 0.017786086, 0, -0.017786086, 0.63675165, 111.4764, 3.718731, -27.682251)
 
 [node name="van" parent="Houses/handyman_spot/Van" unique_id=1994425771 instance=ExtResource("41_ycl1m")]
 
@@ -2585,18 +2588,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.01706, 14.302059, 196.504
 [node name="FollyTree" parent="Mementos/FollysTree" unique_id=1605203411 instance=ExtResource("43_tsajd")]
 transform = Transform3D(0.766, 0, 0, 0, 0.766, 0, 0, 0, 0.766, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Mementos/FollysTree" unique_id=321204309]
+[node name="Engraving" type="Node3D" parent="Mementos/FollysTree" unique_id=1285987795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40465164, 1.3923664, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mementos/FollysTree/StaticBody3D" unique_id=1502629831]
+[node name="StaticBody3D" type="StaticBody3D" parent="Mementos/FollysTree/Engraving" unique_id=321204309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40465164, -1.9282303, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mementos/FollysTree/Engraving/StaticBody3D" unique_id=1502629831]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2795753, 0)
 shape = SubResource("CylinderShape3D_fodyg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Mementos/FollysTree" unique_id=138099975]
-transform = Transform3D(0, 0.25424916, -1.1113582e-08, 1.1113584e-08, -1.1113583e-08, -0.25424916, -0.25424916, 0, -1.1113584e-08, 0.46060944, 1.9197102, -2.3330684e-23)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mementos/FollysTree/Engraving" unique_id=138099975]
+transform = Transform3D(0, 0.25424916, -1.1113582e-08, 1.1113584e-08, -1.1113583e-08, -0.25424916, -0.25424916, 0, -1.1113584e-08, 0.055957794, -0.008520126, 0)
 mesh = SubResource("PlaneMesh_8s5l4")
 
-[node name="Interactable3D" type="Area3D" parent="Mementos/FollysTree" unique_id=1060887963]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36909103, 1.9308491, 0)
+[node name="Interactable3D" type="Area3D" parent="Mementos/FollysTree/Engraving" unique_id=1060887963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035560608, 0.0026187897, 0)
 collision_layer = 2
 script = ExtResource("32_m4q0v")
 desc = "Examine"
@@ -2605,7 +2612,7 @@ event_name = "memento_engraving"
 dialogue = ExtResource("45_f20d5")
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mementos/FollysTree/Interactable3D" unique_id=900438722]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mementos/FollysTree/Engraving/Interactable3D" unique_id=900438722]
 shape = SubResource("BoxShape3D_3jhd4")
 
 [node name="Signs" type="Node3D" parent="." unique_id=1703578108]

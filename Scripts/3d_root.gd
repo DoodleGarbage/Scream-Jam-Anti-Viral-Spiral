@@ -33,6 +33,8 @@ func loaded(last_scene:String) -> void:
 			Audio.play("being_followed", null, true)
 			$RockPile/GrabRock.desc = "Grab Rock"
 			$RockPile/GrabRock.is_rock = true
+		"night3":
+			$RockPile/GrabRock.desc = "I really shouldn't."
 		"hell","hellnight":
 			Audio.play("hell", null, true)
 			$RockPile/GrabRock.desc = "I really shouldn't."
