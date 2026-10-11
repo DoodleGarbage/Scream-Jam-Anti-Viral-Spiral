@@ -23,6 +23,10 @@ func _ready() -> void:
 	## TODO: Implement saving and logging progress
 	credits_button.hide()
 	continue_button.hide()
+	var game_scene = Status.game_node
+	if not game_scene:
+		game_scene = get_parent()
+	switch_scene.connect(game_scene.switch_scene)
 
 func loaded(_last_scene:String) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

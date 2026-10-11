@@ -73,7 +73,8 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://add
 folder_colors={
 "res://Assets/": "yellow",
 "res://Scenes/": "green",
-"res://Scripts/": "green"
+"res://Scripts/": "green",
+"res://UserInterface/": "red"
 }
 
 [filesystem]
