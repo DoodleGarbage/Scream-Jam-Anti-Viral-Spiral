@@ -1,0 +1,214 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3]
+
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_rmilr"]
+
+[resource]
+script = ExtResource("1_rmilr")
+using_states = PackedStringArray()
+cues = {
+"day1": "1",
+"day2": "9",
+"day3": "15",
+"hell": "19",
+"hellnight": "25",
+"night1": "7",
+"night2": "13",
+"night3": "17"
+}
+character_names = PackedStringArray("Raincoat", "Folly")
+first_cue = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "cue"
+},
+"1": {
+&"character": "Raincoat",
+&"id": "1",
+&"next_id": "2",
+&"static_id": "",
+&"text": "...",
+&"type": "dialogue"
+},
+"10": {
+&"character": "Folly",
+&"id": "10",
+&"next_id": "11",
+&"static_id": "",
+&"text": "I only re-shelve the books.",
+&"type": "dialogue"
+},
+"11": {
+&"character": "Raincoat",
+&"id": "11",
+&"next_id": "12",
+&"static_id": "",
+&"text": "I'm watching you.",
+&"type": "dialogue"
+},
+"12": {
+&"id": "12",
+&"next_id": "13",
+&"type": "cue"
+},
+"13": {
+&"id": "13",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"14": {
+&"id": "14",
+&"next_id": "15",
+&"type": "cue"
+},
+"15": {
+&"id": "15",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"16": {
+&"id": "16",
+&"next_id": "17",
+&"type": "cue"
+},
+"17": {
+&"id": "17",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"18": {
+&"id": "18",
+&"next_id": "19",
+&"type": "cue"
+},
+"19": {
+&"character": "Raincoat",
+&"id": "19",
+&"next_id": "20",
+&"static_id": "",
+&"text": "Help. Help. Help. Help. Help. Help. Help. Help. Help. Help. Help. Help. Help.",
+&"type": "dialogue"
+},
+"2": {
+&"character": "Raincoat",
+&"id": "2",
+&"next_id": "3",
+&"static_id": "",
+&"text": "You're the new librarian?",
+&"type": "dialogue"
+},
+"20": {
+&"character": "Folly",
+&"id": "20",
+&"next_id": "21",
+&"static_id": "",
+&"text": "Are you okay!? What can I do??",
+&"type": "dialogue"
+},
+"21": {
+&"character": "Raincoat",
+&"id": "21",
+&"next_id": "22",
+&"static_id": "",
+&"text": "Help. Help. Help. Help. Help. Help. Help. Help. Help...........",
+&"type": "dialogue"
+},
+"22": {
+&"character": "Folly",
+&"id": "22",
+&"next_id": "23",
+&"static_id": "",
+&"text": "I'm sorry. I'm sorry...",
+&"type": "dialogue"
+},
+"23": {
+&"id": "23",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"24": {
+&"id": "24",
+&"next_id": "25",
+&"type": "cue"
+},
+"25": {
+&"character": "Raincoat",
+&"id": "25",
+&"next_id": "26",
+&"static_id": "",
+&"text": "Escape. Leave. Run. Lost. Hidden. Woods. Dirt Paths. Tunnels. Infinite Tunnels. Help me...",
+&"type": "dialogue"
+},
+"26": {
+&"id": "26",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"27": {
+&"id": "27",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"3": {
+&"character": "Folly",
+&"id": "3",
+&"next_id": "4",
+&"static_id": "",
+&"text": "Yes.",
+&"type": "dialogue"
+},
+"4": {
+&"character": "Raincoat",
+&"id": "4",
+&"next_id": "5",
+&"static_id": "",
+&"text": "I visit the library often. It's a good place to revisit the old memories left behind by shadows of the past. I enjoy reading the books they have.",
+&"type": "dialogue"
+},
+"5": {
+&"id": "5",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"6": {
+&"id": "6",
+&"next_id": "7",
+&"type": "cue"
+},
+"7": {
+&"id": "7",
+&"is_snippet": false,
+&"next_id": "end!",
+&"next_id_after": "",
+&"type": "goto"
+},
+"8": {
+&"id": "8",
+&"next_id": "9",
+&"type": "cue"
+},
+"9": {
+&"character": "Raincoat",
+&"id": "9",
+&"next_id": "10",
+&"static_id": "",
+&"text": "The books at the library are weird today. You better not have done anything to the books.",
+&"type": "dialogue"
+}
+}
+metadata/dialogue_manager_version = "4.1.0"

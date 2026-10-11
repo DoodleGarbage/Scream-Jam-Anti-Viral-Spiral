@@ -74,6 +74,10 @@ folder_colors={
 "res://Scripts/": "green"
 }
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 Interactables=""

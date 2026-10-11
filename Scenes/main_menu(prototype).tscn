@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://c7deni8bq53vy"]
+
+[ext_resource type="Script" uid="uid://b7nsh8vk18qba" path="res://main_menu.gd" id="1_8p0as"]
+[ext_resource type="Theme" uid="uid://b2mymlyfomh0k" path="res://user_interface/menus/menu_theme.tres" id="1_d2nv2"]
+[ext_resource type="Texture2D" uid="uid://dhfs7my0n33op" path="res://user_interface/menus/Menu Screen Background (Day 1).png" id="1_wgsso"]
+[ext_resource type="PackedScene" uid="uid://crpr8byjjvsy1" path="res://user_interface/buttons/play_button.tscn" id="2_wgsso"]
+
+[node name="main_menu" type="CanvasLayer" unique_id=1248641115]
+script = ExtResource("1_8p0as")
+
+[node name="Main_Menu" type="Control" parent="." unique_id=1999793002]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 1.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_d2nv2")
+
+[node name="TextureRect" type="TextureRect" parent="Main_Menu" unique_id=642638552]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 2.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wgsso")
+expand_mode = 1
+
+[node name="Title Container" type="BoxContainer" parent="Main_Menu" unique_id=338941337]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.132
+offset_left = 50.0
+offset_top = 17.0
+offset_right = 593.0
+offset_bottom = 151.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_d2nv2")
+vertical = true
+
+[node name="Title" type="RichTextLabel" parent="Main_Menu/Title Container" unique_id=1409858710]
+layout_mode = 2
+theme_type_variation = &"richtextlabeltitle"
+bbcode_enabled = true
+text = "Another Day "
+fit_content = true
+autowrap_mode = 0
+autowrap_trim_flags = 0
+
+[node name="Menu_Container" type="VBoxContainer" parent="Main_Menu" unique_id=347041912]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 150.0
+offset_right = 227.0
+offset_bottom = 538.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_visual_only = false
+theme = ExtResource("1_d2nv2")
+
+[node name="Continue_Button" parent="Main_Menu/Menu_Container" unique_id=1784061266 instance=ExtResource("2_wgsso")]
+layout_mode = 2
+theme = ExtResource("1_d2nv2")
+text = "Continue"
+
+[node name="Play_Button" parent="Main_Menu/Menu_Container" unique_id=901078190 instance=ExtResource("2_wgsso")]
+layout_mode = 2
+text = "New Game"
+
+[node name="Options_Button" parent="Main_Menu/Menu_Container" unique_id=14185665 instance=ExtResource("2_wgsso")]
+layout_mode = 2
+text = "Options"
+
+[node name="Credits_Button" parent="Main_Menu/Menu_Container" unique_id=1845916454 instance=ExtResource("2_wgsso")]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit_Button" parent="Main_Menu/Menu_Container" unique_id=593087034 instance=ExtResource("2_wgsso")]
+layout_mode = 2
+text = "Exit"
+
+[node name="Vol" type="HBoxContainer" parent="." unique_id=1743926491]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -23.0
+offset_right = 23.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+
+[node name="Volume" type="HSlider" parent="Vol" unique_id=927112964]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -72.0
+max_value = 6.0
+step = 0.1
+value = -15.0
+allow_greater = true
+allow_lesser = true
+
+[node name="VolPerc" type="Label" parent="Vol" unique_id=2091763889]
+layout_mode = 2
+text = "%XX"
+
+[node name="Debug" type="VBoxContainer" parent="." unique_id=836779678]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -163.0
+offset_bottom = 93.0
+grow_horizontal = 0
+
+[node name="DL" type="Label" parent="Debug" unique_id=1705127924]
+layout_mode = 2
+text = "Debug Tools"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Debug" unique_id=1818874782]
+custom_minimum_size = Vector2(162.416, 0)
+layout_mode = 2
+placeholder_text = "Scene Initalizer"
+
+[node name="SpinBox" type="SpinBox" parent="Debug" unique_id=1509385858]
+layout_mode = 2
+min_value = -1.0
+value = 1.0
+rounded = true
+allow_greater = true
+prefix = "Day"
