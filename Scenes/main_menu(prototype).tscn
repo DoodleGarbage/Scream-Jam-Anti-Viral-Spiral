@@ -5,8 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://dhfs7my0n33op" path="res://user_interface/menus/Menu Screen Background (Day 1).png" id="1_wgsso"]
 [ext_resource type="PackedScene" uid="uid://crpr8byjjvsy1" path="res://user_interface/buttons/play_button.tscn" id="2_wgsso"]
 
-[node name="main_menu" type="CanvasLayer" unique_id=1248641115]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8s5l4"]
+bg_color = Color(0.23598361, 0.23598361, 0.23598352, 1)
+
+[node name="main_menu" type="CanvasLayer" unique_id=1248641115 node_paths=PackedStringArray("volume_slider", "volume_display", "continue_button", "credits_button", "debug_scene")]
 script = ExtResource("1_8p0as")
+volume_slider = NodePath("DebugPanel/Debug/Vol/Volume")
+volume_display = NodePath("DebugPanel/Debug/Vol/VolDisp")
+continue_button = NodePath("Main_Menu/Menu_Container/Continue_Button")
+credits_button = NodePath("Main_Menu/Menu_Container/Credits_Button")
+debug_scene = NodePath("DebugPanel/Debug/LoadScene")
 
 [node name="Main_Menu" type="Control" parent="." unique_id=1999793002]
 layout_mode = 3
@@ -91,20 +99,45 @@ text = "Credits"
 layout_mode = 2
 text = "Exit"
 
-[node name="Vol" type="HBoxContainer" parent="." unique_id=1743926491]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -23.0
-offset_top = -23.0
-offset_right = 23.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="DebugPanel" type="PanelContainer" parent="." unique_id=1406048180]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -163.0
+offset_bottom = 147.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8s5l4")
+
+[node name="Debug" type="VBoxContainer" parent="DebugPanel" unique_id=836779678]
+layout_mode = 2
+
+[node name="DL" type="Label" parent="DebugPanel/Debug" unique_id=1705127924]
+layout_mode = 2
+text = "Debug Tools"
+horizontal_alignment = 1
+
+[node name="LoadScene" type="LineEdit" parent="DebugPanel/Debug" unique_id=1818874782]
+custom_minimum_size = Vector2(162.416, 0)
+layout_mode = 2
+placeholder_text = "Scene Initalizer"
+
+[node name="SpinBox" type="SpinBox" parent="DebugPanel/Debug" unique_id=1509385858]
+layout_mode = 2
+min_value = -1.0
+value = 1.0
+rounded = true
+allow_greater = true
+prefix = "Day"
+
+[node name="VolLabel" type="Label" parent="DebugPanel/Debug" unique_id=1381190973]
+layout_mode = 2
+text = "Volume"
+
+[node name="Vol" type="HBoxContainer" parent="DebugPanel/Debug" unique_id=1743926491]
+layout_mode = 2
 alignment = 2
 
-[node name="Volume" type="HSlider" parent="Vol" unique_id=927112964]
+[node name="Volume" type="HSlider" parent="DebugPanel/Debug/Vol" unique_id=927112964]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = -72.0
@@ -114,32 +147,8 @@ value = -15.0
 allow_greater = true
 allow_lesser = true
 
-[node name="VolPerc" type="Label" parent="Vol" unique_id=2091763889]
+[node name="VolDisp" type="Label" parent="DebugPanel/Debug/Vol" unique_id=2091763889]
 layout_mode = 2
 text = "%XX"
 
-[node name="Debug" type="VBoxContainer" parent="." unique_id=836779678]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -163.0
-offset_bottom = 93.0
-grow_horizontal = 0
-
-[node name="DL" type="Label" parent="Debug" unique_id=1705127924]
-layout_mode = 2
-text = "Debug Tools"
-horizontal_alignment = 1
-
-[node name="LineEdit" type="LineEdit" parent="Debug" unique_id=1818874782]
-custom_minimum_size = Vector2(162.416, 0)
-layout_mode = 2
-placeholder_text = "Scene Initalizer"
-
-[node name="SpinBox" type="SpinBox" parent="Debug" unique_id=1509385858]
-layout_mode = 2
-min_value = -1.0
-value = 1.0
-rounded = true
-allow_greater = true
-prefix = "Day"
+[connection signal="pressed" from="Main_Menu/Menu_Container/Play_Button" to="." method="_on_start_pressed"]
