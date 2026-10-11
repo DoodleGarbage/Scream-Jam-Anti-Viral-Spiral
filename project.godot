@@ -72,14 +72,17 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 folder_colors={
 "res://Assets/": "yellow",
-"res://Scenes/": "green",
-"res://Scripts/": "green",
-"res://UserInterface/": "red"
+"res://Assets/Textures/MiscImages/": "orange",
+"res://Assets/UIUX/": "red",
+"res://Scenes/": "teal",
+"res://Scenes/FollysRoom/": "teal",
+"res://Scenes/HermitsHouse/": "teal",
+"res://Scenes/Library/": "teal",
+"res://Scenes/Town/": "teal",
+"res://Scenes/Tunnels/": "teal",
+"res://Scenes/UIUX/": "red",
+"res://Scripts/": "green"
 }
-
-[filesystem]
-
-import/blender/enabled=false
 
 [global_group]
 

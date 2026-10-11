@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://c7deni8bq53vy"]
+
+[ext_resource type="Script" uid="uid://b7nsh8vk18qba" path="res://Scenes/UIUX/MainMenu/main_menu.gd" id="1_gnc24"]
+[ext_resource type="Theme" uid="uid://b2mymlyfomh0k" path="res://Assets/UIUX/Themes/menu_theme.tres" id="2_ai6nl"]
+[ext_resource type="Texture2D" uid="uid://dhfs7my0n33op" path="res://Assets/UIUX/Images/Menu Screen Background (Day 1).png" id="3_he1vh"]
+[ext_resource type="PackedScene" uid="uid://crpr8byjjvsy1" path="res://Scenes/UIUX/MainMenu/play_button.tscn" id="4_akgrq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8s5l4"]
+bg_color = Color(0.23598361, 0.23598361, 0.23598352, 1)
+
+[node name="main_menu" type="CanvasLayer" unique_id=1248641115 node_paths=PackedStringArray("volume_slider", "volume_display", "continue_button", "credits_button", "debug_panel", "debug_scene", "debug_day")]
+script = ExtResource("1_gnc24")
+volume_slider = NodePath("DebugPanel/Debug/Vol/Volume")
+volume_display = NodePath("DebugPanel/Debug/Vol/VolDisp")
+continue_button = NodePath("MainMenu/InteractContainer/Continue_Button")
+credits_button = NodePath("MainMenu/InteractContainer/Credits_Button")
+debug_panel = NodePath("DebugPanel")
+debug_scene = NodePath("DebugPanel/Debug/LoadScene")
+debug_day = NodePath("DebugPanel/Debug/Day")
+
+[node name="MainMenu" type="Control" parent="." unique_id=1999793002]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("2_ai6nl")
+
+[node name="Background" type="TextureRect" parent="MainMenu" unique_id=642638552]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_he1vh")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TitleContainer" type="HBoxContainer" parent="MainMenu" unique_id=1232235694]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.132
+offset_left = 50.0
+offset_top = 17.0
+offset_right = 593.0
+offset_bottom = 185.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+theme = ExtResource("2_ai6nl")
+
+[node name="Title" type="Label" parent="MainMenu/TitleContainer" unique_id=1228269081]
+layout_mode = 2
+theme_type_variation = &"LabelTitle"
+text = "Another Day"
+
+[node name="InteractContainer" type="VBoxContainer" parent="MainMenu" unique_id=347041912]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 150.0
+offset_right = 227.0
+offset_bottom = 538.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_visual_only = false
+theme = ExtResource("2_ai6nl")
+
+[node name="Continue_Button" parent="MainMenu/InteractContainer" unique_id=1784061266 instance=ExtResource("4_akgrq")]
+layout_mode = 2
+theme = ExtResource("2_ai6nl")
+text = "Continue"
+
+[node name="Play_Button" parent="MainMenu/InteractContainer" unique_id=901078190 instance=ExtResource("4_akgrq")]
+layout_mode = 2
+text = "New Game"
+
+[node name="Options_Button" parent="MainMenu/InteractContainer" unique_id=14185665 instance=ExtResource("4_akgrq")]
+layout_mode = 2
+text = "Options"
+
+[node name="Credits_Button" parent="MainMenu/InteractContainer" unique_id=1845916454 instance=ExtResource("4_akgrq")]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit_Button" parent="MainMenu/InteractContainer" unique_id=593087034 instance=ExtResource("4_akgrq")]
+layout_mode = 2
+text = "Exit"
+
+[node name="DebugPanel" type="PanelContainer" parent="." unique_id=1406048180]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -163.0
+offset_bottom = 147.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8s5l4")
+
+[node name="Debug" type="VBoxContainer" parent="DebugPanel" unique_id=836779678]
+layout_mode = 2
+
+[node name="DL" type="Label" parent="DebugPanel/Debug" unique_id=1705127924]
+layout_mode = 2
+text = "Debug Tools"
+horizontal_alignment = 1
+
+[node name="LoadScene" type="LineEdit" parent="DebugPanel/Debug" unique_id=1818874782]
+custom_minimum_size = Vector2(162.416, 0)
+layout_mode = 2
+placeholder_text = "Scene Initalizer"
+
+[node name="Day" type="SpinBox" parent="DebugPanel/Debug" unique_id=1509385858]
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+rounded = true
+allow_greater = true
+prefix = "Day"
+
+[node name="VolLabel" type="Label" parent="DebugPanel/Debug" unique_id=1381190973]
+layout_mode = 2
+text = "Volume"
+
+[node name="Vol" type="HBoxContainer" parent="DebugPanel/Debug" unique_id=1743926491]
+layout_mode = 2
+alignment = 2
+
+[node name="Volume" type="HSlider" parent="DebugPanel/Debug/Vol" unique_id=927112964]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -72.0
+max_value = 6.0
+step = 0.1
+value = -15.0
+allow_greater = true
+allow_lesser = true
+
+[node name="VolDisp" type="Label" parent="DebugPanel/Debug/Vol" unique_id=2091763889]
+layout_mode = 2
+text = "%XX"
+
+[connection signal="pressed" from="MainMenu/InteractContainer/Play_Button" to="." method="_on_start_pressed"]

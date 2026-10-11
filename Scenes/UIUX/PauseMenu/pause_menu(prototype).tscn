@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://b4gmwq2oj3qp5"]
+
+[ext_resource type="Texture2D" path="res://user_interface/menus/Menu Screen Background (Day 1).png" id="1_05uyy"]
+[ext_resource type="Theme" uid="uid://b2mymlyfomh0k" path="res://Assets/UIUX/Themes/menu_theme.tres" id="2_p81d2"]
+[ext_resource type="PackedScene" uid="uid://crpr8byjjvsy1" path="res://Scenes/UIUX/MainMenu/play_button.tscn" id="3_2nc7s"]
+
+[node name="Pause Menu" type="Control" unique_id=2095525451]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=216101759]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_05uyy")
+expand_mode = 1
+
+[node name="Title Container" type="BoxContainer" parent="." unique_id=525516962]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.132
+offset_left = 50.0
+offset_top = 17.0
+offset_right = 593.0
+offset_bottom = 151.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("2_p81d2")
+vertical = true
+
+[node name="Title" type="RichTextLabel" parent="Title Container" unique_id=1932517705]
+layout_mode = 2
+theme_type_variation = &"richtextlabeltitle"
+bbcode_enabled = true
+text = "Another Day "
+fit_content = true
+autowrap_mode = 0
+autowrap_trim_flags = 0
+
+[node name="Title Container2" type="BoxContainer" parent="." unique_id=987089791]
+layout_mode = 0
+offset_left = 464.265
+offset_top = 175.0
+offset_right = 687.26526
+offset_bottom = 309.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("2_p81d2")
+alignment = 1
+vertical = true
+
+[node name="Title" type="RichTextLabel" parent="Title Container2" unique_id=2037617127]
+layout_mode = 2
+theme_type_variation = &"richtextlabeltitle"
+bbcode_enabled = true
+text = "Paused"
+fit_content = true
+autowrap_mode = 0
+autowrap_trim_flags = 0
+
+[node name="Menu_Container" type="VBoxContainer" parent="." unique_id=2122045708]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.5
+offset_top = 275.0
+offset_right = 112.5
+offset_bottom = 503.00027
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+offset_transform_visual_only = false
+theme = ExtResource("2_p81d2")
+
+[node name="Continue_Button" parent="Menu_Container" unique_id=901078190 instance=ExtResource("3_2nc7s")]
+layout_mode = 2
+text = "Continue"
+
+[node name="Options_Button" parent="Menu_Container" unique_id=1826881588 instance=ExtResource("3_2nc7s")]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit_Button" parent="Menu_Container" unique_id=1944752138 instance=ExtResource("3_2nc7s")]
+layout_mode = 2
+text = "Exit"

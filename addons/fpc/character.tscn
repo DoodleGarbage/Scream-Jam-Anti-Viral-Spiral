@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://cc1m2a1obsyn4"]
 
 [ext_resource type="Script" uid="uid://hutuis63hgev" path="res://addons/fpc/character.gd" id="1_0t4e8"]
-[ext_resource type="PackedScene" uid="uid://c2dq4seqe3l2b" path="res://Scenes/Book.tscn" id="2_bx7cj"]
-[ext_resource type="PackedScene" uid="uid://cpwcgx528nymu" path="res://Assets/Models/hand_rock.blend" id="3_qaoyu"]
+[ext_resource type="PackedScene" uid="uid://c2dq4seqe3l2b" path="res://Scenes/Library/Book.tscn" id="2_bx7cj"]
+[ext_resource type="PackedScene" uid="uid://cpwcgx528nymu" path="res://Assets/Models/Town/hand_rock.blend" id="3_qaoyu"]
 [ext_resource type="Script" uid="uid://dgfl3skp075ft" path="res://addons/fpc/EditorModule.gd" id="3_v3ckk"]
 [ext_resource type="Script" uid="uid://u5u7xxlvmcxx" path="res://addons/fpc/debug.gd" id="3_x1wcc"]
-[ext_resource type="PackedScene" uid="uid://caynn82a6ydqv" path="res://Assets/Models/tunnels/GeneratorPart1.blend" id="4_4fv23"]
-[ext_resource type="Material" uid="uid://b5i2y0flkc2xs" path="res://Assets/Textures/generator_piece_2.tres" id="5_q62an"]
+[ext_resource type="PackedScene" uid="uid://caynn82a6ydqv" path="res://Assets/Models/Tunnels/GeneratorPart1.blend" id="4_4fv23"]
+[ext_resource type="Material" uid="uid://b5i2y0flkc2xs" path="res://Assets/Textures/Materials/generator_piece_2.tres" id="5_q62an"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
 albedo_color = Color(0.909804, 0.596078, 0, 1)
