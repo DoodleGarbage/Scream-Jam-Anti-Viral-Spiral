@@ -34,7 +34,14 @@ func _process(_delta: float) -> void:
 
 func switch_scene(scene:String) -> void:
 	print("recieved scene: ", scene)
-	var exists = ResourceLoader.exists("res://Scenes/" + scene + ".tscn")
+	var scene_folder : String = ""
+	match(scene):
+		"follys_room": scene_folder = "FollysRoom/"
+		"library": scene_folder = "Library/"
+		"3d_game", "town": scene_folder = "Town/"
+		"tunnels": scene_folder = "Tunnels/"
+		"hermits_house": scene_folder = "HermitsHouse/"
+	var exists = ResourceLoader.exists("res://Scenes/" + scene_folder + scene + ".tscn")
 	if not exists:
 		push_error("Tried to load non-existent scene: ", scene)
 		return
@@ -43,7 +50,7 @@ func switch_scene(scene:String) -> void:
 	#print("Character position before everything: ", character.position)
 	Status.loading = true
 	active_scene.queue_free()
-	currently_loading_scene = "res://Scenes/" + scene + ".tscn"
+	currently_loading_scene = "res://Scenes/" + scene_folder + scene + ".tscn"
 	ResourceLoader.load_threaded_request(currently_loading_scene, "", true)
 	next_scene_name = scene
 	loading_screen.show()

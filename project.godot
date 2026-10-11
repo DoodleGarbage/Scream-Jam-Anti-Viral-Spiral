@@ -80,8 +80,7 @@ folder_colors={
 "res://Scenes/Library/": "teal",
 "res://Scenes/Town/": "teal",
 "res://Scenes/Tunnels/": "teal",
-"res://Scenes/UIUX/": "red",
-"res://Scripts/": "green"
+"res://Scenes/UIUX/": "red"
 }
 
 [global_group]

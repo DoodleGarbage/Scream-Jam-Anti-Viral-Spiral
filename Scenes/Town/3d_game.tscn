@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://ddqtehcithxt2" path="res://Assets/Models/Town/BrokenBridge.blend" id="5_ul1u8"]
 [ext_resource type="Texture2D" uid="uid://xk4bxscd0dd7" path="res://Assets/Textures/MapTextures/dense_sand_1k.blend/textures/dense_sand_diff_1k.jpg" id="6_2u137"]
 [ext_resource type="Image" uid="uid://b7t1d3s5nulnb" path="res://Terrain/Heightmap_0_0.res" id="7_25e43"]
-[ext_resource type="ArrayMesh" uid="uid://dn8y3ciaoidc7" path="res://Heightmap.tres" id="7_qq7nf"]
 [ext_resource type="Texture2D" uid="uid://c5gjaqtpr45ki" path="res://Assets/Textures/MapTextures/rocky_terrain_02_1k.blend/textures/rocky_terrain_02_diff_1k.jpg" id="8_17okr"]
 [ext_resource type="Image" uid="uid://bmns0h4bfbw6r" path="res://Terrain/Splatmap_0_0_0.res" id="8_haq7r"]
 [ext_resource type="PackedScene" uid="uid://csrh5ipl3hsv4" path="res://Assets/Models/Town/Bridge.blend" id="9_25e43"]
@@ -630,7 +629,6 @@ multimesh = SubResource("MultiMesh_qq7nf")
 
 [node name="TreeLocation" type="MeshInstance3D" parent="Meshes/Trees" unique_id=1581960331]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -256, 0, -256)
-mesh = ExtResource("7_qq7nf")
 
 [node name="Tree" type="MeshInstance3D" parent="Meshes/Trees" unique_id=323041852]
 mesh = ExtResource("12_x1m31")
