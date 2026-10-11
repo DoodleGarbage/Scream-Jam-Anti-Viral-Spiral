@@ -521,15 +521,12 @@ func update_debug_menu_per_tick():
 	$CL/UserInterface/DebugPanel.add_property("Velocity", readable_velocity, 3)
 
 
-func _unhandled_input(event : InputEvent):
+func _input(event : InputEvent):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		mouseInput = event.relative
 	# Toggle debug menu
-	elif event is InputEventKey:
-		if event.is_released():
-			# Where we're going, we don't need InputMap
-			if event.keycode == 4194338: # F7
-				$CL/UserInterface/DebugPanel.visible = !$CL/UserInterface/DebugPanel.visible
+	if Input.is_action_just_pressed("debug_menu"):
+		$CL/UserInterface/DebugPanel.visible = !$CL/UserInterface/DebugPanel.visible
 	if Input.is_action_just_pressed(controls["INTERACT"]):
 		handle_interaction()
 	#get_viewport().set_input_as_handled()QWERGGEWQWEQWEQWERGQWERGEE
