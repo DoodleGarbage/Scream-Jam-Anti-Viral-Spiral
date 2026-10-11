@@ -1,5 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://b2mymlyfomh0k"]
 
+[ext_resource type="FontFile" uid="uid://cdpryr4ay7jr2" path="res://Assets/UIUX/Fonts/TheGirlNextDoor-Regular.ttf" id="1_6youh"]
 [ext_resource type="StyleBox" uid="uid://64omjnchm24o" path="res://Assets/UIUX/Themes/button_hover.tres" id="1_18aeq"]
 [ext_resource type="StyleBox" uid="uid://77mlky0kp8my" path="res://Assets/UIUX/Themes/button_disabled.tres" id="1_r745y"]
 [ext_resource type="StyleBox" uid="uid://713fhlfx6j6y" path="res://Assets/UIUX/Themes/button_default.tres" id="3_r745y"]
@@ -9,6 +10,7 @@
 default_font = ExtResource("4_eetq8")
 default_font_size = 6
 Button/font_sizes/font_size = 60
+Button/fonts/font = ExtResource("1_6youh")
 Button/styles/disabled = ExtResource("1_r745y")
 Button/styles/focus = ExtResource("1_18aeq")
 Button/styles/hover = ExtResource("1_18aeq")
