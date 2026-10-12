@@ -1,0 +1,41 @@
+[gd_resource type="TextureSetsResource" format=3 uid="uid://ba0gi3jrdkop4"]
+
+[ext_resource type="Texture2D" uid="uid://b3w0qgmfitt30" path="res://addons/terrabrush/Assets/placeholder_texture.png" id="1_k7f2s"]
+[ext_resource type="Texture2D" uid="uid://xk4bxscd0dd7" path="res://Assets/Textures/MapTextures/dense_sand_1k.blend/textures/dense_sand_diff_1k.jpg" id="2_cg1fx"]
+[ext_resource type="Texture2D" uid="uid://c5gjaqtpr45ki" path="res://Assets/Textures/MapTextures/rocky_terrain_02_1k.blend/textures/rocky_terrain_02_diff_1k.jpg" id="3_1o3ag"]
+[ext_resource type="Texture2D" uid="uid://c87kbf10racab" path="res://Assets/Textures/MapTextures/asphalt_02_1k.blend/textures/asphalt_02_diff_1k.jpg" id="4_u0pl2"]
+[ext_resource type="Texture2D" uid="uid://c47kvsygpgmv4" path="res://Assets/Textures/MapTextures/rocky_trail_02_1k.blend/textures/rocky_trail_02_diff_1k.jpg" id="5_xapax"]
+[ext_resource type="Texture2D" uid="uid://dkn0p63bxpngj" path="res://Assets/Textures/MapTextures/marble_cliff_05_1k.blend/textures/marble_cliff_05_diff_1k.jpg" id="6_iftn5"]
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_ioamw"]
+name = "Placeholder"
+albedoTexture = ExtResource("1_k7f2s")
+resource_name = "Placeholder"
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_gty17"]
+name = "Sand"
+albedoTexture = ExtResource("2_cg1fx")
+resource_name = "Sand"
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_rembb"]
+name = "Grass"
+albedoTexture = ExtResource("3_1o3ag")
+resource_name = "Grass"
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_sb7fu"]
+name = "Asphalt"
+albedoTexture = ExtResource("4_u0pl2")
+resource_name = "Asphalt"
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_pvo4f"]
+name = "Dirt Road"
+albedoTexture = ExtResource("5_xapax")
+resource_name = "Dirt Road"
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_pp1t6"]
+name = "Rock"
+albedoTexture = ExtResource("6_iftn5")
+resource_name = "Rock"
+
+[resource]
+textureSets = Array[TextureSetResource]([SubResource("TextureSetResource_ioamw"), SubResource("TextureSetResource_gty17"), SubResource("TextureSetResource_rembb"), SubResource("TextureSetResource_sb7fu"), SubResource("TextureSetResource_pvo4f"), SubResource("TextureSetResource_pp1t6")])

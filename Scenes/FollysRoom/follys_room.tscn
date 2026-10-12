@@ -567,13 +567,17 @@ transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.72
 
 [node name="BrokenWindow" parent="Windows" unique_id=2144234887 instance=ExtResource("35_ce2pt")]
 transform = Transform3D(7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, 1.7201188, 1.4474554, -6.2730045)
-visible = false
+
+[node name="SpotLight3D" parent="Windows/BrokenWindow" index="0" unique_id=312367790]
+light_color = Color(0.72383845, 0, 0.07606993, 1)
 
 [node name="BreakTheCycle" type="Area3D" parent="Windows/BrokenWindow" unique_id=2058852169 groups=["Interactables"]]
 collision_layer = 2
 monitorable = false
 script = ExtResource("19_65x00")
 desc = "Break the Cycle (this is going to hurt)"
+switch_scenes = true
+target_scene = "car_scene"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Windows/BrokenWindow/BreakTheCycle" unique_id=1130292105]
@@ -737,6 +741,8 @@ theme_override_font_sizes/font_size = 28
 text = "Press 'E' to wake up."
 
 [node name="childhood_door" parent="." unique_id=851363931 instance=ExtResource("2_fyksx")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.387787, 1.0851191, -1.246115)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.4495044, 1.0851191, -1.0198104)
 
 [connection signal="triggered" from="Furniture/bathroomsink/WashUp" to="Furniture/bathroomsink/WashUp" method="queue_free"]
+
+[editable path="Windows/BrokenWindow"]

@@ -1,5 +1,7 @@
 extends OmniLight3D
 
+var flicker_disabled : bool = false
+
 ## How often, in %, the light flickers
 @export var flicker_chance : float = 0.5
 ## How long, in seconds, between flickers.
@@ -26,6 +28,8 @@ func _ready() -> void:
 	return
 
 func _process(delta: float) -> void:
+	if flicker_disabled:
+		return
 	_flicker_timing += delta
 	if flicker_state:
 		if _flick_quantity >= flick_count + _flick_count_variance:

@@ -43,6 +43,7 @@ func switch_scene(scene:String) -> void:
 		"tunnels": scene_folder = "Tunnels/"
 		"hermits_house": scene_folder = "HermitsHouse/"
 		"childhood_home": scene_folder = "ChildhoodHome/"
+		"car_scene": scene_folder = "CarScene/"
 	var exists = ResourceLoader.exists("res://Scenes/" + scene_folder + scene + ".tscn")
 	if not exists:
 		push_error("Tried to load non-existent scene: ", scene)
@@ -64,6 +65,10 @@ func switch_scene(scene:String) -> void:
 func _execute_scene_switch(loaded_scene:Node) -> void:
 	#print("Character position post scene load: ", character.position)
 	active_scene = loaded_scene
+	
+	character.base_speed = Status.character_base_speed
+	character.sprint_speed = Status.character_sprint_speed
+	
 	if loaded_scene is Scene:
 		loaded_scene.character = character
 	loaded_scene.ready.connect(loaded_scene.loaded.bind(current_scene))

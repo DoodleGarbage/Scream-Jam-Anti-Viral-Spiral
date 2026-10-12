@@ -1,0 +1,13 @@
+[gd_resource type="ObjectResource" format=3 uid="uid://da3bhxen4u0y0"]
+
+[ext_resource type="PackedScene" uid="uid://bgaankpteb8" path="res://Assets/Models/Town/Tree1scene.blend" id="1_1p1eh"]
+
+[sub_resource type="ObjectDefinitionResource" id="ObjectDefinitionResource_d0yj4"]
+objectFrequency = 5
+randomSize = true
+randomSizeFactorMin = 0.4
+randomSizeFactorMax = 2.2
+objectScenes = Array[PackedScene]([ExtResource("1_1p1eh")])
+
+[resource]
+definition = SubResource("ObjectDefinitionResource_d0yj4")

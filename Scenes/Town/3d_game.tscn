@@ -1,18 +1,14 @@
 [gd_scene format=3 uid="uid://cla6817oo6prx"]
 
 [ext_resource type="Script" uid="uid://cqu5inwwjjy0q" path="res://Scenes/Town/3d_root.gd" id="1_wgwvh"]
+[ext_resource type="TextureSetsResource" uid="uid://ba0gi3jrdkop4" path="res://Assets/MapResources/new_texture_sets_resource.tres" id="2_yrjy0"]
+[ext_resource type="ObjectResource" uid="uid://da3bhxen4u0y0" path="res://Assets/MapResources/new_object_resource.tres" id="4_wg0te"]
 [ext_resource type="Shader" uid="uid://eoe5x3rffg02" path="res://Assets/Shaders/water.gdshader" id="5_aylps"]
-[ext_resource type="Texture2D" uid="uid://b3w0qgmfitt30" path="res://addons/terrabrush/Assets/placeholder_texture.png" id="5_g37um"]
 [ext_resource type="PackedScene" uid="uid://ddqtehcithxt2" path="res://Assets/Models/Town/BrokenBridge.blend" id="5_ul1u8"]
-[ext_resource type="Texture2D" uid="uid://xk4bxscd0dd7" path="res://Assets/Textures/MapTextures/dense_sand_1k.blend/textures/dense_sand_diff_1k.jpg" id="6_2u137"]
 [ext_resource type="Image" uid="uid://b7t1d3s5nulnb" path="res://Terrain/Heightmap_0_0.res" id="7_25e43"]
-[ext_resource type="Texture2D" uid="uid://c5gjaqtpr45ki" path="res://Assets/Textures/MapTextures/rocky_terrain_02_1k.blend/textures/rocky_terrain_02_diff_1k.jpg" id="8_17okr"]
 [ext_resource type="Image" uid="uid://bmns0h4bfbw6r" path="res://Terrain/Splatmap_0_0_0.res" id="8_haq7r"]
 [ext_resource type="PackedScene" uid="uid://csrh5ipl3hsv4" path="res://Assets/Models/Town/Bridge.blend" id="9_25e43"]
-[ext_resource type="Texture2D" uid="uid://c87kbf10racab" path="res://Assets/Textures/MapTextures/asphalt_02_1k.blend/textures/asphalt_02_diff_1k.jpg" id="9_261nc"]
 [ext_resource type="Image" uid="uid://de0n5txng222e" path="res://Terrain/Water_0_0.res" id="9_ruleg"]
-[ext_resource type="Texture2D" uid="uid://c47kvsygpgmv4" path="res://Assets/Textures/MapTextures/rocky_trail_02_1k.blend/textures/rocky_trail_02_diff_1k.jpg" id="10_aylps"]
-[ext_resource type="Texture2D" uid="uid://dkn0p63bxpngj" path="res://Assets/Textures/MapTextures/marble_cliff_05_1k.blend/textures/marble_cliff_05_diff_1k.jpg" id="10_godah"]
 [ext_resource type="Texture2D" uid="uid://cpbptcurdtm32" path="res://Assets/Textures/ParticleImages/waterspray.png" id="10_haq7r"]
 [ext_resource type="Image" uid="uid://dk7aqkt64xxtk" path="res://Terrain/Color_0_0.res" id="10_x8ffa"]
 [ext_resource type="PackedScene" uid="uid://djsdfxdi23qx8" path="res://Assets/Models/Town/rock3.blend" id="11_kcn1r"]
@@ -20,7 +16,6 @@
 [ext_resource type="ArrayMesh" uid="uid://b7p4x2wq02lg1" path="res://Assets/Models/Town/Tree1.blend" id="12_x1m31"]
 [ext_resource type="PackedScene" uid="uid://b4lrjx815trov" path="res://Assets/Models/Town/rock1.blend" id="13_futmp"]
 [ext_resource type="Image" uid="uid://dkr68cn78duxg" path="res://Terrain/Foliage_0_0_0.res" id="14_d1thh"]
-[ext_resource type="PackedScene" uid="uid://bgaankpteb8" path="res://Assets/Models/Town/Tree1scene.blend" id="14_jtqtu"]
 [ext_resource type="Image" uid="uid://cmgiby6b3miec" path="res://Terrain/Splatmap_0_0_1.res" id="15_d1thh"]
 [ext_resource type="PackedScene" uid="uid://y67ddxcmh6cp" path="res://Scenes/Town/Environments/rocks_on_a_montion.tscn" id="17_2uq0s"]
 [ext_resource type="Image" uid="uid://bbv32t06dl4f8" path="res://Terrain/Object_0_0_0.res" id="18_g37um"]
@@ -54,55 +49,12 @@
 [ext_resource type="PackedScene" uid="uid://djfcds4rupy7a" path="res://Scenes/Town/yield_sign.tscn" id="53_2uq0s"]
 [ext_resource type="PackedScene" uid="uid://csgjch33rvxth" path="res://Scenes/Town/stop_sign.tscn" id="54_j0dxl"]
 
-[sub_resource type="TextureSetResource" id="TextureSetResource_ioamw"]
-name = "Placeholder"
-albedoTexture = ExtResource("5_g37um")
-resource_name = "Placeholder"
-
-[sub_resource type="TextureSetResource" id="TextureSetResource_gty17"]
-name = "Sand"
-albedoTexture = ExtResource("6_2u137")
-resource_name = "Sand"
-
-[sub_resource type="TextureSetResource" id="TextureSetResource_rembb"]
-name = "Grass"
-albedoTexture = ExtResource("8_17okr")
-resource_name = "Grass"
-
-[sub_resource type="TextureSetResource" id="TextureSetResource_sb7fu"]
-name = "Asphalt"
-albedoTexture = ExtResource("9_261nc")
-resource_name = "Asphalt"
-
-[sub_resource type="TextureSetResource" id="TextureSetResource_pvo4f"]
-name = "Dirt Road"
-albedoTexture = ExtResource("10_aylps")
-resource_name = "Dirt Road"
-
-[sub_resource type="TextureSetResource" id="TextureSetResource_pp1t6"]
-name = "Rock"
-albedoTexture = ExtResource("10_godah")
-resource_name = "Rock"
-
-[sub_resource type="TextureSetsResource" id="TextureSetsResource_fdhix"]
-textureSets = Array[TextureSetResource]([SubResource("TextureSetResource_ioamw"), SubResource("TextureSetResource_gty17"), SubResource("TextureSetResource_rembb"), SubResource("TextureSetResource_sb7fu"), SubResource("TextureSetResource_pvo4f"), SubResource("TextureSetResource_pp1t6")])
-
 [sub_resource type="FoliageDefinitionResource" id="FoliageDefinitionResource_7iigo"]
 mesh = ExtResource("12_x1m31")
 albedo = Color(0.09277914, 0.21553746, 0, 1)
 
 [sub_resource type="FoliageResource" id="FoliageResource_vkx31"]
 definition = SubResource("FoliageDefinitionResource_7iigo")
-
-[sub_resource type="ObjectDefinitionResource" id="ObjectDefinitionResource_d0yj4"]
-objectFrequency = 5
-randomSize = true
-randomSizeFactorMin = 0.4
-randomSizeFactorMax = 2.2
-objectScenes = Array[PackedScene]([ExtResource("14_jtqtu")])
-
-[sub_resource type="ObjectResource" id="ObjectResource_70da1"]
-definition = SubResource("ObjectDefinitionResource_d0yj4")
 
 [sub_resource type="WaterResource" id="WaterResource_76umi"]
 waterColor = Color(0.2509804, 0.45490196, 1, 1)
@@ -581,13 +533,13 @@ hermit_exit = NodePath("Houses/HermitHouse/HermitExit")
 [node name="Map" type="TerraBrush" parent="." unique_id=2011839165]
 dataPath = "res://Terrain"
 zonesSize = 512
-textureSets = SubResource("TextureSetsResource_fdhix")
+textureSets = ExtResource("2_yrjy0")
 foliages = Array[FoliageResource]([SubResource("FoliageResource_vkx31")])
-objects = Array[ObjectResource]([SubResource("ObjectResource_70da1")])
+objects = Array[ObjectResource]([ExtResource("4_wg0te")])
 waterDefinition = SubResource("WaterResource_76umi")
 terrainZones = SubResource("ZonesResource_x8ffa")
 physics_interpolation_mode = 2
-metadata/_edit_lock_ = false
+metadata/_edit_lock_ = true
 
 [node name="rocks on a montion" parent="." unique_id=287664929 instance=ExtResource("17_2uq0s")]
 transform = Transform3D(15.149, 0, 0, 0, 15.149, 0, 0, 0, 15.149, 0, 0, 0)

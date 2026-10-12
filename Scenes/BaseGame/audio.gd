@@ -71,6 +71,8 @@ func _get_stream(audio:String) -> AudioStream:
 		"gear_clunk": return preload("res://Assets/Audio/gear_clunk.mp3")
 		"power_on": return preload("res://Assets/Audio/generator_power_on.mp3")
 		"flourescent_buzz": return preload("res://Assets/Audio/flourescentlampbuzz.mp3")
+		"car_horn": return preload("res://Assets/Audio/car_horn.mp3")
+		"car_crash": return preload("res://Assets/Audio/car_crash.mp3")
 	return null
 
 func _get_volume(audio:String) -> float:
@@ -99,6 +101,7 @@ func play(audio: String, audio_player = null, fade_in:bool = false, fade_in_spee
 		"prudent_folly","alarm_sound","library","main_menu","first_day", "second_day","being_followed","someplace_calm","hell","tunneling_through","generator","broken_generator","chase_loop", "flourescent_buzz": next_track = audio
 		"chase_trigger": next_track = "chase_loop"
 		"power_on": next_track = "generator"
+		"car_horn": next_track = "car_horn"
 	var _volume : float = _get_volume(audio)
 	return _play_audio(stream, audio, audio_player, _volume, next_track, fade_in, fade_in_speed)
 	
@@ -133,9 +136,9 @@ func _play_audio(audio : AudioStream, audio_name:String, forced_player=null, _vo
 	audio_player.playing_audio = audio_name
 	if not stop_audio.is_connected(audio_player.end_play):
 		stop_audio.connect(audio_player.end_play)
+	if audio_player.finished.is_connected(_loop_audio):
+		audio_player.finished.disconnect(_loop_audio)
 	if next_track != "":
-		if audio_player.finished.is_connected(_loop_audio):
-			audio_player.finished.disconnect(_loop_audio)
 		audio_player.finished.connect(_loop_audio.bind(audio_player, next_track, forced_player))
 		
 	audio_player.stream = audio

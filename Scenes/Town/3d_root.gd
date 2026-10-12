@@ -41,6 +41,8 @@ func loaded(last_scene:String) -> void:
 			#$RockPile/GrabRock.is_rock = false
 			$Houses/HermitHouse/hermit_house.hide()
 			$Houses/HermitHouse/hermit_house_open.show()
+			$NPCs/Raincoat.hide()
+			$NPCs/Raincoat.global_position = Vector3(0,0,0)
 		_:Audio.play("prudent_folly", null, true)
 	var spawn_pos : Node3D
 	#print("matching scene: ", last_scene)

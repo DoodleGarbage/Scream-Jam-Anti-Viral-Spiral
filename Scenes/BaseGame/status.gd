@@ -1,5 +1,9 @@
 extends Node
 
+const character_base_speed : float = 3.0
+const character_sprint_speed : float = 8.0
+
+
 var loading : bool = false
 
 ## increase to 'day2', 'day3', etc.

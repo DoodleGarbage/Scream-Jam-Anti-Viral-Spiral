@@ -1,0 +1,217 @@
+[gd_scene format=3 uid="uid://d1t26a7d652hp"]
+
+[ext_resource type="Script" uid="uid://dmbop2hmddhhi" path="res://Scenes/CarScene/car_scene.gd" id="1_kixl2"]
+[ext_resource type="TextureSetsResource" uid="uid://ba0gi3jrdkop4" path="res://Assets/MapResources/new_texture_sets_resource.tres" id="2_epy70"]
+[ext_resource type="ObjectResource" uid="uid://da3bhxen4u0y0" path="res://Assets/MapResources/new_object_resource.tres" id="3_s3wfv"]
+[ext_resource type="Image" uid="uid://cn3hxnqwhw0rp" path="res://Scenes/CarScene/CarScene/Heightmap_0_0.res" id="4_7bb6k"]
+[ext_resource type="Image" uid="uid://bxdkv7me4p7dr" path="res://Scenes/CarScene/CarScene/Object_0_0_0.res" id="5_uf747"]
+[ext_resource type="Image" uid="uid://dex581j71df1a" path="res://Scenes/CarScene/CarScene/Splatmap_0_0_0.res" id="6_6ghm0"]
+[ext_resource type="Image" uid="uid://fqh4lrm4auoe" path="res://Scenes/CarScene/CarScene/Splatmap_0_0_1.res" id="7_dc150"]
+[ext_resource type="PackedScene" uid="uid://y67ddxcmh6cp" path="res://Scenes/Town/Environments/rocks_on_a_montion.tscn" id="8_dc150"]
+[ext_resource type="Texture2D" uid="uid://cl5le744gws8x" path="res://Assets/Textures/MiscImages/papernote.jpg" id="9_6jeih"]
+[ext_resource type="Shader" uid="uid://bi82vc74b7pvy" path="res://Scenes/Town/Environments/stylized-sky.gdshader" id="10_lqvbl"]
+[ext_resource type="Texture2D" uid="uid://d1g1f3w3p6eon" path="res://Scenes/Town/Environments/Sun.png" id="11_tq6eu"]
+[ext_resource type="Texture2D" uid="uid://dkor6bvol7l52" path="res://Scenes/Town/Environments/cloudnoise.tres" id="12_vynxg"]
+[ext_resource type="PackedScene" uid="uid://dtc7q36iofnv7" path="res://Assets/Models/Town/van.blend" id="13_tq6eu"]
+[ext_resource type="Script" uid="uid://coji4uh3esqdw" path="res://Scenes/BaseGame/3d_audio_player.gd" id="14_vynxg"]
+
+[sub_resource type="Curve" id="Curve_bordy"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.137725, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.709949), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_6tcxb"]
+curve = SubResource("Curve_bordy")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oo7f6"]
+fractal_type = 2
+fractal_lacunarity = 1.83
+fractal_gain = 0.49
+cellular_distance_function = 3
+cellular_return_type = 6
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7u7xk"]
+noise = SubResource("FastNoiseLite_oo7f6")
+seamless = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_odwe7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ww0ml"]
+shader = ExtResource("10_lqvbl")
+shader_parameter/cloud_shape_sampler = ExtResource("12_vynxg")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_7u7xk")
+shader_parameter/cloud_curves = SubResource("CurveTexture_6tcxb")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.40000000596048
+shader_parameter/clouds_scale = 0.80000000447036
+shader_parameter/clouds_smoothness = 0.0999999977648
+shader_parameter/clouds_light_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_shadow_intensity = 1.8000000268221599
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_odwe7")
+shader_parameter/high_clouds_density = 0.0
+shader_parameter/top_color = Color(0.18851168, 0.10069999, 0.19, 1)
+shader_parameter/bottom_color = Color(0.17, 0.039100002, 0.027200004, 1)
+shader_parameter/sun_scatter = Color(0.37668255, 0.11325698, 0.00780534, 1)
+shader_parameter/astro_tint = Color(1, 0.7678007, 0.67437327, 1)
+shader_parameter/astro_sampler = ExtResource("11_tq6eu")
+shader_parameter/astro_scale = 0.70000001043084
+shader_parameter/astro_intensity = 1.8000000268221599
+shader_parameter/stars_intensity = 1.30000001937156
+shader_parameter/shooting_stars_intensity = 0.0
+shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_c4qn5"]
+sky_material = SubResource("ShaderMaterial_ww0ml")
+
+[sub_resource type="Environment" id="Environment_8s5l4"]
+background_mode = 2
+background_energy_multiplier = 1.31
+sky = SubResource("Sky_c4qn5")
+
+[sub_resource type="ZoneResource" id="ZoneResource_uf747"]
+heightMapImage = ExtResource("4_7bb6k")
+splatmapsImage = Array[Image]([ExtResource("6_6ghm0"), ExtResource("7_dc150")])
+objectsImage = Array[Image]([ExtResource("5_uf747")])
+
+[sub_resource type="ZonesResource" id="ZonesResource_6ghm0"]
+zones = Array[ZoneResource]([SubResource("ZoneResource_uf747")])
+
+[sub_resource type="BoxMesh" id="BoxMesh_8s5l4"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fodyg"]
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0.02775244, 0.027752439, 0.027752431, 1)
+albedo_texture = ExtResource("9_6jeih")
+
+[sub_resource type="BoxMesh" id="BoxMesh_c4qn5"]
+material = SubResource("StandardMaterial3D_fodyg")
+size = Vector3(6, 86.311935, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
+size = Vector3(6.827, 87.511, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c4qn5"]
+size = Vector3(11.244, 11.558, 14.229)
+
+[node name="CarScene" type="Node3D" unique_id=576806799 node_paths=PackedStringArray("spawn_point", "car", "blackout", "car_horn_audio_player", "car_crash_audio_player")]
+script = ExtResource("1_kixl2")
+spawn_point = NodePath("SpawnPoint")
+car = NodePath("Car")
+blackout = NodePath("Blackout")
+car_horn_audio_player = NodePath("Car/CarHorn")
+car_crash_audio_player = NodePath("Car/CarCrash")
+car_speed = 15.0
+horn_time = 3.8
+crash_time = 1.4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=190132687]
+environment = SubResource("Environment_8s5l4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1653920395]
+transform = Transform3D(1, 0, 0, 0, 0.9833249, 0.18185781, 0, -0.18185781, 0.9833248, 0, 0, 0)
+light_color = Color(0.99999994, 0.6334104, 0.33396444, 1)
+light_energy = 0.475
+shadow_enabled = true
+
+[node name="Map" type="TerraBrush" parent="." unique_id=878372274]
+dataPath = "res://Scenes/CarScene/CarScene"
+textureSets = ExtResource("2_epy70")
+objects = Array[ObjectResource]([ExtResource("3_s3wfv")])
+terrainZones = SubResource("ZonesResource_6ghm0")
+physics_interpolation_mode = 2
+metadata/_edit_lock_ = false
+
+[node name="SpawnPoint" type="Node3D" parent="." unique_id=1928493938]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 122.69641, 0)
+
+[node name="2mcube" type="MeshInstance3D" parent="." unique_id=589002514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.221128, 0)
+visible = false
+mesh = SubResource("BoxMesh_8s5l4")
+
+[node name="rocks on a montion" parent="." unique_id=287664929 instance=ExtResource("8_dc150")]
+transform = Transform3D(8.602264, 0, -12.469692, 0, 15.149, 0, 12.469692, 0, 8.602264, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="Fall" type="MeshInstance3D" parent="." unique_id=1723666605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 84.12952, 0)
+mesh = SubResource("BoxMesh_c4qn5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Fall" unique_id=2124809963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.669281, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fall/StaticBody3D" unique_id=1246874815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Fall/StaticBody3D" unique_id=1262160287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Fall/StaticBody3D" unique_id=745836009]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 0, 0)
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Fall/StaticBody3D" unique_id=633235632]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 0, 0)
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="FallDetector" type="Area3D" parent="Fall" unique_id=1079815719]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -53.798214, 0)
+collision_layer = 0
+collision_mask = 15
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fall/FallDetector" unique_id=851435351]
+shape = SubResource("BoxShape3D_c4qn5")
+
+[node name="Car" type="Node3D" parent="." unique_id=1706960613]
+transform = Transform3D(0.9998771, 0, -0.015677948, 0, 1, 0, 0.015677948, 0, 0.9998771, -3.6515517, 4.0170393, 174.78006)
+
+[node name="van" parent="Car" unique_id=364415967 instance=ExtResource("13_tq6eu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9334412, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Car" unique_id=1610370473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2809498, 1.2077007, -5.61499)
+light_energy = 13.327
+shadow_enabled = true
+spot_range = 18.866
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Car" unique_id=2039814139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3208153, 1.2077007, -5.6557846)
+light_energy = 13.327
+shadow_enabled = true
+spot_range = 18.866
+
+[node name="CarHorn" type="AudioStreamPlayer3D" parent="Car" unique_id=1548653091]
+script = ExtResource("14_vynxg")
+metadata/_custom_type_script = "uid://coji4uh3esqdw"
+
+[node name="CarCrash" type="AudioStreamPlayer3D" parent="Car" unique_id=2023319773]
+script = ExtResource("14_vynxg")
+metadata/_custom_type_script = "uid://coji4uh3esqdw"
+
+[node name="GroundDetector" type="Area3D" parent="." unique_id=724960290]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1343174, 0)
+collision_layer = 0
+collision_mask = 15
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundDetector" unique_id=1757128348]
+shape = SubResource("BoxShape3D_c4qn5")
+
+[node name="Blackout" type="ColorRect" parent="." unique_id=811993119]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="body_entered" from="Fall/FallDetector" to="." method="_on_player_fall" unbinds=1]
+[connection signal="body_entered" from="Fall/FallDetector" to="Fall" method="hide" unbinds=1]

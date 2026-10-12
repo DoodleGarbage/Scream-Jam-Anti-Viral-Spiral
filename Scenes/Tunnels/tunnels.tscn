@@ -102,10 +102,11 @@ shape = SubResource("WorldBoundaryShape3D_c4qn5")
 [node name="ItemRoom1" parent="Rooms" unique_id=1175114171 instance=ExtResource("10_6vrye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -19)
 
-[node name="Item1" type="Node3D" parent="Rooms/ItemRoom1" unique_id=818809495 node_paths=PackedStringArray("audio_player")]
+[node name="Item1" type="Node3D" parent="Rooms/ItemRoom1" unique_id=818809495 node_paths=PackedStringArray("audio_player", "room_light")]
 transform = Transform3D(0.27168953, -0.02567268, 0.24538687, 0.15650529, 0.30010703, -0.1418833, -0.19073513, 0.20967998, 0.23311676, 0, 1.224796, 1)
 script = ExtResource("4_4ic01")
 audio_player = NodePath("Item1AudioPlayer3D")
+room_light = NodePath("../OmniLight3D")
 
 [node name="GeneratorPart1" parent="Rooms/ItemRoom1/Item1" unique_id=503282253 instance=ExtResource("4_a1r6t")]
 
@@ -133,10 +134,11 @@ metadata/_custom_type_script = "uid://coji4uh3esqdw"
 [node name="ItemRoom2" parent="Rooms" unique_id=14649706 instance=ExtResource("10_6vrye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -20)
 
-[node name="Item2" type="Node3D" parent="Rooms/ItemRoom2" unique_id=775158530 node_paths=PackedStringArray("audio_player")]
+[node name="Item2" type="Node3D" parent="Rooms/ItemRoom2" unique_id=775158530 node_paths=PackedStringArray("audio_player", "room_light")]
 transform = Transform3D(0.74029845, -0.069952756, 0.66862905, 0.4264449, 0.8177303, -0.38660306, -0.51971424, 0.5713351, 0.63519543, 0, 1.224796, 1)
 script = ExtResource("4_4ic01")
 audio_player = NodePath("Item2AudioPlayer3D")
+room_light = NodePath("../OmniLight3D")
 
 [node name="ItemModel" type="MeshInstance3D" parent="Rooms/ItemRoom2/Item2" unique_id=2011227719]
 mesh = SubResource("BoxMesh_a1r6t")
@@ -813,8 +815,9 @@ max_db = -0.025
 script = ExtResource("30_o5c2d")
 metadata/_custom_type_script = "uid://coji4uh3esqdw"
 
-[connection signal="triggered" from="Rooms/ItemRoom1/Item1/Item1Collector" to="Rooms/ItemRoom1/Item1" method="queue_free"]
 [connection signal="triggered" from="Rooms/ItemRoom1/Item1/Item1Collector" to="Rooms/ItemRoom1/Item1" method="part_collected"]
-[connection signal="triggered" from="Rooms/ItemRoom2/Item2/Item2Collector" to="Rooms/ItemRoom2/Item2" method="queue_free"]
 [connection signal="triggered" from="Rooms/ItemRoom2/Item2/Item2Collector" to="Rooms/ItemRoom2/Item2" method="part_collected"]
 [connection signal="triggered" from="Rooms/GeneratorRoom/Generator/GeneratorInteract" to="Rooms/GeneratorRoom/Generator" method="_on_generator_interact_triggered"]
+
+[editable path="Rooms/ItemRoom1"]
+[editable path="Rooms/ItemRoom2"]
