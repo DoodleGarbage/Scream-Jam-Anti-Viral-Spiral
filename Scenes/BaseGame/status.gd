@@ -43,6 +43,12 @@ var work_complete : bool :
 var collected_pieces : Array[int] = []
 var held_pieces : Array[int] = []
 
+## The amount that the light flickering is increased in the Tunnels after collecting a part.
+var flicker_chance_increase : float = 0.1
+var base_flicker_chance : float = 0.2
+
+var completed_childhood : bool = false
+
 func pickup_book(index:int, material:Material, title:String="") -> bool:
 	if holding_book:
 		return false

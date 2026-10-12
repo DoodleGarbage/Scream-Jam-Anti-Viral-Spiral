@@ -21,7 +21,7 @@ extends Node
 ## Reference to the range that sets the day. Should have a minimum value of 1, 'rounded', and allow greater
 @export var debug_day : Range
 
-var character # Prevents accessing a non-existant variable when global root switches this scene in - is not used by this node.
+#var character # Prevents accessing a non-existant variable when global root switches this scene in - is not used by this node.
 
 func _ready() -> void:
 	## TODO: Implement saving and logging progress
@@ -55,5 +55,6 @@ func _on_start_pressed() -> void:
 	switch_scene.emit(target_scene)
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("debug_menu"):
+	if _event.is_action_pressed("debug_menu"):
+		#print("triggered")
 		debug_panel.visible = !debug_panel.visible

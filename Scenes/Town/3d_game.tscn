@@ -2159,18 +2159,19 @@ shape = SubResource("CapsuleShape3D_c4qn5")
 [node name="follyshouse" parent="Houses" unique_id=1929102904 instance=ExtResource("31_iscit")]
 transform = Transform3D(-0.49723333, 0, 0.8676169, 0, 1, 0, -0.8676169, 0, -0.49723333, -32.778046, 14.048489, 208.21223)
 
-[node name="Interactable3D" type="Area3D" parent="Houses/follyshouse" unique_id=2087231251 groups=["Interactables"]]
+[node name="EndDay" type="Area3D" parent="Houses/follyshouse" unique_id=2087231251 groups=["Interactables"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.569698, 1.3219624, -1.8626451e-09)
 collision_layer = 2
 script = ExtResource("32_m4q0v")
 desc = "End Day"
 stopped_audio_tracks = Array[String](["prudent_folly"])
+hide_desc_when_restricted = true
 enabled_restrictions = 1
 switch_scenes = true
 target_scene = "follys_room"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses/follyshouse/Interactable3D" unique_id=1247767822]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses/follyshouse/EndDay" unique_id=1247767822]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.656613e-10, 0.12137413, 0.015285764)
 shape = SubResource("BoxShape3D_10j8r")
 
@@ -2264,17 +2265,18 @@ transform = Transform3D(0.9837546, 0, -0.1795187, 0, 1, 0, 0.1795187, 0, 0.98375
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.9965725, 0)
 shape = SubResource("BoxShape3D_m4q0v")
 
-[node name="Interactable3D" type="Area3D" parent="Houses/library" unique_id=484156089 groups=["Interactables"]]
+[node name="GoToWork" type="Area3D" parent="Houses/library" unique_id=484156089 groups=["Interactables"]]
 collision_layer = 2
 script = ExtResource("32_m4q0v")
 desc = "Go to Work"
 stopped_audio_tracks = Array[String](["prudent_folly"])
+hide_desc_when_restricted = true
 invert_restrictions = true
 switch_scenes = true
 target_scene = "library_room"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses/library/Interactable3D" unique_id=2004438752]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Houses/library/GoToWork" unique_id=2004438752]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.073241, 1.0765657, 0.06441501)
 shape = SubResource("BoxShape3D_ci2nm")
 
@@ -2587,7 +2589,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.01706, 14.302059, 196.504
 transform = Transform3D(0.766, 0, 0, 0, 0.766, 0, 0, 0, 0.766, 0, 0, 0)
 
 [node name="Engraving" type="Node3D" parent="Mementos/FollysTree" unique_id=1285987795]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40465164, 1.3923664, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4166298, 1.3923664, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Mementos/FollysTree/Engraving" unique_id=321204309]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40465164, -1.9282303, 0)
@@ -2600,7 +2602,7 @@ shape = SubResource("CylinderShape3D_fodyg")
 transform = Transform3D(0, 0.25424916, -1.1113582e-08, 1.1113584e-08, -1.1113583e-08, -0.25424916, -0.25424916, 0, -1.1113584e-08, 0.055957794, -0.008520126, 0)
 mesh = SubResource("PlaneMesh_8s5l4")
 
-[node name="Interactable3D" type="Area3D" parent="Mementos/FollysTree/Engraving" unique_id=1060887963]
+[node name="MementoEngraving" type="Area3D" parent="Mementos/FollysTree/Engraving" unique_id=1060887963]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035560608, 0.0026187897, 0)
 collision_layer = 2
 script = ExtResource("32_m4q0v")
@@ -2610,7 +2612,7 @@ event_name = "memento_engraving"
 dialogue = ExtResource("45_f20d5")
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mementos/FollysTree/Engraving/Interactable3D" unique_id=900438722]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mementos/FollysTree/Engraving/MementoEngraving" unique_id=900438722]
 shape = SubResource("BoxShape3D_3jhd4")
 
 [node name="Signs" type="Node3D" parent="." unique_id=1703578108]

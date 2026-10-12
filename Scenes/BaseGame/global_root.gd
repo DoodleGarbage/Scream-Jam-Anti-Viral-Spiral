@@ -14,7 +14,8 @@ func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("Interactables"):
 		if node.switch_scenes:
 			node.switch_scene.connect(switch_scene)
-	active_scene.character = character
+	if active_scene is Scene:
+		active_scene.character = character
 	active_scene.loaded("")
 
 var next_scene : PackedScene
@@ -41,6 +42,7 @@ func switch_scene(scene:String) -> void:
 		"3d_game", "town": scene_folder = "Town/"
 		"tunnels": scene_folder = "Tunnels/"
 		"hermits_house": scene_folder = "HermitsHouse/"
+		"childhood_home": scene_folder = "ChildhoodHome/"
 	var exists = ResourceLoader.exists("res://Scenes/" + scene_folder + scene + ".tscn")
 	if not exists:
 		push_error("Tried to load non-existent scene: ", scene)
@@ -62,7 +64,8 @@ func switch_scene(scene:String) -> void:
 func _execute_scene_switch(loaded_scene:Node) -> void:
 	#print("Character position post scene load: ", character.position)
 	active_scene = loaded_scene
-	loaded_scene.character = character
+	if loaded_scene is Scene:
+		loaded_scene.character = character
 	loaded_scene.ready.connect(loaded_scene.loaded.bind(current_scene))
 	#loaded_scene.ready.connect(re_enable_character)
 	add_child(loaded_scene)

@@ -1,5 +1,8 @@
 extends Node3D
 
+@export var closed_exit_door : Node3D
+@export var exit_door : Node3D
+@export var exit_interact : Interactable3D
 @export var audio_player : AudioPlayer3D
 ## The number of generator pieces that need to be collected
 @export var needed_pieces : int = 2
@@ -15,12 +18,17 @@ func _on_generator_interact_triggered() -> void:
 	Audio.stop("broken_generator")
 	Audio.stop("tunneling_through", true, 15.0)
 	if Status.collected_pieces.size() >= needed_pieces:
+		closed_exit_door.hide()
+		exit_door.show()
+		exit_interact.monitorable = true
 		$GeneratorInteract.collects_generator_pieces = false
 		$GeneratorInteract.desc = "It's running."
 		await get_tree().create_timer(1.5).timeout
 		Audio.play("power_on", audio_player)
 		Audio.play("tunneling_through", null, true, 2.0)
 		for light in get_tree().get_nodes_in_group("TunnelLight"):
+			Status.base_flicker_chance = 0.05
+			Status.flicker_chance_increase = 0.0
 			light.visible = true
 			light.flicker_chance = 0.05
 		return
@@ -39,14 +47,4 @@ func _on_generator_interact_triggered() -> void:
 	## This stacks with the above timer
 	await get_tree().create_timer(3.0).timeout
 	for light in get_tree().get_nodes_in_group("TunnelLight"):
-		light.flicker_chance = 0.3
-
-
-func part_collected() -> void:
-	for light in get_tree().get_nodes_in_group("TunnelLight"):
-		light.visible = false
-		light.flicker_chance = 0.95
-	await get_tree().create_timer(2.0).timeout
-	for light in get_tree().get_nodes_in_group("TunnelLight"):
-		light.flicker_chance = 0.3
-	return
+		light.flicker_chance = Status.base_flicker_chance + Status.flicker_chance_increase*(Status.collected_pieces.size()+Status.held_pieces.size())

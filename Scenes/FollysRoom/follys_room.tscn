@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://bl0sdvxdbdw3t" path="res://Assets/Textures/MiscImages/papernotes.jpg" id="22_1oxiw"]
 [ext_resource type="Resource" uid="uid://cios6aui2q2fv" path="res://Assets/Dialogue/letter.dialogue" id="22_n8lqq"]
 [ext_resource type="Resource" uid="uid://b5vmeyf4f2sl8" path="res://Assets/Dialogue/mirror.dialogue" id="31_rxs4m"]
+[ext_resource type="PackedScene" uid="uid://bvmmhr7uqnuy5" path="res://Scenes/HermitsHouse/broken_window.tscn" id="35_ce2pt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ldkbt"]
 sky_top_color = Color(0.0006620584, 0.06663098, 0.009669079, 1)
@@ -42,12 +43,12 @@ ground_bottom_color = Color(0.2673534, 0.19747639, 0.020669319, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_energy_multiplier = 0.5
 
-[sub_resource type="Sky" id="Sky_1oxiw"]
+[sub_resource type="Sky" id="Sky_g7bun"]
 sky_material = SubResource("ProceduralSkyMaterial_ldkbt")
 
 [sub_resource type="Environment" id="Environment_ycyxk"]
 background_mode = 2
-sky = SubResource("Sky_1oxiw")
+sky = SubResource("Sky_g7bun")
 glow_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.02
@@ -185,6 +186,9 @@ size = Vector3(0.212, 2.003, 1)
 material = SubResource("StandardMaterial3D_i1av2")
 size = Vector2(13, 13)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_2d2xd"]
+size = Vector3(0.3022461, 1.430603, 1.1411133)
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ycyxk"]
 emission_shape = 6
 emission_ring_axis = Vector3(0, 1, 0)
@@ -222,16 +226,25 @@ size = Vector3(0.336, 3.679, 16.375)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qktnr"]
 size = Vector3(4.082, 2.903, 0.126)
 
-[node name="FollysRoom" type="Node3D" unique_id=1720987390 node_paths=PackedStringArray("blackout_screen", "wakeup_notice", "alarm_player", "loading_point", "wakeup_point")]
+[node name="FollysRoom" type="Node3D" unique_id=1720987390 node_paths=PackedStringArray("childhood_door", "broken_window", "replaced_window", "break_the_cycle", "front_door", "blackout_screen", "wakeup_notice", "alarm_player", "loading_point", "wakeup_point", "childhood_point")]
 script = ExtResource("1_65x00")
+childhood_door = NodePath("ChildhoodSpawn")
+broken_window = NodePath("Windows/BrokenWindow")
+replaced_window = NodePath("Windows/Window6")
+break_the_cycle = NodePath("Windows/BrokenWindow/BreakTheCycle")
+front_door = NodePath("door/FrontDoor")
 blackout_screen = NodePath("Wakeup/Control/ColorRect")
 wakeup_notice = NodePath("Wakeup/Control/WakeupNotice")
-alarm_player = NodePath("Furniture/nightstand/alarmclock/AudioPlayer3D")
+alarm_player = NodePath("Furniture/nightstand/alarmclock/Alarm")
 loading_point = NodePath("SpawnPoint")
 wakeup_point = NodePath("WakeUp")
+childhood_point = NodePath("ChildhoodSpawn")
 
 [node name="SpawnPoint" type="Node3D" parent="." unique_id=339465379]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013667345, -0.011318803, 4.61813)
+
+[node name="ChildhoodSpawn" type="Node3D" parent="." unique_id=1531849831]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.493877, 0.10269791, -1.2225778)
 
 [node name="WakeUp" type="Node3D" parent="." unique_id=146988728]
 transform = Transform3D(0.9990485, -0.029636815, 0.03200484, 0, 0.73372984, 0.6794413, -0.043619398, -0.6787947, 0.73303145, 2.5060053, 0.66252375, -4.340947)
@@ -285,7 +298,7 @@ mesh = SubResource("PlaneMesh_vgai8")
 [node name="alarmclock" parent="Furniture/nightstand" unique_id=2052252357 instance=ExtResource("14_uo427")]
 transform = Transform3D(-0.25270945, 0, 0.117254935, 0, 0.27858716, 0, -0.117254935, 0, -0.25270945, -0.22593723, 0.54238564, 0.15009466)
 
-[node name="AudioPlayer3D" type="AudioStreamPlayer3D" parent="Furniture/nightstand/alarmclock" unique_id=1912560360]
+[node name="Alarm" type="AudioStreamPlayer3D" parent="Furniture/nightstand/alarmclock" unique_id=1912560360]
 script = ExtResource("15_qktnr")
 metadata/_custom_type_script = "uid://coji4uh3esqdw"
 
@@ -323,6 +336,7 @@ collision_layer = 2
 script = ExtResource("19_65x00")
 desc = "Get Dressed"
 audio_player = NodePath("../AudioPlayer3D")
+hide_desc_when_restricted = true
 is_routine = true
 routine_task = "dress"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
@@ -348,6 +362,7 @@ collision_layer = 2
 monitoring = false
 script = ExtResource("19_65x00")
 desc = "Go to Sleep"
+hide_desc_when_restricted = true
 enabled_restrictions = 1
 switch_scenes = true
 target_scene = "follys_room"
@@ -421,6 +436,7 @@ collision_layer = 2
 script = ExtResource("19_65x00")
 desc = "Get Food"
 audio_player = NodePath("../AudioPlayer3D")
+hide_desc_when_restricted = true
 is_routine = true
 routine_task = "food"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
@@ -466,6 +482,7 @@ collision_layer = 2
 script = ExtResource("19_65x00")
 desc = "Wash Up"
 audio_player = NodePath("../AudioPlayer3D")
+hide_desc_when_restricted = true
 is_routine = true
 routine_task = "washup"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
@@ -508,17 +525,18 @@ shape = SubResource("BoxShape3D_i1av2")
 [node name="door" parent="." unique_id=1638713158 instance=ExtResource("2_fyksx")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.037, 1.13, 6.304)
 
-[node name="Interactable3D" type="Area3D" parent="door" unique_id=1392243277 groups=["Interactables"]]
+[node name="FrontDoor" type="Area3D" parent="door" unique_id=1392243277 groups=["Interactables"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.027409017)
 collision_layer = 2
 script = ExtResource("19_65x00")
 desc = "Leave for Work"
+hide_desc_when_restricted = true
 required_complete_tasks = 3
 switch_scenes = true
 target_scene = "3d_game"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="door/Interactable3D" unique_id=336675402]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/FrontDoor" unique_id=336675402]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.112351894, 0)
 shape = SubResource("BoxShape3D_65x00")
 
@@ -547,19 +565,38 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.51
 [node name="Window6" parent="Windows" unique_id=1018459650 instance=ExtResource("3_qprmn")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.7201188, 1.4474554, -6.290623)
 
+[node name="BrokenWindow" parent="Windows" unique_id=2144234887 instance=ExtResource("35_ce2pt")]
+transform = Transform3D(7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, 1.7201188, 1.4474554, -6.2730045)
+visible = false
+
+[node name="BreakTheCycle" type="Area3D" parent="Windows/BrokenWindow" unique_id=2058852169 groups=["Interactables"]]
+collision_layer = 2
+monitorable = false
+script = ExtResource("19_65x00")
+desc = "Break the Cycle (this is going to hurt)"
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Windows/BrokenWindow/BreakTheCycle" unique_id=1130292105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.056396484, -0.006439209, -0.008056641)
+shape = SubResource("BoxShape3D_2d2xd")
+
 [node name="Lights" type="Node3D" parent="." unique_id=1838718605]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=1041271221]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6136503, 2.8427296, -3.6448379)
+omni_attenuation = 2.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights" unique_id=1846880281]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.869482, 2.818723, 3.3392038)
+omni_attenuation = 2.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lights" unique_id=417466390]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.703568, 2.4327433, -3.0651326)
+omni_attenuation = 2.0
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lights" unique_id=1097238626]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9237747, 2.4327433, 2.285995)
+omni_attenuation = 2.0
 
 [node name="Particles" type="Node3D" parent="." unique_id=1886290759]
 
@@ -698,5 +735,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 28
 text = "Press 'E' to wake up."
+
+[node name="childhood_door" parent="." unique_id=851363931 instance=ExtResource("2_fyksx")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.387787, 1.0851191, -1.246115)
 
 [connection signal="triggered" from="Furniture/bathroomsink/WashUp" to="Furniture/bathroomsink/WashUp" method="queue_free"]

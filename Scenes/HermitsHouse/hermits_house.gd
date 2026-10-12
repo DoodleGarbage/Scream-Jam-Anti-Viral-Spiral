@@ -1,7 +1,7 @@
-extends Node3D
+extends Scene
 
 @export var folly_spawn : Node3D
-var character : Node3D
+#var character : Node3D
 
 func loaded(_last_scene:String) -> void:
 	Audio.play("tunneling_through", null, true, 7.5)

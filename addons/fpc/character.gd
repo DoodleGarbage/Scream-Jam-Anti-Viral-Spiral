@@ -358,11 +358,13 @@ func update_interaction_display() -> void:
 		return
 	var collider = get_interactor()
 	if collider is Interactable3D and collider.monitorable:
+		#print("i saw interactor ", collider.name)
 		#if collider.collects_book and (Status.holding_book == false or Status.held_book_index != collider.book_index):
 			#return
 		#if collider.is_routine and Status.completed_tasks != int(collider.routine_task)-1:
 			#return
-		if collider.get_restrictions():
+		#print("restriction ", collider.get_restrictions())
+		if collider.get_restrictions() and collider.hide_desc_when_restricted:
 			return
 		var txt = collider.desc
 		if Status.holding_rock and not collider.is_rock:
@@ -525,7 +527,7 @@ func _input(event : InputEvent):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		mouseInput = event.relative
 	# Toggle debug menu
-	if Input.is_action_just_pressed("debug_menu"):
+	if event.is_action_pressed("debug_menu"):
 		$CL/UserInterface/DebugPanel.visible = !$CL/UserInterface/DebugPanel.visible
 	if Input.is_action_just_pressed(controls["INTERACT"]):
 		handle_interaction()

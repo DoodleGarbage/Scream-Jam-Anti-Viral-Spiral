@@ -12,6 +12,7 @@ class_name Interactable3D
 @export var audio_track : String = ""
 @export var stopped_audio_tracks : Array[String] = []
 @export_group("Restrictions")
+@export var hide_desc_when_restricted : bool = false
 @export var invert_restrictions : bool = false
 @export_flags("Require Work Completed") var enabled_restrictions : int = 0b0
 @export var require_day : Array[String] = []

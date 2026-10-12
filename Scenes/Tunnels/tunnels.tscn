@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bivce7ch4us4i" path="res://Scenes/Tunnels/TunnelPieces/tunnel_4way.tscn" id="2_wu8v7"]
 [ext_resource type="PackedScene" uid="uid://bh1mx8k3yra4s" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_alternate.tscn" id="3_avyhr"]
 [ext_resource type="Material" uid="uid://buslmp025nuqh" path="res://Assets/Textures/Materials/generator_piece_1.tres" id="4_03w7q"]
+[ext_resource type="Script" uid="uid://bupxc51k35xvi" path="res://Scenes/Tunnels/generator_piece.gd" id="4_4ic01"]
 [ext_resource type="PackedScene" uid="uid://caynn82a6ydqv" path="res://Assets/Models/Tunnels/GeneratorPart1.blend" id="4_a1r6t"]
 [ext_resource type="PackedScene" uid="uid://cxsdeawm8bsfx" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3way.tscn" id="4_mw333"]
 [ext_resource type="Material" uid="uid://b5i2y0flkc2xs" path="res://Assets/Textures/Materials/generator_piece_2.tres" id="6_3kmcx"]
@@ -14,8 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://x4l7ikhej127" path="res://Scenes/Tunnels/TunnelPieces/tunnel_room_1.tscn" id="10_6vrye"]
 [ext_resource type="PackedScene" uid="uid://bvwtn5mxfpl3j" path="res://Scenes/Tunnels/TunnelPieces/tunnel_end_nopipes.tscn" id="10_8k7il"]
 [ext_resource type="PackedScene" uid="uid://blbuovbjs4w10" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3way_inverted.tscn" id="11_34i02"]
+[ext_resource type="PackedScene" uid="uid://bkogvqh1jfhiv" path="res://Assets/Models/Town/door.blend" id="12_0qju2"]
 [ext_resource type="PackedScene" uid="uid://cojyw0pvmmggy" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_alt_left_nopipes.tscn" id="12_cg66g"]
 [ext_resource type="PackedScene" uid="uid://c4venk7bqvwyr" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_nopipes.tscn" id="13_cg66g"]
+[ext_resource type="PackedScene" uid="uid://c7du3m2f3iokn" path="res://Assets/Models/Town/door_open.blend" id="13_xwhsk"]
 [ext_resource type="PackedScene" uid="uid://rgqe5jb37umy" path="res://Scenes/Tunnels/TunnelPieces/tunnel_end_flat_nopipes.tscn" id="15_4d4vy"]
 [ext_resource type="PackedScene" uid="uid://u8twu4v7ch84" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_1m_flat_nopipe.tscn" id="16_5ovyp"]
 [ext_resource type="PackedScene" uid="uid://gdq4jhskg8i0" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_1m.tscn" id="17_1kfi2"]
@@ -64,8 +67,15 @@ material = ExtResource("6_3kmcx")
 [sub_resource type="SphereShape3D" id="SphereShape3D_8s5l4"]
 radius = 0.608
 
-[node name="Tunnels" type="Node3D" unique_id=1426143558 node_paths=PackedStringArray("spawnpoint")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_c4qn5"]
+size = Vector3(0.5963135, 4, 2.1270752)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fodyg"]
+size = Vector3(0.61035156, 2.2520752, 1.1226807)
+
+[node name="Tunnels" type="Node3D" unique_id=1426143558 node_paths=PackedStringArray("flourescent_buzzer", "spawnpoint")]
 script = ExtResource("1_5cff0")
+flourescent_buzzer = NodePath("FlourescentBuzzer")
 spawnpoint = NodePath("SpawnTunnel/Spawnpoint")
 
 [node name="SpawnTunnel" parent="." unique_id=1907625595 instance=ExtResource("3_avyhr")]
@@ -92,8 +102,10 @@ shape = SubResource("WorldBoundaryShape3D_c4qn5")
 [node name="ItemRoom1" parent="Rooms" unique_id=1175114171 instance=ExtResource("10_6vrye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -19)
 
-[node name="Item1" type="Node3D" parent="Rooms/ItemRoom1" unique_id=818809495]
+[node name="Item1" type="Node3D" parent="Rooms/ItemRoom1" unique_id=818809495 node_paths=PackedStringArray("audio_player")]
 transform = Transform3D(0.27168953, -0.02567268, 0.24538687, 0.15650529, 0.30010703, -0.1418833, -0.19073513, 0.20967998, 0.23311676, 0, 1.224796, 1)
+script = ExtResource("4_4ic01")
+audio_player = NodePath("Item1AudioPlayer3D")
 
 [node name="GeneratorPart1" parent="Rooms/ItemRoom1/Item1" unique_id=503282253 instance=ExtResource("4_a1r6t")]
 
@@ -113,11 +125,18 @@ metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 transform = Transform3D(1.0000001, 2.9802322e-08, -8.34465e-07, 2.9802322e-08, 1, -8.940697e-08, 0, -2.9802322e-08, 1.000001, -0.18725777, 0.111091614, -0.09447479)
 shape = SubResource("BoxShape3D_8s5l4")
 
+[node name="Item1AudioPlayer3D" type="AudioStreamPlayer3D" parent="Rooms/ItemRoom1/Item1" unique_id=699350653]
+max_db = 6.0
+script = ExtResource("30_o5c2d")
+metadata/_custom_type_script = "uid://coji4uh3esqdw"
+
 [node name="ItemRoom2" parent="Rooms" unique_id=14649706 instance=ExtResource("10_6vrye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -20)
 
-[node name="Item2" type="Node3D" parent="Rooms/ItemRoom2" unique_id=775158530]
+[node name="Item2" type="Node3D" parent="Rooms/ItemRoom2" unique_id=775158530 node_paths=PackedStringArray("audio_player")]
 transform = Transform3D(0.74029845, -0.069952756, 0.66862905, 0.4264449, 0.8177303, -0.38660306, -0.51971424, 0.5713351, 0.63519543, 0, 1.224796, 1)
+script = ExtResource("4_4ic01")
+audio_player = NodePath("Item2AudioPlayer3D")
 
 [node name="ItemModel" type="MeshInstance3D" parent="Rooms/ItemRoom2/Item2" unique_id=2011227719]
 mesh = SubResource("BoxMesh_a1r6t")
@@ -133,12 +152,20 @@ metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/ItemRoom2/Item2/Item2Collector" unique_id=917868320]
 shape = SubResource("BoxShape3D_r5lkv")
 
+[node name="Item2AudioPlayer3D" type="AudioStreamPlayer3D" parent="Rooms/ItemRoom2/Item2" unique_id=1323584858]
+max_db = 6.0
+script = ExtResource("30_o5c2d")
+metadata/_custom_type_script = "uid://coji4uh3esqdw"
+
 [node name="GeneratorRoom" parent="Rooms" unique_id=561966396 instance=ExtResource("10_6vrye")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30, 0, 47)
 
-[node name="Generator" type="Node3D" parent="Rooms/GeneratorRoom" unique_id=476859693 node_paths=PackedStringArray("audio_player")]
+[node name="Generator" type="Node3D" parent="Rooms/GeneratorRoom" unique_id=476859693 node_paths=PackedStringArray("closed_exit_door", "exit_door", "exit_interact", "audio_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.792788, 1)
 script = ExtResource("27_peo30")
+closed_exit_door = NodePath("../door")
+exit_door = NodePath("door_open")
+exit_interact = NodePath("../door/LeaveTunnels")
 audio_player = NodePath("genny_noises")
 
 [node name="generator" parent="Rooms/GeneratorRoom/Generator" unique_id=774565413 instance=ExtResource("27_o5c2d")]
@@ -162,8 +189,42 @@ shape = SubResource("SphereShape3D_8s5l4")
 
 [node name="genny_noises" type="AudioStreamPlayer3D" parent="Rooms/GeneratorRoom/Generator" unique_id=420684975]
 max_db = 5.001
+max_distance = 80.0
 script = ExtResource("30_o5c2d")
 metadata/_custom_type_script = "uid://coji4uh3esqdw"
+
+[node name="door_open" parent="Rooms/GeneratorRoom/Generator" unique_id=1553554065 instance=ExtResource("13_xwhsk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9597015, -0.66913426, 0.02850914)
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Rooms/GeneratorRoom/Generator/door_open" unique_id=775902194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4989891, 0, 0)
+light_energy = 0.244
+light_indirect_energy = 0.0
+omni_range = 1.659
+omni_attenuation = 3.533
+
+[node name="door" parent="Rooms/GeneratorRoom" unique_id=851363931 instance=ExtResource("12_0qju2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9597015, 1.1236538, 1.0285091)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rooms/GeneratorRoom/door" unique_id=186365401]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/GeneratorRoom/door/StaticBody3D" unique_id=1199748809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20184326, -0.45410156, -0.018493652)
+shape = SubResource("BoxShape3D_c4qn5")
+
+[node name="LeaveTunnels" type="Area3D" parent="Rooms/GeneratorRoom/door" unique_id=1453983235 groups=["Interactables"]]
+collision_layer = 2
+monitorable = false
+script = ExtResource("28_03w7q")
+desc = "Exit the Tunnels"
+switch_scenes = true
+target_scene = "childhood_home"
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/GeneratorRoom/door/LeaveTunnels" unique_id=1998309931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19482422, -0.22918701, 0.024719238)
+shape = SubResource("BoxShape3D_fodyg")
 
 [node name="Item1Section" type="Node3D" parent="." unique_id=1271169833]
 
@@ -747,8 +808,13 @@ transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 15, 
 [node name="TunnelStraight1mFlatNopipe7" parent="GeneratorSection" unique_id=320606859 instance=ExtResource("16_5ovyp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 11)
 
+[node name="FlourescentBuzzer" type="AudioStreamPlayer3D" parent="." unique_id=1856810205]
+max_db = -0.025
+script = ExtResource("30_o5c2d")
+metadata/_custom_type_script = "uid://coji4uh3esqdw"
+
 [connection signal="triggered" from="Rooms/ItemRoom1/Item1/Item1Collector" to="Rooms/ItemRoom1/Item1" method="queue_free"]
-[connection signal="triggered" from="Rooms/ItemRoom1/Item1/Item1Collector" to="Rooms/GeneratorRoom/Generator" method="part_collected"]
+[connection signal="triggered" from="Rooms/ItemRoom1/Item1/Item1Collector" to="Rooms/ItemRoom1/Item1" method="part_collected"]
 [connection signal="triggered" from="Rooms/ItemRoom2/Item2/Item2Collector" to="Rooms/ItemRoom2/Item2" method="queue_free"]
-[connection signal="triggered" from="Rooms/ItemRoom2/Item2/Item2Collector" to="Rooms/GeneratorRoom/Generator" method="part_collected"]
+[connection signal="triggered" from="Rooms/ItemRoom2/Item2/Item2Collector" to="Rooms/ItemRoom2/Item2" method="part_collected"]
 [connection signal="triggered" from="Rooms/GeneratorRoom/Generator/GeneratorInteract" to="Rooms/GeneratorRoom/Generator" method="_on_generator_interact_triggered"]

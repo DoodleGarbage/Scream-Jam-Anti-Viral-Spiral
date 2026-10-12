@@ -230,16 +230,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7537704, 0.3652873, -6.4807
 [node name="door" parent="." unique_id=1638713158 instance=ExtResource("2_5k371")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.759451, 1.1754718, 0)
 
-[node name="Interactable3D" type="Area3D" parent="door" unique_id=817297186 groups=["Interactables"]]
+[node name="GoHome" type="Area3D" parent="door" unique_id=817297186 groups=["Interactables"]]
 collision_layer = 2
 script = ExtResource("7_7w7pe")
 desc = "Head Home"
+hide_desc_when_restricted = true
 enabled_restrictions = 1
 switch_scenes = true
 target_scene = "3d_game"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="door/Interactable3D" unique_id=1186390034]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/GoHome" unique_id=1186390034]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.112351894, 0)
 shape = SubResource("BoxShape3D_sixqc")
 

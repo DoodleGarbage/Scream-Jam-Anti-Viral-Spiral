@@ -254,17 +254,21 @@ shape = SubResource("BoxShape3D_ue6wd")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="lower/Lights" unique_id=884492090]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050802052, 6.6404657, 2.874916)
+omni_attenuation = 2.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="lower/Lights" unique_id=1823862887]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050802052, 6.6404657, -4.5300207)
+omni_attenuation = 2.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="lower/Lights" unique_id=1118566208]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050802052, 2.9516594, -0.5656568)
 omni_range = 5.19
+omni_attenuation = 2.0
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="lower/Lights" unique_id=130520077]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58653045, 2.9516594, -5.407906)
 omni_range = 5.19
+omni_attenuation = 2.0
 
 [node name="Windows" type="Node3D" parent="lower" unique_id=1429890898]
 

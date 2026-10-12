@@ -9,7 +9,7 @@ var fade_in_tracks : Array = []
 var fade_out_tracks : Array = []
 var loaded_players : Array = []
 
-var themes : Array[String] = ["prudent_folly", "library", "main_menu", "first_day", "being_followed", "someplace_calm", "hell", "tunneling_through", "second_day"]
+var themes : Array[String] = ["prudent_folly", "library", "main_menu", "first_day", "being_followed", "someplace_calm", "hell", "tunneling_through", "second_day", "flourescent_buzz"]
 
 func _process(delta: float) -> void:
 	var indices : Array[int] = []
@@ -70,6 +70,7 @@ func _get_stream(audio:String) -> AudioStream:
 		"power_down": return preload("res://Assets/Audio/tunnel_power_down.mp3")
 		"gear_clunk": return preload("res://Assets/Audio/gear_clunk.mp3")
 		"power_on": return preload("res://Assets/Audio/generator_power_on.mp3")
+		"flourescent_buzz": return preload("res://Assets/Audio/flourescentlampbuzz.mp3")
 	return null
 
 func _get_volume(audio:String) -> float:
@@ -83,10 +84,11 @@ func _get_volume(audio:String) -> float:
 		"bridge_collapse": mod = 20
 		"chase_trigger","chase_loop": mod = -11
 		"tunneling_through": mod = -13
+		"flourescent_buzz": mod = 2
 	return mod
 
 ## AudioStreamPlayers do not have a common inheritance class
-func play(audio: String, audio_player = null, fade_in:bool = false, fade_in_speed:float=default_fade_in_speed) -> void:
+func play(audio: String, audio_player = null, fade_in:bool = false, fade_in_speed:float=default_fade_in_speed) -> Node:
 	var stream = _get_stream(audio)
 	if stream == null:
 		push_warning("Tried to play non-existant audio track: ", audio)
@@ -94,11 +96,11 @@ func play(audio: String, audio_player = null, fade_in:bool = false, fade_in_spee
 	print("Playing track: ", audio)
 	var next_track : String = ""
 	match(audio):
-		"prudent_folly","alarm_sound","library","main_menu","first_day", "second_day","being_followed","someplace_calm","hell","tunneling_through","generator","broken_generator","chase_loop": next_track = audio
+		"prudent_folly","alarm_sound","library","main_menu","first_day", "second_day","being_followed","someplace_calm","hell","tunneling_through","generator","broken_generator","chase_loop", "flourescent_buzz": next_track = audio
 		"chase_trigger": next_track = "chase_loop"
 		"power_on": next_track = "generator"
 	var _volume : float = _get_volume(audio)
-	_play_audio(stream, audio, audio_player, _volume, next_track, fade_in, fade_in_speed)
+	return _play_audio(stream, audio, audio_player, _volume, next_track, fade_in, fade_in_speed)
 	
 
 
@@ -120,7 +122,7 @@ func stop_themes() -> void:
 	for track in themes:
 		stop(track, true)
 
-func _play_audio(audio : AudioStream, audio_name:String, forced_player=null, _volume:float=0.0, next_track:String="", fade_in:bool=false, fade_in_speed:float=default_fade_in_speed) -> void:
+func _play_audio(audio : AudioStream, audio_name:String, forced_player=null, _volume:float=0.0, next_track:String="", fade_in:bool=false, fade_in_speed:float=default_fade_in_speed) -> Node:
 	var audio_player
 	if forced_player != null:
 		audio_player = forced_player
@@ -148,6 +150,7 @@ func _play_audio(audio : AudioStream, audio_name:String, forced_player=null, _vo
 	if loaded_players.has(audio_player):
 		return
 	loaded_players.append(audio_player)
+	return audio_player ## Returns a reference to the node so it can be used by anything that needs it, i.e., playing additional effects on the 'finished' signal
 
 func _loop_audio(source, audio : String, forced_player=null) -> void:
 	# insert 'if' conditionals to check if playing the track is appropriate ~ i.e. change to a new track for certain theme loops

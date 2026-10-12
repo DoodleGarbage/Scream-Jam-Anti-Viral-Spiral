@@ -1,11 +1,11 @@
-extends Node3D
+extends Scene
 
 
 @export var library_exit : Node3D
 @export var folly_exit : Node3D
 @export var hermit_exit : Node3D
 
-@export var character : Node3D
+#@export var character : Node3D
 @export var SkyCycle : Node3D
 
 #func activate_scene() -> void:

@@ -1,9 +1,9 @@
-extends Node3D
+extends Scene
 
 var total_books : int = 0
 
 
-@export var character : Node3D
+#@export var character : Node3D
 @export var loading_point : Node3D
 
 #@export var bookshelves : Array[Node3D] = []
