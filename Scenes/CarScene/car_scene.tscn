@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dkor6bvol7l52" path="res://Scenes/Town/Environments/cloudnoise.tres" id="12_vynxg"]
 [ext_resource type="PackedScene" uid="uid://dtc7q36iofnv7" path="res://Assets/Models/Town/van.blend" id="13_tq6eu"]
 [ext_resource type="Script" uid="uid://coji4uh3esqdw" path="res://Scenes/BaseGame/3d_audio_player.gd" id="14_vynxg"]
+[ext_resource type="PackedScene" uid="uid://dpil3r33glvff" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight.tscn" id="15_6tcxb"]
 
 [sub_resource type="Curve" id="Curve_bordy"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.137725, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.709949), 0.0, 0.0, 0, 0]
@@ -95,6 +96,11 @@ size = Vector3(6.827, 87.511, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c4qn5"]
 size = Vector3(11.244, 11.558, 14.229)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fodyg"]
+size = Vector3(25.376953, 25.341675, 95.69873)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8s5l4"]
 
 [node name="CarScene" type="Node3D" unique_id=576806799 node_paths=PackedStringArray("spawn_point", "car", "blackout", "car_horn_audio_player", "car_crash_audio_player")]
 script = ExtResource("1_kixl2")
@@ -197,6 +203,7 @@ metadata/_custom_type_script = "uid://coji4uh3esqdw"
 [node name="GroundDetector" type="Area3D" parent="." unique_id=724960290]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1343174, 0)
+visible = false
 collision_layer = 0
 collision_mask = 15
 monitorable = false
@@ -212,6 +219,37 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Walls" type="StaticBody3D" parent="." unique_id=1943760531]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls" unique_id=1893131773]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.060543, 12.170837, 12.602295)
+shape = SubResource("BoxShape3D_fodyg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Walls" unique_id=467693761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.720894, 12.170837, 55.602432)
+shape = SubResource("BoxShape3D_fodyg")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls" unique_id=1103022560]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.4149208, 12.170837, 57.09346)
+shape = SubResource("BoxShape3D_fodyg")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Walls" unique_id=1251815207]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.4149163, 12.170837, -45.382767)
+shape = SubResource("BoxShape3D_fodyg")
+
+[node name="Floor" type="CollisionShape3D" parent="Walls" unique_id=1807282079]
+shape = SubResource("WorldBoundaryShape3D_8s5l4")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Walls" unique_id=1738300659]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.720894, 12.170837, -43.68493)
+shape = SubResource("BoxShape3D_fodyg")
+
+[node name="TunnelStraight" parent="." unique_id=14649706 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15, 0, 6)
+
+[node name="TunnelStraight2" parent="." unique_id=1532611440 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18, 0, 6)
 
 [connection signal="body_entered" from="Fall/FallDetector" to="." method="_on_player_fall" unbinds=1]
 [connection signal="body_entered" from="Fall/FallDetector" to="Fall" method="hide" unbinds=1]

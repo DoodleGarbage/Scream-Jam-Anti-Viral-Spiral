@@ -39,10 +39,12 @@ func _process(_delta: float) -> void:
 			Audio.stop("car_horn", true, 1.0)
 			Audio.play("car_crash", car_crash_audio_player)
 			await get_tree().create_timer(0.8).timeout
-			blackout.show()
+			## WARNING: REMEMBER TO ENABLE THIS
+			#blackout.show()
 			character.in_air_momentum = false
 			character.base_speed = Status.character_base_speed
 			character.sprint_speed = Status.character_sprint_speed
+			character.jumping_enabled = true
 		car.position.z -= car_speed * _delta
 
 
