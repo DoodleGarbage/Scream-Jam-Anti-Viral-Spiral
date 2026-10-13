@@ -44,6 +44,7 @@ func switch_scene(scene:String) -> void:
 		"hermits_house": scene_folder = "HermitsHouse/"
 		"childhood_home": scene_folder = "ChildhoodHome/"
 		"car_scene": scene_folder = "CarScene/"
+		"dorm": scene_folder = "Dorm/"
 	var exists = ResourceLoader.exists("res://Scenes/" + scene_folder + scene + ".tscn")
 	if not exists:
 		push_error("Tried to load non-existent scene: ", scene)

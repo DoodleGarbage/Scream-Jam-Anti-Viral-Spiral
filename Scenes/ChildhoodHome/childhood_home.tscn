@@ -303,6 +303,9 @@ shadow_enabled = true
 omni_range = 3.95
 omni_attenuation = 2.0
 
+[node name="door2" parent="LowerFloor" unique_id=1220252390 instance=ExtResource("1_niwqj")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 1.1, -8.788488)
+
 [node name="UpperFloor" type="Node3D" parent="." unique_id=1880875507]
 
 [node name="Flooring" type="MeshInstance3D" parent="UpperFloor" unique_id=2034103305]
