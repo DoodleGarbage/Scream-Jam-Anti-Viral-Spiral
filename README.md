@@ -1,4 +1,6 @@
-# Scream-Jam-Anti-Viral-Spiral
-Psychological Horror in 3, 2, 1D
+# Another Day
+Genre: Psychological Horror - Explore the depths of the mind as you slowly spiral out of control.
 
-Made in Godot (Engine ver. 4.8 dev 7)
+This is team Anti Viral Spiral's submission to the ACM-W/WSU Game Dev Scream Jam competition.
+
+Made in Godot Engine (ver. 4.7 stable)
