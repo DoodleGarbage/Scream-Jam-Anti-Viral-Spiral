@@ -159,7 +159,7 @@ debug_menu={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Assets/Dialogue/letter.dialogue", "res://Assets/Dialogue/mirror.dialogue", "res://Assets/Dialogue/note.dialogue", "res://Assets/Dialogue/raincoat.dialogue", "res://Assets/Dialogue/brawny.dialogue", "res://Assets/Dialogue/hermit.dialogue", "res://Assets/Dialogue/memento_engraving.dialogue", "res://Assets/Dialogue/brawny_knock.dialogue", "res://Assets/Dialogue/raincoat_knock.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Assets/Dialogue/letter.dialogue", "res://Assets/Dialogue/mirror.dialogue", "res://Assets/Dialogue/note.dialogue", "res://Assets/Dialogue/raincoat.dialogue", "res://Assets/Dialogue/brawny.dialogue", "res://Assets/Dialogue/hermit.dialogue", "res://Assets/Dialogue/memento_engraving.dialogue", "res://Assets/Dialogue/brawny_knock.dialogue", "res://Assets/Dialogue/raincoat_knock.dialogue", "res://Assets/Dialogue/mercury_crash.dialogue")
 
 [physics]
 

@@ -15,6 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://dtc7q36iofnv7" path="res://Assets/Models/Town/van.blend" id="13_tq6eu"]
 [ext_resource type="Script" uid="uid://coji4uh3esqdw" path="res://Scenes/BaseGame/3d_audio_player.gd" id="14_vynxg"]
 [ext_resource type="PackedScene" uid="uid://dpil3r33glvff" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight.tscn" id="15_6tcxb"]
+[ext_resource type="PackedScene" uid="uid://chnq7t4lwp8ox" path="res://Assets/Models/CarScene/mercury_car.blend" id="16_7u7xk"]
+[ext_resource type="PackedScene" uid="uid://ir67f35r3ve" path="res://Scenes/CarScene/tunnel_entrance.tscn" id="17_sobs7"]
+[ext_resource type="PackedScene" uid="uid://dvq4nbyckc1vw" path="res://Scenes/CarScene/car_crash.tscn" id="18_85213"]
+[ext_resource type="PackedScene" uid="uid://dksx5uvb12k8l" path="res://Scenes/CarScene/eyes_particle.tscn" id="19_rb1nm"]
 
 [sub_resource type="Curve" id="Curve_bordy"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.137725, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.709949), 0.0, 0.0, 0, 0]
@@ -48,7 +52,7 @@ shader_parameter/clouds_density = 0.40000000596048
 shader_parameter/clouds_scale = 0.80000000447036
 shader_parameter/clouds_smoothness = 0.0999999977648
 shader_parameter/clouds_light_color = Color(1, 1, 1, 1)
-shader_parameter/clouds_shadow_intensity = 1.8000000268221599
+shader_parameter/clouds_shadow_intensity = 1.80000002682216
 shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_odwe7")
 shader_parameter/high_clouds_density = 0.0
 shader_parameter/top_color = Color(0.18851168, 0.10069999, 0.19, 1)
@@ -57,7 +61,7 @@ shader_parameter/sun_scatter = Color(0.37668255, 0.11325698, 0.00780534, 1)
 shader_parameter/astro_tint = Color(1, 0.7678007, 0.67437327, 1)
 shader_parameter/astro_sampler = ExtResource("11_tq6eu")
 shader_parameter/astro_scale = 0.70000001043084
-shader_parameter/astro_intensity = 1.8000000268221599
+shader_parameter/astro_intensity = 1.80000002682216
 shader_parameter/stars_intensity = 1.30000001937156
 shader_parameter/shooting_stars_intensity = 0.0
 shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
@@ -69,6 +73,14 @@ sky_material = SubResource("ShaderMaterial_ww0ml")
 background_mode = 2
 background_energy_multiplier = 1.31
 sky = SubResource("Sky_c4qn5")
+fog_mode = 1
+fog_light_color = Color(0.23245564, 0.2555621, 0.29151502, 1)
+fog_light_energy = 0.37
+fog_density = 0.0
+fog_height = 1.0
+fog_depth_curve = 1.5288709
+fog_depth_begin = 0.0
+fog_depth_end = 12.0
 
 [sub_resource type="ZoneResource" id="ZoneResource_uf747"]
 heightMapImage = ExtResource("4_7bb6k")
@@ -102,21 +114,74 @@ size = Vector3(25.376953, 25.341675, 95.69873)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8s5l4"]
 
-[node name="CarScene" type="Node3D" unique_id=576806799 node_paths=PackedStringArray("spawn_point", "car", "blackout", "car_horn_audio_player", "car_crash_audio_player")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_4440r"]
+size = Vector3(0.7441406, 2.8756104, 3.795044)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2d2xd"]
+size = Vector3(1, 4.6244507, 3.2015991)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85213"]
+albedo_color = Color(0.83727103, 0.83727103, 0.837271, 1)
+metallic = 0.98
+roughness = 0.62
+
+[sub_resource type="BoxMesh" id="BoxMesh_4440r"]
+material = SubResource("StandardMaterial3D_85213")
+size = Vector3(0.3, 4.51, 2.374)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ww0ml"]
+size = Vector3(1, 3.4258423, 2.440918)
+
+[sub_resource type="Curve3D" id="Curve3D_85213"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 3.7949939, 4.4663544, 10.071548, 0, 0, 0, 0, 0, 0, 18.736387, 1.4795263, 5.1397104, 0, 0, 0, 0, 0, 0, 45.69652, 1.4766803, 4.8948393),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ue6wd"]
+size = Vector3(14.819672, 15.614948, 13.795845)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4qn5"]
+shading_mode = 0
+disable_fog = true
+albedo_color = Color(1, 0.050000012, 0.050000012, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_8s5l4"]
+material = SubResource("StandardMaterial3D_c4qn5")
+radius = 5.0
+height = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rb1nm"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_85213"]
+material = SubResource("StandardMaterial3D_rb1nm")
+radius = 3.5
+height = 7.0
+
+[node name="CarScene" type="Node3D" unique_id=576806799 node_paths=PackedStringArray("spawn_point", "post_crash_point", "car", "car_2", "car_crash", "tunnel_door", "chase_monster", "chase_path", "blackout", "car_horn_audio_player", "car_crash_audio_player")]
 script = ExtResource("1_kixl2")
 spawn_point = NodePath("SpawnPoint")
+post_crash_point = NodePath("PostCrash")
 car = NodePath("Car")
+car_2 = NodePath("MercurysCar")
+car_crash = NodePath("CarCrash")
+tunnel_door = NodePath("TunnelDoor")
+chase_monster = NodePath("ChasePath/ChaseMonster")
+chase_path = NodePath("ChasePath")
 blackout = NodePath("Blackout")
 car_horn_audio_player = NodePath("Car/CarHorn")
 car_crash_audio_player = NodePath("Car/CarCrash")
 car_speed = 15.0
-horn_time = 3.8
-crash_time = 1.4
+horn_time = 3.0
+crash_time = 1.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=190132687]
 environment = SubResource("Environment_8s5l4")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1653920395]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1653920395]
 transform = Transform3D(1, 0, 0, 0, 0.9833249, 0.18185781, 0, -0.18185781, 0.9833248, 0, 0, 0)
 light_color = Color(0.99999994, 0.6334104, 0.33396444, 1)
 light_energy = 0.475
@@ -129,6 +194,9 @@ objects = Array[ObjectResource]([ExtResource("3_s3wfv")])
 terrainZones = SubResource("ZonesResource_6ghm0")
 physics_interpolation_mode = 2
 metadata/_edit_lock_ = false
+
+[node name="PostCrash" type="Node3D" parent="." unique_id=909838017]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.7046447, 4.144864, 3.3633945)
 
 [node name="SpawnPoint" type="Node3D" parent="." unique_id=1928493938]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 122.69641, 0)
@@ -174,20 +242,38 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fall/FallDetector" unique_id=851435351]
 shape = SubResource("BoxShape3D_c4qn5")
 
+[node name="MercurysCar" type="Node3D" parent="." unique_id=1179965062]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.55442667, 4.9703946, -144.3849)
+
+[node name="mercury_car" parent="MercurysCar" unique_id=1873260014 instance=ExtResource("16_7u7xk")]
+transform = Transform3D(0.65106714, 0, 0, 0, 0.65106714, 0, 0, 0, 0.65106714, 0, -0.36964417, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MercurysCar" unique_id=1075795553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0768293, -0.16809464, -3.5062704)
+light_energy = 13.327
+shadow_enabled = true
+spot_range = 18.866
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="MercurysCar" unique_id=71323148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1583631, -0.16809464, -3.5470648)
+light_energy = 13.327
+shadow_enabled = true
+spot_range = 18.866
+
 [node name="Car" type="Node3D" parent="." unique_id=1706960613]
-transform = Transform3D(0.9998771, 0, -0.015677948, 0, 1, 0, 0.015677948, 0, 0.9998771, -3.6515517, 4.0170393, 174.78006)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48576355, 4.0170393, 145.00862)
 
 [node name="van" parent="Car" unique_id=364415967 instance=ExtResource("13_tq6eu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9334412, 0)
+transform = Transform3D(0.637, 0, 0, 0, 0.637, 0, 0, 0, 0.637, 0, 1.2229881, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Car" unique_id=1610370473]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2809498, 1.2077007, -5.61499)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.66210234, 0.8231635, -3.683731)
 light_energy = 13.327
 shadow_enabled = true
 spot_range = 18.866
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Car" unique_id=2039814139]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3208153, 1.2077007, -5.6557846)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6064992, 0.8113537, -3.659027)
 light_energy = 13.327
 shadow_enabled = true
 spot_range = 18.866
@@ -245,11 +331,117 @@ shape = SubResource("WorldBoundaryShape3D_8s5l4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.720894, 12.170837, -43.68493)
 shape = SubResource("BoxShape3D_fodyg")
 
-[node name="TunnelStraight" parent="." unique_id=14649706 instance=ExtResource("15_6tcxb")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 15, 0, 6)
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Walls" unique_id=1602021126]
+transform = Transform3D(0.89225096, -0.45153987, 0, 0.45153987, 0.89225096, 0, 0, 0, 1, 18.549809, 4.4071527, 5.553245)
+shape = SubResource("BoxShape3D_4440r")
 
-[node name="TunnelStraight2" parent="." unique_id=1532611440 instance=ExtResource("15_6tcxb")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18, 0, 6)
+[node name="Tunnels" type="Node3D" parent="." unique_id=1778652106]
+
+[node name="TunnelStraight" parent="Tunnels" unique_id=14649706 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23, 0, 5.0000005)
+
+[node name="TunnelStraight2" parent="Tunnels" unique_id=1532611440 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26, 0, 5.0000005)
+
+[node name="TunnelEntrance" parent="Tunnels" unique_id=1652145553 instance=ExtResource("17_sobs7")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20, 0, 5)
+
+[node name="TunnelStraight3" parent="Tunnels" unique_id=1201061508 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 29, 0, 5.000001)
+
+[node name="TunnelStraight4" parent="Tunnels" unique_id=804343410 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 32, 0, 5.000001)
+
+[node name="TunnelStraight5" parent="Tunnels" unique_id=1408185567 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 35, 0, 5.000001)
+
+[node name="TunnelStraight6" parent="Tunnels" unique_id=969342151 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 38, 0, 5.000001)
+
+[node name="TunnelStraight7" parent="Tunnels" unique_id=48108921 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 41, 0, 5.0000014)
+
+[node name="TunnelStraight8" parent="Tunnels" unique_id=991144566 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 44, 0, 5.0000014)
+
+[node name="FogTrigger" type="Area3D" parent="Tunnels" unique_id=816621117]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tunnels/FogTrigger" unique_id=615496141]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.787294, 1.7270572, 4.980241)
+shape = SubResource("BoxShape3D_2d2xd")
+
+[node name="CarCrash" parent="." unique_id=446283409 instance=ExtResource("18_85213")]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7616477, 8.119039)
+visible = false
+
+[node name="TunnelDoor" type="MeshInstance3D" parent="." unique_id=1253557069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.598003, 0.9322922, 4.9955506)
+mesh = SubResource("BoxMesh_4440r")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TunnelDoor" unique_id=1985923751]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TunnelDoor/StaticBody3D" unique_id=1119459918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45614624, 0.064208984)
+shape = SubResource("BoxShape3D_ww0ml")
+
+[node name="ChasePath" type="Path3D" parent="." unique_id=4072412]
+curve = SubResource("Curve3D_85213")
+
+[node name="ChaseMonster" type="Node3D" parent="ChasePath" unique_id=2064437343]
+transform = Transform3D(0.9999996, 0, -3.7252903e-09, 1.1641532e-10, 0.99999994, -7.450581e-09, -3.7252903e-09, 0, 0.9999998, -4.936256, 16.703514, 121.22688)
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="ChasePath/ChaseMonster" unique_id=1005170467]
+light_color = Color(0.8627075, 0, 0.066764526, 1)
+light_energy = 16.0
+shadow_enabled = true
+omni_range = 38.879
+omni_attenuation = -0.474
+omni_shadow_mode = 0
+
+[node name="Catcher" type="Area3D" parent="ChasePath/ChaseMonster" unique_id=380501693]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChasePath/ChaseMonster/Catcher" unique_id=888302173]
+transform = Transform3D(1, 0, -9.809931e-13, 6.9315816e-18, 1, -1.9619861e-12, -9.809931e-13, 0, 1, -1.5276499, 1.1286259, 0.64694977)
+shape = SubResource("BoxShape3D_ue6wd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ChasePath/ChaseMonster" unique_id=1641667656]
+transform = Transform3D(1, 0, -4.440892e-16, 6.9388873e-18, 0.62293434, -8.881784e-16, -4.440892e-16, 0, 1, 0, 0, 0)
+mesh = SubResource("SphereMesh_8s5l4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ChasePath/ChaseMonster" unique_id=1360105392]
+transform = Transform3D(1, 0, -2.220446e-15, 6.938874e-18, 0.62293434, -4.440892e-15, -2.220446e-15, 0, 1, 0, 0, -1.9776382)
+mesh = SubResource("SphereMesh_85213")
+
+[node name="Particles" type="Node3D" parent="." unique_id=757079571]
+visible = false
+
+[node name="Eyes" parent="Particles" unique_id=1812325354 instance=ExtResource("19_rb1nm")]
+transform = Transform3D(0.9180654, 0, -0.39642882, 0, 1, 0, 0.39642882, 0, 0.9180654, 14.505163, 7.520563, -3.3291903)
+
+[node name="Eyes2" parent="Particles" unique_id=1917313778 instance=ExtResource("19_rb1nm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6887674, 7.520564, -2.5668597)
+
+[node name="Eyes3" parent="Particles" unique_id=81693627 instance=ExtResource("19_rb1nm")]
+transform = Transform3D(0.60742086, 0, 0.7943802, 0, 1, 0, -0.7943802, 0, 0.60742086, -7.0778546, 7.520564, 2.448874)
+
+[node name="Eyes4" parent="Particles" unique_id=1286975990 instance=ExtResource("19_rb1nm")]
+transform = Transform3D(-0.23302177, 0, 0.97247154, 0, 1, 0, -0.97247154, 0, -0.23302177, -8.930736, 7.520563, 11.024054)
+
+[node name="Eyes5" parent="Particles" unique_id=632104281 instance=ExtResource("19_rb1nm")]
+transform = Transform3D(-0.50211227, 0, 0.8648024, 0, 1, 0, -0.8648024, 0, -0.50211227, -2.4665651, 7.520563, 15.9690075)
+
+[node name="Eyes6" parent="Particles" unique_id=263587606 instance=ExtResource("19_rb1nm")]
+transform = Transform3D(-0.99878585, 0, 0.04926613, 0, 1, 0, -0.04926613, 0, -0.99878585, 7.8830557, 7.520561, 18.749308)
+
+[node name="Eyes7" parent="Particles" unique_id=1107895759 instance=ExtResource("19_rb1nm")]
+transform = Transform3D(-0.88948804, 0, -0.4569589, 0, 1, 0, 0.4569589, 0, -0.88948804, 15.637747, 7.520561, 15.825544)
 
 [connection signal="body_entered" from="Fall/FallDetector" to="." method="_on_player_fall" unbinds=1]
 [connection signal="body_entered" from="Fall/FallDetector" to="Fall" method="hide" unbinds=1]
+[connection signal="body_entered" from="Tunnels/FogTrigger" to="." method="_on_fog_trigger_body_entered"]
+[connection signal="triggered" from="CarCrash/Mercury/Interactable3D" to="." method="_on_chase_triggered"]
+[connection signal="body_entered" from="ChasePath/ChaseMonster/Catcher" to="." method="_on_catcher_body_entered"]
+
+[editable path="CarCrash"]

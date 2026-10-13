@@ -2,6 +2,8 @@ extends Node
 
 #var loaded_dialogue : Dialogue
 
+signal dialogue_finished()
+
 var dialogue_display : CanvasLayer :
 	get:
 		return Status.game_node.dialogue_display
@@ -21,3 +23,7 @@ func trigger_event(event:String, dialogue:DialogueResource) -> void:
 		"washup":
 			dialogue_display.get_node("CL/You").show()
 	return
+
+
+func finish_dialogue() -> void:
+	dialogue_finished.emit()

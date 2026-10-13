@@ -10,6 +10,8 @@ var loading : bool = false
 var current_day : int = 1
 var current_day_string : String :
 	get:
+		if game_node.current_scene == "car_scene":
+			return "crash"
 		if current_day > 3:
 			if work_complete:
 				return "hellnight"
@@ -52,6 +54,7 @@ var flicker_chance_increase : float = 0.1
 var base_flicker_chance : float = 0.2
 
 var completed_childhood : bool = false
+
 
 func pickup_book(index:int, material:Material, title:String="") -> bool:
 	if holding_book:
@@ -145,7 +148,8 @@ func position_character(spawn_point:Node3D, character:CharacterBody3D) -> void:
 	character.global_position = spawn_point.global_position
 	character.HEAD.quaternion = spawn_point.quaternion
 
-func restart_day() -> void:
+func restart_day(scene:String="follys_room") -> void:
+	Audio.stop_all()
 	clear_rock()
 	total_books = 0
 	returned_books = -1
@@ -153,4 +157,4 @@ func restart_day() -> void:
 	completed_tasks_names = []
 	woke_up = false
 	waking_up = false
-	game_node.switch_scene("follys_room")
+	game_node.switch_scene(scene)

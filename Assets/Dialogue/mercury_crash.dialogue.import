@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bd1l5515rdrc6"
+path="res://.godot/imported/mercury_crash.dialogue-b740792a67e9675b8c371aba4418fddb.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/mercury_crash.dialogue"
+dest_files=["res://.godot/imported/mercury_crash.dialogue-b740792a67e9675b8c371aba4418fddb.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://dvq4nbyckc1vw"]
+
+[ext_resource type="PackedScene" uid="uid://chnq7t4lwp8ox" path="res://Assets/Models/CarScene/mercury_car.blend" id="1_ye68x"]
+[ext_resource type="Texture2D" uid="uid://cpbptcurdtm32" path="res://Assets/Textures/ParticleImages/waterspray.png" id="2_amflh"]
+[ext_resource type="PackedScene" uid="uid://dtc7q36iofnv7" path="res://Assets/Models/Town/van.blend" id="2_v6ugs"]
+[ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scenes/BaseGame/interactable3D.gd" id="4_amflh"]
+[ext_resource type="Resource" uid="uid://bd1l5515rdrc6" path="res://Assets/Dialogue/mercury_crash.dialogue" id="5_k4q43"]
+
+[sub_resource type="Gradient" id="Gradient_k4q43"]
+offsets = PackedFloat32Array(0, 0.83861154, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.29334807, 0.29334807, 0.29334807, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cp8qb"]
+gradient = SubResource("Gradient_k4q43")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_et05a"]
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 5.0
+gravity = Vector3(0, 6, 0)
+linear_accel_min = -3.100002
+linear_accel_max = -3.100002
+color_ramp = SubResource("GradientTexture1D_cp8qb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fodyg"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_amflh")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5wnml"]
+material = SubResource("StandardMaterial3D_fodyg")
+orientation = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
+size = Vector3(4.439972, 2.9562988, 2.0916748)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c4qn5"]
+size = Vector3(5.0503845, 2.4702759, 2.4945068)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ye68x"]
+size = Vector3(5.0503845, 2.4702759, 1.2052612)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4qn5"]
+albedo_color = Color(0.78358763, 0.5943477, 0.15464482, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8s5l4"]
+material = SubResource("StandardMaterial3D_c4qn5")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fodyg"]
+size = Vector3(1.4230957, 1.428833, 1.4094238)
+
+[node name="CarCrash" type="Node3D" unique_id=446283409]
+
+[node name="mercury_car" parent="." unique_id=739638782 instance=ExtResource("1_ye68x")]
+transform = Transform3D(0.36470652, -0.2647328, 0.46979415, -0.20505828, -0.5926299, -0.17476264, 0.4987397, -0.050073866, -0.41539434, 1.8088605, -0.48865235, 3.4157014)
+
+[node name="brokenparticles" type="GPUParticles3D" parent="mercury_car" unique_id=1749133532]
+transform = Transform3D(1.0000005, -1.8626451e-08, 0, 1.4901161e-08, 1.0000001, 3.7252903e-09, -1.7881393e-07, -1.8626451e-08, 1, 0.12025452, -0.21875465, -2.9972496)
+amount = 26
+lifetime = 2.4
+process_material = SubResource("ParticleProcessMaterial_et05a")
+draw_pass_1 = SubResource("PlaneMesh_5wnml")
+
+[node name="van" parent="." unique_id=364415967 instance=ExtResource("2_v6ugs")]
+transform = Transform3D(-2.7844155e-08, -0.5516582, 0.3185, 0.637, -2.4113746e-08, 1.3922078e-08, 0, 0.3185, 0.5516582, -5.8429337, -3.996803e-15, 2.1685107)
+
+[node name="brokenparticles" type="GPUParticles3D" parent="van" unique_id=1385711103]
+transform = Transform3D(1.0000004, -1.8626453e-08, -3.6719797e-15, 1.4901161e-08, 1.0000001, 0, -1.7881393e-07, 2.9802322e-08, 1, -1.2891583, -0.99044895, -4.3338647)
+amount = 26
+lifetime = 2.4
+process_material = SubResource("ParticleProcessMaterial_et05a")
+draw_pass_1 = SubResource("PlaneMesh_5wnml")
+
+[node name="Collision" type="StaticBody3D" parent="." unique_id=1415385224]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" unique_id=1057243277]
+transform = Transform3D(0.76977324, 0, 0.63831747, 0, 1, 0, -0.63831747, 0, 0.76977324, 1.562331, -0.2483592, 3.7637541)
+shape = SubResource("BoxShape3D_8s5l4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collision" unique_id=1716884374]
+transform = Transform3D(0.50985795, 0, -0.86025876, 0, 1, 0, 0.86025876, 0, 0.50985795, -6.060221, 0.15267897, 1.9102118)
+shape = SubResource("BoxShape3D_c4qn5")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collision" unique_id=1020681708]
+transform = Transform3D(0.50985795, 0, -0.86025876, 0, 1, 0, 0.86025876, 0, 0.50985795, -5.9926486, 0.15267897, 0.7599048)
+shape = SubResource("BoxShape3D_ye68x")
+
+[node name="Mercury" type="MeshInstance3D" parent="." unique_id=1753855429]
+transform = Transform3D(0.6481479, -0.4953487, -0.5783894, 0.6479895, -0.040219024, 0.760587, -0.400018, -0.8677629, 0.2949128, 0.78529114, -0.7767376, 3.2070296)
+mesh = SubResource("CapsuleMesh_8s5l4")
+
+[node name="Interactable3D" type="Area3D" parent="Mercury" unique_id=1001265659]
+collision_layer = 2
+script = ExtResource("4_amflh")
+desc = "Help Mercury"
+is_dialogue = true
+event_name = "MercuryCrash"
+dialogue = ExtResource("5_k4q43")
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mercury/Interactable3D" unique_id=84923095]
+transform = Transform3D(0.9999994, 0, -2.682209e-07, 1.1324883e-06, 1, -9.536743e-07, 3.1292439e-07, 0, 0.9999974, 0.023315668, 0.21441436, -0.070433915)
+shape = SubResource("BoxShape3D_fodyg")

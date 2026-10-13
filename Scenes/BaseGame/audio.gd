@@ -63,8 +63,8 @@ func _get_stream(audio:String) -> AudioStream:
 		"tunneling_through": return preload("res://Assets/Audio/Tunneling_Through.mp3")
 		"generator": return preload("res://Assets/Audio/generator.mp3")
 		"broken_generator": return preload("res://Assets/Audio/broken_generator.mp3")
-		"chase_trigger": return preload("res://Assets/Audio/!_!_!_!_ Trigger.mp3")
-		"chase_loop": return preload("res://Assets/Audio/!_!_!_!_ Looping.mp3")
+		"chase_trigger", "!?!?!?!?trigger": return preload("res://Assets/Audio/!_!_!_!_ Trigger.mp3")
+		"chase_loop", "!?!?!?!?", "!?!?!?!?loop": return preload("res://Assets/Audio/!_!_!_!_ Looping.mp3")
 		"bridge_collapse": return preload("res://Assets/Audio/bridge_collapse.mp3")
 		"generator_glitch": return preload("res://Assets/Audio/generator_glitch.mp3")
 		"power_down": return preload("res://Assets/Audio/tunnel_power_down.mp3")
@@ -119,6 +119,11 @@ func stop(audio : String, fade_out:bool = false, fade_out_speed:float=default_fa
 				fade_out_tracks.append(player)
 		return
 	stop_audio.emit(audio)
+
+func stop_all() -> void:
+	for player in loaded_players:
+		if player:
+			player.end_play()
 
 func stop_themes() -> void:
 	print("Stopping all themes")

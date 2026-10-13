@@ -68,6 +68,7 @@ func end_dialogue() -> void:
 	$DialogueInterrupt.start()
 	$CL/You.hide()
 	hide()
+	Dialogue.finish_dialogue()
 	return
 
 
