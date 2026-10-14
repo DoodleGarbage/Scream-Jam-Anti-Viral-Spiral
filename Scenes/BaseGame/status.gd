@@ -3,6 +3,8 @@ extends Node
 const character_base_speed : float = 3.0
 const character_sprint_speed : float = 8.0
 
+signal generator_piece_collected()
+
 
 var loading : bool = false
 
@@ -48,6 +50,9 @@ var work_complete : bool :
 
 var collected_pieces : Array[int] = []
 var held_pieces : Array[int] = []
+var total_pieces : int :
+	get:
+		return collected_pieces.size() + held_pieces.size()
 
 ## The amount that the light flickering is increased in the Tunnels after collecting a part.
 var flicker_chance_increase : float = 0.1
@@ -77,6 +82,7 @@ func collect_book(book_index:int) -> bool:
 	Audio.play("book_delivered")
 	return true
 
+
 func pickup_generator_piece(gen_piece:int) -> bool:
 	if collected_pieces.has(gen_piece) or held_pieces.has(gen_piece):
 		return false
@@ -84,11 +90,13 @@ func pickup_generator_piece(gen_piece:int) -> bool:
 	held_pieces.append(gen_piece)
 	return true
 
+
 func collect_generator_piece() -> void:
 	for piece in held_pieces:
 		game_node.character.GEN_PIECES[piece-1].hide()
 	collected_pieces.append_array(held_pieces)
 	held_pieces = []
+	generator_piece_collected.emit()
 	return
 
 

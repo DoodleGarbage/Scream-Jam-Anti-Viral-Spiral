@@ -16,7 +16,7 @@ func _on_generator_interact_triggered() -> void:
 		return
 	Audio.play("gear_clunk", audio_player)
 	Audio.stop("broken_generator")
-	Audio.stop("tunneling_through", true, 15.0)
+	Audio.stop_themes(true, 15.0)
 	if Status.collected_pieces.size() >= needed_pieces:
 		closed_exit_door.hide()
 		exit_door.show()
@@ -42,7 +42,7 @@ func _on_generator_interact_triggered() -> void:
 	
 	await get_tree().create_timer(1.5).timeout
 	Audio.play("broken_generator", audio_player)
-	Audio.play("tunneling_through", null, true, 6.0)
+	Audio.play("tunnels_of_dread", null, true, 6.0)
 	
 	## This stacks with the above timer
 	await get_tree().create_timer(3.0).timeout

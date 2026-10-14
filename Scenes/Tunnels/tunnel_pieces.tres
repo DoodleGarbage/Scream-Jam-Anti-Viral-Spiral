@@ -1,0 +1,233 @@
+[gd_resource type="Resource" script_class="ScenePalette" format=3 uid="uid://dhuw0can50myx"]
+
+[ext_resource type="Script" uid="uid://cuobj06kp8x5k" path="res://addons/scene_map/scene_item.gd" id="1_wpj0f"]
+[ext_resource type="PackedScene" uid="uid://dpil3r33glvff" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight.tscn" id="2_a6bjq"]
+[ext_resource type="Script" uid="uid://bq7wpgx4ixfcq" path="res://addons/scene_map/scene_palette.gd" id="2_k3hu6"]
+[ext_resource type="PackedScene" uid="uid://brppa7xhmcnrh" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_transition.tscn" id="3_d7yft"]
+[ext_resource type="PackedScene" uid="uid://ci1oxcvv4eydj" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_transition_inverted.tscn" id="4_7q24m"]
+[ext_resource type="PackedScene" uid="uid://yex1uru8u1yt" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_alternate_alternate.tscn" id="4_d7yft"]
+[ext_resource type="PackedScene" uid="uid://bh1mx8k3yra4s" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_alternate.tscn" id="5_2vxav"]
+[ext_resource type="PackedScene" uid="uid://c4venk7bqvwyr" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_nopipes.tscn" id="6_5l4ij"]
+[ext_resource type="PackedScene" uid="uid://bn4vl6pot1iq2" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_flat_nopipes.tscn" id="7_p5jrf"]
+[ext_resource type="PackedScene" uid="uid://gdq4jhskg8i0" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_1m.tscn" id="8_hfocm"]
+[ext_resource type="PackedScene" uid="uid://dekgjbw2rvt7p" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_1m_nopipe.tscn" id="9_cu3ak"]
+[ext_resource type="PackedScene" uid="uid://u8twu4v7ch84" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_1m_flat_nopipe.tscn" id="10_f0phi"]
+[ext_resource type="PackedScene" uid="uid://dsudbjeywuxfj" path="res://Scenes/Tunnels/TunnelPieces/tunnel_end.tscn" id="11_vnsc1"]
+[ext_resource type="PackedScene" uid="uid://dhi5ib57u7j6a" path="res://Scenes/Tunnels/TunnelPieces/tunnel_end_alt.tscn" id="12_y7rha"]
+[ext_resource type="PackedScene" uid="uid://bvwtn5mxfpl3j" path="res://Scenes/Tunnels/TunnelPieces/tunnel_end_nopipes.tscn" id="13_e2dd2"]
+[ext_resource type="PackedScene" uid="uid://rgqe5jb37umy" path="res://Scenes/Tunnels/TunnelPieces/tunnel_end_flat_nopipes.tscn" id="14_7poc6"]
+[ext_resource type="PackedScene" uid="uid://ckb4tfafsfe7t" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_left.tscn" id="15_5l5u0"]
+[ext_resource type="PackedScene" uid="uid://e2a4nocymrav" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_nopipes.tscn" id="16_8hqqa"]
+[ext_resource type="PackedScene" uid="uid://v4vqgactt24n" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_alt_left.tscn" id="17_35plr"]
+[ext_resource type="PackedScene" uid="uid://cojyw0pvmmggy" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_alt_left_nopipes.tscn" id="18_agd8k"]
+[ext_resource type="PackedScene" uid="uid://b3a1j11ya36ao" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_right.tscn" id="19_ef4wq"]
+[ext_resource type="PackedScene" uid="uid://caxvp72im2yio" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_alt_right.tscn" id="20_5ja6o"]
+[ext_resource type="PackedScene" uid="uid://b625ss2gc7lde" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_alt_right_nopipes.tscn" id="21_2bi81"]
+[ext_resource type="PackedScene" uid="uid://cxsdeawm8bsfx" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3way.tscn" id="22_cajg2"]
+[ext_resource type="PackedScene" uid="uid://pjw1dnysff31" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_flat_nopipes.tscn" id="23_2vxav"]
+[ext_resource type="PackedScene" uid="uid://blbuovbjs4w10" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3way_inverted.tscn" id="23_fsbvr"]
+[ext_resource type="PackedScene" uid="uid://be32momqcgiqy" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3way_nopipes.tscn" id="24_gs2ff"]
+[ext_resource type="PackedScene" uid="uid://d0d5e18qsn8ex" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3_way_alternate.tscn" id="25_hr4cu"]
+[ext_resource type="PackedScene" uid="uid://dma0rivd63vxq" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3_way_alternate_inverted.tscn" id="26_7q24m"]
+[ext_resource type="PackedScene" uid="uid://bivce7ch4us4i" path="res://Scenes/Tunnels/TunnelPieces/tunnel_4way.tscn" id="27_7g6ks"]
+[ext_resource type="PackedScene" uid="uid://clcbgjy56e6u6" path="res://Scenes/Tunnels/TunnelPieces/tunnel_4way_nopipes.tscn" id="28_3qpqy"]
+[ext_resource type="PackedScene" uid="uid://uiurmt1iqiqh" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3_way_alternate_nopipes.tscn" id="29_2vxav"]
+[ext_resource type="PackedScene" uid="uid://crp308iw86wrk" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3_way_flat_flat.tscn" id="30_5l4ij"]
+
+[sub_resource type="Resource" id="Resource_ehnqy"]
+script = ExtResource("1_wpj0f")
+name = "Straight"
+scene = ExtResource("2_a6bjq")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_lste2"]
+script = ExtResource("1_wpj0f")
+name = "Straight Alternate"
+scene = ExtResource("5_2vxav")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_727i0"]
+script = ExtResource("1_wpj0f")
+name = "Straight Alt Alternate"
+scene = ExtResource("4_d7yft")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_uubf7"]
+script = ExtResource("1_wpj0f")
+name = "Straight No Pipes"
+scene = ExtResource("6_5l4ij")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_6bkxu"]
+script = ExtResource("1_wpj0f")
+name = "Straight Flat"
+scene = ExtResource("7_p5jrf")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_lul2i"]
+script = ExtResource("1_wpj0f")
+name = "Straight 1m"
+scene = ExtResource("8_hfocm")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_34hc2"]
+script = ExtResource("1_wpj0f")
+name = "Straight 1m No Pipe"
+scene = ExtResource("9_cu3ak")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_tvxaw"]
+script = ExtResource("1_wpj0f")
+name = "Straight 1m Flat"
+scene = ExtResource("10_f0phi")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_gye08"]
+script = ExtResource("1_wpj0f")
+name = "Transition"
+scene = ExtResource("3_d7yft")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_002dh"]
+script = ExtResource("1_wpj0f")
+name = "Transition Inverted"
+scene = ExtResource("4_7q24m")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_n33ir"]
+script = ExtResource("1_wpj0f")
+name = "End"
+scene = ExtResource("11_vnsc1")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_xaoxr"]
+script = ExtResource("1_wpj0f")
+name = "End Alt"
+scene = ExtResource("12_y7rha")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_08vyi"]
+script = ExtResource("1_wpj0f")
+name = "End No Pipes"
+scene = ExtResource("13_e2dd2")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_gacx6"]
+script = ExtResource("1_wpj0f")
+name = "End Flat"
+scene = ExtResource("14_7poc6")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_x206m"]
+script = ExtResource("1_wpj0f")
+name = "Corner Left"
+scene = ExtResource("15_5l5u0")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_oi4tf"]
+script = ExtResource("1_wpj0f")
+name = "Corner Left No Pipes"
+scene = ExtResource("16_8hqqa")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_5y880"]
+script = ExtResource("1_wpj0f")
+name = "Corner Alt Left"
+scene = ExtResource("17_35plr")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_eh46w"]
+script = ExtResource("1_wpj0f")
+name = "Corner Alt Left No Pipes"
+scene = ExtResource("18_agd8k")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_ag7t4"]
+script = ExtResource("1_wpj0f")
+name = "Corner Right"
+scene = ExtResource("19_ef4wq")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_xc2jj"]
+script = ExtResource("1_wpj0f")
+name = "Corner Right No Pipes"
+scene = ExtResource("16_8hqqa")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_07ulk"]
+script = ExtResource("1_wpj0f")
+name = "Corner Alt Right"
+scene = ExtResource("20_5ja6o")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_nye4e"]
+script = ExtResource("1_wpj0f")
+name = "Corner Alt Right No Pipes"
+scene = ExtResource("21_2bi81")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_xwhsk"]
+script = ExtResource("1_wpj0f")
+name = "Corner Flat"
+scene = ExtResource("23_2vxav")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_6cf85"]
+script = ExtResource("1_wpj0f")
+name = "3way"
+scene = ExtResource("22_cajg2")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_6q5jt"]
+script = ExtResource("1_wpj0f")
+name = "3way Alt"
+scene = ExtResource("25_hr4cu")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_irykk"]
+script = ExtResource("1_wpj0f")
+name = "3way Inverted"
+scene = ExtResource("23_fsbvr")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_4ic01"]
+script = ExtResource("1_wpj0f")
+name = "3way Alt Inverted"
+scene = ExtResource("26_7q24m")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_o25b3"]
+script = ExtResource("1_wpj0f")
+name = "3way No Pipes"
+scene = ExtResource("24_gs2ff")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_a6bjq"]
+script = ExtResource("1_wpj0f")
+name = "3way Alt No Pipes"
+scene = ExtResource("29_2vxav")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_702hw"]
+script = ExtResource("1_wpj0f")
+name = "3way Flat"
+scene = ExtResource("30_5l4ij")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_d7yft"]
+script = ExtResource("1_wpj0f")
+name = "4way"
+scene = ExtResource("27_7g6ks")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_7q24m"]
+script = ExtResource("1_wpj0f")
+name = "4way No Pipes"
+scene = ExtResource("28_3qpqy")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[resource]
+resource_name = "ScenePalette"
+script = ExtResource("2_k3hu6")
+item_map = Array[ExtResource("1_wpj0f")]([SubResource("Resource_ehnqy"), SubResource("Resource_lste2"), SubResource("Resource_727i0"), SubResource("Resource_uubf7"), SubResource("Resource_6bkxu"), SubResource("Resource_lul2i"), SubResource("Resource_34hc2"), SubResource("Resource_tvxaw"), SubResource("Resource_gye08"), SubResource("Resource_002dh"), SubResource("Resource_n33ir"), SubResource("Resource_xaoxr"), SubResource("Resource_08vyi"), SubResource("Resource_gacx6"), SubResource("Resource_x206m"), SubResource("Resource_oi4tf"), SubResource("Resource_5y880"), SubResource("Resource_eh46w"), SubResource("Resource_ag7t4"), SubResource("Resource_xc2jj"), SubResource("Resource_07ulk"), SubResource("Resource_nye4e"), SubResource("Resource_xwhsk"), SubResource("Resource_6cf85"), SubResource("Resource_6q5jt"), SubResource("Resource_irykk"), SubResource("Resource_4ic01"), SubResource("Resource_o25b3"), SubResource("Resource_a6bjq"), SubResource("Resource_702hw"), SubResource("Resource_d7yft"), SubResource("Resource_7q24m")])
+metadata/_custom_type_script = "uid://bq7wpgx4ixfcq"

@@ -62,11 +62,11 @@ project/assembly_name="Anti Viral Spiral"
 
 [editor]
 
-run/main_run_args="display/window/size/mode=3 %command%"
+run/main_run_args="%command%"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/scene_map/plugin.cfg")
 
 [file_customization]
 
@@ -87,6 +87,7 @@ folder_colors={
 
 Interactables=""
 TunnelLight="All the lights of Tunnels"
+navigation_region="All nodes for 3D navigation"
 
 [input]
 

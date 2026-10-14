@@ -9,6 +9,7 @@ size = Vector3(1, 3, 3)
 
 [node name="collider" type="StaticBody3D" parent="." unique_id=86906622]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="collider" unique_id=1345410876]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.5, 0)

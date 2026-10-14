@@ -5,10 +5,13 @@ extends Node3D
 @export var audio_player : AudioPlayer3D
 @export var room_light : OmniLight3D
 
+signal item_collected(pos:Vector3)
+
 func part_collected() -> void:
 	Audio.stop("tunneling_through")
 	Audio.play("power_down")#, audio_player)
-	Audio.play("tunneling_through", null, true, 8)
+	#Audio.play("tunnels_of_dread", null, true, 8)
+	item_collected.emit(global_position)
 	room_light.flicker_disabled = true
 	for light in get_tree().get_nodes_in_group("TunnelLight"):
 		light.visible = false

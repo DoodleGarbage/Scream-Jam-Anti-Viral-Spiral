@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://uiurmt1iqiqh"]
+[gd_scene format=3 uid="uid://crp308iw86wrk"]
 
-[ext_resource type="PackedScene" uid="uid://ve4km0klm526" path="res://Assets/Models/Tunnels/TunnelPieces/tunnel3wayflatnopipes.blend" id="1_85ctr"]
-[ext_resource type="PackedScene" uid="uid://u8twu4v7ch84" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_1m_flat_nopipe.tscn" id="2_4hnsl"]
+[ext_resource type="PackedScene" uid="uid://bnqcmo5rldpfm" path="res://Assets/Models/Tunnels/TunnelPieces/tunnel3wayflatflat.blend" id="1_702hw"]
+[ext_resource type="PackedScene" uid="uid://bdalmiv0o45cc" path="res://Scenes/Tunnels/TunnelPieces/tunnel_hallway_light.tscn" id="2_227qg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
 size = Vector3(1, 3, 1)
@@ -12,9 +12,10 @@ size = Vector3(1, 3, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_cjx2n"]
 size = Vector3(1, 3, 4)
 
-[node name="Tunnel3WayFlatNopipes" type="Node3D" unique_id=14649706]
+[node name="Tunnel3WayFlatFlat" type="Node3D" unique_id=14649706]
 
 [node name="collider" type="StaticBody3D" parent="." unique_id=86906622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="collider" unique_id=1345410876]
@@ -29,7 +30,8 @@ shape = SubResource("BoxShape3D_yc8tt")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.5, 2)
 shape = SubResource("BoxShape3D_cjx2n")
 
-[node name="tunnel3wayflatnopipes" parent="." unique_id=874452316 instance=ExtResource("1_85ctr")]
+[node name="tunnel3wayflatflat" parent="." unique_id=1982453200 instance=ExtResource("1_702hw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 
-[node name="TunnelStraight1mFlatNopipe" parent="." unique_id=261056759 instance=ExtResource("2_4hnsl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+[node name="TunnelHallwayLight" parent="." unique_id=152510013 instance=ExtResource("2_227qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6885242, 1)

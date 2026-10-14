@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://b625ss2gc7lde"]
 
-[ext_resource type="PackedScene" uid="uid://u8twu4v7ch84" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_1m_flat_nopipe.tscn" id="1_12upw"]
-[ext_resource type="PackedScene" uid="uid://dekgjbw2rvt7p" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_1m_nopipe.tscn" id="2_jn8w1"]
 [ext_resource type="PackedScene" uid="uid://bsuhplsm0vdxa" path="res://Assets/Models/Tunnels/TunnelPieces/tunnelcorneraltrightnopipes.blend" id="3_073td"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
@@ -32,12 +30,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.062770426, 3.0106277, -1.5)
 light_color = Color(0.72453827, 0, 0.06270393, 1)
 light_energy = 0.832
 omni_range = 3.81
-
-[node name="TunnelStraight1mFlatNopipe" parent="." unique_id=2003101548 instance=ExtResource("1_12upw")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, -1)
-
-[node name="TunnelStraight1mNopipe" parent="." unique_id=1730314419 instance=ExtResource("2_jn8w1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="tunnelcorneraltrightnopipes" parent="." unique_id=1328921216 instance=ExtResource("3_073td")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)

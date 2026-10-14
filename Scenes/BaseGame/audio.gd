@@ -9,7 +9,7 @@ var fade_in_tracks : Array = []
 var fade_out_tracks : Array = []
 var loaded_players : Array = []
 
-var themes : Array[String] = ["prudent_folly", "library", "main_menu", "first_day", "being_followed", "someplace_calm", "hell", "tunneling_through", "second_day", "flourescent_buzz"]
+var themes : Array[String] = ["prudent_folly", "library", "main_menu", "first_day", "being_followed", "someplace_calm", "hell", "tunneling_through", "second_day", "flourescent_buzz", "tunnels_of_dread", "chase_trigger", "chase_loop"]
 
 func _process(delta: float) -> void:
 	var indices : Array[int] = []
@@ -73,6 +73,7 @@ func _get_stream(audio:String) -> AudioStream:
 		"flourescent_buzz": return preload("res://Assets/Audio/flourescentlampbuzz.mp3")
 		"car_horn": return preload("res://Assets/Audio/car_horn.mp3")
 		"car_crash": return preload("res://Assets/Audio/car_crash.mp3")
+		"tunnels_of_dread": return preload("res://Assets/Audio/Tunnels_of_Dread.mp3")
 	return null
 
 func _get_volume(audio:String) -> float:
@@ -98,7 +99,7 @@ func play(audio: String, audio_player = null, fade_in:bool = false, fade_in_spee
 	print("Playing track: ", audio)
 	var next_track : String = ""
 	match(audio):
-		"prudent_folly","alarm_sound","library","main_menu","first_day", "second_day","being_followed","someplace_calm","hell","tunneling_through","generator","broken_generator","chase_loop", "flourescent_buzz": next_track = audio
+		"prudent_folly","alarm_sound","library","main_menu","first_day", "second_day","being_followed","someplace_calm","hell","tunneling_through","generator","broken_generator","chase_loop", "flourescent_buzz", "tunnels_of_dread": next_track = audio
 		"chase_trigger": next_track = "chase_loop"
 		"power_on": next_track = "generator"
 		"car_horn": next_track = "car_horn"
@@ -125,10 +126,10 @@ func stop_all() -> void:
 		if player:
 			player.end_play()
 
-func stop_themes() -> void:
+func stop_themes(fade:bool=true, custom_fade_speed:float = default_fade_out_speed) -> void:
 	print("Stopping all themes")
 	for track in themes:
-		stop(track, true)
+		stop(track, fade, custom_fade_speed)
 
 func _play_audio(audio : AudioStream, audio_name:String, forced_player=null, _volume:float=0.0, next_track:String="", fade_in:bool=false, fade_in_speed:float=default_fade_in_speed) -> Node:
 	var audio_player
