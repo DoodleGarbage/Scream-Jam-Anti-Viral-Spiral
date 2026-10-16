@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8s5l4"]
 bg_color = Color(0.23598361, 0.23598361, 0.23598352, 1)
 
-[node name="main_menu" type="CanvasLayer" unique_id=1248641115 node_paths=PackedStringArray("volume_slider", "volume_display", "continue_button", "credits_button", "debug_panel", "debug_scene", "debug_day")]
+[node name="main_menu" type="CanvasLayer" unique_id=1248641115 node_paths=PackedStringArray("volume_slider", "volume_display", "continue_button", "credits_button", "debug_panel", "debug_scene", "debug_day", "debug_recovery")]
 script = ExtResource("1_gnc24")
 volume_slider = NodePath("DebugPanel/Debug/Vol/Volume")
 volume_display = NodePath("DebugPanel/Debug/Vol/VolDisp")
@@ -17,6 +17,7 @@ credits_button = NodePath("MainMenu/InteractContainer/Credits_Button")
 debug_panel = NodePath("DebugPanel")
 debug_scene = NodePath("DebugPanel/Debug/LoadScene")
 debug_day = NodePath("DebugPanel/Debug/Day")
+debug_recovery = NodePath("DebugPanel/Debug/Recovery")
 
 [node name="MainMenu" type="Control" parent="." unique_id=1999793002]
 layout_mode = 3
@@ -125,6 +126,10 @@ value = 1.0
 rounded = true
 allow_greater = true
 prefix = "Day"
+
+[node name="Recovery" type="CheckButton" parent="DebugPanel/Debug" unique_id=1724684309]
+layout_mode = 2
+text = "In Recovery"
 
 [node name="VolLabel" type="Label" parent="DebugPanel/Debug" unique_id=1381190973]
 layout_mode = 2

@@ -37,4 +37,6 @@ func rand_point() -> Vector3:
 
 func get_title(idx:int) -> String:
 	var index = randi_range(min(3*(Status.current_day-1),9),min(3*(Status.current_day)-1,11))
+	if Status.in_recovery:
+		index = randi_range(12, 14)
 	return book_titles[idx][index]

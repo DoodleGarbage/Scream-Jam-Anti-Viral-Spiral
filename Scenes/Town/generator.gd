@@ -5,7 +5,7 @@ extends Node3D
 
 func _ready() -> void:
 	match(Status.current_day_string):
-		"day1", "night1":
+		"day1", "night1", "recovery", "recoverynight":
 			Audio.play("generator", audio_player)
 		_:
 			Audio.play("broken_generator", audio_player)

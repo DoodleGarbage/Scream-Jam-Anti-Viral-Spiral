@@ -25,3 +25,8 @@ Folly: I fucked up.
 ~ hellnight
 Folly: Maybe the Hermit can help?
 => END!
+~ recovery
+Folly: I have my flaws. But I shouldn't let them fester. I won't.
+=> END!
+~ recoverynight
+=> recovery

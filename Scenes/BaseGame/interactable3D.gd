@@ -14,6 +14,7 @@ class_name Interactable3D
 @export_group("Restrictions")
 @export var hide_desc_when_restricted : bool = false
 @export var invert_restrictions : bool = false
+@export var require_character : bool = true
 @export_flags("Require Work Completed") var enabled_restrictions : int = 0b0
 @export var require_day : Array[String] = []
 #@export_subgroup("Routine Task")
@@ -47,6 +48,9 @@ var book_index : int = -1
 @export var is_generator_piece : bool = false
 @export var piece_id : int = 0
 @export var collects_generator_pieces : bool = false
+
+var scene_change_waiting : bool = false
+
 
 func get_restrictions() -> bool:
 	var _enabled_restrictions : int = 0b0000
@@ -116,8 +120,8 @@ func trigger_effects() -> void:
 	if end_day:
 		monitorable = false # prevent double triggers
 		Status.end_day()
-	if switch_scenes:
-		monitorable = false # prevent double triggers
+	if switch_scenes and not scene_change_waiting:
+		scene_change_waiting = true # prevent double triggers
 		switch_scene.emit(target_scene)
 	if play_audio and audio_track != "":
 		print("playing audio")
@@ -125,3 +129,10 @@ func trigger_effects() -> void:
 	for audio in stopped_audio_tracks:
 		Audio.stop(audio)
 	triggered.emit()
+
+func trigger_on_body_entered(body:Node3D) -> void:
+	#print("body entered interactable: ", body.name, " looking for: ", Status.game_node.character)
+	if require_character and body != Status.game_node.character:
+		#print("but not character")
+		return
+	trigger_effects()

@@ -29,3 +29,8 @@ Mercury: I'm here to stay. And I'm going to make sure you regret what you did.
 Folly: Mercury will never forgive me for what I did...
 Mercury: Not even the Hermit can save you. You're stuck here. Trapped by your own actions.
 => END!
+~ recovery
+Mercury: It's okay. You did everything you could. There was nothing you could've done to prevent it. Let go.
+=> END!
+~ recoverynight
+=> recovery

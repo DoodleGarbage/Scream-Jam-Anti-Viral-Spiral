@@ -55,6 +55,7 @@ shape = SubResource("BoxShape3D_mtf67")
 collision_layer = 2
 script = ExtResource("5_6q274")
 desc = "Return Book"
+hide_desc_when_restricted = true
 collects_book = true
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 

@@ -42,3 +42,9 @@ Hermit: Go home. I will help you tomorrow.
 => END!
 ~ hellnight
 => END!
+~ recovery
+Folly: The Hermit didn't answer. I wonder what happened to him.
+=> END!
+~ recoverynight
+Folly: He helped me a lot. But his time is past now. We can't cling to every little greviance.
+=> END!

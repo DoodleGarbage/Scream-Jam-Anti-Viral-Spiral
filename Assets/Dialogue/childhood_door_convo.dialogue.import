@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://6pajwdlspl4k"
+path="res://.godot/imported/childhood_door_convo.dialogue-9e9301c01da52862293d08dd25373d45.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/childhood_door_convo.dialogue"
+dest_files=["res://.godot/imported/childhood_door_convo.dialogue-9e9301c01da52862293d08dd25373d45.tres"]
+
+[params]
+
+defaults=true

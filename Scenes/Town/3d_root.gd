@@ -43,6 +43,8 @@ func loaded(last_scene:String) -> void:
 			$Houses/HermitHouse/hermit_house_open.show()
 			$NPCs/Raincoat.hide()
 			$NPCs/Raincoat.global_position = Vector3(0,0,0)
+		"recovery":
+			Audio.play("someplace_calm", null, true)
 		_:Audio.play("prudent_folly", null, true)
 	var spawn_pos : Node3D
 	#print("matching scene: ", last_scene)
@@ -68,13 +70,13 @@ func load_environment(enviro:String) -> void:
 		"day2":
 			$FogPools.show()
 			new_enviro = preload("res://Scenes/Town/Environments/day2.tscn").instantiate()
-		"night3":
+		"night3", "hellnight":
 			$FogPools.show()
 			new_enviro = preload("res://Scenes/Town/Environments/night3.tscn").instantiate()
 		"night2":
 			$FogPools.show()
 			new_enviro = preload("res://Scenes/Town/Environments/night2.tscn").instantiate()
-		"night1":
+		"night1", "recoverynight":
 			new_enviro = preload("res://Scenes/Town/Environments/night.tscn").instantiate()
 		_:
 			new_enviro = preload("res://Scenes/Town/Environments/day.tscn").instantiate()

@@ -5,6 +5,7 @@ var player : Node3D :
 		return Status.game_node.character
 
 @export var audio_player : AudioPlayer3D
+@export var audio_player_2 : AudioPlayer3D
 @export var navigation_agent : NavigationAgent3D
 ## How fast (in m/s) Raincoat moves
 @export var speed : float = 8.0
@@ -26,6 +27,9 @@ func set_collision_mode(mode:bool) -> void:
 
 
 func disable() -> void:
+	Audio.stop("whatdidyoudo")
+	Audio.stop("chase_trigger")
+	Audio.stop("chase_loop")
 	set_collision_mode(false)
 	global_position = Vector3(0, -100, 0)
 
@@ -93,6 +97,7 @@ func _physics_process(_delta: float) -> void:
 	
 	if not movement_disabled > 0.0:
 		if not chase_triggered:
+			Audio.play("whatdidyoudo", audio_player_2)
 			Audio.play("chase_trigger", audio_player)
 			chase_triggered = true
 		set_movement_target(get_movement_target())

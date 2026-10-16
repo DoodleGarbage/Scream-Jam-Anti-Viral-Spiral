@@ -22,3 +22,9 @@ $(#U!@#): The Hermit seeks you
 ~ hellnight
 Folly: Look at what I've done. Raincoat is an unrecoverable mess because of me.
 => END!
+~ recovery
+Folly: Raincoat's watchful eye is intimidating, but he means only good.
+=> END!
+~ recoverynight
+Folly: Thank you, Raincoat. I'm sorry I hurt you while I was hurting.
+=> END!

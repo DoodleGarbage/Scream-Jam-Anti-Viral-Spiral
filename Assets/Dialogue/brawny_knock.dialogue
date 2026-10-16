@@ -22,3 +22,9 @@ Folly: Silence.
 ~ hellnight
 Folly: He won't be coming back.
 => END!
+~ recovery
+Folly: The house has gotten a new coat of paint.
+=> END!
+~ recoverynight
+Folly: Like always, they're asleep before me. But the night seems more peaceful now.
+=> END!

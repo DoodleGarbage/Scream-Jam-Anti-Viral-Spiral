@@ -22,3 +22,9 @@ Folly: I'll never escape her.
 ~ hellnight
 Folly: I need to escape her.
 => END!
+~ recovery
+Folly: I loved her, and she loved me. We never hated each other. And she won't resent me for that day.
+=> END!
+~ recoverynight
+Folly: Rest in peace, Mercury.
+=> END!

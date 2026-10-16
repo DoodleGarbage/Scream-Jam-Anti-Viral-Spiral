@@ -135,9 +135,8 @@ func _ready() -> void:
 		"day1": day_1()
 		"day2": day_2()
 		"day3": day_3()
-		"night1": disable()
-		"night2": disable()
-		"night3": disable()
+		"recovery": day_1()
+		_: disable()
 
 func disable() -> void:
 	hide()

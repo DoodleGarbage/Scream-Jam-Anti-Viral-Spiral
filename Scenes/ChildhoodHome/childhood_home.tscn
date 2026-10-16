@@ -5,7 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://bkogvqh1jfhiv" path="res://Assets/Models/Town/door.blend" id="1_niwqj"]
 [ext_resource type="PackedScene" uid="uid://whplslacgtwf" path="res://Assets/Models/ChildhoodHome/childhood_home_interior_upper.blend" id="4_dxq1d"]
 [ext_resource type="Material" uid="uid://dmw2cqjsf4i8w" path="res://Assets/Textures/Materials/childhood_floor.tres" id="4_v8qch"]
+[ext_resource type="Script" uid="uid://coji4uh3esqdw" path="res://Scenes/BaseGame/3d_audio_player.gd" id="5_u50h6"]
 [ext_resource type="PackedScene" uid="uid://dl2dhrfgoms6g" path="res://Assets/Models/ChildhoodHome/bathtub.blend" id="5_v8qch"]
+[ext_resource type="Resource" uid="uid://6pajwdlspl4k" path="res://Assets/Dialogue/childhood_door_convo.dialogue" id="7_1mic1"]
+[ext_resource type="PackedScene" uid="uid://blf5u5qejkvcw" path="res://Assets/Models/Town/Raincoat.blend" id="7_3qhwm"]
 [ext_resource type="PackedScene" uid="uid://cjpxsq5osvnts" path="res://Assets/Models/FollysRoom/toilet.blend" id="7_035nq"]
 [ext_resource type="PackedScene" uid="uid://blopvgbeqhdur" path="res://Assets/Models/ChildhoodHome/bathroomsink.blend" id="8_kx30c"]
 [ext_resource type="PackedScene" uid="uid://b0agigds30uuu" path="res://Assets/Models/FollysRoom/bed.blend" id="9_kx30c"]
@@ -90,6 +93,9 @@ size = Vector2(5, 5)
 material = ExtResource("4_v8qch")
 size = Vector2(4, 2)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ctrmh"]
+size = Vector3(1, 1.7233887, 1.133667)
+
 [sub_resource type="BoxMesh" id="BoxMesh_8s5l4"]
 material = ExtResource("4_v8qch")
 size = Vector3(11, 0.1, 7)
@@ -164,9 +170,15 @@ size = Vector3(0.61279297, 2.0249023, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mf7ks"]
 size = Vector3(3.1013184, 0.11816406, 2.08667)
 
-[node name="ChildhoodHome" type="Node3D" unique_id=1328719943 node_paths=PackedStringArray("spawn_point")]
+[node name="ChildhoodHome" type="Node3D" unique_id=1328719943 node_paths=PackedStringArray("spawn_point", "hermit_door_interactable", "front_door_interactable", "front_door_knocker", "raincoat_node", "raincoat_exit", "raincoat_enter")]
 script = ExtResource("1_b2jbv")
 spawn_point = NodePath("SpawnPoint")
+hermit_door_interactable = NodePath("UpperFloor/Furniture/ExitDoor/GoToHome")
+front_door_interactable = NodePath("LowerFloor/FrontDoor/AnswerDoor")
+front_door_knocker = NodePath("LowerFloor/FrontDoor/Knocking")
+raincoat_node = NodePath("LowerFloor/FrontDoor/Raincoat")
+raincoat_exit = NodePath("LowerFloor/FrontDoor/RainCoatExitPoint")
+raincoat_enter = NodePath("LowerFloor/FrontDoor/RaincoatEnterPoint")
 
 [node name="SpawnPoint" type="Node3D" parent="." unique_id=2011877798]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.8770385, 2.826396)
@@ -181,7 +193,7 @@ environment = SubResource("Environment_jxdyh")
 [node name="childhood_home_interior" parent="LowerFloor" unique_id=480667934 instance=ExtResource("1_0y2nq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020763874, 0.0026872158, -5.0004854)
 
-[node name="door" parent="LowerFloor" unique_id=851363931 instance=ExtResource("1_niwqj")]
+[node name="Entrance" parent="LowerFloor" unique_id=851363931 instance=ExtResource("1_niwqj")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -2, 3.811512)
 
 [node name="Collision" type="StaticBody3D" parent="LowerFloor" unique_id=533358869]
@@ -303,8 +315,39 @@ shadow_enabled = true
 omni_range = 3.95
 omni_attenuation = 2.0
 
-[node name="door2" parent="LowerFloor" unique_id=1220252390 instance=ExtResource("1_niwqj")]
+[node name="FrontDoor" parent="LowerFloor" unique_id=1220252390 instance=ExtResource("1_niwqj")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 1.1, -8.788488)
+
+[node name="Knocking" type="AudioStreamPlayer3D" parent="LowerFloor/FrontDoor" unique_id=227019562]
+script = ExtResource("5_u50h6")
+metadata/_custom_type_script = "uid://coji4uh3esqdw"
+
+[node name="AnswerDoor" type="Area3D" parent="LowerFloor/FrontDoor" unique_id=1703037374 groups=["Interactables"]]
+collision_layer = 2
+monitorable = false
+script = ExtResource("10_k2ahx")
+desc = "Answer the Door"
+target_scene = "3d_game"
+is_dialogue = true
+event_name = "ChildhoodDoorAnswer"
+dialogue = ExtResource("7_1mic1")
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LowerFloor/FrontDoor/AnswerDoor" unique_id=1002481119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.040893555, 0.066833496)
+shape = SubResource("BoxShape3D_ctrmh")
+
+[node name="Raincoat" type="Node3D" parent="LowerFloor/FrontDoor" unique_id=837001729]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.275526, -1.1880726, 0)
+
+[node name="Raincoat" parent="LowerFloor/FrontDoor/Raincoat" unique_id=187053340 instance=ExtResource("7_3qhwm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="RaincoatEnterPoint" type="Node3D" parent="LowerFloor/FrontDoor" unique_id=5736636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83041, -1.0913786, 0)
+
+[node name="RainCoatExitPoint" type="Node3D" parent="LowerFloor/FrontDoor" unique_id=146885277]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6028042, -1.1141212, 0)
 
 [node name="UpperFloor" type="Node3D" parent="." unique_id=1880875507]
 
@@ -496,10 +539,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49749064, 3.4131684, -2.44
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.043147326, 0)
 shape = SubResource("BoxShape3D_3qhwm")
 
-[node name="door" parent="UpperFloor/Furniture" unique_id=299312492 instance=ExtResource("1_niwqj")]
+[node name="ExitDoor" parent="UpperFloor/Furniture" unique_id=299312492 instance=ExtResource("1_niwqj")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.1002645, 4.1785927, -1.3166425)
 
-[node name="GoToHome" type="Area3D" parent="UpperFloor/Furniture/door" unique_id=1542449240 groups=["Interactables"]]
+[node name="GoToHome" type="Area3D" parent="UpperFloor/Furniture/ExitDoor" unique_id=1542449240 groups=["Interactables"]]
 collision_layer = 2
 script = ExtResource("10_k2ahx")
 desc = "Return"
@@ -507,14 +550,16 @@ switch_scenes = true
 target_scene = "follys_room"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="UpperFloor/Furniture/door/GoToHome" unique_id=1139205657]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UpperFloor/Furniture/ExitDoor/GoToHome" unique_id=1139205657]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19360352, -0.1315918, 0)
 shape = SubResource("BoxShape3D_i3h80")
 
-[node name="interaction_blocker" type="Area3D" parent="UpperFloor/Furniture/door" unique_id=238192010]
+[node name="interaction_blocker" type="Area3D" parent="UpperFloor/Furniture/ExitDoor" unique_id=238192010]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.7497933, -1.1909058, 0.3709483)
 collision_layer = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="UpperFloor/Furniture/door/interaction_blocker" unique_id=628843959]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UpperFloor/Furniture/ExitDoor/interaction_blocker" unique_id=628843959]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107869625, -0.061035156, 0.1542257)
 shape = SubResource("BoxShape3D_mf7ks")
+
+[connection signal="triggered" from="LowerFloor/FrontDoor/AnswerDoor" to="." method="_on_answer_door_triggered"]

@@ -8,7 +8,7 @@ extends Node3D
 signal item_collected(pos:Vector3)
 
 func part_collected() -> void:
-	Audio.stop("tunneling_through")
+	Audio.stop_themes(false)
 	Audio.play("power_down")#, audio_player)
 	#Audio.play("tunnels_of_dread", null, true, 8)
 	item_collected.emit(global_position)

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b1anq0rnn2xqc"]
+
+[ext_resource type="Script" uid="uid://vr0e1exbc3oc" path="res://Scenes/FollysRoom/wakeup.gd" id="1_1xihn"]
+
+[node name="Wakeup" type="CanvasLayer" unique_id=1755092610 node_paths=PackedStringArray("blackout_screen", "wakeup_notice")]
+script = ExtResource("1_1xihn")
+blackout_screen = NodePath("Control/ColorRect")
+wakeup_notice = NodePath("Control/WakeupNotice")
+
+[node name="Control" type="Control" parent="." unique_id=891309288]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1644573036]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="WakeupNotice" type="Label" parent="Control" unique_id=1629182506]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "Press 'E' to wake up."

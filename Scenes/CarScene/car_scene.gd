@@ -53,7 +53,7 @@ func _on_player_fall() -> void:
 
 func _process(_delta: float) -> void:
 	if in_chase_mode:
-		
+		$Eyes.global_position = character.global_position
 		chase_monster.look_at(character.global_position)
 		if fog_active:
 			chase_progress += chase_speed * _delta
@@ -65,8 +65,8 @@ func _process(_delta: float) -> void:
 		
 		
 		
-	if fog_active and $WorldEnvironment.environment.fog_density < 1.0:
-		$WorldEnvironment.environment.fog_density += fog_appear_rate * _delta
+	#if fog_active and $WorldEnvironment.environment.fog_density < 1.0:
+		#$WorldEnvironment.environment.fog_density += fog_appear_rate * _delta
 	if crash_finished:
 		blackout_timer += _delta
 		if not blackout_timer > minimum_blackout:
@@ -75,6 +75,7 @@ func _process(_delta: float) -> void:
 		character.sprint_speed = Status.character_sprint_speed
 		blackout.color.a -= blackout_fade_rate * _delta
 		if blackout.color.a <= 0.05:
+			Status.woke_up = true
 			blackout.hide()
 			crash_triggered = false
 	if car_active:
@@ -91,6 +92,7 @@ func _process(_delta: float) -> void:
 			car_active = false
 			car.hide()
 			car_2.hide()
+			Status.woke_up = false
 			blackout.show()
 			car_crash.process_mode = Node.PROCESS_MODE_INHERIT
 			car_crash.show()
@@ -109,8 +111,10 @@ func _process(_delta: float) -> void:
 func _on_fog_trigger_body_entered(body: Node3D) -> void:
 	if not body == character:
 		return
+	$Eyes.show()
 	fog_active = true
-	$WorldEnvironment.environment.fog_enabled = true
+	#$WorldEnvironment.environment.fog_enabled = true
+	#$WorldEnvironment.environment.fog_density = 0.0
 	$Sun.hide()
 
 func _on_chase_triggered() -> void:

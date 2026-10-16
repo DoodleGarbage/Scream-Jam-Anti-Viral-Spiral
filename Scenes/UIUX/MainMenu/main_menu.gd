@@ -20,6 +20,8 @@ extends Node
 @export var debug_scene : LineEdit
 ## Reference to the range that sets the day. Should have a minimum value of 1, 'rounded', and allow greater
 @export var debug_day : Range
+## A checkbox button that if pressed will set Status.in_recovery to true
+@export var debug_recovery : Button
 
 #var character # Prevents accessing a non-existant variable when global root switches this scene in - is not used by this node.
 
@@ -47,6 +49,8 @@ func _on_start_pressed() -> void:
 	var target_scene : String = start_scene
 	if debug_scene.text != "":
 		target_scene = debug_scene.text
+	if debug_recovery.button_pressed:
+		Status.in_recovery = true
 	if debug_day.value > 1:
 		@warning_ignore("narrowing_conversion")
 		Status.current_day = debug_day.value

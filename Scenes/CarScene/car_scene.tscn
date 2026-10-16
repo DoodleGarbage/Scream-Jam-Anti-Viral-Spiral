@@ -13,12 +13,33 @@
 [ext_resource type="Texture2D" uid="uid://d1g1f3w3p6eon" path="res://Scenes/Town/Environments/Sun.png" id="11_tq6eu"]
 [ext_resource type="Texture2D" uid="uid://dkor6bvol7l52" path="res://Scenes/Town/Environments/cloudnoise.tres" id="12_vynxg"]
 [ext_resource type="PackedScene" uid="uid://dtc7q36iofnv7" path="res://Assets/Models/Town/van.blend" id="13_tq6eu"]
+[ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scenes/BaseGame/interactable3D.gd" id="13_x7vkr"]
 [ext_resource type="Script" uid="uid://coji4uh3esqdw" path="res://Scenes/BaseGame/3d_audio_player.gd" id="14_vynxg"]
 [ext_resource type="PackedScene" uid="uid://dpil3r33glvff" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight.tscn" id="15_6tcxb"]
 [ext_resource type="PackedScene" uid="uid://chnq7t4lwp8ox" path="res://Assets/Models/CarScene/mercury_car.blend" id="16_7u7xk"]
 [ext_resource type="PackedScene" uid="uid://ir67f35r3ve" path="res://Scenes/CarScene/tunnel_entrance.tscn" id="17_sobs7"]
 [ext_resource type="PackedScene" uid="uid://dvq4nbyckc1vw" path="res://Scenes/CarScene/car_crash.tscn" id="18_85213"]
 [ext_resource type="PackedScene" uid="uid://dksx5uvb12k8l" path="res://Scenes/CarScene/eyes_particle.tscn" id="19_rb1nm"]
+[ext_resource type="Script" uid="uid://di7lufebwfcmf" path="res://addons/scene_map/scene_map.gd" id="20_rhhvu"]
+[ext_resource type="Resource" uid="uid://dhuw0can50myx" path="res://Scenes/Tunnels/tunnel_pieces.tres" id="21_x7vkr"]
+[ext_resource type="PackedScene" uid="uid://blbuovbjs4w10" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3way_inverted.tscn" id="22_8wlx2"]
+[ext_resource type="PackedScene" uid="uid://bvwtn5mxfpl3j" path="res://Scenes/Tunnels/TunnelPieces/tunnel_end_nopipes.tscn" id="23_n5mlp"]
+[ext_resource type="PackedScene" uid="uid://ckb4tfafsfe7t" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_left.tscn" id="24_sv4hj"]
+[ext_resource type="PackedScene" uid="uid://bh1mx8k3yra4s" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_alternate.tscn" id="25_umqsn"]
+[ext_resource type="PackedScene" uid="uid://yex1uru8u1yt" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_alternate_alternate.tscn" id="26_wwmvh"]
+[ext_resource type="PackedScene" uid="uid://ci1oxcvv4eydj" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_transition_inverted.tscn" id="27_2v8wu"]
+[ext_resource type="PackedScene" uid="uid://bn4vl6pot1iq2" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_flat_nopipes.tscn" id="28_pdvuk"]
+[ext_resource type="PackedScene" uid="uid://crp308iw86wrk" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3_way_flat_flat.tscn" id="29_iafet"]
+[ext_resource type="PackedScene" uid="uid://rgqe5jb37umy" path="res://Scenes/Tunnels/TunnelPieces/tunnel_end_flat_nopipes.tscn" id="30_aswfo"]
+[ext_resource type="PackedScene" uid="uid://d0d5e18qsn8ex" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3_way_alternate.tscn" id="31_ssoj0"]
+[ext_resource type="PackedScene" uid="uid://dsudbjeywuxfj" path="res://Scenes/Tunnels/TunnelPieces/tunnel_end.tscn" id="32_ksmga"]
+[ext_resource type="PackedScene" uid="uid://brppa7xhmcnrh" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_transition.tscn" id="33_wbmsw"]
+[ext_resource type="PackedScene" uid="uid://bivce7ch4us4i" path="res://Scenes/Tunnels/TunnelPieces/tunnel_4way.tscn" id="34_t51k1"]
+[ext_resource type="PackedScene" uid="uid://b625ss2gc7lde" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_alt_right_nopipes.tscn" id="35_ijkrh"]
+[ext_resource type="PackedScene" uid="uid://c4venk7bqvwyr" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_nopipes.tscn" id="36_ygru4"]
+[ext_resource type="PackedScene" uid="uid://cxsdeawm8bsfx" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3way.tscn" id="37_7dsyp"]
+[ext_resource type="PackedScene" uid="uid://cojyw0pvmmggy" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_alt_left_nopipes.tscn" id="39_y6kqk"]
+[ext_resource type="PackedScene" uid="uid://diqijucylb5l1" path="res://Scenes/CarScene/crate_blockers.tscn" id="41_8wlx2"]
 
 [sub_resource type="Curve" id="Curve_bordy"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.137725, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.709949), 0.0, 0.0, 0, 0]
@@ -93,6 +114,18 @@ zones = Array[ZoneResource]([SubResource("ZoneResource_uf747")])
 [sub_resource type="BoxMesh" id="BoxMesh_8s5l4"]
 size = Vector3(1, 2, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2d2xd"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.51
+
+[sub_resource type="BoxMesh" id="BoxMesh_fodyg"]
+material = SubResource("StandardMaterial3D_2d2xd")
+size = Vector3(2.738, 5.159, 4.462)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8wlx2"]
+size = Vector3(3.6116333, 6.0907593, 4.314087)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fodyg"]
 cull_mode = 1
 shading_mode = 0
@@ -134,13 +167,13 @@ size = Vector3(1, 3.4258423, 2.440918)
 
 [sub_resource type="Curve3D" id="Curve3D_85213"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 3.7949939, 4.4663544, 10.071548, 0, 0, 0, 0, 0, 0, 18.736387, 1.4795263, 5.1397104, 0, 0, 0, 0, 0, 0, 45.69652, 1.4766803, 4.8948393),
-"tilts": PackedFloat32Array(0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 3.7949939, 4.4663544, 10.071548, 0, 0, 0, 0, 0, 0, 18.736387, 1.4795263, 5.1397104, 0, 0, 0, 0, 0, 0, 47.947044, 1.4766803, 4.8948393, 0, 0, 0, 0, 0, 0, 47.67428, 1.4551615, 1.0223277, 0, 0, 0, 0, 0, 0, 69.91293, 1.1586164, 0.67773604, 0, 0, 0, 0, 0, 0, 70.033325, 0.9121798, 11.024152, 0, 0, 0, 0, 0, 0, 97.96377, 1.0406765, 11.115687, 0, 0, 0, 0, 0, 0, 98.30491, 1.042246, 20.311277, 0, 0, 0, 0, 0, 0, 107.79174, 1.0858909, 20.717407, 0, 0, 0, 0, 0, 0, 107.912346, 1.0864458, 11.002117, 0, 0, 0, 0, 0, 0, 108.16937, 0.8167147, -2.0846958, 0, 0, 0, 0, 0, 0, 114.999466, 0.8698272, -1.7779248, 0, 0, 0, 0, 0, 0, 114.95198, 1.1407979, 5.083159, 0, 0, 0, 0, 0, 0, 148.18443, 1.3200088, 4.839465),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 3
+point_count = 14
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ue6wd"]
-size = Vector3(14.819672, 15.614948, 13.795845)
+[sub_resource type="SphereShape3D" id="SphereShape3D_x7vkr"]
+radius = 3.072
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4qn5"]
 shading_mode = 0
@@ -177,6 +210,10 @@ car_crash_audio_player = NodePath("Car/CarCrash")
 car_speed = 15.0
 horn_time = 3.0
 crash_time = 1.0
+chase_speed = 7.5
+
+[node name="Eyes" parent="." unique_id=1812325354 instance=ExtResource("19_rb1nm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -51.18493, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=190132687]
 environment = SubResource("Environment_8s5l4")
@@ -209,6 +246,23 @@ mesh = SubResource("BoxMesh_8s5l4")
 [node name="rocks on a montion" parent="." unique_id=287664929 instance=ExtResource("8_dc150")]
 transform = Transform3D(8.602264, 0, -12.469692, 0, 15.149, 0, 12.469692, 0, 8.602264, 0, 0, 0)
 metadata/_edit_lock_ = true
+
+[node name="ChaseEnd" type="Node3D" parent="." unique_id=1757818272]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 144.44273, 1.4688449, 4.559437)
+
+[node name="Light" type="MeshInstance3D" parent="ChaseEnd" unique_id=608879551]
+mesh = SubResource("BoxMesh_fodyg")
+
+[node name="TunnelEndPortal" type="Area3D" parent="ChaseEnd" unique_id=1717215189 groups=["Interactables"]]
+collision_layer = 0
+script = ExtResource("13_x7vkr")
+switch_scenes = true
+target_scene = "childhood_home"
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChaseEnd/TunnelEndPortal" unique_id=686604004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.490448, -0.7281189, 0.03643799)
+shape = SubResource("BoxShape3D_8wlx2")
 
 [node name="Fall" type="MeshInstance3D" parent="." unique_id=1723666605]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 84.12952, 0)
@@ -401,10 +455,11 @@ omni_attenuation = -0.474
 omni_shadow_mode = 0
 
 [node name="Catcher" type="Area3D" parent="ChasePath/ChaseMonster" unique_id=380501693]
+transform = Transform3D(1, 0, -4.440892e-16, 6.9388873e-18, 1, -8.881784e-16, -4.440892e-16, 0, 1, 0, 0, -3.6455154)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChasePath/ChaseMonster/Catcher" unique_id=888302173]
-transform = Transform3D(1, 0, -9.809931e-13, 6.9315816e-18, 1, -1.9619861e-12, -9.809931e-13, 0, 1, -1.5276499, 1.1286259, 0.64694977)
-shape = SubResource("BoxShape3D_ue6wd")
+transform = Transform3D(1, 0, -9.818812e-13, 6.9315684e-18, 1, -1.9637625e-12, -9.818812e-13, 0, 1, 0.018235683, -0.005153656, 1.0064697)
+shape = SubResource("SphereShape3D_x7vkr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ChasePath/ChaseMonster" unique_id=1641667656]
 transform = Transform3D(1, 0, -4.440892e-16, 6.9388873e-18, 0.62293434, -8.881784e-16, -4.440892e-16, 0, 1, 0, 0, 0)
@@ -417,7 +472,7 @@ mesh = SubResource("SphereMesh_85213")
 [node name="Particles" type="Node3D" parent="." unique_id=757079571]
 visible = false
 
-[node name="Eyes" parent="Particles" unique_id=1812325354 instance=ExtResource("19_rb1nm")]
+[node name="Eyes" parent="Particles" unique_id=56784622 instance=ExtResource("19_rb1nm")]
 transform = Transform3D(0.9180654, 0, -0.39642882, 0, 1, 0, 0.39642882, 0, 0.9180654, 14.505163, 7.520563, -3.3291903)
 
 [node name="Eyes2" parent="Particles" unique_id=1917313778 instance=ExtResource("19_rb1nm")]
@@ -438,6 +493,188 @@ transform = Transform3D(-0.99878585, 0, 0.04926613, 0, 1, 0, -0.04926613, 0, -0.
 [node name="Eyes7" parent="Particles" unique_id=1107895759 instance=ExtResource("19_rb1nm")]
 transform = Transform3D(-0.88948804, 0, -0.4569589, 0, 1, 0, 0.4569589, 0, -0.88948804, 15.637747, 7.520561, 15.825544)
 
+[node name="SceneMap" type="Node3D" parent="." unique_id=734992678]
+script = ExtResource("20_rhhvu")
+palette = ExtResource("21_x7vkr")
+layers/0/size = Vector3(1, 1, 1)
+layers/0/center_x = false
+layers/0/center_y = false
+layers/0/center_z = false
+layers/0/cell_map = null
+metadata/_custom_type_script = "uid://di7lufebwfcmf"
+
+[node name="3way Inverted" parent="SceneMap" unique_id=240352293 instance=ExtResource("22_8wlx2")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 47, 0, 4)
+
+[node name="End No Pipes" parent="SceneMap" unique_id=2018825738 instance=ExtResource("23_n5mlp")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 48, 0, 8)
+
+[node name="Corner Left" parent="SceneMap" unique_id=277078611 instance=ExtResource("24_sv4hj")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 49, 0, 1)
+
+[node name="Straight Alternate" parent="SceneMap" unique_id=1833354669 instance=ExtResource("25_umqsn")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 51, 0, 1)
+
+[node name="Straight" parent="SceneMap" unique_id=1031063180 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 54, 0, 1)
+
+[node name="Straight Alt Alternate" parent="SceneMap" unique_id=777350671 instance=ExtResource("26_wwmvh")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 57, 0, 1)
+
+[node name="Transition Inverted" parent="SceneMap" unique_id=838958278 instance=ExtResource("27_2v8wu")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 61, 0, 1)
+
+[node name="Straight Flat" parent="SceneMap" unique_id=590109436 instance=ExtResource("28_pdvuk")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 63, 0, 1)
+
+[node name="Straight Flat2" parent="SceneMap" unique_id=322343897 instance=ExtResource("28_pdvuk")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 66, 0, 1)
+
+[node name="3way Flat" parent="SceneMap" unique_id=439857808 instance=ExtResource("29_iafet")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 69, 0, 1)
+
+[node name="End Flat" parent="SceneMap" unique_id=2074624934 instance=ExtResource("30_aswfo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, -2)
+
+[node name="3way Alt" parent="SceneMap" unique_id=180718575 instance=ExtResource("31_ssoj0")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 69, 0, 10)
+
+[node name="Straight Flat3" parent="SceneMap" unique_id=1005843760 instance=ExtResource("28_pdvuk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 5)
+
+[node name="Straight Flat4" parent="SceneMap" unique_id=1618671311 instance=ExtResource("28_pdvuk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, 8)
+
+[node name="End" parent="SceneMap" unique_id=59707291 instance=ExtResource("32_ksmga")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 67, 0, 11)
+
+[node name="Straight2" parent="SceneMap" unique_id=1828278153 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 74, 0, 11)
+
+[node name="Straight3" parent="SceneMap" unique_id=1654898442 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 80, 0, 11)
+
+[node name="Straight4" parent="SceneMap" unique_id=696990006 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 83, 0, 11)
+
+[node name="Transition" parent="SceneMap" unique_id=1661666753 instance=ExtResource("33_wbmsw")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 85, 0, 11)
+
+[node name="Transition Inverted2" parent="SceneMap" unique_id=1196961744 instance=ExtResource("27_2v8wu")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 94, 0, 11)
+
+[node name="Straight Flat5" parent="SceneMap" unique_id=623124148 instance=ExtResource("28_pdvuk")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 89, 0, 11)
+
+[node name="Straight Flat6" parent="SceneMap" unique_id=2129776913 instance=ExtResource("28_pdvuk")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 92, 0, 11)
+
+[node name="4way" parent="SceneMap" unique_id=1386409712 instance=ExtResource("34_t51k1")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 97, 0, 10)
+
+[node name="End No Pipes2" parent="SceneMap" unique_id=1573977227 instance=ExtResource("23_n5mlp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 8)
+
+[node name="Straight Flat7" parent="SceneMap" unique_id=1481752358 instance=ExtResource("28_pdvuk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 15)
+
+[node name="Straight Flat8" parent="SceneMap" unique_id=416445122 instance=ExtResource("28_pdvuk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 18)
+
+[node name="Corner Alt Right No Pipes" parent="SceneMap" unique_id=1291716187 instance=ExtResource("35_ijkrh")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 99, 0, 21)
+
+[node name="Straight No Pipes" parent="SceneMap" unique_id=95173716 instance=ExtResource("36_ygru4")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 102, 0, 21)
+
+[node name="Straight No Pipes2" parent="SceneMap" unique_id=2132432382 instance=ExtResource("36_ygru4")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 105, 0, 21)
+
+[node name="Straight5" parent="SceneMap" unique_id=2047688606 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 102, 0, 11)
+
+[node name="Straight6" parent="SceneMap" unique_id=848404905 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 105, 0, 11)
+
+[node name="3way" parent="SceneMap" unique_id=2138537928 instance=ExtResource("37_7dsyp")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 107, 0, 10)
+
+[node name="Straight Flat9" parent="SceneMap" unique_id=618884852 instance=ExtResource("28_pdvuk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 108, 0, 17)
+
+[node name="Straight Flat10" parent="SceneMap" unique_id=297108681 instance=ExtResource("28_pdvuk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 108, 0, 14)
+
+[node name="Straight Flat11" parent="SceneMap" unique_id=1436982593 instance=ExtResource("28_pdvuk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 108, 0, 7)
+
+[node name="Straight Flat12" parent="SceneMap" unique_id=1484515760 instance=ExtResource("28_pdvuk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 108, 0, 4)
+
+[node name="End2" parent="SceneMap" unique_id=230813559 instance=ExtResource("32_ksmga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108, 0, -8)
+
+[node name="Straight Flat14" parent="SceneMap" unique_id=123864139 instance=ExtResource("28_pdvuk")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 111, 0, -2)
+
+[node name="Corner Alt Left No Pipes" parent="SceneMap" unique_id=331755598 instance=ExtResource("39_y6kqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115, 0, -1)
+
+[node name="Straight No Pipes3" parent="SceneMap" unique_id=756908803 instance=ExtResource("36_ygru4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115, 0, 2)
+
+[node name="Corner Alt Right No Pipes2" parent="SceneMap" unique_id=50859728 instance=ExtResource("35_ijkrh")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 116, 0, 5)
+
+[node name="Straight No Pipes4" parent="SceneMap" unique_id=1883477650 instance=ExtResource("36_ygru4")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 119, 0, 5)
+
+[node name="Straight No Pipes5" parent="SceneMap" unique_id=622732873 instance=ExtResource("36_ygru4")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 122, 0, 5)
+
+[node name="4way2" parent="SceneMap" unique_id=1915321149 instance=ExtResource("34_t51k1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109, 0, -3)
+
+[node name="Transition2" parent="SceneMap" unique_id=621599580 instance=ExtResource("33_wbmsw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108, 0, 1)
+
+[node name="Straight7" parent="SceneMap" unique_id=2133671532 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108, 0, -5)
+
+[node name="End Flat2" parent="SceneMap" unique_id=831968952 instance=ExtResource("30_aswfo")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 105, 0, -2)
+
+[node name="Straight No Pipes6" parent="SceneMap" unique_id=1016813045 instance=ExtResource("36_ygru4")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 125, 0, 5)
+
+[node name="Straight No Pipes7" parent="SceneMap" unique_id=1705799256 instance=ExtResource("36_ygru4")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 128, 0, 5)
+
+[node name="Transition Inverted3" parent="SceneMap" unique_id=1305676480 instance=ExtResource("27_2v8wu")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 130, 0, 5)
+
+[node name="Straight8" parent="SceneMap" unique_id=384826454 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 134, 0, 5)
+
+[node name="Straight9" parent="SceneMap" unique_id=52227803 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 137, 0, 5)
+
+[node name="Straight10" parent="SceneMap" unique_id=932541336 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 140, 0, 5)
+
+[node name="Straight11" parent="SceneMap" unique_id=1620728728 instance=ExtResource("15_6tcxb")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 143, 0, 5)
+
+[node name="Crates" parent="SceneMap" unique_id=3406670 instance=ExtResource("41_8wlx2")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 103, 0, 11)
+
+[node name="Straight Alternate2" parent="SceneMap" unique_id=747380172 instance=ExtResource("25_umqsn")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 77, 0, 11)
+
+[node name="Corner Alt Left No Pipes2" parent="SceneMap" unique_id=8971075 instance=ExtResource("39_y6kqk")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 107, 0, 21)
+
+[connection signal="body_entered" from="ChaseEnd/TunnelEndPortal" to="ChaseEnd/TunnelEndPortal" method="trigger_on_body_entered"]
 [connection signal="body_entered" from="Fall/FallDetector" to="." method="_on_player_fall" unbinds=1]
 [connection signal="body_entered" from="Fall/FallDetector" to="Fall" method="hide" unbinds=1]
 [connection signal="body_entered" from="Tunnels/FogTrigger" to="." method="_on_fog_trigger_body_entered"]

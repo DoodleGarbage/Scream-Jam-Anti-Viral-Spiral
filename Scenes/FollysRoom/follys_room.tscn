@@ -35,6 +35,8 @@
 [ext_resource type="Resource" uid="uid://cios6aui2q2fv" path="res://Assets/Dialogue/letter.dialogue" id="22_n8lqq"]
 [ext_resource type="Resource" uid="uid://b5vmeyf4f2sl8" path="res://Assets/Dialogue/mirror.dialogue" id="31_rxs4m"]
 [ext_resource type="PackedScene" uid="uid://bvmmhr7uqnuy5" path="res://Scenes/HermitsHouse/broken_window.tscn" id="35_ce2pt"]
+[ext_resource type="PackedScene" uid="uid://tytejeys06he" path="res://Assets/Models/Tunnels/TunnelPieces/flower.blend" id="36_0ggnf"]
+[ext_resource type="PackedScene" uid="uid://b1anq0rnn2xqc" path="res://Scenes/FollysRoom/wakeup.tscn" id="36_etxdt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ldkbt"]
 sky_top_color = Color(0.0006620584, 0.06663098, 0.009669079, 1)
@@ -226,15 +228,18 @@ size = Vector3(0.336, 3.679, 16.375)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qktnr"]
 size = Vector3(4.082, 2.903, 0.126)
 
-[node name="FollysRoom" type="Node3D" unique_id=1720987390 node_paths=PackedStringArray("childhood_door", "broken_window", "replaced_window", "break_the_cycle", "front_door", "blackout_screen", "wakeup_notice", "alarm_player", "loading_point", "wakeup_point", "childhood_point")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_c4qn5"]
+
+[node name="FollysRoom" type="Node3D" unique_id=1720987390 node_paths=PackedStringArray("flower", "flower_interactable", "childhood_door", "broken_window", "replaced_window", "break_the_cycle", "front_door", "wakeup_node", "alarm_player", "loading_point", "wakeup_point", "childhood_point")]
 script = ExtResource("1_65x00")
+flower = NodePath("Flower")
+flower_interactable = NodePath("Flower/GoToDorms")
 childhood_door = NodePath("ChildhoodSpawn")
 broken_window = NodePath("Windows/BrokenWindow")
 replaced_window = NodePath("Windows/Window6")
 break_the_cycle = NodePath("Windows/BrokenWindow/BreakTheCycle")
 front_door = NodePath("door/FrontDoor")
-blackout_screen = NodePath("Wakeup/Control/ColorRect")
-wakeup_notice = NodePath("Wakeup/Control/WakeupNotice")
+wakeup_node = NodePath("Wakeup")
 alarm_player = NodePath("Furniture/nightstand/alarmclock/Alarm")
 loading_point = NodePath("SpawnPoint")
 wakeup_point = NodePath("WakeUp")
@@ -705,43 +710,29 @@ monitoring = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7797017, -0.20889378, 0)
 shape = SubResource("BoxShape3D_qktnr")
 
-[node name="Wakeup" type="CanvasLayer" parent="." unique_id=813656607]
-
-[node name="Control" type="Control" parent="Wakeup" unique_id=1654153707]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="Wakeup/Control" unique_id=174031669]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="WakeupNotice" type="Label" parent="Wakeup/Control" unique_id=139032026]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 28
-text = "Press 'E' to wake up."
+[node name="Wakeup" parent="." unique_id=1755092610 instance=ExtResource("36_etxdt")]
 
 [node name="childhood_door" parent="." unique_id=851363931 instance=ExtResource("2_fyksx")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.4495044, 1.0851191, -1.0198104)
+
+[node name="Flower" type="Node3D" parent="." unique_id=252457292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7369417, 0, 0)
+visible = false
+
+[node name="flower" parent="Flower" unique_id=1701516114 instance=ExtResource("36_0ggnf")]
+
+[node name="GoToDorms" type="Area3D" parent="Flower" unique_id=548256792 groups=["Interactables"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7027718, 0)
+collision_layer = 2
+monitorable = false
+script = ExtResource("19_65x00")
+desc = "Forgive Yourself?"
+switch_scenes = true
+target_scene = "dorm"
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flower/GoToDorms" unique_id=78213615]
+shape = SubResource("BoxShape3D_c4qn5")
 
 [connection signal="triggered" from="Furniture/bathroomsink/WashUp" to="Furniture/bathroomsink/WashUp" method="queue_free"]
 

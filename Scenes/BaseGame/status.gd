@@ -12,6 +12,10 @@ var loading : bool = false
 var current_day : int = 1
 var current_day_string : String :
 	get:
+		if in_recovery:
+			if work_complete:
+				return "recoverynight"
+			return "recovery"
 		if game_node.current_scene == "car_scene":
 			return "crash"
 		if current_day > 3:
@@ -60,6 +64,7 @@ var base_flicker_chance : float = 0.2
 
 var completed_childhood : bool = false
 
+var in_recovery : bool = false
 
 func pickup_book(index:int, material:Material, title:String="") -> bool:
 	if holding_book:
@@ -73,7 +78,7 @@ func pickup_book(index:int, material:Material, title:String="") -> bool:
 	return true
 
 func collect_book(book_index:int) -> bool:
-	if not (holding_book == true and held_book_index == book_index):
+	if holding_book == false or held_book_index != book_index:
 		return false
 	holding_book = false
 	held_book_index = -1

@@ -38,7 +38,7 @@ func switch_scene(scene:String) -> void:
 	var scene_folder : String = ""
 	match(scene):
 		"follys_room": scene_folder = "FollysRoom/"
-		"library": scene_folder = "Library/"
+		"library", "library_room": scene_folder = "Library/"
 		"3d_game", "town": scene_folder = "Town/"
 		"tunnels": scene_folder = "Tunnels/"
 		"hermits_house": scene_folder = "HermitsHouse/"
@@ -84,9 +84,7 @@ func _execute_scene_switch(loaded_scene:Node) -> void:
 	next_scene_name = ""
 	next_scene = null
 	Status.loading = false
-	#print("Character position on final load: ", character.position)
-	await get_tree().create_timer(1.0).timeout
-	#print("Character position 1.0 seconds later: ", character.position)
+	character.velocity = Vector3(0,0,0)
 
 #func re_enable_character() -> void:
 	#character.process_mode = Node.PROCESS_MODE_INHERIT

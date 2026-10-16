@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dgtbfdkc6xs5x" path="res://Assets/Models/FollysRoom/nightstand.blend" id="6_ra8o6"]
 [ext_resource type="PackedScene" uid="uid://bkogvqh1jfhiv" path="res://Assets/Models/Town/door.blend" id="7_bpwna"]
 [ext_resource type="PackedScene" uid="uid://40d8mpbb4q0" path="res://Assets/Models/FollysRoom/table.blend" id="8_actdu"]
+[ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scenes/BaseGame/interactable3D.gd" id="9_s2w8k"]
+[ext_resource type="PackedScene" uid="uid://b1anq0rnn2xqc" path="res://Scenes/FollysRoom/wakeup.tscn" id="10_q8ood"]
+[ext_resource type="Script" uid="uid://coji4uh3esqdw" path="res://Scenes/BaseGame/3d_audio_player.gd" id="11_2f3xy"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8s5l4"]
 size = Vector2(5, 6)
@@ -54,9 +57,14 @@ background_mode = 1
 background_color = Color(0.4416, 0.62376, 0.69, 1)
 ambient_light_color = Color(1, 1, 1, 1)
 
-[node name="Dorm" type="Node3D" unique_id=2000272881 node_paths=PackedStringArray("wake_point")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_fodyg"]
+size = Vector3(0.32318115, 2.1425781, 1)
+
+[node name="Dorm" type="Node3D" unique_id=2000272881 node_paths=PackedStringArray("wake_point", "wakeup_scene", "alarm_player")]
 script = ExtResource("1_885ks")
 wake_point = NodePath("WakeUp")
+wakeup_scene = NodePath("Wakeup")
+alarm_player = NodePath("Alarm")
 
 [node name="WakeUp" type="Node3D" parent="." unique_id=1173852454]
 transform = Transform3D(0.8796459, 0, 0.47562933, 0, 1, 0, -0.47562933, 0, 0.8796459, 0.72658503, 0, 1.1570863)
@@ -117,9 +125,6 @@ mesh = SubResource("BoxMesh_qdoxa")
 [node name="nightstand" parent="Layout" unique_id=1035583822 instance=ExtResource("6_ra8o6")]
 transform = Transform3D(0.32301605, 0, 0.9463935, 0, 1, 0, -0.9463935, 0, 0.32301605, -1.1011091, 0.22763741, -6.379573)
 
-[node name="door" parent="Layout" unique_id=851363931 instance=ExtResource("7_bpwna")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.0999999, -7)
-
 [node name="table" parent="Layout" unique_id=995953688 instance=ExtResource("8_actdu")]
 transform = Transform3D(0.6942386, 0, 0, 0, 1, 0, 0, 0, 1.7980664, -1.3713818, 0.4020424, 1.1780645)
 
@@ -178,3 +183,25 @@ environment = SubResource("Environment_8s5l4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=514984600]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="door" parent="." unique_id=851363931 instance=ExtResource("7_bpwna")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.0999999, -7)
+
+[node name="Life" type="Area3D" parent="door" unique_id=986554520]
+collision_layer = 2
+script = ExtResource("9_s2w8k")
+desc = "Get your life back on track?"
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/Life" unique_id=1258550311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003326416, -0.07714844, 0)
+shape = SubResource("BoxShape3D_fodyg")
+
+[node name="Wakeup" parent="." unique_id=1755092610 instance=ExtResource("10_q8ood")]
+
+[node name="Alarm" type="AudioStreamPlayer3D" parent="." unique_id=1326739060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.279834, 1.0185142, 1.7235404)
+script = ExtResource("11_2f3xy")
+metadata/_custom_type_script = "uid://coji4uh3esqdw"
+
+[connection signal="triggered" from="door/Life" to="." method="get_your_life_back_on_track"]

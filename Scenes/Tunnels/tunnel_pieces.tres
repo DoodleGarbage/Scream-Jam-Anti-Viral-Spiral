@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://clcbgjy56e6u6" path="res://Scenes/Tunnels/TunnelPieces/tunnel_4way_nopipes.tscn" id="28_3qpqy"]
 [ext_resource type="PackedScene" uid="uid://uiurmt1iqiqh" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3_way_alternate_nopipes.tscn" id="29_2vxav"]
 [ext_resource type="PackedScene" uid="uid://crp308iw86wrk" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3_way_flat_flat.tscn" id="30_5l4ij"]
+[ext_resource type="PackedScene" uid="uid://diqijucylb5l1" path="res://Scenes/CarScene/crate_blockers.tscn" id="33_p5jrf"]
 
 [sub_resource type="Resource" id="Resource_ehnqy"]
 script = ExtResource("1_wpj0f")
@@ -226,8 +227,14 @@ name = "4way No Pipes"
 scene = ExtResource("28_3qpqy")
 metadata/_custom_type_script = "uid://cuobj06kp8x5k"
 
+[sub_resource type="Resource" id="Resource_0triw"]
+script = ExtResource("1_wpj0f")
+name = "Crates"
+scene = ExtResource("33_p5jrf")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
 [resource]
 resource_name = "ScenePalette"
 script = ExtResource("2_k3hu6")
-item_map = Array[ExtResource("1_wpj0f")]([SubResource("Resource_ehnqy"), SubResource("Resource_lste2"), SubResource("Resource_727i0"), SubResource("Resource_uubf7"), SubResource("Resource_6bkxu"), SubResource("Resource_lul2i"), SubResource("Resource_34hc2"), SubResource("Resource_tvxaw"), SubResource("Resource_gye08"), SubResource("Resource_002dh"), SubResource("Resource_n33ir"), SubResource("Resource_xaoxr"), SubResource("Resource_08vyi"), SubResource("Resource_gacx6"), SubResource("Resource_x206m"), SubResource("Resource_oi4tf"), SubResource("Resource_5y880"), SubResource("Resource_eh46w"), SubResource("Resource_ag7t4"), SubResource("Resource_xc2jj"), SubResource("Resource_07ulk"), SubResource("Resource_nye4e"), SubResource("Resource_xwhsk"), SubResource("Resource_6cf85"), SubResource("Resource_6q5jt"), SubResource("Resource_irykk"), SubResource("Resource_4ic01"), SubResource("Resource_o25b3"), SubResource("Resource_a6bjq"), SubResource("Resource_702hw"), SubResource("Resource_d7yft"), SubResource("Resource_7q24m")])
+item_map = Array[ExtResource("1_wpj0f")]([SubResource("Resource_ehnqy"), SubResource("Resource_lste2"), SubResource("Resource_727i0"), SubResource("Resource_uubf7"), SubResource("Resource_6bkxu"), SubResource("Resource_lul2i"), SubResource("Resource_34hc2"), SubResource("Resource_tvxaw"), SubResource("Resource_gye08"), SubResource("Resource_002dh"), SubResource("Resource_n33ir"), SubResource("Resource_xaoxr"), SubResource("Resource_08vyi"), SubResource("Resource_gacx6"), SubResource("Resource_x206m"), SubResource("Resource_oi4tf"), SubResource("Resource_5y880"), SubResource("Resource_eh46w"), SubResource("Resource_ag7t4"), SubResource("Resource_xc2jj"), SubResource("Resource_07ulk"), SubResource("Resource_nye4e"), SubResource("Resource_xwhsk"), SubResource("Resource_6cf85"), SubResource("Resource_6q5jt"), SubResource("Resource_irykk"), SubResource("Resource_4ic01"), SubResource("Resource_o25b3"), SubResource("Resource_a6bjq"), SubResource("Resource_702hw"), SubResource("Resource_d7yft"), SubResource("Resource_7q24m"), SubResource("Resource_0triw")])
 metadata/_custom_type_script = "uid://bq7wpgx4ixfcq"

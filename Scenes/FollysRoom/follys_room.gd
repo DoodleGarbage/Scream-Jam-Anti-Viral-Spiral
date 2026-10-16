@@ -2,6 +2,10 @@ extends Scene
 
 #@export var character : Node3D
 
+@export_group("Recovery")
+@export var flower : Node3D
+@export var flower_interactable : Interactable3D
+
 @export_group("Childhood Sequence")
 @export var childhood_door : Node3D
 @export var broken_window : Node3D
@@ -10,8 +14,9 @@ extends Scene
 @export var front_door : Interactable3D
 
 @export_group("Wakeup Sequence")
-@export var blackout_screen : ColorRect
-@export var wakeup_notice : Control
+#@export var blackout_screen : ColorRect
+#@export var wakeup_notice : Control
+@export var wakeup_node : Node
 @export var alarm_player : AudioStreamPlayer3D
 #@export var alarm_sound : AudioStreamPlayer3D
 #@export var alarm_clunk : AudioStreamPlayer3D
@@ -36,26 +41,14 @@ func loaded(_last_scene:String) -> void:
 		waking = true
 		Audio.play("alarm_sound", alarm_player)
 		spawn_pos = wakeup_point
+	if Status.in_recovery:
+		flower.show()
+		flower_interactable.monitorable = true
+		$Furniture/bed/Sleep.monitorable = false
+		spawn_pos = loading_point
 	if not waking:
 		Audio.play("someplace_calm", null, true)
-		blackout_screen.hide()
-		wakeup_notice.hide()
+		wakeup_node.close_wakeup()
 	if Status.work_complete:
-		$door/Interactable3D.monitorable = false
+		$door/FrontDoor.monitorable = false
 	Status.position_character(spawn_pos, character)
-
-func _process(delta: float) -> void:
-	if Status.waking_up:
-		wakeup_notice.hide()
-		blackout_screen.color.a -= delta / 5
-		if blackout_screen.color.a <= 0.05:
-			blackout_screen.hide()
-			Status.waking_up = false
-
-func _input(_event: InputEvent) -> void:
-	if not Status.woke_up and Input.is_action_just_pressed("wakeup"):
-		Audio.play("alarm_clunk")
-		Audio.stop("alarm_sound")
-		Audio.play("someplace_calm", null, true)
-		Status.woke_up = true
-		Status.waking_up = true

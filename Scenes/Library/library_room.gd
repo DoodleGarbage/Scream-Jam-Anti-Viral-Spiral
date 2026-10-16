@@ -12,7 +12,7 @@ var bookshelf_titles : Array = []
 
 func loaded(_last_scene:String) -> void:
 	match(Status.current_day_string):
-		"day1":
+		"day1", "recovery":
 			Audio.play("first_day", null, true)
 		"day2":
 			Audio.play("second_day", null, true)

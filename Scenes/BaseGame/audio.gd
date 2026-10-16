@@ -56,15 +56,15 @@ func _get_stream(audio:String) -> AudioStream:
 		"second_day": return preload("res://Assets/Audio/First_Day_on_the_Job.mp3")
 		"first_day": return preload("res://Assets/Audio/First_Day_on_the_Job_with_Librarian.mp3")
 		"being_followed": return preload("res://Assets/Audio/i_am_being_followed.mp3")
-		"knock": return preload("res://Assets/Audio/knockknock.mp3")
+		"knock", "knock_loop": return preload("res://Assets/Audio/knockknock.mp3")
 		"someplace_calm": return preload("res://Assets/Audio/Someplace_Calm.mp3")
 		"hell": return preload("res://Assets/Audio/Hellscape.mp3")
 		"whatdidyoudo": return preload("res://Assets/Audio/whatdidyoudo.mp3")
 		"tunneling_through": return preload("res://Assets/Audio/Tunneling_Through.mp3")
 		"generator": return preload("res://Assets/Audio/generator.mp3")
 		"broken_generator": return preload("res://Assets/Audio/broken_generator.mp3")
-		"chase_trigger", "!?!?!?!?trigger": return preload("res://Assets/Audio/!_!_!_!_ Trigger.mp3")
-		"chase_loop", "!?!?!?!?", "!?!?!?!?loop": return preload("res://Assets/Audio/!_!_!_!_ Looping.mp3")
+		"chase_trigger", "!?!?!?!?trigger": return preload("res://Assets/Audio/ChaseProject.mp3") #preload("res://Assets/Audio/!_!_!_!_ Trigger.mp3")
+		"chase_loop", "!?!?!?!?", "!?!?!?!?loop": return preload("res://Assets/Audio/ChaseProject.mp3") #preload("res://Assets/Audio/!_!_!_!_ Looping.mp3")
 		"bridge_collapse": return preload("res://Assets/Audio/bridge_collapse.mp3")
 		"generator_glitch": return preload("res://Assets/Audio/generator_glitch.mp3")
 		"power_down": return preload("res://Assets/Audio/tunnel_power_down.mp3")
@@ -85,7 +85,7 @@ func _get_volume(audio:String) -> float:
 		"whatdidyoudo": mod = 16
 		"generator": mod = 24
 		"bridge_collapse": mod = 20
-		"chase_trigger","chase_loop": mod = -11
+		"chase_trigger","chase_loop": mod = 10
 		"tunneling_through": mod = -13
 		"flourescent_buzz": mod = 2
 	return mod
@@ -99,7 +99,7 @@ func play(audio: String, audio_player = null, fade_in:bool = false, fade_in_spee
 	print("Playing track: ", audio)
 	var next_track : String = ""
 	match(audio):
-		"prudent_folly","alarm_sound","library","main_menu","first_day", "second_day","being_followed","someplace_calm","hell","tunneling_through","generator","broken_generator","chase_loop", "flourescent_buzz", "tunnels_of_dread": next_track = audio
+		"prudent_folly","alarm_sound","library","main_menu","first_day", "second_day","being_followed","someplace_calm","hell","tunneling_through","generator","broken_generator","chase_loop", "flourescent_buzz", "tunnels_of_dread", "knock_loop": next_track = audio
 		"chase_trigger": next_track = "chase_loop"
 		"power_on": next_track = "generator"
 		"car_horn": next_track = "car_horn"
@@ -124,7 +124,7 @@ func stop(audio : String, fade_out:bool = false, fade_out_speed:float=default_fa
 func stop_all() -> void:
 	for player in loaded_players:
 		if player:
-			player.end_play()
+			player.end_play("", true)
 
 func stop_themes(fade:bool=true, custom_fade_speed:float = default_fade_out_speed) -> void:
 	print("Stopping all themes")
