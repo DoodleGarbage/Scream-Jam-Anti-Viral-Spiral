@@ -101,9 +101,9 @@ func trigger_effects() -> void:
 		return
 	if is_generator_piece and not Status.pickup_generator_piece(piece_id):
 		return
-	if collects_generator_pieces and not Status.held_pieces.size() > 0 and not Status.collected_pieces.size() >= 2:
+	if collects_generator_pieces and not Status.held_pieces.size() > 0:
 		return
-	else:
+	elif collects_generator_pieces:
 		Status.collect_generator_piece()
 	if is_routine and not Status.complete_routine(routine_task, audio_player):
 		return

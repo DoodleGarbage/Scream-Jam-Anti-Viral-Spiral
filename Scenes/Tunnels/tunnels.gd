@@ -2,7 +2,8 @@ extends Scene
 
 #var character : Node3D
 
-@export var flourescent_buzzer : AudioPlayer3D
+#@export var flourescent_buzzer : AudioPlayer3D
+#@export var door_twinkler : AudioPlayer3D
 @export var spawnpoint : Node3D
 
 
@@ -15,8 +16,8 @@ func loaded(_last_scene:String) -> void:
 		$Rooms/GeneratorRoom/Generator/GeneratorInteract.desc = "It's missing " + str($Rooms/GeneratorRoom/Generator.needed_pieces-Status.collected_pieces.size()) + " parts."
 
 
-func _process(_delta: float) -> void:
-	flourescent_buzzer.global_position = character.global_position + Vector3(0, 3, 0)
+#func _process(_delta: float) -> void:
+	#flourescent_buzzer.global_position = character.global_position + Vector3(0, 3, 0)
 
 
 var triggered_genny_room_audio : bool = false

@@ -74,6 +74,7 @@ func _get_stream(audio:String) -> AudioStream:
 		"car_horn": return preload("res://Assets/Audio/car_horn.mp3")
 		"car_crash": return preload("res://Assets/Audio/car_crash.mp3")
 		"tunnels_of_dread": return preload("res://Assets/Audio/Tunnels_of_Dread.mp3")
+		"wail": return preload("res://Assets/Audio/wail.mp3")
 	return null
 
 func _get_volume(audio:String) -> float:
@@ -99,7 +100,7 @@ func play(audio: String, audio_player = null, fade_in:bool = false, fade_in_spee
 	print("Playing track: ", audio)
 	var next_track : String = ""
 	match(audio):
-		"prudent_folly","alarm_sound","library","main_menu","first_day", "second_day","being_followed","someplace_calm","hell","tunneling_through","generator","broken_generator","chase_loop", "flourescent_buzz", "tunnels_of_dread", "knock_loop": next_track = audio
+		"prudent_folly","alarm_sound","library","main_menu","first_day", "second_day","being_followed","someplace_calm","hell","tunneling_through","generator","broken_generator","chase_loop", "flourescent_buzz", "tunnels_of_dread", "knock_loop", "wail": next_track = audio
 		"chase_trigger": next_track = "chase_loop"
 		"power_on": next_track = "generator"
 		"car_horn": next_track = "car_horn"

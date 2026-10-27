@@ -92,6 +92,7 @@ folder_colors={
 Interactables=""
 TunnelLight="All the lights of Tunnels"
 navigation_region="All nodes for 3D navigation"
+NavPoint=""
 
 [input]
 

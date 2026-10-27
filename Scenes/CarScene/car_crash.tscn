@@ -23,6 +23,8 @@ color_ramp = SubResource("GradientTexture1D_cp8qb")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fodyg"]
 transparency = 1
+shading_mode = 0
+disable_ambient_light = true
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("2_amflh")
 billboard_mode = 3

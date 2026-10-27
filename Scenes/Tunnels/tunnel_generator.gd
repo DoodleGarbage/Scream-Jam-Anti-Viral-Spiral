@@ -3,6 +3,7 @@ extends Node3D
 @export var closed_exit_door : Node3D
 @export var exit_door : Node3D
 @export var exit_interact : Interactable3D
+@export var exit_audio : AudioPlayer3D
 @export var audio_player : AudioPlayer3D
 ## The number of generator pieces that need to be collected
 @export var needed_pieces : int = 2
@@ -20,6 +21,7 @@ func _on_generator_interact_triggered() -> void:
 	if Status.collected_pieces.size() >= needed_pieces:
 		closed_exit_door.hide()
 		exit_door.show()
+		Audio.play("someplace_calm", exit_audio, true)
 		exit_interact.monitorable = true
 		$GeneratorInteract.collects_generator_pieces = false
 		$GeneratorInteract.desc = "It's running."

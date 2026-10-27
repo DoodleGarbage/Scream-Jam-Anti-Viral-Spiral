@@ -93,6 +93,7 @@ func collect_book(book_index:int) -> bool:
 func pickup_generator_piece(gen_piece:int) -> bool:
 	if collected_pieces.has(gen_piece) or held_pieces.has(gen_piece):
 		return false
+	print("executing")
 	game_node.character.GEN_PIECES[gen_piece-1].show()
 	held_pieces.append(gen_piece)
 	return true

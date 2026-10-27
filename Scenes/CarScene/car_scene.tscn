@@ -111,9 +111,6 @@ objectsImage = Array[Image]([ExtResource("5_uf747")])
 [sub_resource type="ZonesResource" id="ZonesResource_6ghm0"]
 zones = Array[ZoneResource]([SubResource("ZoneResource_uf747")])
 
-[sub_resource type="BoxMesh" id="BoxMesh_8s5l4"]
-size = Vector3(1, 2, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2d2xd"]
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
@@ -237,11 +234,6 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.7
 
 [node name="SpawnPoint" type="Node3D" parent="." unique_id=1928493938]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 122.69641, 0)
-
-[node name="2mcube" type="MeshInstance3D" parent="." unique_id=589002514]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.221128, 0)
-visible = false
-mesh = SubResource("BoxMesh_8s5l4")
 
 [node name="rocks on a montion" parent="." unique_id=287664929 instance=ExtResource("8_dc150")]
 transform = Transform3D(8.602264, 0, -12.469692, 0, 15.149, 0, 12.469692, 0, 8.602264, 0, 0, 0)

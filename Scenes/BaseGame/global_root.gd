@@ -64,7 +64,8 @@ func switch_scene(scene:String) -> void:
 
 
 func _execute_scene_switch(loaded_scene:Node) -> void:
-	#print("Character position post scene load: ", character.position)
+	#print("Character position post scene load: ", character.position)\
+	Audio.stop_all()
 	active_scene = loaded_scene
 	
 	character.base_speed = Status.character_base_speed
@@ -75,6 +76,7 @@ func _execute_scene_switch(loaded_scene:Node) -> void:
 	loaded_scene.ready.connect(loaded_scene.loaded.bind(current_scene))
 	#loaded_scene.ready.connect(re_enable_character)
 	add_child(loaded_scene)
+	
 	#loaded_scene.loaded(current_scene)
 	for node in get_tree().get_nodes_in_group("Interactables"):
 		node.switch_scene.connect(switch_scene)

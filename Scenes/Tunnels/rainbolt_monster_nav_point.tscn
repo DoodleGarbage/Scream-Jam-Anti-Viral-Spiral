@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://8malspj2c46b"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8s5l4"]
+
+[node name="RainboltMonsterNavPoint" type="Node3D" unique_id=536781971 groups=["NavPoint"]]
+
+[node name="VisualIndicator" type="MeshInstance3D" parent="." unique_id=711353155]
+mesh = SubResource("BoxMesh_8s5l4")

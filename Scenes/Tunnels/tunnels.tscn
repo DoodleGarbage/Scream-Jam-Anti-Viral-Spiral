@@ -23,7 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://bn4vl6pot1iq2" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_flat_nopipes.tscn" id="20_x6y1y"]
 [ext_resource type="PackedScene" uid="uid://u8twu4v7ch84" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_1m_flat_nopipe.tscn" id="22_4ic01"]
 [ext_resource type="PackedScene" uid="uid://c4venk7bqvwyr" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_nopipes.tscn" id="23_0qju2"]
+[ext_resource type="Script" uid="uid://cuobj06kp8x5k" path="res://addons/scene_map/scene_item.gd" id="23_wc4ap"]
+[ext_resource type="PackedScene" uid="uid://8malspj2c46b" path="res://Scenes/Tunnels/rainbolt_monster_nav_point.tscn" id="24_0pet3"]
 [ext_resource type="PackedScene" uid="uid://cojyw0pvmmggy" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_alt_left_nopipes.tscn" id="24_xwhsk"]
+[ext_resource type="Script" uid="uid://bq7wpgx4ixfcq" path="res://addons/scene_map/scene_palette.gd" id="25_74meu"]
 [ext_resource type="PackedScene" uid="uid://e2a4nocymrav" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_nopipes.tscn" id="25_o04ja"]
 [ext_resource type="PackedScene" uid="uid://brppa7xhmcnrh" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_transition.tscn" id="26_alehd"]
 [ext_resource type="PackedScene" uid="uid://bvwtn5mxfpl3j" path="res://Scenes/Tunnels/TunnelPieces/tunnel_end_nopipes.tscn" id="27_foxgr"]
@@ -124,12 +127,24 @@ size = Vector3(0.61035156, 2.2520752, 1.1226807)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ww0ml"]
 size = Vector3(9.558594, 8.766052, 10.145752)
 
-[node name="Tunnels" type="Node3D" unique_id=1426143558 node_paths=PackedStringArray("flourescent_buzzer", "spawnpoint")]
+[sub_resource type="Resource" id="Resource_c4qn5"]
+script = ExtResource("23_wc4ap")
+name = "Nav Point"
+scene = ExtResource("24_0pet3")
+metadata/_custom_type_script = "uid://cuobj06kp8x5k"
+
+[sub_resource type="Resource" id="Resource_8s5l4"]
+resource_name = "ScenePalette"
+script = ExtResource("25_74meu")
+item_map = Array[ExtResource("23_wc4ap")]([SubResource("Resource_c4qn5")])
+metadata/_custom_type_script = "uid://bq7wpgx4ixfcq"
+
+[node name="Tunnels" type="Node3D" unique_id=1426143558 node_paths=PackedStringArray("spawnpoint")]
 script = ExtResource("1_5cff0")
-flourescent_buzzer = NodePath("FlourescentBuzzer")
 spawnpoint = NodePath("SpawnTunnel/Spawnpoint")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1874719171]
+visible = false
 navigation_mesh = SubResource("NavigationMesh_8s5l4")
 metadata/_edit_lock_ = true
 
@@ -202,6 +217,9 @@ audio_player = NodePath("Chase")
 audio_player_2 = NodePath("CreepyPasta")
 navigation_agent = NodePath("NavigationAgent3D")
 speed = 6.0
+max_wander_distance = 60.0
+max_wander_target_distance = 60.0
+wander_spawn_distance = 30.0
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Raincoat" unique_id=1918703926]
 path_desired_distance = 0.5
@@ -224,6 +242,8 @@ script = ExtResource("30_o5c2d")
 metadata/_custom_type_script = "uid://coji4uh3esqdw"
 
 [node name="CreepyPasta" type="AudioStreamPlayer3D" parent="Raincoat" unique_id=1387107730]
+attenuation_model = 1
+max_distance = 20.0
 script = ExtResource("30_o5c2d")
 metadata/_custom_type_script = "uid://coji4uh3esqdw"
 
@@ -232,6 +252,12 @@ metadata/_custom_type_script = "uid://coji4uh3esqdw"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Raincoat/Catcher" unique_id=1838790844]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9737079, 0)
 shape = SubResource("CylinderShape3D_8s5l4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Raincoat" unique_id=477239991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8572812, 0)
+light_color = Color(1, 0.16000003, 0.16000003, 1)
+light_energy = 3.204
+omni_range = 7.624
 
 [node name="FlourescentBuzzer" type="AudioStreamPlayer3D" parent="." unique_id=1856810205]
 max_db = -0.025
@@ -376,12 +402,13 @@ metadata/_custom_type_script = "uid://coji4uh3esqdw"
 [node name="GeneratorRoom" parent="Rooms" unique_id=561966396 instance=ExtResource("10_6vrye")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 20, 0, 2)
 
-[node name="Generator" type="Node3D" parent="Rooms/GeneratorRoom" unique_id=476859693 node_paths=PackedStringArray("closed_exit_door", "exit_door", "exit_interact", "audio_player")]
+[node name="Generator" type="Node3D" parent="Rooms/GeneratorRoom" unique_id=476859693 node_paths=PackedStringArray("closed_exit_door", "exit_door", "exit_interact", "exit_audio", "audio_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.792788, 1)
 script = ExtResource("27_peo30")
 closed_exit_door = NodePath("../door")
 exit_door = NodePath("door_open")
 exit_interact = NodePath("../door/LeaveTunnels")
+exit_audio = NodePath("door_open/Twinkle")
 audio_player = NodePath("genny_noises")
 
 [node name="generator" parent="Rooms/GeneratorRoom/Generator" unique_id=774565413 instance=ExtResource("27_o5c2d")]
@@ -414,11 +441,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9597015, -0.66913426, 0.02
 visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Rooms/GeneratorRoom/Generator/door_open" unique_id=775902194]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4989891, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30116272, 0, 0)
 light_energy = 0.244
-light_indirect_energy = 0.0
-omni_range = 1.659
+light_indirect_energy = 2.055
+omni_range = 3.397
 omni_attenuation = 3.533
+
+[node name="Twinkle" type="AudioStreamPlayer3D" parent="Rooms/GeneratorRoom/Generator/door_open" unique_id=1311820038]
+attenuation_model = 1
+max_distance = 14.95
+script = ExtResource("30_o5c2d")
+metadata/_custom_type_script = "uid://coji4uh3esqdw"
 
 [node name="door" parent="Rooms/GeneratorRoom" unique_id=851363931 instance=ExtResource("12_0qju2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9597015, 1.1236538, 1.0285091)
@@ -447,6 +480,181 @@ shape = SubResource("BoxShape3D_fodyg")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/GeneratorRoom/EnteredGennyRoom" unique_id=1527296159]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5498047, 1.7545471, -0.04797387)
 shape = SubResource("BoxShape3D_ww0ml")
+
+[node name="NavPoints" type="Node3D" parent="." unique_id=316314101]
+script = ExtResource("41_alehd")
+palette = SubResource("Resource_8s5l4")
+layers/0/size = Vector3(1, 1, 1)
+layers/0/center_x = false
+layers/0/center_y = false
+layers/0/center_z = false
+layers/0/cell_map = null
+metadata/_custom_type_script = "uid://di7lufebwfcmf"
+
+[node name="Nav Point" parent="NavPoints" unique_id=536781971 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 1)
+
+[node name="Nav Point2" parent="NavPoints" unique_id=764440905 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -15)
+
+[node name="Nav Point3" parent="NavPoints" unique_id=1941131174 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -15)
+
+[node name="Nav Point4" parent="NavPoints" unique_id=56713625 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -24)
+
+[node name="Nav Point5" parent="NavPoints" unique_id=1634305809 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -24)
+
+[node name="Nav Point6" parent="NavPoints" unique_id=1266409456 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -24)
+
+[node name="Nav Point7" parent="NavPoints" unique_id=35470033 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -29)
+
+[node name="Nav Point8" parent="NavPoints" unique_id=1888436003 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -29)
+
+[node name="Nav Point9" parent="NavPoints" unique_id=512330447 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -34)
+
+[node name="Nav Point10" parent="NavPoints" unique_id=1835550490 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -34)
+
+[node name="Nav Point11" parent="NavPoints" unique_id=1835616582 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -42)
+
+[node name="Nav Point12" parent="NavPoints" unique_id=668097761 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -56)
+
+[node name="Nav Point13" parent="NavPoints" unique_id=2038913365 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -78)
+
+[node name="Nav Point14" parent="NavPoints" unique_id=736125093 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -67)
+
+[node name="Nav Point15" parent="NavPoints" unique_id=141111051 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -42)
+
+[node name="Nav Point16" parent="NavPoints" unique_id=1544001311 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -55)
+
+[node name="Nav Point17" parent="NavPoints" unique_id=1165929926 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -63)
+
+[node name="Nav Point18" parent="NavPoints" unique_id=673411975 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -69)
+
+[node name="Nav Point19" parent="NavPoints" unique_id=165801417 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, -54)
+
+[node name="Nav Point20" parent="NavPoints" unique_id=327628939 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, -94)
+
+[node name="Nav Point21" parent="NavPoints" unique_id=1696820730 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -85)
+
+[node name="Nav Point22" parent="NavPoints" unique_id=636184307 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -75)
+
+[node name="Nav Point23" parent="NavPoints" unique_id=1787425727 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -111)
+
+[node name="Nav Point24" parent="NavPoints" unique_id=1445088508 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -111)
+
+[node name="Nav Point25" parent="NavPoints" unique_id=1776815526 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -100)
+
+[node name="Nav Point26" parent="NavPoints" unique_id=461956654 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -92)
+
+[node name="Nav Point27" parent="NavPoints" unique_id=97566259 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 17)
+
+[node name="Nav Point28" parent="NavPoints" unique_id=1576909465 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 27)
+
+[node name="Nav Point29" parent="NavPoints" unique_id=278367756 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 27)
+
+[node name="Nav Point30" parent="NavPoints" unique_id=1125773159 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 41)
+
+[node name="Nav Point31" parent="NavPoints" unique_id=294092534 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 41)
+
+[node name="Nav Point32" parent="NavPoints" unique_id=6582510 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 39)
+
+[node name="Nav Point33" parent="NavPoints" unique_id=406615564 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 45)
+
+[node name="Nav Point34" parent="NavPoints" unique_id=1263864843 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 47)
+
+[node name="Nav Point35" parent="NavPoints" unique_id=114519984 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 47)
+
+[node name="Nav Point36" parent="NavPoints" unique_id=2139247482 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 51)
+
+[node name="Nav Point37" parent="NavPoints" unique_id=916154129 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 59)
+
+[node name="Nav Point38" parent="NavPoints" unique_id=1946529457 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 59)
+
+[node name="Nav Point39" parent="NavPoints" unique_id=1624521906 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 73)
+
+[node name="Nav Point40" parent="NavPoints" unique_id=717189390 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 66)
+
+[node name="Nav Point41" parent="NavPoints" unique_id=1019391164 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 73)
+
+[node name="Nav Point42" parent="NavPoints" unique_id=791184259 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 66)
+
+[node name="Nav Point43" parent="NavPoints" unique_id=1086516754 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 73)
+
+[node name="Nav Point44" parent="NavPoints" unique_id=59432176 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 87)
+
+[node name="Nav Point45" parent="NavPoints" unique_id=742655477 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 87)
+
+[node name="Nav Point46" parent="NavPoints" unique_id=1724949943 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 78)
+
+[node name="Nav Point47" parent="NavPoints" unique_id=1708838289 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 87)
+
+[node name="Nav Point48" parent="NavPoints" unique_id=89989308 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 66)
+
+[node name="Nav Point49" parent="NavPoints" unique_id=559680262 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 59)
+
+[node name="Nav Point50" parent="NavPoints" unique_id=1700530209 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 62)
+
+[node name="Nav Point51" parent="NavPoints" unique_id=1400305879 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 45)
+
+[node name="Nav Point52" parent="NavPoints" unique_id=1234911890 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 78)
+
+[node name="Nav Point53" parent="NavPoints" unique_id=882783086 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -85)
+
+[node name="Nav Point54" parent="NavPoints" unique_id=2049498417 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -100)
+
+[node name="Nav Point55" parent="NavPoints" unique_id=2093722528 instance=ExtResource("24_0pet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -85)
 
 [node name="Tunnels" type="Node3D" parent="." unique_id=813928593 groups=["navigation_region"]]
 script = ExtResource("41_alehd")
@@ -2024,6 +2232,7 @@ transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 10, 0, -67)
 [node name="End Flat17" parent="Tunnels" unique_id=539785084 instance=ExtResource("32_lgouv")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -6, 0, -67)
 
+[connection signal="target_reached" from="Raincoat/NavigationAgent3D" to="Raincoat" method="_target_reached"]
 [connection signal="body_entered" from="Raincoat/Catcher" to="Raincoat" method="_on_catcher_body_entered"]
 [connection signal="item_collected" from="Rooms/ItemRoom1/Item1" to="Raincoat" method="item_collected"]
 [connection signal="triggered" from="Rooms/ItemRoom1/Item1/Item1Collector" to="Rooms/ItemRoom1/Item1" method="part_collected"]
