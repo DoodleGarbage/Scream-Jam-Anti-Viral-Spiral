@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b4gmwq2oj3qp5"]
 
-[ext_resource type="Texture2D" path="res://user_interface/menus/Menu Screen Background (Day 1).png" id="1_05uyy"]
 [ext_resource type="Theme" uid="uid://b2mymlyfomh0k" path="res://Assets/UIUX/Themes/menu_theme.tres" id="2_p81d2"]
 [ext_resource type="PackedScene" uid="uid://crpr8byjjvsy1" path="res://Scenes/UIUX/MainMenu/play_button.tscn" id="3_2nc7s"]
+[ext_resource type="Texture2D" uid="uid://bqvt570oty8t1" path="res://Scenes/UIUX/Images/Menu Screen Background (Day 2).png" id="3_ykeox"]
 
 [node name="Pause Menu" type="Control" unique_id=2095525451]
 layout_mode = 3
@@ -21,7 +21,6 @@ anchor_bottom = 1.0
 offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_05uyy")
 expand_mode = 1
 
 [node name="Title Container" type="BoxContainer" parent="." unique_id=525516962]
@@ -93,3 +92,9 @@ text = "Options"
 [node name="Quit_Button" parent="Menu_Container" unique_id=1944752138 instance=ExtResource("3_2nc7s")]
 layout_mode = 2
 text = "Exit"
+
+[node name="MenuScreenBackground(day2)" type="Sprite2D" parent="." unique_id=695847630]
+z_index = -1
+position = Vector2(967.08795, 568.25)
+scale = Vector2(0.7577866, 0.75778663)
+texture = ExtResource("3_ykeox")
