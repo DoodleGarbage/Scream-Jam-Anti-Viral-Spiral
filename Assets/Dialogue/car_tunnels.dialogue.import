@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bpwkrbe5ho5jt"
+path="res://.godot/imported/car_tunnels.dialogue-f9f480d7fe4e3073b66d13cdad84a644.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/car_tunnels.dialogue"
+dest_files=["res://.godot/imported/car_tunnels.dialogue-f9f480d7fe4e3073b66d13cdad84a644.tres"]
+
+[params]
+
+defaults=true

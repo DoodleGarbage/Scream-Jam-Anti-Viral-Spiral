@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dkb0xa05oufty"
+path="res://.godot/imported/note_tunnels.dialogue-4a4855a710b5965a9db035f56943f252.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/note_tunnels.dialogue"
+dest_files=["res://.godot/imported/note_tunnels.dialogue-4a4855a710b5965a9db035f56943f252.tres"]
+
+[params]
+
+defaults=true

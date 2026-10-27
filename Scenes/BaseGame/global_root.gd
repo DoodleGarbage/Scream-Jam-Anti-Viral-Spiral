@@ -84,7 +84,10 @@ func _execute_scene_switch(loaded_scene:Node) -> void:
 	next_scene_name = ""
 	next_scene = null
 	Status.loading = false
+	character.hide_generator_pieces()
+	Status.held_pieces = []
 	character.velocity = Vector3(0,0,0)
+	Status.save_game()
 
 #func re_enable_character() -> void:
 	#character.process_mode = Node.PROCESS_MODE_INHERIT

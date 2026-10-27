@@ -30,7 +30,7 @@ extends Scene
 func loaded(_last_scene:String) -> void:
 	var spawn_pos : Node3D = loading_point
 	var waking : bool = false
-	if Status.completed_childhood:
+	if Status.completed_childhood and not Status.in_recovery:
 		spawn_pos = childhood_point
 		childhood_door.show()
 		broken_window.show()

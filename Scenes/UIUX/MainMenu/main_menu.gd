@@ -13,6 +13,8 @@ extends Node
 @export var continue_button : Control
 ## Reference to the button that loads the credits room.
 @export var credits_button : Control
+## The scene with the options menu
+@export var options : CanvasLayer
 @export_subgroup("Debug Nodes")
 ## The root node of the debug menu
 @export var debug_panel : Control
@@ -37,6 +39,10 @@ func _ready() -> void:
 func loaded(_last_scene:String) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	Audio.play("main_menu")
+	if Status.save_exists():
+		continue_button.show()
+	else:
+		continue_button.hide()
 	return
 
 func _process(_delta: float) -> void:
@@ -62,3 +68,21 @@ func _input(_event: InputEvent) -> void:
 	if _event.is_action_pressed("debug_menu"):
 		#print("triggered")
 		debug_panel.visible = !debug_panel.visible
+
+
+func _on_options_button_pressed() -> void:
+	options.show()
+
+
+func _on_continue_button_pressed() -> void:
+	if not Status.save_exists():
+		return
+	Status.load_game()
+
+
+func _on_options_close_pressed() -> void:
+	options.hide()
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()

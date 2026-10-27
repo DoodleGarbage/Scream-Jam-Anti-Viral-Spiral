@@ -41,6 +41,7 @@ var book_index : int = -1
 @export_subgroup("Dialogue")
 @export var is_dialogue : bool = false
 @export var event_name : String = ""
+@export var forced_cue : String = ""
 @export var dialogue : DialogueResource
 @export_subgroup("Day")
 @export var end_day : bool = false
@@ -100,7 +101,9 @@ func trigger_effects() -> void:
 		return
 	if is_generator_piece and not Status.pickup_generator_piece(piece_id):
 		return
-	if collects_generator_pieces:
+	if collects_generator_pieces and not Status.held_pieces.size() > 0 and not Status.collected_pieces.size() >= 2:
+		return
+	else:
 		Status.collect_generator_piece()
 	if is_routine and not Status.complete_routine(routine_task, audio_player):
 		return
@@ -114,7 +117,7 @@ func trigger_effects() -> void:
 	if is_rock:
 		Status.pickup_rock()
 	if is_dialogue and dialogue != null and Status.allow_dialogue:
-		Dialogue.trigger_event(event_name, dialogue)
+		Dialogue.trigger_event(event_name, dialogue, forced_cue)
 	if is_dialogue and not Status.allow_dialogue:
 		return
 	if end_day:

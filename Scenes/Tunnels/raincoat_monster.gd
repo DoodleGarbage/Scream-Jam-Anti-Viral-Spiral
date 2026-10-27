@@ -110,3 +110,9 @@ func _physics_process(_delta: float) -> void:
 		#print("adding gravity")
 		velocity.y -= gravity * _delta
 	move_and_slide()
+
+
+func _on_catcher_body_entered(body: Node3D) -> void:
+	if not body == player:
+		return
+	Status.game_node.switch_scene("tunnels")

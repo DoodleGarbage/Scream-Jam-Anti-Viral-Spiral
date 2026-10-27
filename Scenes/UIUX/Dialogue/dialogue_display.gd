@@ -19,15 +19,15 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("advance_dialogue"):
 		advance_dialogue()
 
-func load_dialogue(dia:DialogueResource) -> void:
+func load_dialogue(dia:DialogueResource, cue:String="") -> void:
 	active_dialogue = dia
-	start_dialogue()
+	start_dialogue(cue)
 	#advance_dialogue()
 	return
 
-func start_dialogue() -> void:
+func start_dialogue(cue:String="") -> void:
 	Status.in_dialogue = true
-	current_line = await DialogueManager.get_next_dialogue_line(active_dialogue, Status.current_day_string)
+	current_line = await DialogueManager.get_next_dialogue_line(active_dialogue, cue)
 	if current_line == null:
 		end_dialogue()
 		return

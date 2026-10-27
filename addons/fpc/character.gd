@@ -564,3 +564,10 @@ func handle_pausing():
 				#get_tree().paused = false
 
 #endregion
+
+
+func hide_generator_pieces() -> void:
+	$Head/GeneratorPart1.hide()
+	$Head/GeneratorPart2.hide()
+	$Head/Book.hide()
+	$Head/Rock.hide()

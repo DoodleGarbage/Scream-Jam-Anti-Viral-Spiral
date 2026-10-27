@@ -138,11 +138,13 @@ func handle_spatial_input(camera: Camera3D, event: InputEvent) -> int:
 	if click_event:
 		if click_event.button_index == MOUSE_BUTTON_WHEEL_UP && click_event.shift_pressed:
 			if click_event.pressed:
-				floor_control.value += click_event.factor
+				pass
+				#floor_control.value += click_event.factor
 			return EditorPlugin.AFTER_GUI_INPUT_STOP
 		elif click_event.button_index == MOUSE_BUTTON_WHEEL_DOWN && click_event.shift_pressed:
 			if click_event.pressed:
-				floor_control.value -= click_event.factor
+				pass
+				#floor_control.value -= click_event.factor
 			return EditorPlugin.AFTER_GUI_INPUT_STOP
 		
 		if click_event.pressed:

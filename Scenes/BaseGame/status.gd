@@ -18,6 +18,8 @@ var current_day_string : String :
 			return "recovery"
 		if game_node.current_scene == "car_scene":
 			return "crash"
+		if game_node.current_scene == "tunnels":
+			return "tunnels"
 		if current_day > 3:
 			if work_complete:
 				return "hellnight"
@@ -171,3 +173,45 @@ func restart_day(scene:String="follys_room") -> void:
 	woke_up = false
 	waking_up = false
 	game_node.switch_scene(scene)
+
+
+func save_exists() -> bool:
+	return FileAccess.file_exists("user://save.dat")
+
+func save_game() -> void:
+	var file := FileAccess.open("user://save.dat", FileAccess.WRITE)
+	#var json := JSON.new()
+	
+	if game_node.current_scene == "main_menu":
+		return
+	
+	
+	var save_dat := JSON.stringify([current_day, game_node.current_scene, in_recovery, work_complete, collected_pieces, completed_childhood])
+	file.store_string(save_dat)
+	file.flush()
+	return
+
+func load_game() -> void:
+	var file := FileAccess.open("user://save.dat", FileAccess.READ)
+	var dat : String = file.get_as_text()
+	var json := JSON.new()
+	var err := json.parse(dat)
+	if err == Error.OK:
+		var data = json.data
+		if typeof(data) != TYPE_ARRAY:
+			push_error("Tried to load save data, but it wasn't in an array!")
+			return
+		var arr : Array = data as Array
+		current_day = arr[0]
+		in_recovery = arr[2]
+		if arr[3]:
+			returned_books = 1
+		collected_pieces.assign(arr[4])
+		completed_childhood = arr[5]
+		
+		game_node.switch_scene(arr[1])
+	return
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		save_game()

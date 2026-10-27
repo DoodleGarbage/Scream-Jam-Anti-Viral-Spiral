@@ -4,8 +4,13 @@ extends Node3D
 #@export var flicker_increase : float = 0.1 - this is in Status.flicker_chance_increase
 @export var audio_player : AudioPlayer3D
 @export var room_light : OmniLight3D
+@export var item_collector : Interactable3D
 
 signal item_collected(pos:Vector3)
+
+func _ready() -> void:
+	if Status.collected_pieces.has(item_collector.piece_id):
+		queue_free()
 
 func part_collected() -> void:
 	Audio.stop_themes(false)
