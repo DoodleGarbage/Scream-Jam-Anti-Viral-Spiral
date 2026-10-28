@@ -2,6 +2,7 @@ extends Scene
 
 @export var spawn_point : Node3D
 
+@export var hermit_door : Node3D
 @export var hermit_door_interactable : Interactable3D
 @export var front_door_interactable : Interactable3D
 @export var front_door_knocker : AudioPlayer3D
@@ -21,6 +22,7 @@ func loaded(_last_scene:String) -> void:
 	Status.position_character(spawn_point, character)
 	
 	if _last_scene == "car_scene" or Status.in_recovery:
+		$UpperFloor/Hermit.queue_free()
 		$UpperFloor/Furniture/ExitDoor/GoToHome.monitorable = false
 		$LowerFloor/FrontDoor/AnswerDoor.monitorable = true
 		Audio.play("knock_loop", front_door_knocker, true, 1)
@@ -50,6 +52,10 @@ var invert_raincoat : bool = false
 var progress : float = 1.0
 
 func _process(delta: float) -> void:
+	
+	if door_rise:
+		hermit_door.position.y = min(4.153, hermit_door.position.y + 2 * delta)
+	
 	raincoat_node.look_at(character.global_position)
 	raincoat_node.rotation.x = 0
 	raincoat_node.rotation.z = 0
@@ -59,3 +65,9 @@ func _process(delta: float) -> void:
 	#else:
 		#progress = min(progress+delta, 1.0)
 		#raincoat_node.position = lerp(raincoat_enter.position, raincoat_exit.position, progress)
+
+var door_rise : bool = false
+func _on_talk_triggered() -> void:
+	hermit_door.show()
+	door_rise = true
+	hermit_door_interactable.monitorable = true

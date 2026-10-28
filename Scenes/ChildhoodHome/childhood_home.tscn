@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://blopvgbeqhdur" path="res://Assets/Models/ChildhoodHome/bathroomsink.blend" id="8_kx30c"]
 [ext_resource type="PackedScene" uid="uid://b0agigds30uuu" path="res://Assets/Models/FollysRoom/bed.blend" id="9_kx30c"]
 [ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scenes/BaseGame/interactable3D.gd" id="10_k2ahx"]
+[ext_resource type="Resource" uid="uid://byaww1ylpck8" path="res://Assets/Dialogue/hermit_talk.dialogue" id="14_4qu2o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b2jbv"]
 sky_top_color = Color(0.0006620584, 0.06663098, 0.009669079, 1)
@@ -170,9 +171,21 @@ size = Vector3(0.61279297, 2.0249023, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mf7ks"]
 size = Vector3(3.1013184, 0.11816406, 2.08667)
 
-[node name="ChildhoodHome" type="Node3D" unique_id=1328719943 node_paths=PackedStringArray("spawn_point", "hermit_door_interactable", "front_door_interactable", "front_door_knocker", "raincoat_node", "raincoat_exit", "raincoat_enter")]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8s5l4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8s5l4"]
+radius = 0.714
+height = 3.524
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c4qn5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yhpar"]
+size = Vector3(2.1118164, 0.14770508, 1.9350586)
+
+[node name="ChildhoodHome" type="Node3D" unique_id=1328719943 node_paths=PackedStringArray("spawn_point", "hermit_door", "hermit_door_interactable", "front_door_interactable", "front_door_knocker", "raincoat_node", "raincoat_exit", "raincoat_enter")]
 script = ExtResource("1_b2jbv")
 spawn_point = NodePath("SpawnPoint")
+hermit_door = NodePath("UpperFloor/Furniture/ExitDoor")
 hermit_door_interactable = NodePath("UpperFloor/Furniture/ExitDoor/GoToHome")
 front_door_interactable = NodePath("LowerFloor/FrontDoor/AnswerDoor")
 front_door_knocker = NodePath("LowerFloor/FrontDoor/Knocking")
@@ -540,10 +553,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.043147326, 0)
 shape = SubResource("BoxShape3D_3qhwm")
 
 [node name="ExitDoor" parent="UpperFloor/Furniture" unique_id=299312492 instance=ExtResource("1_niwqj")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.1002645, 4.1785927, -1.3166425)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.1002645, 2.0694246, -1.3166425)
+visible = false
 
 [node name="GoToHome" type="Area3D" parent="UpperFloor/Furniture/ExitDoor" unique_id=1542449240 groups=["Interactables"]]
 collision_layer = 2
+monitorable = false
 script = ExtResource("10_k2ahx")
 desc = "Return"
 switch_scenes = true
@@ -562,4 +577,40 @@ collision_layer = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107869625, -0.061035156, 0.1542257)
 shape = SubResource("BoxShape3D_mf7ks")
 
+[node name="Hermit" type="Node3D" parent="UpperFloor" unique_id=337286133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1336236, 3.490553, -3.627191)
+
+[node name="HermitPlaceholder" type="MeshInstance3D" parent="UpperFloor/Hermit" unique_id=1094428894]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46611023, 0)
+mesh = SubResource("CapsuleMesh_8s5l4")
+
+[node name="Talk" type="Area3D" parent="UpperFloor/Hermit" unique_id=204422288]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95265627, 0)
+collision_layer = 2
+script = ExtResource("10_k2ahx")
+desc = "Talk to the Hermit"
+is_dialogue = true
+event_name = "hermit_talk"
+forced_cue = "hermit"
+dialogue = ExtResource("14_4qu2o")
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UpperFloor/Hermit/Talk" unique_id=975550627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28735352, 0)
+shape = SubResource("CapsuleShape3D_8s5l4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="UpperFloor/Hermit" unique_id=1199453570]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UpperFloor/Hermit/StaticBody3D" unique_id=1304387603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46564674, 0)
+shape = SubResource("CapsuleShape3D_c4qn5")
+
+[node name="Blocker" type="Area3D" parent="UpperFloor/Hermit" unique_id=1262163123]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UpperFloor/Hermit/Blocker" unique_id=1265801165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22460842, -0.57141113, 0.16674805)
+shape = SubResource("BoxShape3D_yhpar")
+
 [connection signal="triggered" from="LowerFloor/FrontDoor/AnswerDoor" to="." method="_on_answer_door_triggered"]
+[connection signal="triggered" from="UpperFloor/Hermit/Talk" to="." method="_on_talk_triggered"]

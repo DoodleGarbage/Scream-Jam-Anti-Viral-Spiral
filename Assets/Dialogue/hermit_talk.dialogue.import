@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://byaww1ylpck8"
+path="res://.godot/imported/hermit_talk.dialogue-617729b3dec033c890edb9670a69b474.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/hermit_talk.dialogue"
+dest_files=["res://.godot/imported/hermit_talk.dialogue-617729b3dec033c890edb9670a69b474.tres"]
+
+[params]
+
+defaults=true

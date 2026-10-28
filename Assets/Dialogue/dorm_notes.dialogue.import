@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://nwb070m4cp37"
+path="res://.godot/imported/dorm_notes.dialogue-c29e332f35380550fc51f32e7ed986d6.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/dorm_notes.dialogue"
+dest_files=["res://.godot/imported/dorm_notes.dialogue-c29e332f35380550fc51f32e7ed986d6.tres"]
+
+[params]
+
+defaults=true

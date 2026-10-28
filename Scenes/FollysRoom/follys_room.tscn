@@ -94,18 +94,18 @@ size = Vector2(0.15, 0.225)
 [sub_resource type="BoxShape3D" id="BoxShape3D_r6rqn"]
 size = Vector3(0.809, 1, 0.815)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7iu3l"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05363"]
 albedo_texture = ExtResource("13_8yugw")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vgai8"]
-material = SubResource("StandardMaterial3D_7iu3l")
+material = SubResource("StandardMaterial3D_05363")
 size = Vector2(0.15, 0.225)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n8lqq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etxdt"]
 albedo_texture = ExtResource("16_n8lqq")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1oxiw"]
-material = SubResource("StandardMaterial3D_n8lqq")
+material = SubResource("StandardMaterial3D_etxdt")
 size = Vector2(0.2, 0.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n8lqq"]
@@ -130,21 +130,21 @@ size = Vector3(0.395, 0.726, 0.093)
 height = 1.0
 radius = 0.75
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qaoyu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_movdq"]
 albedo_texture = ExtResource("22_1oxiw")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bupmj"]
-material = SubResource("StandardMaterial3D_qaoyu")
+material = SubResource("StandardMaterial3D_movdq")
 size = Vector2(0.2, 0.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pa7af"]
 size = Vector3(0.902, 1.88, 0.808)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7oayw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iqgii"]
 albedo_texture = ExtResource("17_8vo5n")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ueyei"]
-material = SubResource("StandardMaterial3D_7oayw")
+material = SubResource("StandardMaterial3D_iqgii")
 size = Vector2(0.1, 0.15)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rfqa"]
