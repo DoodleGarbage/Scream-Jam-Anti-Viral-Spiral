@@ -428,7 +428,7 @@ mesh = SubResource("PlaneMesh_5m7wn")
 [node name="readnote" type="Area3D" parent="Sink/PaperNote" unique_id=507623727]
 collision_layer = 2
 script = ExtResource("9_s2w8k")
-desc = "Character Art by Lee"
+desc = "Character Art by Lee Haddix"
 event_name = "note"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
