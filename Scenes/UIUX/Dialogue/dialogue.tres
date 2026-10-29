@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://dmu4rfi5mh37f"]
+
+[ext_resource type="FontFile" uid="uid://bijl4at1isyia" path="res://Assets/UIUX/Fonts/darling-coffee-regular-opentype_ufonts.com.otf" id="1_rxykd"]
+
+[resource]
+default_font = ExtResource("1_rxykd")
+default_font_size = 40
