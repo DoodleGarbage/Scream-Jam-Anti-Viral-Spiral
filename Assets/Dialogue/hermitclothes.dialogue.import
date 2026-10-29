@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bk6db5krowkqe"
+path="res://.godot/imported/hermitclothes.dialogue-409a111cac4b8457cf1324186f77a67b.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/hermitclothes.dialogue"
+dest_files=["res://.godot/imported/hermitclothes.dialogue-409a111cac4b8457cf1324186f77a67b.tres"]
+
+[params]
+
+defaults=true

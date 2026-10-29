@@ -58,6 +58,8 @@ func loaded(last_scene:String) -> void:
 	if $Houses/HermitHouse/EnterHermit.get_restrictions():
 		print("killing hermit")
 		$Houses/HermitHouse/EnterHermit.queue_free()
+	if Status.current_day_string.contains("recovery"):
+		$Houses/HermitHouse/smokestack.emitting = false
 	load_environment(Status.current_day_string)
 	Status.position_character(spawn_pos, character)
 

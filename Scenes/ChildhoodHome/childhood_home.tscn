@@ -11,10 +11,20 @@
 [ext_resource type="PackedScene" uid="uid://blf5u5qejkvcw" path="res://Assets/Models/Town/Raincoat.blend" id="7_3qhwm"]
 [ext_resource type="PackedScene" uid="uid://cjpxsq5osvnts" path="res://Assets/Models/FollysRoom/toilet.blend" id="7_035nq"]
 [ext_resource type="PackedScene" uid="uid://blopvgbeqhdur" path="res://Assets/Models/ChildhoodHome/bathroomsink.blend" id="8_kx30c"]
+[ext_resource type="Texture2D" uid="uid://dhip56j5404ew" path="res://Assets/Textures/Characters/eyes.png" id="9_1vnr6"]
+[ext_resource type="PackedScene" uid="uid://40d8mpbb4q0" path="res://Assets/Models/FollysRoom/table.blend" id="9_c4r6h"]
 [ext_resource type="PackedScene" uid="uid://b0agigds30uuu" path="res://Assets/Models/FollysRoom/bed.blend" id="9_kx30c"]
 [ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scenes/BaseGame/interactable3D.gd" id="10_k2ahx"]
+[ext_resource type="Texture2D" uid="uid://bl0sdvxdbdw3t" path="res://Assets/Textures/MiscImages/papernotes.jpg" id="10_kano5"]
+[ext_resource type="Resource" uid="uid://cxxfbl43q0l5d" path="res://Assets/Dialogue/childhoodhome.dialogue" id="11_kano5"]
+[ext_resource type="PackedScene" uid="uid://dkbl6tit63d5m" path="res://Assets/Models/FollysRoom/chair.blend" id="12_w04pn"]
+[ext_resource type="PackedScene" uid="uid://whtrwfrti7pf" path="res://Assets/Models/Library/book_paper.blend" id="13_w04pn"]
 [ext_resource type="Resource" uid="uid://byaww1ylpck8" path="res://Assets/Dialogue/hermit_talk.dialogue" id="14_4qu2o"]
+[ext_resource type="ArrayMesh" uid="uid://5j7oxv38bt7d" path="res://Assets/Models/Library/book_cover.blend" id="14_n1qob"]
 [ext_resource type="PackedScene" uid="uid://cg8ksoh5a2y86" path="res://Scenes/FollysRoom/window.tscn" id="15_tlw0t"]
+[ext_resource type="PackedScene" uid="uid://d2tv130yuga1s" path="res://Assets/Models/Mementos/glasses.blend" id="19_8nr6m"]
+[ext_resource type="PackedScene" uid="uid://ci41eyj3reqhs" path="res://Assets/Models/ChildhoodHome/doublebed.blend" id="21_n1qob"]
+[ext_resource type="PackedScene" uid="uid://bd7m6y1t1dmwn" path="res://Assets/Models/Mementos/raincoat.blend" id="22_elppl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b2jbv"]
 sky_top_color = Color(0.0006620584, 0.06663098, 0.009669079, 1)
@@ -100,6 +110,40 @@ size = Vector2(4, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ctrmh"]
 size = Vector3(1, 1.7233887, 1.133667)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7jd6"]
+transparency = 1
+albedo_texture = ExtResource("9_1vnr6")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_daf6i"]
+material = SubResource("StandardMaterial3D_m7jd6")
+size = Vector2(0.3, 0.3)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n1qob"]
+height = 1.0
+radius = 0.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_movdq"]
+albedo_texture = ExtResource("10_kano5")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_elppl"]
+material = SubResource("StandardMaterial3D_movdq")
+size = Vector2(0.2, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1vnr6"]
+size = Vector3(0.222, 0.068, 0.423)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_daf6i"]
+size = Vector3(0.42, 0.441, 0.378)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_br3gh"]
+size = Vector3(0.395, 0.726, 0.093)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkisk"]
+albedo_color = Color(0.9405203, 0.6782533, 0.90860736, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u6vea"]
+size = Vector3(0.335, 0.401, 0.122)
+
 [sub_resource type="BoxMesh" id="BoxMesh_8s5l4"]
 material = ExtResource("4_4qu2o")
 size = Vector3(11, 0.1, 7)
@@ -168,11 +212,20 @@ size = Vector3(1, 0.9526367, 1.2610168)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3qhwm"]
 size = Vector3(2.456, 0.944, 1.272)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_evao5"]
+size = Vector3(0.5036621, 0.51776123, 0.43826294)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_i3h80"]
 size = Vector3(0.61279297, 2.0249023, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mf7ks"]
 size = Vector3(3.1013184, 0.11816406, 2.08667)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_elppl"]
+size = Vector3(2.456, 0.944, 1.9862128)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4e74y"]
+size = Vector3(0.63134766, 1.1144714, 0.6043701)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8s5l4"]
 
@@ -359,13 +412,126 @@ shape = SubResource("BoxShape3D_ctrmh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.275526, -1.1880726, 0)
 
 [node name="Raincoat" parent="LowerFloor/FrontDoor/Raincoat" unique_id=187053340 instance=ExtResource("7_3qhwm")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LowerFloor/FrontDoor/Raincoat" unique_id=871964205]
+transform = Transform3D(-0.9900241, 0.1408574, 0.0034016245, -0.006861378, -0.024083713, -0.9996866, -0.14073129, -0.98973715, 0.024809934, 0.010303497, 1.3827438, -0.2903595)
+mesh = SubResource("PlaneMesh_daf6i")
 
 [node name="RaincoatEnterPoint" type="Node3D" parent="LowerFloor/FrontDoor" unique_id=5736636]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83041, -1.0913786, 0)
 
 [node name="RainCoatExitPoint" type="Node3D" parent="LowerFloor/FrontDoor" unique_id=146885277]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6028042, -1.1141212, 0)
+
+[node name="Furniture" type="Node3D" parent="LowerFloor" unique_id=145532876]
+
+[node name="table" parent="LowerFloor/Furniture" unique_id=995953688 instance=ExtResource("9_c4r6h")]
+transform = Transform3D(0.93132067, 0, 0.36420023, 0, 1, 0, -0.36420023, 0, 0.93132067, -3.5297375, 0.3975575, -4.969233)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LowerFloor/Furniture/table" unique_id=121806195]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LowerFloor/Furniture/table/StaticBody3D" unique_id=1331946848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06414449, 0)
+shape = SubResource("CylinderShape3D_n1qob")
+
+[node name="PaperLetter" type="MeshInstance3D" parent="LowerFloor/Furniture/table" unique_id=1131476319]
+transform = Transform3D(0.76460534, 0, -0.6444988, 0, 1, 0, 0.6444988, 0, 0.76460534, -0.33797014, 0.43936288, -0.3329997)
+mesh = SubResource("PlaneMesh_elppl")
+
+[node name="UpdateMe4" type="Area3D" parent="LowerFloor/Furniture/table/PaperLetter" unique_id=1013226421]
+collision_layer = 2
+script = ExtResource("10_k2ahx")
+desc = "Read Scrawled Notes"
+is_dialogue = true
+event_name = "letter"
+forced_cue = "letter"
+dialogue = ExtResource("11_kano5")
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LowerFloor/Furniture/table/PaperLetter/UpdateMe4" unique_id=306355852]
+shape = SubResource("BoxShape3D_1vnr6")
+
+[node name="chair" parent="LowerFloor/Furniture/table" unique_id=415205149 instance=ExtResource("12_w04pn")]
+transform = Transform3D(0.9175291, 0, 1.2240374, 0, 1.5297474, 0, -1.2240374, 0, 0.9175291, -1.0900264, -0.27275002, -0.71494484)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LowerFloor/Furniture/table/chair" unique_id=135407172]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LowerFloor/Furniture/table/chair/StaticBody3D" unique_id=26715642]
+shape = SubResource("BoxShape3D_daf6i")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="LowerFloor/Furniture/table/chair/StaticBody3D" unique_id=1183733857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38082162, -0.19705674)
+shape = SubResource("BoxShape3D_br3gh")
+
+[node name="chair2" parent="LowerFloor/Furniture/table" unique_id=865340828 instance=ExtResource("12_w04pn")]
+transform = Transform3D(-0.9683007, 0, 1.1842811, 0, 1.5297475, 0, -1.1842811, 0, -0.9683007, -1.0760698, -0.27275002, 1.0247769)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LowerFloor/Furniture/table/chair2" unique_id=634832630]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LowerFloor/Furniture/table/chair2/StaticBody3D" unique_id=275506879]
+shape = SubResource("BoxShape3D_daf6i")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="LowerFloor/Furniture/table/chair2/StaticBody3D" unique_id=1225600554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38082162, -0.19705674)
+shape = SubResource("BoxShape3D_br3gh")
+
+[node name="chair3" parent="LowerFloor/Furniture/table" unique_id=1626016434 instance=ExtResource("12_w04pn")]
+transform = Transform3D(-1.5213987, 0, 0.15960768, 0, 1.5297474, 0, -0.15960768, 0, -1.5213987, -0.14045477, -0.27274978, 1.3148384)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LowerFloor/Furniture/table/chair3" unique_id=1605973574]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LowerFloor/Furniture/table/chair3/StaticBody3D" unique_id=1035622062]
+shape = SubResource("BoxShape3D_daf6i")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="LowerFloor/Furniture/table/chair3/StaticBody3D" unique_id=2118704153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38082162, -0.19705674)
+shape = SubResource("BoxShape3D_br3gh")
+
+[node name="chair4" parent="LowerFloor/Furniture/table" unique_id=693417410 instance=ExtResource("12_w04pn")]
+transform = Transform3D(0.77168846, 0, -1.3208429, 0, 1.5297472, 0, 1.3208429, 0, 0.77168846, 2.5110097, -0.2727499, -2.1125884)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LowerFloor/Furniture/table/chair4" unique_id=1819411576]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LowerFloor/Furniture/table/chair4/StaticBody3D" unique_id=1928274087]
+shape = SubResource("BoxShape3D_daf6i")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="LowerFloor/Furniture/table/chair4/StaticBody3D" unique_id=631640572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38082162, -0.19705674)
+shape = SubResource("BoxShape3D_br3gh")
+
+[node name="Book" type="Node3D" parent="LowerFloor/Furniture" unique_id=1061476885]
+
+[node name="book_paper2" parent="LowerFloor/Furniture/Book" unique_id=552514602 instance=ExtResource("13_w04pn")]
+transform = Transform3D(0.93132067, -0.36420023, -1.5919698e-08, 0, -4.371139e-08, 1, -0.36420023, -0.93132067, -4.070932e-08, -3.5297375, 0.88144386, -4.969233)
+
+[node name="book_cover2" type="MeshInstance3D" parent="LowerFloor/Furniture/Book" unique_id=681285214]
+transform = Transform3D(0.93132067, -0.36420023, -1.5919698e-08, 0, -4.371139e-08, 1, -0.36420023, -0.93132067, -4.070932e-08, -3.4614487, 0.88144386, -5.185872)
+mesh = ExtResource("14_n1qob")
+surface_material_override/0 = SubResource("StandardMaterial3D_fkisk")
+
+[node name="UpdateMe3" type="Area3D" parent="LowerFloor/Furniture/Book" unique_id=1357619540]
+transform = Transform3D(0.93132067, -0.36420023, -1.5919698e-08, 0, -4.371139e-08, 1, -0.36420023, -0.93132067, -4.070932e-08, -3.5297375, 0.88144386, -4.969233)
+collision_layer = 2
+monitoring = false
+script = ExtResource("10_k2ahx")
+desc = "Read The Miseducation of Cameron Post"
+is_dialogue = true
+event_name = "childhoodhome"
+forced_cue = "book"
+dialogue = ExtResource("11_kano5")
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LowerFloor/Furniture/Book/UpdateMe3" unique_id=1497971636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14818347, 0.1770991, 7.741248e-09)
+shape = SubResource("BoxShape3D_u6vea")
+
+[node name="book_title2" type="Label3D" parent="LowerFloor/Furniture/Book" unique_id=431233421]
+transform = Transform3D(0.93132067, -0.36420023, -1.5919698e-08, 0, -4.371139e-08, 1, -0.36420023, -0.93132067, -4.070932e-08, -3.4514108, 0.9459051, -5.1836615)
+text = "The Miseducation of Cameron Post"
+font_size = 10
+autowrap_mode = 2
+width = 52.0
 
 [node name="UpperFloor" type="Node3D" parent="." unique_id=1880875507]
 
@@ -496,13 +662,19 @@ omni_range = 6.194
 omni_attenuation = 2.0
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="UpperFloor/Lights" unique_id=1584133637]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9006791, 5.6984935, -2.5251822)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23918724, 5.6984935, -2.5251822)
 shadow_enabled = true
 omni_range = 6.194
 omni_attenuation = 2.0
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="UpperFloor/Lights" unique_id=1752874327]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40838766, 5.6984935, -7.4035034)
+shadow_enabled = true
+omni_range = 6.194
+omni_attenuation = 2.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="UpperFloor/Lights" unique_id=1009749803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5687165, 5.6984935, -2.5251822)
 shadow_enabled = true
 omni_range = 6.194
 omni_attenuation = 2.0
@@ -557,6 +729,23 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.043147326, 0)
 shape = SubResource("BoxShape3D_3qhwm")
 
+[node name="glasses" parent="UpperFloor/Furniture/Bed" unique_id=1635890304 instance=ExtResource("19_8nr6m")]
+transform = Transform3D(0.77774435, 0, -0.6285807, 0, 1, 0, 0.6285807, 0, 0.77774435, 0.43040395, 0.34000444, 0.33071208)
+
+[node name="UpdateMe2" type="Area3D" parent="UpperFloor/Furniture/Bed/glasses" unique_id=347211103]
+collision_layer = 2
+script = ExtResource("10_k2ahx")
+desc = "Examine Glasses"
+is_dialogue = true
+event_name = "glasses"
+forced_cue = "glasses"
+dialogue = ExtResource("11_kano5")
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UpperFloor/Furniture/Bed/glasses/UpdateMe2" unique_id=1514285690]
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1, 0.10029578, -0.1612134, -0.1569233)
+shape = SubResource("BoxShape3D_evao5")
+
 [node name="ExitDoor" parent="UpperFloor/Furniture" unique_id=299312492 instance=ExtResource("1_niwqj")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.1002645, 2.0694246, -1.3166425)
 visible = false
@@ -581,6 +770,34 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="UpperFloor/Furniture/ExitDoor/interaction_blocker" unique_id=628843959]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107869625, -0.061035156, 0.1542257)
 shape = SubResource("BoxShape3D_mf7ks")
+
+[node name="Bed2" type="Node3D" parent="UpperFloor/Furniture" unique_id=862729134]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.9948587, 3.413169, -7.0255556)
+
+[node name="doublebed" parent="UpperFloor/Furniture/Bed2" unique_id=1964360002 instance=ExtResource("21_n1qob")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="UpperFloor/Furniture/Bed2" unique_id=1619216508]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UpperFloor/Furniture/Bed2/StaticBody3D" unique_id=423749283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.043147326, 0.0072672367)
+shape = SubResource("BoxShape3D_elppl")
+
+[node name="raincoat" parent="UpperFloor/Furniture" unique_id=1988091473 instance=ExtResource("22_elppl")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.013552, 4.0288997, -2.5404913)
+
+[node name="UpdateMe1" type="Area3D" parent="UpperFloor/Furniture/raincoat" unique_id=2011113446]
+collision_layer = 2
+script = ExtResource("10_k2ahx")
+desc = "Examine Raincoat"
+is_dialogue = true
+event_name = "raincoat"
+forced_cue = "raincoat"
+dialogue = ExtResource("11_kano5")
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UpperFloor/Furniture/raincoat/UpdateMe1" unique_id=924400458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042236328, 0.55397034, -0.19781494)
+shape = SubResource("BoxShape3D_4e74y")
 
 [node name="Hermit" type="Node3D" parent="UpperFloor" unique_id=337286133]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1336236, 3.490553, -3.627191)

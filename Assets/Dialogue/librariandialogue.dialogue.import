@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://daa6iwcd1ohty"
+path="res://.godot/imported/librariandialogue.dialogue-3ea2387be41f7916e5a62af6927a1fd7.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/librariandialogue.dialogue"
+dest_files=["res://.godot/imported/librariandialogue.dialogue-3ea2387be41f7916e5a62af6927a1fd7.tres"]
+
+[params]
+
+defaults=true

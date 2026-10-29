@@ -594,6 +594,7 @@ transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.72
 
 [node name="BrokenWindow" parent="Windows" unique_id=2144234887 instance=ExtResource("35_ce2pt")]
 transform = Transform3D(7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, 1.7201188, 1.4474554, -6.2730045)
+visible = false
 
 [node name="SpotLight3D" parent="Windows/BrokenWindow" index="0" unique_id=312367790]
 light_color = Color(0.72383845, 0, 0.07606993, 1)

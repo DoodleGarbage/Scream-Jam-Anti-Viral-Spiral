@@ -60,11 +60,11 @@ func display_dialogue() -> void:
 	skipping_allowed = false
 	print("skipping? ", skipping_allowed)
 
-func end_dialogue() -> void:
+func end_dialogue(bypass_allow:bool = false) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	active_dialogue = null
 	Status.in_dialogue = false
-	Status.allow_dialogue = false
+	Status.allow_dialogue = bypass_allow
 	$DialogueInterrupt.start()
 	$CL/You.hide()
 	hide()

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b6wqsbpy0cmxg"
+path="res://.godot/imported/happyfamily.dialogue-b3157c04f1539207363bc697a592bd18.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/happyfamily.dialogue"
+dest_files=["res://.godot/imported/happyfamily.dialogue-b3157c04f1539207363bc697a592bd18.tres"]
+
+[params]
+
+defaults=true

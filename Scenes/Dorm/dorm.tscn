@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c2rfr2fylri4y" path="res://Assets/Textures/MiscImages/AlarmMorning.png" id="12_3y4p8"]
 [ext_resource type="Texture2D" uid="uid://cl5le744gws8x" path="res://Assets/Textures/MiscImages/papernote.jpg" id="12_btkpv"]
 [ext_resource type="Texture2D" uid="uid://cff3ya3vg3lff" path="res://Assets/Textures/MiscImages/fpapers.png" id="13_jjsos"]
+[ext_resource type="PackedScene" uid="uid://dkbl6tit63d5m" path="res://Assets/Models/FollysRoom/chair.blend" id="15_vtl5t"]
 [ext_resource type="PackedScene" uid="uid://csrvx5qqpm2nf" path="res://Assets/Models/FollysRoom/alarmclock.blend" id="16_mxg2e"]
 [ext_resource type="Resource" uid="uid://nwb070m4cp37" path="res://Assets/Dialogue/dorm_notes.dialogue" id="17_c5yap"]
 [ext_resource type="Texture2D" uid="uid://cbkjm873misxu" path="res://Assets/Textures/MapTextures/coated_pine_1k.blend/textures/coated_pine_diff_1k.jpg" id="18_mxg2e"]
@@ -131,6 +132,12 @@ size = Vector2(0.2, 0.3)
 [sub_resource type="PlaneMesh" id="PlaneMesh_5m7wn"]
 material = SubResource("StandardMaterial3D_qlyfv")
 size = Vector2(0.2, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5m7wn"]
+size = Vector3(0.42, 0.441, 0.378)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cpg17"]
+size = Vector3(0.395, 0.726, 0.093)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btkpv"]
 albedo_texture = ExtResource("12_btkpv")
@@ -416,6 +423,18 @@ mesh = SubResource("PlaneMesh_wcmjq")
 [node name="PaperNote5" type="MeshInstance3D" parent="Desk/Homework2" unique_id=1063280132]
 transform = Transform3D(-0.98573124, 0, 0.16832735, 0, 1, 0, -0.16832735, 0, -0.98573124, 0.02503442, 0.88982326, 0.8255333)
 mesh = SubResource("PlaneMesh_wcmjq")
+
+[node name="chair" parent="Desk" unique_id=415205149 instance=ExtResource("15_vtl5t")]
+transform = Transform3D(-0.32418188, 0, -1.4950029, 0, 1.5297476, 0, 1.4950029, 0, -0.32418188, 0.6039516, 0, 0.26144218)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Desk/chair" unique_id=101415505]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Desk/chair/StaticBody3D" unique_id=969142784]
+shape = SubResource("BoxShape3D_5m7wn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Desk/chair/StaticBody3D" unique_id=1574150534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38082162, -0.19705674)
+shape = SubResource("BoxShape3D_cpg17")
 
 [node name="Dresser" parent="." unique_id=1725137530 instance=ExtResource("5_2f3xy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 0.30709004, -2.891883)

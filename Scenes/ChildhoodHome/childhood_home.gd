@@ -27,6 +27,10 @@ func loaded(_last_scene:String) -> void:
 		$LowerFloor/FrontDoor/AnswerDoor.monitorable = true
 		Audio.play("knock_loop", front_door_knocker, true, 1)
 		Status.in_recovery = true
+		$UpperFloor/Furniture/raincoat/UpdateMe1.forced_cue += "post"
+		$UpperFloor/Furniture/Bed/glasses/UpdateMe2.forced_cue += "post"
+		$LowerFloor/Furniture/Book/UpdateMe3.forced_cue += "post"
+		$LowerFloor/Furniture/table/PaperLetter/UpdateMe4.forced_cue += "post"
 
 
 func _on_answer_door_triggered() -> void:

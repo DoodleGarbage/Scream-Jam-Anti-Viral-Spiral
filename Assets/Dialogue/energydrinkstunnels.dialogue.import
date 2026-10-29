@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://eoexhp6akrj2"
+path="res://.godot/imported/energydrinkstunnels.dialogue-e95f1e8f5154267a6b794212af4cd409.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/energydrinkstunnels.dialogue"
+dest_files=["res://.godot/imported/energydrinkstunnels.dialogue-e95f1e8f5154267a6b794212af4cd409.tres"]
+
+[params]
+
+defaults=true

@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var player : Node3D
+@export var brawny : Node3D
 @export var bounding_box : VisibleOnScreenNotifier3D
 @export var static_positions : Array[VisibleOnScreenNotifier3D] = []
 @export var stalk_positions : Array[Path3D] = []
@@ -129,6 +130,7 @@ func _process(_delta: float) -> void:
 		velocity_y += gravity*_delta
 		global_position.y -= velocity_y*_delta
 		bridge_mesh.global_position.y -= velocity_y*_delta
+		brawny.global_position.y -= velocity_y*_delta
 
 func _ready() -> void:
 	match(Status.current_day_string):

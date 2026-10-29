@@ -10,7 +10,9 @@
 [ext_resource type="Script" uid="uid://bupxc51k35xvi" path="res://Scenes/Tunnels/generator_piece.gd" id="4_4ic01"]
 [ext_resource type="PackedScene" uid="uid://caynn82a6ydqv" path="res://Assets/Models/Tunnels/GeneratorPart1.blend" id="4_a1r6t"]
 [ext_resource type="Resource" uid="uid://dkb0xa05oufty" path="res://Assets/Dialogue/note_tunnels.dialogue" id="4_j3fnm"]
+[ext_resource type="PackedScene" uid="uid://ct1e3jy6nwri7" path="res://Assets/Models/Mementos/toolbox.blend" id="5_74meu"]
 [ext_resource type="Material" uid="uid://b5i2y0flkc2xs" path="res://Assets/Textures/Materials/generator_piece_2.tres" id="6_3kmcx"]
+[ext_resource type="Resource" uid="uid://cbivm2tpeup4h" path="res://Assets/Dialogue/toolbox.dialogue" id="6_ee5ew"]
 [ext_resource type="PackedScene" uid="uid://q35oi7clqyc7" path="res://Assets/Models/Tunnels/GeneratorPart2.blend" id="9_c0n8u"]
 [ext_resource type="PackedScene" uid="uid://x4l7ikhej127" path="res://Scenes/Tunnels/TunnelPieces/tunnel_room_1.tscn" id="10_6vrye"]
 [ext_resource type="PackedScene" uid="uid://bkogvqh1jfhiv" path="res://Assets/Models/Town/door.blend" id="12_0qju2"]
@@ -25,8 +27,10 @@
 [ext_resource type="PackedScene" uid="uid://c4venk7bqvwyr" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_nopipes.tscn" id="23_0qju2"]
 [ext_resource type="Script" uid="uid://cuobj06kp8x5k" path="res://addons/scene_map/scene_item.gd" id="23_wc4ap"]
 [ext_resource type="PackedScene" uid="uid://8malspj2c46b" path="res://Scenes/Tunnels/rainbolt_monster_nav_point.tscn" id="24_0pet3"]
+[ext_resource type="PackedScene" uid="uid://brvtebxf47p3u" path="res://Assets/Models/Tunnels/caffeine.blend" id="24_ee5ew"]
 [ext_resource type="PackedScene" uid="uid://cojyw0pvmmggy" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_alt_left_nopipes.tscn" id="24_xwhsk"]
 [ext_resource type="Script" uid="uid://bq7wpgx4ixfcq" path="res://addons/scene_map/scene_palette.gd" id="25_74meu"]
+[ext_resource type="Resource" uid="uid://eoexhp6akrj2" path="res://Assets/Dialogue/energydrinkstunnels.dialogue" id="25_nq5nb"]
 [ext_resource type="PackedScene" uid="uid://e2a4nocymrav" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_nopipes.tscn" id="25_o04ja"]
 [ext_resource type="PackedScene" uid="uid://brppa7xhmcnrh" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_transition.tscn" id="26_alehd"]
 [ext_resource type="PackedScene" uid="uid://bvwtn5mxfpl3j" path="res://Scenes/Tunnels/TunnelPieces/tunnel_end_nopipes.tscn" id="27_foxgr"]
@@ -79,6 +83,8 @@ size = Vector2(0.2, 0.3)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wc4ap"]
 size = Vector3(0.294, 0.068, 0.423)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nq5nb"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_4440r"]
 size = Vector3(2.0166016, 3.2369385, 2.6870117)
 
@@ -126,6 +132,9 @@ size = Vector3(0.61035156, 2.2520752, 1.1226807)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ww0ml"]
 size = Vector3(9.558594, 8.766052, 10.145752)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ue6wd"]
+size = Vector3(1.4781494, 0.8553467, 1.533081)
 
 [sub_resource type="Resource" id="Resource_c4qn5"]
 script = ExtResource("23_wc4ap")
@@ -184,6 +193,22 @@ metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mementos/PaperNote2/readnote" unique_id=1814049755]
 transform = Transform3D(1, 8.526513e-14, 0, 2.1316282e-14, 1, -5.3290705e-15, 0, 3.250733e-13, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_wc4ap")
+
+[node name="toolbox" parent="Mementos" unique_id=1281757950 instance=ExtResource("5_74meu")]
+transform = Transform3D(-0.14124915, 0, 0.9899741, 0, 1, 0, -0.9899741, 0, -0.14124915, 19.748093, 0.19030625, 68.630424)
+
+[node name="Interactable3D" type="Area3D" parent="Mementos/toolbox" unique_id=1249485548]
+collision_layer = 2
+script = ExtResource("28_03w7q")
+desc = "Examine Toolbox"
+is_dialogue = true
+event_name = "toolbox"
+forced_cue = "tunnels"
+dialogue = ExtResource("6_ee5ew")
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mementos/toolbox/Interactable3D" unique_id=1715957986]
+shape = SubResource("BoxShape3D_nq5nb")
 
 [node name="Car" type="Node3D" parent="." unique_id=2111580893]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3472252, 1.15446, 1.7524137)
@@ -480,6 +505,34 @@ shape = SubResource("BoxShape3D_fodyg")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/GeneratorRoom/EnteredGennyRoom" unique_id=1527296159]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5498047, 1.7545471, -0.04797387)
 shape = SubResource("BoxShape3D_ww0ml")
+
+[node name="EnergyDrinks" type="Node3D" parent="Rooms/GeneratorRoom" unique_id=1115514089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9928435)
+
+[node name="caffeine" parent="Rooms/GeneratorRoom/EnergyDrinks" unique_id=548518625 instance=ExtResource("24_ee5ew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52381325, 0, 0.5366808)
+
+[node name="caffeine2" parent="Rooms/GeneratorRoom/EnergyDrinks" unique_id=448273581 instance=ExtResource("24_ee5ew")]
+transform = Transform3D(-0.03404918, 0, -0.99942017, 0, 1, 0, 0.99942017, 0, -0.03404918, 0.3264351, 0, 0.0061326027)
+
+[node name="caffeine3" parent="Rooms/GeneratorRoom/EnergyDrinks" unique_id=495710882 instance=ExtResource("24_ee5ew")]
+transform = Transform3D(0.6857431, 0, 0.72784364, 0, 1, 0, -0.72784364, 0, 0.6857431, -0.28295898, 0, -0.0026043653)
+
+[node name="Interactable3D" type="Area3D" parent="Rooms/GeneratorRoom/EnergyDrinks" unique_id=584141480]
+collision_layer = 2
+script = ExtResource("28_03w7q")
+desc = "Drink One"
+play_audio = true
+audio_track = "food"
+is_dialogue = true
+event_name = "energy"
+forced_cue = "energy"
+dialogue = ExtResource("25_nq5nb")
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/GeneratorRoom/EnergyDrinks/Interactable3D" unique_id=573604163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05731201, -0.07232666, 0.14202905)
+shape = SubResource("BoxShape3D_ue6wd")
 
 [node name="NavPoints" type="Node3D" parent="." unique_id=316314101]
 visible = false

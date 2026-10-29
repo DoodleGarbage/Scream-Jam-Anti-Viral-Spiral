@@ -1,0 +1,69 @@
+~ day1
+Librarian: You're here! The books are a mess, and I need someone who can sort them. The books are on the tables to your right. Put them away in the bookshelves sorted by color and genre.
+=> END!
+~ night1
+Librarian: The books are sorted. You can go home now.
+=> END!
+~ day2
+Librarian: You didn't do a very good job of shelving the books, they were wrinkled and worn after you put them away. Do a better job this time.
+=> END!
+~ night2
+Librarian: You did a shoddy job, but the books are sorted. You can go home now.
+=> END!
+~ day3
+Librarian: The books are torn, ripped, and turning to shreds! You're making a mockery of these books! Sort them PROPERLY this time!!
+=> END!
+~ night3
+Librarian: What did you do!?
+=> END!
+~ hell
+=> END!
+~ hellnight
+=> END!
+~ recovery
+Librarian: You're here! It's a total mess. I can't sort the books myself, and I have been sorely missing your help.
+=> END!
+~ recoverynight
+Librarian: Good job. The books are all sorted! You can go home now.
+=> END!
+
+~ a1
+Librarian: Get to sorting!
+=> END!
+~ a2
+Librarian: Careful! Watch how you handle those books!
+=> END!
+~ a3
+Librarian: Do not rip the pages!
+=> END!
+~ a4
+Librarian: Work faster! You're going too slow!
+=> END!
+~ a5
+Librarian: Work slower! You're going too fast!
+=> END!
+~ a6
+Librarian: Don't damage the books!!
+=> END!
+~ a7
+Librarian: Sort the books in the right places! Stop getting them mixed up!
+=> END!
+~ a8
+Librarian: You're damaging the books, stop! Sort them right!
+=> END!
+~ a9
+Librarian: You're getting the books wet! Touch them less!
+=> END!
+
+~ b1
+Librarian: Keep up the good work!
+=> END!
+~ b2
+Librarian: I like what I see. Keep going!
+=> END!
+~ b3
+Librarian: You're sorting the books right!
+=> END!
+~ b4
+Librarian: Thank you for sorting the books.
+=> END!

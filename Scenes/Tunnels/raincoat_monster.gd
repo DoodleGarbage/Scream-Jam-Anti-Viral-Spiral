@@ -145,6 +145,9 @@ func _physics_process(_delta: float) -> void:
 	rotation.x = 0
 	rotation.z = 0
 	
+	if Status.in_dialogue: ## Pause when in dialogue
+		return
+	
 	movement_disabled -= _delta
 	start_wander -= _delta
 	wander_timer -= _delta

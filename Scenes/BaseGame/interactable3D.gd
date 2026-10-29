@@ -116,6 +116,9 @@ func trigger_effects() -> void:
 		Status.position_character(teleport_point, Status.game_node.character)
 	if is_rock:
 		Status.pickup_rock()
+	
+	
+	print("checking bools ", is_dialogue, dialogue != null, Status.allow_dialogue)
 	if is_dialogue and dialogue != null and Status.allow_dialogue:
 		Dialogue.trigger_event(event_name, dialogue, forced_cue)
 	if is_dialogue and not Status.allow_dialogue:

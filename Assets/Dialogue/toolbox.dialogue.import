@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cbivm2tpeup4h"
+path="res://.godot/imported/toolbox.dialogue-14a3b38071508f31a47d1432b1eaff25.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/toolbox.dialogue"
+dest_files=["res://.godot/imported/toolbox.dialogue-14a3b38071508f31a47d1432b1eaff25.tres"]
+
+[params]
+
+defaults=true

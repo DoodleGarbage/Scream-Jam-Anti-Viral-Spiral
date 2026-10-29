@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://buv3u4asaoj6k"
+path="res://.godot/imported/campfire.dialogue-0d946a8c0cc2f95dfdae7e575db9f489.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/campfire.dialogue"
+dest_files=["res://.godot/imported/campfire.dialogue-0d946a8c0cc2f95dfdae7e575db9f489.tres"]
+
+[params]
+
+defaults=true

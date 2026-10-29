@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dtc7q36iofnv7" path="res://Assets/Models/Town/van.blend" id="2_v6ugs"]
 [ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scenes/BaseGame/interactable3D.gd" id="4_amflh"]
 [ext_resource type="Resource" uid="uid://bd1l5515rdrc6" path="res://Assets/Dialogue/mercury_crash.dialogue" id="5_k4q43"]
+[ext_resource type="PackedScene" uid="uid://b5yhyhhg87sm2" path="res://Assets/Models/Mementos/pocketwatch.blend" id="6_5ihwx"]
+[ext_resource type="PackedScene" uid="uid://ct1e3jy6nwri7" path="res://Assets/Models/Mementos/toolbox.blend" id="8_nq24t"]
 
 [sub_resource type="Gradient" id="Gradient_k4q43"]
 offsets = PackedFloat32Array(0, 0.83861154, 1)
@@ -106,3 +108,9 @@ metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mercury/Interactable3D" unique_id=84923095]
 transform = Transform3D(0.9999994, 0, -2.682209e-07, 1.1324883e-06, 1, -9.536743e-07, 3.1292439e-07, 0, 0.9999974, 0.023315668, 0.21441436, -0.070433915)
 shape = SubResource("BoxShape3D_fodyg")
+
+[node name="pocketwatch" parent="." unique_id=101449192 instance=ExtResource("6_5ihwx")]
+transform = Transform3D(2.0088904, 0, -2.0088904, 0, 2.841, 0, 2.0088904, 0, 2.0088904, 2.0359926, -0.9360347, 1.7753152)
+
+[node name="toolbox" parent="." unique_id=1281757950 instance=ExtResource("8_nq24t")]
+transform = Transform3D(0.007297351, -2.9802322e-08, -0.9999734, -0.9999735, -4.222196e-08, -0.007297352, -4.284084e-08, 0.9999999, 2.9802322e-08, -4.7034802, -0.80335283, 4.7121763)

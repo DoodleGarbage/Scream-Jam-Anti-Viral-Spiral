@@ -32,3 +32,11 @@ func loaded(_last_scene:String) -> void:
 		total_books += table._load_books()
 	Status.returned_books = 0
 	Status.total_books = total_books
+
+
+func _on_interactable_3d_body_entered(body: Node3D) -> void:
+	if body != character:
+		return
+	print("triggered enter dialogue")
+	$EnterDialogue.trigger_effects()
+	$EnterDialogue.queue_free()
