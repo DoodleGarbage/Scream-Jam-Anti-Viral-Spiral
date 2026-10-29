@@ -6,12 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://dgtbfdkc6xs5x" path="res://Assets/Models/FollysRoom/nightstand.blend" id="6_ra8o6"]
 [ext_resource type="PackedScene" uid="uid://bkogvqh1jfhiv" path="res://Assets/Models/Town/door.blend" id="7_bpwna"]
 [ext_resource type="Texture2D" uid="uid://bcu4n1vsnjv1j" path="res://Assets/Textures/PeoplePhotos/riverphoto.jpg" id="8_kwx6x"]
+[ext_resource type="Resource" uid="uid://fjamlgelsw32" path="res://Assets/Dialogue/credits.dialogue" id="8_lbuhw"]
 [ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scenes/BaseGame/interactable3D.gd" id="9_s2w8k"]
 [ext_resource type="PackedScene" uid="uid://b1anq0rnn2xqc" path="res://Scenes/FollysRoom/wakeup.tscn" id="10_q8ood"]
 [ext_resource type="Script" uid="uid://coji4uh3esqdw" path="res://Scenes/BaseGame/3d_audio_player.gd" id="11_2f3xy"]
 [ext_resource type="Texture2D" uid="uid://bff834j3rvmiv" path="res://Assets/Textures/PeoplePhotos/Ethanphoto.jpg" id="11_3y4p8"]
 [ext_resource type="Texture2D" uid="uid://bjxexh6sb5x6d" path="res://Assets/Textures/MiscImages/fpaper.png" id="11_btkpv"]
 [ext_resource type="PackedScene" uid="uid://ckonak8hpmxwy" path="res://Assets/Models/Dorm/desk.blend" id="11_ra8o6"]
+[ext_resource type="Texture2D" uid="uid://c2rfr2fylri4y" path="res://Assets/Textures/MiscImages/AlarmMorning.png" id="12_3y4p8"]
 [ext_resource type="Texture2D" uid="uid://cl5le744gws8x" path="res://Assets/Textures/MiscImages/papernote.jpg" id="12_btkpv"]
 [ext_resource type="Texture2D" uid="uid://cff3ya3vg3lff" path="res://Assets/Textures/MiscImages/fpapers.png" id="13_jjsos"]
 [ext_resource type="PackedScene" uid="uid://csrvx5qqpm2nf" path="res://Assets/Models/FollysRoom/alarmclock.blend" id="16_mxg2e"]
@@ -83,8 +85,11 @@ albedo_texture = ExtResource("8_kwx6x")
 material = SubResource("StandardMaterial3D_7iu3l")
 size = Vector2(0.15, 0.225)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3y4p8"]
+size = Vector3(0.31917188, 0.068, 0.23361865)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ww0ml"]
-size = Vector3(1, 1.0828857, 1.2177124)
+size = Vector3(1, 0.7642212, 1.2177124)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7oayw"]
 albedo_texture = ExtResource("11_3y4p8")
@@ -92,6 +97,18 @@ albedo_texture = ExtResource("11_3y4p8")
 [sub_resource type="PlaneMesh" id="PlaneMesh_16d8y"]
 material = SubResource("StandardMaterial3D_7oayw")
 size = Vector2(0.3, 0.45)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3jhd4"]
+size = Vector3(0.14685059, 0.0847168, 0.13226318)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4qn5"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("12_3y4p8")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uhw23"]
+material = SubResource("StandardMaterial3D_c4qn5")
+size = Vector2(0.9, 0.9)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlyfv"]
 albedo_texture = ExtResource("12_btkpv")
@@ -214,9 +231,6 @@ shape = SubResource("WorldBoundaryShape3D_c4qn5")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=18017375]
 environment = SubResource("Environment_8s5l4")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=514984600]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-
 [node name="door" parent="." unique_id=851363931 instance=ExtResource("7_bpwna")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.0999999, -7)
 
@@ -265,8 +279,11 @@ mesh = SubResource("PlaneMesh_3y4p8")
 [node name="readletter" type="Area3D" parent="Desk/PaperLetter" unique_id=104942753]
 collision_layer = 2
 script = ExtResource("9_s2w8k")
-desc = "Programmed by DoodleGarbage"
+desc = "Read Credits"
+is_dialogue = true
 event_name = "letter"
+forced_cue = "credits"
+dialogue = ExtResource("8_lbuhw")
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Desk/PaperLetter/readletter" unique_id=1599259187]
@@ -276,8 +293,19 @@ shape = SubResource("BoxShape3D_lbuhw")
 transform = Transform3D(0.7071068, 0, -0.70710677, 0, 1, 0, 0.7071068, 0, 0.70710677, 0.072582886, -0.0071067223, 0.17115696)
 mesh = SubResource("PlaneMesh_cpg17")
 
+[node name="readletter2" type="Area3D" parent="Desk/PaperLetter" unique_id=915684347]
+collision_layer = 2
+script = ExtResource("9_s2w8k")
+desc = "Programmed by DoodleGarbage"
+event_name = "letter"
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Desk/PaperLetter/readletter2" unique_id=142025000]
+transform = Transform3D(0.707103, 0, 0.7071032, 0, 1, 0, -0.7071032, 0, 0.707103, 0.07909322, -0.02422452, 0.18727416)
+shape = SubResource("BoxShape3D_3y4p8")
+
 [node name="alarmclock" parent="Desk" unique_id=1038407836 instance=ExtResource("16_mxg2e")]
-transform = Transform3D(-0.17698883, 0, -0.15611202, 0, 0.236, 0, 0.15611202, 0, -0.17698883, -0.22466111, 0.9407512, 1.3238037)
+transform = Transform3D(-0.36972663, 0, -0.32611534, 0, 0.493, 0, 0.32611534, 0, -0.36972663, -0.22466111, 1.0340197, 1.3238037)
 
 [node name="Alarm" type="AudioStreamPlayer3D" parent="Desk/alarmclock" unique_id=1326739060]
 transform = Transform3D(-3.1777651, 0, 2.80293, 0, 4.237288, 0, -2.80293, 0, -3.1777651, -0.23965263, 0.329504, -0.06745958)
@@ -291,12 +319,42 @@ desc = "Music by E. Z. Pace"
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Desk/alarmclock/Music" unique_id=1970865980]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04144287, -0.0796814)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.117889404, -0.0796814)
 shape = SubResource("BoxShape3D_ww0ml")
 
 [node name="Picture" type="MeshInstance3D" parent="Desk/alarmclock" unique_id=1462323459]
-transform = Transform3D(1.13133405e-08, -1.0000004, 4.2221963e-08, -0.2588191, -4.37114e-08, -0.96592593, 0.96592593, 8.881784e-16, -0.2588191, -0.20706278, -0.05742202, -0.2747274)
+transform = Transform3D(1.13133405e-08, -1.0000004, 4.2221963e-08, -0.2588191, -4.37114e-08, -0.96592593, 0.96592593, 8.881784e-16, -0.2588191, -0.20706281, -0.09305482, 0.3649215)
 mesh = SubResource("PlaneMesh_16d8y")
+
+[node name="Interactable3D" type="Area3D" parent="Desk/alarmclock" unique_id=31936091 node_paths=PackedStringArray("audio_player")]
+collision_layer = 2
+script = ExtResource("9_s2w8k")
+desc = "Play Song"
+audio_player = NodePath("../Alarm")
+play_audio = true
+audio_track = "alarm_sound"
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Desk/alarmclock/Interactable3D" unique_id=1664979885]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006166458, 0.30944824, -0.24492836)
+shape = SubResource("BoxShape3D_3jhd4")
+
+[node name="Interactable3D2" type="Area3D" parent="Desk/alarmclock" unique_id=95294986 node_paths=PackedStringArray("audio_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.450581e-09, 0, 0.15519843)
+collision_layer = 2
+script = ExtResource("9_s2w8k")
+desc = "Stop Song"
+audio_player = NodePath("../Alarm")
+stopped_audio_tracks = Array[String](["alarm_sound"])
+metadata/_custom_type_script = "uid://b05o3m5lkmf63"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Desk/alarmclock/Interactable3D2" unique_id=1323597850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006166458, 0.30944824, -0.24492836)
+shape = SubResource("BoxShape3D_3jhd4")
+
+[node name="AlarmfaceMorning" type="MeshInstance3D" parent="Desk/alarmclock" unique_id=1403759701]
+transform = Transform3D(-0.0007090681, -0.9999996, 1.5747734e-06, -0.0021679252, -3.7587597e-08, -0.99999845, 0.99999726, -0.00070893764, -0.0021679327, -0.20415233, -1.9624431e-05, -0.0020905836)
+mesh = SubResource("PlaneMesh_uhw23")
 
 [node name="Homework" type="Node3D" parent="Desk" unique_id=1712379322]
 

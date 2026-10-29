@@ -134,6 +134,7 @@ func stop_themes(fade:bool=true, custom_fade_speed:float = default_fade_out_spee
 
 func _play_audio(audio : AudioStream, audio_name:String, forced_player=null, _volume:float=0.0, next_track:String="", fade_in:bool=false, fade_in_speed:float=default_fade_in_speed) -> Node:
 	var audio_player
+	print("Forced player: ", forced_player)
 	if forced_player != null:
 		audio_player = forced_player
 	else:
@@ -147,7 +148,7 @@ func _play_audio(audio : AudioStream, audio_name:String, forced_player=null, _vo
 		audio_player.finished.disconnect(_loop_audio)
 	if next_track != "":
 		audio_player.finished.connect(_loop_audio.bind(audio_player, next_track, forced_player))
-		
+	audio_player.stop()
 	audio_player.stream = audio
 	audio_player.volume_db = _volume
 	audio_player.base_volume = _volume

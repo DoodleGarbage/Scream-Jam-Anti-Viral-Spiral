@@ -177,18 +177,37 @@ func restart_day(scene:String="follys_room") -> void:
 
 
 func save_exists() -> bool:
-	return FileAccess.file_exists("user://save.dat")
+	if FileAccess.file_exists("user://save.dat"):
+		var dat = FileAccess.open("user://save.dat", FileAccess.READ)
+		var json := JSON.new()
+		var err := json.parse(dat.get_as_text())
+		if err != Error.OK:
+			#print("failed here3")
+			return false
+		dat = json.data
+		if typeof(dat) != TYPE_ARRAY:
+			#print("failed here2")
+			return false
+		var arr : Array = json.data as Array
+		if typeof(arr[1]) != TYPE_STRING or arr[1] == "":
+			#print("failed here")
+			return false 
+	else:
+		return false
+	return true
 
 func save_game() -> void:
 	var file := FileAccess.open("user://save.dat", FileAccess.WRITE)
 	#var json := JSON.new()
+	
+	print("we saved and overwrote")
 	
 	if game_node.current_scene == "main_menu":
 		return
 	
 	
 	var save_dat := JSON.stringify([current_day, game_node.current_scene, in_recovery, work_complete, collected_pieces, completed_childhood])
-	file.store_string(save_dat)
+	print(file.store_string(save_dat))
 	file.flush()
 	return
 

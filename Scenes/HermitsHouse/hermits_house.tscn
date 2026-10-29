@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cgxa121248u1p" path="res://Scenes/HermitsHouse/hermits_house.gd" id="1_qahk0"]
 [ext_resource type="PackedScene" uid="uid://cg8ksoh5a2y86" path="res://Scenes/FollysRoom/window.tscn" id="2_8nq5k"]
 [ext_resource type="PackedScene" uid="uid://cqfpginbqfnif" path="res://Assets/Models/HermitsHouse/hermit_house_interior.blend" id="3_dv45c"]
+[ext_resource type="Material" uid="uid://c3qaidoggp2t2" path="res://Assets/Textures/Materials/wood_foor.tres" id="3_tiyix"]
 [ext_resource type="PackedScene" uid="uid://ds2sqhah24a3d" path="res://Assets/Models/HermitsHouse/hermit_house_interior_upper.blend" id="4_lo8v2"]
 [ext_resource type="Script" uid="uid://b05o3m5lkmf63" path="res://Scenes/BaseGame/interactable3D.gd" id="5_dv45c"]
 [ext_resource type="PackedScene" uid="uid://bvmmhr7uqnuy5" path="res://Scenes/HermitsHouse/broken_window.tscn" id="6_lo8v2"]
@@ -11,6 +12,7 @@
 size = Vector3(9, 0.249, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_c4qn5"]
+material = ExtResource("3_tiyix")
 size = Vector2(13.568, 9.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8s5l4"]
@@ -26,6 +28,7 @@ size = Vector3(8.099373, 1, 23.353)
 size = Vector3(8.239028, 1, 23.353)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8s5l4"]
+material = ExtResource("3_tiyix")
 size = Vector2(23.023, 16.947)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fodyg"]
@@ -73,6 +76,23 @@ size = Vector3(0.251, 2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ue6wd"]
 size = Vector3(0.266, 2.006, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hiygu"]
+sky_top_color = Color(0.0006620584, 0.06663098, 0.009669079, 1)
+sky_horizon_color = Color(0.040856533, 0.11870954, 1.2032688e-08, 1)
+ground_bottom_color = Color(0.2673534, 0.19747639, 0.020669319, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_energy_multiplier = 0.5
+
+[sub_resource type="Sky" id="Sky_1oxiw"]
+sky_material = SubResource("ProceduralSkyMaterial_hiygu")
+
+[sub_resource type="Environment" id="Environment_rt333"]
+background_mode = 2
+sky = SubResource("Sky_1oxiw")
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
 
 [node name="hermits_house" type="Node3D" unique_id=207153106 node_paths=PackedStringArray("folly_spawn")]
 script = ExtResource("1_qahk0")
@@ -298,3 +318,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0202713, 1.597383, -3.1524
 
 [node name="Climbpoint" type="Node3D" parent="." unique_id=1955337987]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9080453, 1.7468209)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=567276614]
+environment = SubResource("Environment_rt333")

@@ -539,7 +539,7 @@ objects = Array[ObjectResource]([ExtResource("4_wg0te")])
 waterDefinition = SubResource("WaterResource_76umi")
 terrainZones = SubResource("ZonesResource_x8ffa")
 physics_interpolation_mode = 2
-metadata/_edit_lock_ = true
+metadata/_edit_lock_ = false
 
 [node name="rocks on a montion" parent="." unique_id=287664929 instance=ExtResource("17_2uq0s")]
 transform = Transform3D(15.149, 0, 0, 0, 15.149, 0, 0, 0, 15.149, 0, 0, 0)
@@ -2013,7 +2013,7 @@ rainy_movementspeed = 10.0
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NPCs/Raincoat/Model" unique_id=1469854291]
-transform = Transform3D(0.14073132, 0.98973703, -0.02480993, -0.0068613775, -0.024083711, -0.9996865, -0.9900241, 0.14085743, 0.0034016257, 0.30986512, 1.3445683, -9.313227e-10)
+transform = Transform3D(0.14073132, 0.98973703, -0.02480993, -0.0068613775, -0.024083711, -0.9996865, -0.9900241, 0.14085743, 0.0034016257, 0.28696442, 1.3827438, 0.005241394)
 mesh = SubResource("PlaneMesh_ul1u8")
 
 [node name="RaincoatInteract" type="Area3D" parent="NPCs/Raincoat" unique_id=406111223]

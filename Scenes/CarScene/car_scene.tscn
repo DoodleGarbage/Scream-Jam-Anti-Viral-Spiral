@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://cxsdeawm8bsfx" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3way.tscn" id="37_7dsyp"]
 [ext_resource type="PackedScene" uid="uid://cojyw0pvmmggy" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_alt_left_nopipes.tscn" id="39_y6kqk"]
 [ext_resource type="PackedScene" uid="uid://diqijucylb5l1" path="res://Scenes/CarScene/crate_blockers.tscn" id="41_8wlx2"]
+[ext_resource type="PackedScene" uid="uid://pjw1dnysff31" path="res://Scenes/Tunnels/TunnelPieces/tunnel_corner_flat_nopipes.tscn" id="41_n5mlp"]
 
 [sub_resource type="Curve" id="Curve_bordy"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.137725, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.709949), 0.0, 0.0, 0, 0]
@@ -295,13 +296,13 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.55
 transform = Transform3D(0.65106714, 0, 0, 0, 0.65106714, 0, 0, 0, 0.65106714, 0, -0.36964417, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="MercurysCar" unique_id=1075795553]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0768293, -0.16809464, -3.5062704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7104976, -0.34659147, -2.449829)
 light_energy = 13.327
 shadow_enabled = true
 spot_range = 18.866
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="MercurysCar" unique_id=71323148]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1583631, -0.16809464, -3.5470648)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7050718, -0.34659147, -2.4906158)
 light_energy = 13.327
 shadow_enabled = true
 spot_range = 18.866
@@ -609,12 +610,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108, 0, -8)
 [node name="Straight Flat14" parent="SceneMap" unique_id=123864139 instance=ExtResource("28_pdvuk")]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 111, 0, -2)
 
-[node name="Corner Alt Left No Pipes" parent="SceneMap" unique_id=331755598 instance=ExtResource("39_y6kqk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115, 0, -1)
-
-[node name="Straight No Pipes3" parent="SceneMap" unique_id=756908803 instance=ExtResource("36_ygru4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115, 0, 2)
-
 [node name="Corner Alt Right No Pipes2" parent="SceneMap" unique_id=50859728 instance=ExtResource("35_ijkrh")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 116, 0, 5)
 
@@ -665,6 +660,12 @@ transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 77, 0, 11)
 
 [node name="Corner Alt Left No Pipes2" parent="SceneMap" unique_id=8971075 instance=ExtResource("39_y6kqk")]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 107, 0, 21)
+
+[node name="Corner Flat" parent="SceneMap" unique_id=1211519657 instance=ExtResource("41_n5mlp")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 114, 0, -2)
+
+[node name="Straight Flat13" parent="SceneMap" unique_id=598959046 instance=ExtResource("28_pdvuk")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 115, 0, 1)
 
 [connection signal="body_entered" from="ChaseEnd/TunnelEndPortal" to="ChaseEnd/TunnelEndPortal" method="trigger_on_body_entered"]
 [connection signal="body_entered" from="Fall/FallDetector" to="." method="_on_player_fall" unbinds=1]

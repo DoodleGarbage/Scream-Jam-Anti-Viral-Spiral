@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c3qaidoggp2t2"]
+
+[ext_resource type="Texture2D" uid="uid://cbkjm873misxu" path="res://Assets/Textures/MapTextures/coated_pine_1k.blend/textures/coated_pine_diff_1k.jpg" id="1_axbhl"]
+[ext_resource type="Texture2D" uid="uid://k8c3mwpf4c52" path="res://Assets/Textures/MapTextures/coated_pine_1k.blend/textures/coated_pine_disp_1k.png" id="2_ayih5"]
+[ext_resource type="Texture2D" uid="uid://dywnk3q5cp8ko" path="res://Assets/Textures/MapTextures/coated_pine_1k.blend/textures/coated_pine_rough_1k.exr" id="3_c1f31"]
+
+[resource]
+albedo_color = Color(0.40398076, 0.26750016, 0.07517622, 1)
+albedo_texture = ExtResource("1_axbhl")
+roughness = 0.0
+roughness_texture = ExtResource("3_c1f31")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_ayih5")

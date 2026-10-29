@@ -20,6 +20,8 @@ extends Scene
 @export var alarm_player : AudioStreamPlayer3D
 #@export var alarm_sound : AudioStreamPlayer3D
 #@export var alarm_clunk : AudioStreamPlayer3D
+@export var alarmface_morning : MeshInstance3D
+@export var alarmface_afternoon : MeshInstance3D
 
 @export_group("Spawn Points")
 @export var loading_point : Node3D
@@ -51,4 +53,9 @@ func loaded(_last_scene:String) -> void:
 		wakeup_node.close_wakeup()
 	if Status.work_complete:
 		$door/FrontDoor.monitorable = false
+		alarmface_afternoon.show()
+		alarmface_morning.hide()
+	else:
+		alarmface_morning.show()
+		alarmface_afternoon.hide()
 	Status.position_character(spawn_pos, character)
