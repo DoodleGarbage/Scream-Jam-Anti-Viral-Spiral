@@ -316,6 +316,8 @@ transform = Transform3D(-0.36972663, 0, -0.32611534, 0, 0.493, 0, 0.32611534, 0,
 
 [node name="Alarm" type="AudioStreamPlayer3D" parent="Desk/alarmclock" unique_id=1326739060]
 transform = Transform3D(-3.1777651, 0, 2.80293, 0, 4.237288, 0, -2.80293, 0, -3.1777651, -0.23965263, 0.329504, -0.06745958)
+attenuation_model = 1
+unit_size = 6.11
 script = ExtResource("11_2f3xy")
 metadata/_custom_type_script = "uid://coji4uh3esqdw"
 
