@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://3r0bk6h3sfk2" path="res://Scenes/UIUX/MainMenu/options.gd" id="1_msali"]
 [ext_resource type="Theme" uid="uid://b2mymlyfomh0k" path="res://Assets/UIUX/Themes/menu_theme.tres" id="1_sfpbp"]
+[ext_resource type="StyleBox" uid="uid://713fhlfx6j6y" path="res://Assets/UIUX/Themes/button_default.tres" id="3_7hdqs"]
 [ext_resource type="PackedScene" uid="uid://d3erf4bf5fvup" path="res://Scenes/UIUX/MainMenu/option_menu.tscn" id="3_trm8r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g45l0"]
 
 [node name="Options" type="CanvasLayer" unique_id=1637346859 node_paths=PackedStringArray("volume_slider", "volume_display", "sensitivity_display", "sensitivity_slider")]
 layer = 10
@@ -21,10 +24,12 @@ anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_sfpbp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_g45l0")
 
 [node name="TabContainer" type="TabContainer" parent="Control" unique_id=1030819217]
 layout_mode = 2
-theme_override_font_sizes/font_size = 54
+theme_override_font_sizes/font_size = 58
+theme_override_styles/tab_selected = ExtResource("3_7hdqs")
 current_tab = 0
 
 [node name="Basic" type="MarginContainer" parent="Control/TabContainer" unique_id=837888255]
@@ -92,13 +97,15 @@ text = "XX"
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -768.0
-offset_right = 768.0
-offset_bottom = 64.0
+offset_left = -960.0
+offset_top = 6.93
+offset_right = 963.0
+offset_bottom = 109.93
 grow_horizontal = 2
 theme = ExtResource("1_sfpbp")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 46
+theme_override_colors/font_color = Color(0.38039216, 0.60784316, 0.9019608, 1)
+theme_override_colors/font_shadow_color = Color(0.6862745, 0.8352941, 1, 1)
+theme_override_font_sizes/font_size = 100
 text = "Settings"
 horizontal_alignment = 1
 
@@ -106,8 +113,10 @@ horizontal_alignment = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -261.0
-offset_bottom = 85.0
+offset_left = -450.0
+offset_top = 845.0
+offset_right = -206.90503
+offset_bottom = 956.0
 grow_horizontal = 0
 theme = ExtResource("1_sfpbp")
 text = "Close"
