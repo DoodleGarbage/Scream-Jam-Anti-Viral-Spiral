@@ -14,13 +14,13 @@ Folly: Why am I always awake when everyone is asleep? Even the ever vigilant Rai
 Raincoat: I'm watching you. Don't do anything rash.
 => END!
 ~ night3
-Folly: You didn't deserve that, Raincoat...
+Folly: [#emotion=day3] You didn't deserve that, Raincoat...
 => END!
 ~ hell
-$(#U!@#): The Hermit seeks you
+Folly: Look at what I've done. Raincoat is an unrecoverable mess because of me.
 => END!
 ~ hellnight
-Folly: Look at what I've done. Raincoat is an unrecoverable mess because of me.
+$(#U!@#): The Hermit seeks you
 => END!
 ~ recovery
 Folly: Raincoat's watchful eye is intimidating, but he means only good.
