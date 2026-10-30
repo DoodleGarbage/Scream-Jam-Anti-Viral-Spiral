@@ -34,6 +34,12 @@ func loaded(_last_scene:String) -> void:
 	var waking : bool = false
 	if Status.completed_childhood and not Status.in_recovery:
 		spawn_pos = childhood_point
+		if _last_scene == "3d_game":
+			spawn_pos = loading_point
+		if _last_scene == "follys_room":
+			spawn_pos = wakeup_point
+			waking = true
+			Audio.play("alarm_sound", alarm_player)
 		childhood_door.show()
 		broken_window.show()
 		replaced_window.hide()

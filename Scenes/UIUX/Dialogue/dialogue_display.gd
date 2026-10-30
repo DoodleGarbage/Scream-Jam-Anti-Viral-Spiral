@@ -91,7 +91,7 @@ func display_dialogue() -> void:
 			match(tag):
 				"calm", "day1", "night1":
 					$CL/Chara.texture = folly_1
-				"day2", "night2":
+				"day2", "night2", "childhood":
 					$CL/Chara.texture = folly_2_nofx
 				"day3", "night3", "tunnels":
 					$CL/Chara.texture = folly_3_nofx
