@@ -24,4 +24,5 @@ LabelTitle/constants/shadow_offset_x = 5
 LabelTitle/constants/shadow_offset_y = 4
 LabelTitle/constants/shadow_outline_size = 8
 LabelTitle/font_sizes/font_size = 148
+TabContainer/styles/panel = ExtResource("3_r745y")
 VBoxContainer/constants/separation = 25

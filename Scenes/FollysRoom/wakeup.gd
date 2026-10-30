@@ -12,6 +12,7 @@ func start_wakeup() -> void:
 	Status.woke_up = false
 	blackout_screen.show()
 	wakeup_notice.show()
+	$Control.mouse_filter = Control.MOUSE_FILTER_STOP
 	return
 
 func _process(delta: float) -> void:
@@ -29,3 +30,4 @@ func _input(_event: InputEvent) -> void:
 		Audio.play("someplace_calm", null, true)
 		Status.woke_up = true
 		Status.waking_up = true
+		$Control.mouse_filter = Control.MOUSE_FILTER_IGNORE

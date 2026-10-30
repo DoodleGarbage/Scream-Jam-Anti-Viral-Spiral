@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bu634ku7mufa7" path="res://Scenes/UIUX/Dialogue/dialogue.tscn" id="4_3dryh"]
 [ext_resource type="Texture2D" uid="uid://enof713kk3gx" path="res://Scenes/UIUX/Images/Menu Screen Background (Alternative2).png" id="5_lsyel"]
 [ext_resource type="FontFile" uid="uid://bijl4at1isyia" path="res://Assets/UIUX/Fonts/darling-coffee-regular-opentype_ufonts.com.otf" id="6_x57o3"]
+[ext_resource type="PackedScene" uid="uid://cxmpj021k75sv" path="res://Scenes/UIUX/MainMenu/options.tscn" id="7_x57o3"]
 
 [node name="GlobalRoot" type="Node" unique_id=391369941 node_paths=PackedStringArray("character", "active_scene", "dialogue_display", "loading_screen")]
 script = ExtResource("1_3dryh")
@@ -18,7 +19,8 @@ loading_screen = NodePath("LoadingScreen")
 [node name="Character" parent="." unique_id=1981548183 instance=ExtResource("2_wrm1d")]
 transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 1.0658141e-14, 0, 1, 0, 0, 0)
 
-[node name="main_menu" parent="." unique_id=1248641115 instance=ExtResource("3_wowpa")]
+[node name="main_menu" parent="." unique_id=1248641115 node_paths=PackedStringArray("options") instance=ExtResource("3_wowpa")]
+options = NodePath("../Options")
 
 [node name="Dialogue" parent="." unique_id=1725542757 instance=ExtResource("4_3dryh")]
 layer = 2
@@ -63,3 +65,6 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7058824)
 theme_override_fonts/font = ExtResource("6_x57o3")
 theme_override_font_sizes/font_size = 107
 text = "Loading..."
+
+[node name="Options" parent="." unique_id=1637346859 instance=ExtResource("7_x57o3")]
+visible = false

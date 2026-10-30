@@ -21,6 +21,7 @@ offset_top = 4.0
 offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 expand_mode = 1
 
 [node name="Title Container" type="BoxContainer" parent="." unique_id=447101868]
@@ -33,11 +34,13 @@ offset_right = 593.0
 offset_bottom = 151.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 theme = ExtResource("2_jlp4j")
 vertical = true
 
 [node name="Title" type="RichTextLabel" parent="Title Container" unique_id=821930509]
 layout_mode = 2
+mouse_filter = 2
 theme_type_variation = &"richtextlabeltitle"
 bbcode_enabled = true
 text = "Another Day "
@@ -55,6 +58,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 offset_transform_enabled = true
 offset_transform_visual_only = false
+mouse_filter = 2
 theme = ExtResource("2_jlp4j")
 
 [node name="MenuScreenBackground(alternative)" type="Sprite2D" parent="." unique_id=516952305]

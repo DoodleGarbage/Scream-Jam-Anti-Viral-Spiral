@@ -46,7 +46,7 @@ func _get_stream(audio:String) -> AudioStream:
 		"prudent_folly": return preload("res://Assets/Audio/Prudent Folly Upd Air.mp3")
 		"book_delivered": return preload("res://Assets/Audio/book_thump.mp3")
 		"book_grabbed": return preload("res://Assets/Audio/book_page.mp3")
-		"alarm_sound": return preload("res://Assets/Audio/alarmclock_blare.mp3")
+		"alarm_sound": return preload("res://Assets/Audio/My Alarm.mp3")
 		"alarm_clunk": return preload("res://Assets/Audio/alarm_clunk.mp3")
 		"food": return preload("res://Assets/Audio/fridge_clink.mp3")
 		"dress": return preload("res://Assets/Audio/clothes_dress.mp3")

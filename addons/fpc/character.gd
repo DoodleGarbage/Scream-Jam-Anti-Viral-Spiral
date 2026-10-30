@@ -553,14 +553,28 @@ func update_camera_fov():
 		CAMERA.fov = lerp(CAMERA.fov, 75.0, 0.3)
 
 func handle_pausing():
+	
 	if Input.is_action_just_pressed(controls.PAUSE):
 		# You may want another node to handle pausing, because this player may get paused too.
+		#print("mouse mode: ", Input.mouse_mode)
 		match Input.mouse_mode:
 			Input.MOUSE_MODE_CAPTURED:
-				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+				#print(Input.mouse_mode)
+				if not Status.in_dialogue and Status.woke_up:
+					Status.game_node.get_node("Options").show()
+					#print("why isnt mouse mode setting")
+					Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+					#print(Input.mouse_mode)
+				if not Status.woke_up or Status.in_dialogue:
+					Status.game_node.get_node("Options").hide()
 				#get_tree().paused = false
 			Input.MOUSE_MODE_VISIBLE:
-				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+				#print('calling..')
+				Status.game_node.get_node("Options").hide()
+				if not Status.in_dialogue:
+					Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+				else:
+					Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 				#get_tree().paused = false
 
 #endregion

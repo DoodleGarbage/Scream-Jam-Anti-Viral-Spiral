@@ -6,9 +6,9 @@ extends Node
 ## Nodes
 @export_group("Node References")
 ## Sets the volume. Slider should be set with a min value of -72, max value of 6.0, step of 0.1, and allow greater & lesser
-@export var volume_slider : Slider
+#@export var volume_slider : Slider
 ## The label that displays the current volume setting.
-@export var volume_display : Label
+#@export var volume_display : Label
 ## Reference to the button that loads the save
 @export var continue_button : Control
 ## Reference to the button that loads the credits room.
@@ -45,10 +45,7 @@ func loaded(_last_scene:String) -> void:
 		continue_button.hide()
 	return
 
-func _process(_delta: float) -> void:
-	AudioServer.set_bus_volume_db(0, volume_slider.value)
-	volume_display.text = "%0.1fdb" % volume_slider.value
-	#Audio
+
 
 signal switch_scene(scene:String)
 func _on_start_pressed() -> void:
@@ -80,8 +77,7 @@ func _on_continue_button_pressed() -> void:
 	Status.load_game()
 
 
-func _on_options_close_pressed() -> void:
-	options.hide()
+
 
 
 func _on_quit_button_pressed() -> void:
