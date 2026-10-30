@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6wh70bmthddk"
-path="res://.godot/imported/Menu Screen Background (Alternative4).png-1b08a3765b3070c164b3dad35bd5d849.ctex"
+uid="uid://enof713kk3gx"
+path="res://.godot/imported/Menu Screen Background (Alternative2).png-cb539d0e11e626e61d3e4ee5d4c06155.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/UIUX/Images/Menu Screen Background (Alternative4).png"
-dest_files=["res://.godot/imported/Menu Screen Background (Alternative4).png-1b08a3765b3070c164b3dad35bd5d849.ctex"]
+source_file="res://Assets/UIUX/Images/Menu Screen Background (Alternative2).png"
+dest_files=["res://.godot/imported/Menu Screen Background (Alternative2).png-cb539d0e11e626e61d3e4ee5d4c06155.ctex"]
 
 [params]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7nsh8vk18qba" path="res://Scenes/UIUX/MainMenu/main_menu.gd" id="1_gnc24"]
 [ext_resource type="Theme" uid="uid://b2mymlyfomh0k" path="res://Assets/UIUX/Themes/menu_theme.tres" id="2_ai6nl"]
-[ext_resource type="Texture2D" uid="uid://dhfs7my0n33op" path="res://Assets/UIUX/Images/Menu Screen Background (Day 1).png" id="3_he1vh"]
+[ext_resource type="Texture2D" uid="uid://diteg5jnogdip" path="res://Assets/UIUX/Images/Menu Screen Background (Day 1).png" id="3_gnc24"]
 [ext_resource type="PackedScene" uid="uid://crpr8byjjvsy1" path="res://Scenes/UIUX/MainMenu/play_button.tscn" id="4_akgrq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8s5l4"]
@@ -40,7 +40,7 @@ offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("3_he1vh")
+texture = ExtResource("3_gnc24")
 expand_mode = 5
 stretch_mode = 4
 
@@ -62,6 +62,8 @@ theme = ExtResource("2_ai6nl")
 [node name="Title" type="Label" parent="MainMenu/TitleContainer" unique_id=1228269081]
 layout_mode = 2
 theme_type_variation = &"LabelTitle"
+theme_override_colors/font_color = Color(0.47058824, 0.8, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.8235294, 0.91764706, 1, 1)
 text = "Another Day"
 
 [node name="InteractContainer" type="VBoxContainer" parent="MainMenu" unique_id=347041912]

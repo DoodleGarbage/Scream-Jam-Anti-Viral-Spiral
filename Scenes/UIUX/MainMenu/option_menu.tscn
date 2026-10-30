@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d3erf4bf5fvup"]
 
 [ext_resource type="Theme" uid="uid://b2mymlyfomh0k" path="res://Assets/UIUX/Themes/menu_theme.tres" id="2_jlp4j"]
-[ext_resource type="Texture2D" uid="uid://d0w86ejac3csm" path="res://Scenes/UIUX/Images/Menu Screen Background (Alternative).png" id="2_uyg2m"]
+[ext_resource type="Texture2D" uid="uid://d0w86ejac3csm" path="res://Assets/UIUX/Images/Menu Screen Background (Alternative).png" id="2_uyg2m"]
 
 [node name="Option Menu" type="Control" unique_id=1691569862]
 layout_mode = 3

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bu634ku7mufa7"]
 
 [ext_resource type="Script" uid="uid://d1ha3u8fs4mla" path="res://Scenes/UIUX/Dialogue/dialogue_display.gd" id="1_dgfud"]
-[ext_resource type="Theme" uid="uid://dmu4rfi5mh37f" path="res://Scenes/UIUX/Dialogue/dialogue.tres" id="2_50len"]
+[ext_resource type="Theme" uid="uid://dmu4rfi5mh37f" path="res://Assets/UIUX/Themes/dialogue.tres" id="2_50len"]
 [ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/nodes/dialogue_label/dialogue_label.gd" id="2_p21q5"]
 [ext_resource type="Texture2D" uid="uid://dcv38gaf14303" path="res://Assets/Textures/Characters/FollySketchTransparent.png" id="3_p21q5"]
 [ext_resource type="FontFile" uid="uid://uey4fbmqwq1a" path="res://Assets/UIUX/Fonts/FuzzyBubbles-Bold.ttf" id="3_wt10n"]
