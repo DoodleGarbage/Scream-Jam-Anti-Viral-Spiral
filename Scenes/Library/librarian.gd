@@ -6,7 +6,7 @@ extends CharacterBody3D
 @export var navigation_agent : NavigationAgent3D
 @export var speed : float = 4.0
 
-const gravity = 9.805
+const gravity = 1.805
 
 var movement_disabled : bool = false
 var wander_timer : float = 1.0

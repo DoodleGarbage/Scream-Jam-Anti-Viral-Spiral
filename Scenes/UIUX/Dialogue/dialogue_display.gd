@@ -22,6 +22,8 @@ const folly_4_nofx := preload("res://Assets/Textures/Characters/FollyPortraits/h
 
 
 const raincoat := preload("res://Assets/Textures/Characters/raincoatportrait.png")
+const raincoat_normal := preload("res://Assets/Textures/Characters/raincoatnormalportrait.png")
+const raincoat_evil := preload("res://Assets/Textures/Characters/raincoatevilportrait.png")
 const librarian := preload("res://Assets/Textures/Characters/librarianportrait.png")
 const brawny := preload("res://Assets/Textures/Characters/brawnyportrait.png")
 const hermit := preload("res://Assets/Textures/Characters/hermitportrait.png")
@@ -106,7 +108,10 @@ func display_dialogue() -> void:
 					$CL/Chara.hide() ## Hide the image if no match found
 		"Raincoat":
 			$CL/Chara.show()
-			$CL/Chara.texture = raincoat
+			match(current_line.get_tag_value("emotion")):
+				"normal": $CL/Chara.texture = raincoat_normal
+				"evil": $CL/Chara.texture = raincoat_evil
+				_: $CL/Chara.texture = raincoat
 		"Librarian":
 			$CL/Chara.show()
 			$CL/Chara.texture = librarian

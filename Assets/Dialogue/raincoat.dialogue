@@ -1,15 +1,15 @@
 ~ day1
-Raincoat: ...
-Raincoat: You're the new librarian?
+Raincoat: [#emotion=veil] ...
+Raincoat: [#emotion=normal] You're the new librarian?
 Folly: Yes.
-Raincoat: I visit the library often. It's a good place to revisit the old memories left behind by shadows of the past. I enjoy reading the books they have.
+Raincoat: [#emotion=normal] I visit the library often. It's a good place to revisit the old memories left behind by shadows of the past. I enjoy reading the books they have.
 => END!
 ~ night1
 => END!
 ~ day2
-Raincoat: The books at the library are weird today. You better not have done anything to the books.
+Raincoat: [#emotion=evil] The books at the library are weird today. You better not have done anything to the books.
 Folly: I only re-shelve the books.
-Raincoat: I'm watching you.
+Raincoat: [#emotion=evil] I'm watching you.
 ~ night2
 => END!
 ~ day3
