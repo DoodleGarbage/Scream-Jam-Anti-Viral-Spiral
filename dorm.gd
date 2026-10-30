@@ -7,8 +7,8 @@ extends Scene
 func loaded(_last_scene:String) -> void:
 	Status.position_character(wake_point, character)
 	#Audio.play("pop_song")
-	Audio.play("alarm_sound", alarm_player)
-	wakeup_scene.start_wakeup()
+	Audio.play("pop_song", alarm_player)
+	wakeup_scene.start_wakeup(false)
 
 func get_your_life_back_on_track() -> void:
 	get_tree().quit(420)

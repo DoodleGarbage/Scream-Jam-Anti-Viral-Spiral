@@ -47,6 +47,7 @@ func _get_stream(audio:String) -> AudioStream:
 		"book_delivered": return preload("res://Assets/Audio/book_thump.mp3")
 		"book_grabbed": return preload("res://Assets/Audio/book_page.mp3")
 		"alarm_sound": return preload("res://Assets/Audio/My Alarm.mp3")
+		"pop_song": return preload("res://Assets/Audio/My Alarm.mp3")
 		"alarm_clunk": return preload("res://Assets/Audio/alarm_clunk.mp3")
 		"food": return preload("res://Assets/Audio/fridge_clink.mp3")
 		"dress": return preload("res://Assets/Audio/clothes_dress.mp3")
@@ -100,7 +101,7 @@ func play(audio: String, audio_player = null, fade_in:bool = false, fade_in_spee
 	print("Playing track: ", audio)
 	var next_track : String = ""
 	match(audio):
-		"prudent_folly","alarm_sound","library","main_menu","first_day", "second_day","being_followed","someplace_calm","hell","tunneling_through","generator","broken_generator","chase_loop", "flourescent_buzz", "tunnels_of_dread", "knock_loop", "wail": next_track = audio
+		"prudent_folly","alarm_sound","library","main_menu","first_day", "second_day","being_followed","someplace_calm","hell","tunneling_through","generator","broken_generator","chase_loop", "flourescent_buzz", "tunnels_of_dread", "knock_loop", "wail", "pop_song": next_track = audio
 		"chase_trigger": next_track = "chase_loop"
 		"power_on": next_track = "generator"
 		"car_horn": next_track = "car_horn"

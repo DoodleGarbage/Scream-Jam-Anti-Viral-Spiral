@@ -1,7 +1,7 @@
 ~ hermit
-Hermit: Welcome to our home. I despise this place, you know. We grew up here, and yet, every last inch of it makes my skin crawl.
+Hermit: [#emotion=yes] Welcome to our home. I despise this place, you know. We grew up here, and yet, every last inch of it makes my skin crawl.
 Folly: Why are you here, then?
-Hermit: It's what I've known. There's comfort in the familiar. Years and years, and this was all I knew. There was always that unsettling feeling. Like something's wrong, but the outside was scarier.
-Hermit: Told myself I'd get used to it, that the feelings would pass. They don't go away, Folly. When you sit here, retracing the same footsteps, again and again, you will never escape the cycle. Nothing will stop that feeling.
-Hermit: But it's comforting. Knowing the same walls will alawys be there, that the scenery will look just the same the second time. Go on. Draw from the innovations of antiquity.
+Hermit: [#emotion=no] It's what I've known. There's comfort in the familiar. Years and years, and this was all I knew. There was always that unsettling feeling. Like something's wrong, but the outside was scarier.
+Hermit: [#emotion=yes] Told myself I'd get used to it, that the feelings would pass. They don't go away, Folly. When you sit here, retracing the same footsteps, again and again, you will never escape the cycle. Nothing will stop that feeling.
+Hermit: [#emotion=no] But it's comforting. Knowing the same walls will alawys be there, that the scenery will look just the same the second time. Go on. Draw from the innovations of antiquity.
 => END!

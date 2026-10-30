@@ -23,6 +23,9 @@ const folly_4_nofx := preload("res://Assets/Textures/Characters/FollyPortraits/h
 
 const raincoat := preload("res://Assets/Textures/Characters/raincoatportrait.png")
 const librarian := preload("res://Assets/Textures/Characters/librarianportrait.png")
+const brawny := preload("res://Assets/Textures/Characters/brawnyportrait.png")
+const hermit := preload("res://Assets/Textures/Characters/hermitportrait.png")
+const hermit_alt := preload("res://Assets/Textures/Characters/althermitportrait.png")
 
 
 var active_dialogue : DialogueResource
@@ -107,6 +110,15 @@ func display_dialogue() -> void:
 		"Librarian":
 			$CL/Chara.show()
 			$CL/Chara.texture = librarian
+		"Brawny":
+			$CL/Chara.show()
+			$CL/Chara.texture = brawny
+		"Hermit":
+			if current_line.get_tag_value("emotion") != "":
+				$CL/Chara.show()
+				match(current_line.get_tag_value("emotion")):
+					"no": $CL/Chara.texture = hermit
+					_: $CL/Chara.texture = hermit_alt
 	
 	var mirror_tag : String = current_line.get_tag_value("mirror")
 	if mirror_tag == "day":

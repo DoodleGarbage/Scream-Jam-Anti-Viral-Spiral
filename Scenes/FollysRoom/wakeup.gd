@@ -8,11 +8,14 @@ func close_wakeup() -> void:
 	blackout_screen.hide()
 	wakeup_notice.hide()
 
-func start_wakeup() -> void:
+var stop : bool = true
+
+func start_wakeup(stop_audio:bool=true) -> void:
 	Status.woke_up = false
 	blackout_screen.show()
 	wakeup_notice.show()
 	$Control.mouse_filter = Control.MOUSE_FILTER_STOP
+	stop = stop_audio
 	return
 
 func _process(delta: float) -> void:
@@ -26,7 +29,8 @@ func _process(delta: float) -> void:
 func _input(_event: InputEvent) -> void:
 	if not Status.woke_up and Input.is_action_just_pressed("wakeup"):
 		Audio.play("alarm_clunk")
-		Audio.stop("alarm_sound")
+		if stop:
+			Audio.stop("alarm_sound")
 		Audio.play("someplace_calm", null, true)
 		Status.woke_up = true
 		Status.waking_up = true
