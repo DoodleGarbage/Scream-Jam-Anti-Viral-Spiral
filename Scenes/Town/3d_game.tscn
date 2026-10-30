@@ -1169,7 +1169,7 @@ transform = Transform3D(-0.120993316, 0, -0.9926531, 0, 1, 0, 0.9926531, 0, -0.1
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/TreeBlockerLarge35" unique_id=31230153]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
+transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, -4.2923775, 0, 3.1557388)
 shape = SubResource("BoxShape3D_g37um")
 debug_color = Color(0.77062553, 0, 0.35005775, 1)
 
