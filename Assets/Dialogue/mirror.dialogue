@@ -1,32 +1,32 @@
 ~ day1
-Folly: It's me. I look good.
+Folly: [#mirror=day] It's me. I look good.
 => END!
 ~ night1
-Folly: It's me. I look alright.
+Folly: [#mirror=day] It's me. I look alright.
 => END!
 
 ~ day2
-Folly: It's me. I look a bit dreary.
+Folly: [#mirror=day] It's me. I look a bit dreary.
 => END!
 ~ night2
-Folly: I don't like this place.
+Folly: [#mirror=day] I don't like this place.
 => END!
 
 ~ day3
-Folly: It's me. I'm exhausted.
+Folly: [#mirror=day] It's me. I'm exhausted.
 => END!
 ~ night3
-Folly: Hate. Pain. Suffering. That's all there is to see.
+Folly: [#mirror=day] Hate. Pain. Suffering. That's all there is to see.
 => END!
 
 ~ hell
-Folly: I fucked up.
+Folly: [#mirror=day] I fucked up.
 => END!
 ~ hellnight
-Folly: Maybe the Hermit can help?
+Folly: [#mirror=day] Maybe the Hermit can help?
 => END!
 ~ recovery
-Folly: I have my flaws. But I shouldn't let them fester. I won't.
+Folly: [#mirror=day] I have my flaws. But I shouldn't let them fester. I won't.
 => END!
 ~ recoverynight
 => recovery

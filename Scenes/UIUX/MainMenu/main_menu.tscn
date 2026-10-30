@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b7nsh8vk18qba" path="res://Scenes/UIUX/MainMenu/main_menu.gd" id="1_gnc24"]
 [ext_resource type="Theme" uid="uid://b2mymlyfomh0k" path="res://Assets/UIUX/Themes/menu_theme.tres" id="2_ai6nl"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://diteg5jnogdip" path="res://Assets/UIUX/Images/Menu Screen Background (Day 1).png" id="3_gnc24"]
+=======
+[ext_resource type="Texture2D" uid="uid://diteg5jnogdip" path="res://Scenes/UIUX/Images/Menu Screen Background (day 1).png" id="3_gnc24"]
+>>>>>>> 37601df8a1c36623869790dd0ff76cd1535e022f
 [ext_resource type="PackedScene" uid="uid://crpr8byjjvsy1" path="res://Scenes/UIUX/MainMenu/play_button.tscn" id="4_akgrq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8s5l4"]

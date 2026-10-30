@@ -22,9 +22,9 @@ func trigger_event(event:String, dialogue:DialogueResource, forced_cue:String=""
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	dialogue_display.show()
 	_load_dialogue(dialogue, forced_cue)
-	match(event):
-		"washup":
-			dialogue_display.get_node("CL/You").show()
+	#match(event):
+		#"washup":
+			#dialogue_display.get_node("CL/You").show()
 	return
 
 

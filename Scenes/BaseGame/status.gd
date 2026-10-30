@@ -20,7 +20,9 @@ var current_day_string : String :
 			return "crash"
 		if game_node.current_scene == "tunnels":
 			return "tunnels"
-		if current_day > 3:
+		if game_node.current_scene == "childhood_home" or game_node.current_scene == "follys_room" and completed_childhood:
+			return "childhood"
+		if current_day > 3 or completed_childhood:
 			if work_complete:
 				return "hellnight"
 			return "hell"

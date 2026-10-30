@@ -38,9 +38,13 @@ func loaded(last_scene:String) -> void:
 		"hell","hellnight":
 			Audio.play("hell", null, true)
 			$RockPile/GrabRock.desc = "I really shouldn't."
-			#$RockPile/GrabRock.is_rock = false
-			$Houses/HermitHouse/hermit_house.hide()
-			$Houses/HermitHouse/hermit_house_open.show()
+			
+			## Don't allow entering the tunnels again
+			if not Status.completed_childhood:
+				$Houses/HermitHouse/hermit_house.hide()
+				$Houses/HermitHouse/hermit_house_open.show()
+			else:
+				$Houses/HermitHouse/smokestack.emitting = false
 			$NPCs/Raincoat.hide()
 			$NPCs/Raincoat.global_position = Vector3(0,0,0)
 		"recovery":

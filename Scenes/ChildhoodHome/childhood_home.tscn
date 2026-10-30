@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://d2tv130yuga1s" path="res://Assets/Models/Mementos/glasses.blend" id="19_8nr6m"]
 [ext_resource type="PackedScene" uid="uid://ci41eyj3reqhs" path="res://Assets/Models/ChildhoodHome/doublebed.blend" id="21_n1qob"]
 [ext_resource type="PackedScene" uid="uid://bd7m6y1t1dmwn" path="res://Assets/Models/Mementos/raincoat.blend" id="22_elppl"]
+[ext_resource type="PackedScene" uid="uid://c8xurya0dfqoi" path="res://Assets/Models/ChildhoodHome/Hermit.blend" id="24_daf6i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b2jbv"]
 sky_top_color = Color(0.0006620584, 0.06663098, 0.009669079, 1)
@@ -227,13 +228,21 @@ size = Vector3(2.456, 0.944, 1.9862128)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4e74y"]
 size = Vector3(0.63134766, 1.1144714, 0.6043701)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_8s5l4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5w6dd"]
+transparency = 1
+albedo_texture = ExtResource("9_1vnr6")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_br3gh"]
+material = SubResource("StandardMaterial3D_5w6dd")
+size = Vector2(0.3, 0.3)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8s5l4"]
 radius = 0.714
 height = 3.524
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c4qn5"]
+radius = 0.38964844
+height = 1.6347656
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yhpar"]
 size = Vector3(2.1118164, 0.14770508, 1.9350586)
@@ -802,9 +811,12 @@ shape = SubResource("BoxShape3D_4e74y")
 [node name="Hermit" type="Node3D" parent="UpperFloor" unique_id=337286133]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1336236, 3.490553, -3.627191)
 
-[node name="HermitPlaceholder" type="MeshInstance3D" parent="UpperFloor/Hermit" unique_id=1094428894]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46611023, 0)
-mesh = SubResource("CapsuleMesh_8s5l4")
+[node name="Hermit" parent="UpperFloor/Hermit" unique_id=1872546603 instance=ExtResource("24_daf6i")]
+transform = Transform3D(0.8739531, 0, 0.48601025, 0, 1, 0, -0.48601025, 0, 0.8739531, 0, -0.58493733, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UpperFloor/Hermit/Hermit" unique_id=1954867704]
+transform = Transform3D(-0.018262416, 0.99954623, -0.023954991, -0.006861378, -0.024083713, -0.9996866, -0.99980974, -0.018092424, 0.007298094, 0.30075717, 1.3124163, -0.016798973)
+mesh = SubResource("PlaneMesh_br3gh")
 
 [node name="Talk" type="Area3D" parent="UpperFloor/Hermit" unique_id=204422288]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95265627, 0)
@@ -824,7 +836,7 @@ shape = SubResource("CapsuleShape3D_8s5l4")
 [node name="StaticBody3D" type="StaticBody3D" parent="UpperFloor/Hermit" unique_id=1199453570]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="UpperFloor/Hermit/StaticBody3D" unique_id=1304387603]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46564674, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28302956, 0)
 shape = SubResource("CapsuleShape3D_c4qn5")
 
 [node name="Blocker" type="Area3D" parent="UpperFloor/Hermit" unique_id=1262163123]
