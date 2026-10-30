@@ -557,6 +557,8 @@ func handle_pausing():
 	if Input.is_action_just_pressed(controls.PAUSE):
 		# You may want another node to handle pausing, because this player may get paused too.
 		#print("mouse mode: ", Input.mouse_mode)
+		if Status.game_node.current_scene == "main_menu":
+			return
 		match Input.mouse_mode:
 			Input.MOUSE_MODE_CAPTURED:
 				#print(Input.mouse_mode)

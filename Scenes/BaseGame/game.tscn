@@ -4,11 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://c7deni8bq53vy" path="res://Scenes/UIUX/MainMenu/main_menu.tscn" id="3_wowpa"]
 [ext_resource type="PackedScene" uid="uid://bu634ku7mufa7" path="res://Scenes/UIUX/Dialogue/dialogue.tscn" id="4_3dryh"]
-<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://enof713kk3gx" path="res://Assets/UIUX/Images/Menu Screen Background (Alternative2).png" id="5_lsyel"]
-=======
-[ext_resource type="Texture2D" uid="uid://enof713kk3gx" path="res://Scenes/UIUX/Images/Menu Screen Background (Alternative2).png" id="5_lsyel"]
->>>>>>> 37601df8a1c36623869790dd0ff76cd1535e022f
 [ext_resource type="FontFile" uid="uid://bijl4at1isyia" path="res://Assets/UIUX/Fonts/darling-coffee-regular-opentype_ufonts.com.otf" id="6_x57o3"]
 [ext_resource type="PackedScene" uid="uid://cxmpj021k75sv" path="res://Scenes/UIUX/MainMenu/options.tscn" id="7_x57o3"]
 
