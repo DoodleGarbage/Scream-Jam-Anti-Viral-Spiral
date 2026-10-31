@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://d0d5e18qsn8ex" path="res://Scenes/Tunnels/TunnelPieces/tunnel_3_way_alternate.tscn" id="19_0a6it"]
 [ext_resource type="PackedScene" uid="uid://bn4vl6pot1iq2" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_flat_nopipes.tscn" id="20_x6y1y"]
 [ext_resource type="PackedScene" uid="uid://u8twu4v7ch84" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_1m_flat_nopipe.tscn" id="22_4ic01"]
+[ext_resource type="PackedScene" uid="uid://dpsxntifwnquo" path="res://Assets/Models/Tunnels/generator_broken.blend" id="22_lhqp0"]
 [ext_resource type="PackedScene" uid="uid://c4venk7bqvwyr" path="res://Scenes/Tunnels/TunnelPieces/tunnel_straight_nopipes.tscn" id="23_0qju2"]
 [ext_resource type="Script" uid="uid://cuobj06kp8x5k" path="res://addons/scene_map/scene_item.gd" id="23_wc4ap"]
 [ext_resource type="PackedScene" uid="uid://8malspj2c46b" path="res://Scenes/Tunnels/rainbolt_monster_nav_point.tscn" id="24_0pet3"]
@@ -438,6 +439,10 @@ audio_player = NodePath("genny_noises")
 
 [node name="generator" parent="Rooms/GeneratorRoom/Generator" unique_id=774565413 instance=ExtResource("27_o5c2d")]
 transform = Transform3D(0.074344724, 0.39903128, 0.9139185, 0.62555766, -0.7323801, 0.26888138, 0.7766278, 0.5517188, -0.30406553, -0.03787613, -0.028351426, 0.0146923065)
+visible = false
+
+[node name="generator_broken" parent="Rooms/GeneratorRoom/Generator" unique_id=801157379 instance=ExtResource("22_lhqp0")]
+transform = Transform3D(0.074344724, 0.39903122, 0.9139185, 0.62555754, -0.7323801, 0.26888132, 0.7766277, 0.55171865, -0.3040656, -0.03787613, -0.028351426, 0.0146923065)
 
 [node name="GeneratorInteract" type="Area3D" parent="Rooms/GeneratorRoom/Generator" unique_id=1332663819]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.054073334, 0, 0.041999817)

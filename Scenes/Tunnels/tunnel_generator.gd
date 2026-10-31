@@ -21,6 +21,8 @@ func _on_generator_interact_triggered() -> void:
 	if Status.collected_pieces.size() >= needed_pieces:
 		closed_exit_door.hide()
 		exit_door.show()
+		$generator_broken.hide()
+		$generator.show()
 		Audio.play("someplace_calm", exit_audio, true)
 		exit_interact.monitorable = true
 		$GeneratorInteract.collects_generator_pieces = false
@@ -28,6 +30,7 @@ func _on_generator_interact_triggered() -> void:
 		await get_tree().create_timer(1.5).timeout
 		Audio.play("power_on", audio_player)
 		Audio.play("tunneling_through", null, true, 2.0)
+		
 		for light in get_tree().get_nodes_in_group("TunnelLight"):
 			Status.base_flicker_chance = 0.05
 			Status.flicker_chance_increase = 0.0
