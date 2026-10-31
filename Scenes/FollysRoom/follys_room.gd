@@ -36,7 +36,8 @@ func loaded(_last_scene:String) -> void:
 		spawn_pos = childhood_point
 		if _last_scene == "3d_game":
 			spawn_pos = loading_point
-		if _last_scene == "follys_room":
+		## if 'main_menu' we're loading from a save.
+		if _last_scene == "follys_room" or _last_scene == "main_menu":
 			spawn_pos = wakeup_point
 			waking = true
 			Audio.play("alarm_sound", alarm_player)
@@ -55,6 +56,7 @@ func loaded(_last_scene:String) -> void:
 		$Furniture/bed/Sleep.monitorable = false
 		spawn_pos = loading_point
 	if not waking:
+		print("Called")
 		Audio.play("someplace_calm", null, true)
 		wakeup_node.close_wakeup()
 	if Status.work_complete:

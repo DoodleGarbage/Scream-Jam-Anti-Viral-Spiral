@@ -563,16 +563,16 @@ func handle_pausing():
 			Input.MOUSE_MODE_CAPTURED:
 				#print(Input.mouse_mode)
 				if not Status.in_dialogue and Status.woke_up:
-					Status.game_node.get_node("Options").show()
+					Status.game_node.get_node("Options").open()
 					#print("why isnt mouse mode setting")
 					Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 					#print(Input.mouse_mode)
 				if not Status.woke_up or Status.in_dialogue:
-					Status.game_node.get_node("Options").hide()
+					Status.game_node.get_node("Options").close()
 				#get_tree().paused = false
 			Input.MOUSE_MODE_VISIBLE:
 				#print('calling..')
-				Status.game_node.get_node("Options").hide()
+				Status.game_node.get_node("Options").close()
 				if not Status.in_dialogue:
 					Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 				else:

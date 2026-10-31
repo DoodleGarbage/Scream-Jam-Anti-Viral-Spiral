@@ -68,7 +68,7 @@ func _input(_event: InputEvent) -> void:
 
 
 func _on_options_button_pressed() -> void:
-	options.show()
+	options.open()
 
 
 func _on_continue_button_pressed() -> void:

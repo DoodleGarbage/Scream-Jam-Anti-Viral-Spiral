@@ -578,7 +578,7 @@ objects = Array[ObjectResource]([ExtResource("4_wg0te")])
 waterDefinition = SubResource("WaterResource_76umi")
 terrainZones = SubResource("ZonesResource_x8ffa")
 physics_interpolation_mode = 2
-metadata/_edit_lock_ = true
+metadata/_edit_lock_ = false
 
 [node name="rocks on a montion" parent="." unique_id=287664929 instance=ExtResource("17_2uq0s")]
 transform = Transform3D(15.149, 0, 0, 0, 15.149, 0, 0, 0, 15.149, 0, 0, 0)

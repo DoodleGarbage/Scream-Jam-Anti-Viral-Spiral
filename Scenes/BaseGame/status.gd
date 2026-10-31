@@ -124,6 +124,8 @@ func throw_rock() -> void:
 	#thrown_rock.global_transform = game_node.character.HEAD.global_transform
 	thrown_rock.global_position = game_node.character.global_position + game_node.character.HEAD.position
 	#print("Firing in direction: ", game_node.character.HEAD.quaternion * Vector3(0,0,-1))
+	allow_dialogue = false
+	Dialogue.dialogue_display.get_node("DialogueInterrupt").start()
 	var basis = -game_node.character.HEAD.global_transform.basis.z.normalized()
 	print(basis)
 	#var direction = basis * Vector3.FORWARD
@@ -198,20 +200,18 @@ func save_exists() -> bool:
 		return false
 	return true
 
+
 func save_game() -> void:
 	var file := FileAccess.open("user://save.dat", FileAccess.WRITE)
-	#var json := JSON.new()
-	
-	print("we saved and overwrote")
 	
 	if game_node.current_scene == "main_menu":
 		return
 	
-	
 	var save_dat := JSON.stringify([current_day, game_node.current_scene, in_recovery, work_complete, collected_pieces, completed_childhood])
-	print(file.store_string(save_dat))
+	file.store_string(save_dat)
 	file.flush()
 	return
+
 
 func load_game() -> void:
 	var file := FileAccess.open("user://save.dat", FileAccess.READ)
@@ -231,8 +231,12 @@ func load_game() -> void:
 		collected_pieces.assign(arr[4])
 		completed_childhood = arr[5]
 		
+		if arr[1] == "follys_room" and not work_complete:
+			woke_up = false
+		
 		game_node.switch_scene(arr[1])
 	return
+
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

@@ -26,6 +26,7 @@ Status="*uid://crs2v42eoxbir"
 Audio="*uid://bfb4kxuy4j2mk"
 Dialogue="*uid://qh4gee4sbf1g"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Settings="*uid://bcb8rrd8s5krd"
 
 [dialogue_manager]
 

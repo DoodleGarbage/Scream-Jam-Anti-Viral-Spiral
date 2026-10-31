@@ -11,6 +11,7 @@ var bookshelf_colors : Array[Material] = []
 var bookshelf_titles : Array = []
 
 func loaded(_last_scene:String) -> void:
+	Audio.stop_all()
 	match(Status.current_day_string):
 		"day1", "recovery":
 			Audio.play("first_day", null, true)
