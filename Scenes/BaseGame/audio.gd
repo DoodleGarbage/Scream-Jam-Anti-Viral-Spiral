@@ -90,6 +90,7 @@ func _get_volume(audio:String) -> float:
 		"chase_trigger","chase_loop": mod = 10
 		"tunneling_through": mod = -13
 		"flourescent_buzz": mod = 2
+		"book_delivered": mod = 15
 	return mod
 
 ## AudioStreamPlayers do not have a common inheritance class
