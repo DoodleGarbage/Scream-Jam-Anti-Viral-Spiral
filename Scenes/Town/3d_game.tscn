@@ -40,6 +40,7 @@
 [ext_resource type="Resource" uid="uid://chvxocv66rhty" path="res://Assets/Dialogue/brawny_knock.dialogue" id="39_33vmk"]
 [ext_resource type="PackedScene" uid="uid://dj0l1b4wofgpu" path="res://Assets/Models/Town/rock_pile.blend" id="39_vufqp"]
 [ext_resource type="PackedScene" uid="uid://d0mwi2bg02g8w" path="res://Assets/Models/Town/hermit_house_open.blend" id="40_nhdq1"]
+[ext_resource type="PackedScene" uid="uid://dpsxntifwnquo" path="res://Assets/Models/Tunnels/generator_broken.blend" id="41_5w6dd"]
 [ext_resource type="PackedScene" uid="uid://dtc7q36iofnv7" path="res://Assets/Models/Town/van.blend" id="41_ycl1m"]
 [ext_resource type="Script" uid="uid://j7twiukm7y01" path="res://Scenes/Town/generator.gd" id="42_cp8qb"]
 [ext_resource type="PackedScene" uid="uid://conmom24sv1ah" path="res://Assets/Models/Tunnels/generator.blend" id="42_tlfy0"]
@@ -2367,6 +2368,10 @@ mesh = SubResource("BoxMesh_poo0e")
 
 [node name="generator" parent="Houses/handyman_spot/Generator" unique_id=563458814 instance=ExtResource("42_tlfy0")]
 transform = Transform3D(-1.6167797, 0, 0.9334483, 0, 1.8668964, 0, -0.9334483, 0, -1.6167797, -0.16225433, 0.547806, 0.013339996)
+
+[node name="generator_broken" parent="Houses/handyman_spot/Generator" unique_id=801157379 instance=ExtResource("41_5w6dd")]
+transform = Transform3D(-1.6167797, 0, 0.9334483, 0, 1.8668964, 0, -0.9334483, 0, -1.6167797, -0.16225433, 0.547806, 0.013339996)
+visible = false
 
 [node name="Genny" type="AudioStreamPlayer3D" parent="Houses/handyman_spot/Generator" unique_id=1079463287]
 transform = Transform3D(-0.8660254, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660254, -0.16225433, 0.547806, 0.013339996)
