@@ -25,6 +25,7 @@ func set_movement_target(target:Vector3) -> void:
 	return
 
 var last_dialogue : bool = false
+var moved_into_position : bool = false
 
 func _physics_process(_delta: float) -> void:
 	
@@ -35,29 +36,49 @@ func _physics_process(_delta: float) -> void:
 		velocity = Vector3(0,0,0)
 		return
 	
+	dialogue_timer -= _delta
+	wander_timer -= _delta
+	
+	var space_state = get_world_3d().direct_space_state
+	var source := Vector3(global_position.x, 1, global_position.z)
+	var target : Vector3 = get_parent().character.global_position + Vector3(0,1,0)
+	var query = PhysicsRayQueryParameters3D.create(source, target, 1, [self.get_rid()])
+	var result : Dictionary = space_state.intersect_ray(query)
+	var raycast_valid : bool = false
+	if result != {} and result["collider"] == get_parent().character:
+		raycast_valid = true
+	
 	if Status.work_complete:
-		if not last_dialogue:
+		if not last_dialogue and raycast_valid and moved_into_position:
 			Dialogue.trigger_event("", dialogue_source, Status.current_day_string)
-			global_position = lib_exit.global_position
-			get_parent().character.HEAD.look_at(global_position + Vector3(0,1.5,0))
+			get_parent().character.HEAD.look_at(global_position + Vector3(0,0.5,0))
+			
 			if Status.current_day_string == "night3":
 				collision_layer = 0
 				collision_mask = 0
+			
 			last_dialogue = true
+		
+		if not moved_into_position:
+			global_position = lib_exit.global_position
+			moved_into_position = true
+		
 		look_at(get_parent().character.global_position)
 		rotation.x = 0
 		rotation.z = 0
+		
 		if Status.current_day_string != "night3":
 			velocity = Vector3(0,0,0)
 		else:
 			velocity.y -= gravity * _delta
 			move_and_slide()
+		
 		return
 	
-	dialogue_timer -= _delta
-	wander_timer -= _delta
-	
-	if dialogue_timer < 0.0:
+	if dialogue_timer < 0.0 and raycast_valid:
+		## Check if the player is visible.
+		
+		
 		var rand_cue = "a" + str(randi_range(1,9)) # <- this magic number is from the dialogue resource, it picks from to a1-a9 to say
 		if Status.in_recovery:
 			rand_cue = "b" + str(randi_range(1,4))
