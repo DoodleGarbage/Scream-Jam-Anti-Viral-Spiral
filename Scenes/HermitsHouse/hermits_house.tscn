@@ -52,6 +52,9 @@ size = Vector3(13.374, 4.878, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_x1qgn"]
 size = Vector3(12.53, 12.226, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3jhd4"]
+size = Vector3(8.543274, 3.7077637, 0.16149902)
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8s5l4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2d2xd"]
@@ -210,43 +213,39 @@ mesh = SubResource("PlaneMesh_c4qn5")
 
 [node name="Wall1" type="CollisionShape3D" parent="lower/Collider/lower" unique_id=1666926154]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31209, 0.90114, -0.059764385)
-visible = false
 shape = SubResource("BoxShape3D_fodyg")
 
 [node name="Wall2" type="CollisionShape3D" parent="lower/Collider/lower" unique_id=1590442749]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.5497274, 0.90114, 5.7191834)
-visible = false
 shape = SubResource("BoxShape3D_fodyg")
 
 [node name="Wall3" type="CollisionShape3D" parent="lower/Collider/lower" unique_id=1056574915]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84040785, 4.517577, 6.8667145)
-visible = false
 shape = SubResource("BoxShape3D_lo8v2")
 
 [node name="Wall4" type="CollisionShape3D" parent="lower/Collider/lower" unique_id=1106256802]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84040785, 4.517577, -6.7787304)
-visible = false
 shape = SubResource("BoxShape3D_lo8v2")
 
 [node name="Wall5" type="CollisionShape3D" parent="lower/Collider/lower" unique_id=2136453293]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.525248, 0.90114, 0.050255775)
-visible = false
 shape = SubResource("BoxShape3D_vrcme")
 
 [node name="Wall6" type="CollisionShape3D" parent="lower/Collider/lower" unique_id=591368991]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.5497274, 0.90114, -10.757279)
-visible = false
 shape = SubResource("BoxShape3D_fodyg")
 
 [node name="Wall7" type="CollisionShape3D" parent="lower/Collider/lower" unique_id=332025700]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.034507, 0.90114, -2.397906)
-visible = false
 shape = SubResource("BoxShape3D_x1qgn")
 
 [node name="Wall8" type="CollisionShape3D" parent="lower/Collider/lower" unique_id=612885401]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.31209, 0.90114, -4.9963455)
-visible = false
 shape = SubResource("BoxShape3D_fodyg")
+
+[node name="innerwall" type="CollisionShape3D" parent="lower/Collider/lower" unique_id=1158112928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1495671, 1.3980484, -4.5665455)
+shape = SubResource("BoxShape3D_3jhd4")
 
 [node name="globalfloor" type="StaticBody3D" parent="lower/Collider" unique_id=513013719]
 
