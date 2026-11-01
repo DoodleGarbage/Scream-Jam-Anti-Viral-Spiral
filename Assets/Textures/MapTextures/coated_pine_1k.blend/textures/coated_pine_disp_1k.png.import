@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://k8c3mwpf4c52"
 path.s3tc="res://.godot/imported/coated_pine_disp_1k.png-e49dbd4dd06370fba727c37e36278ae6.s3tc.ctex"
+path.etc2="res://.godot/imported/coated_pine_disp_1k.png-e49dbd4dd06370fba727c37e36278ae6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Textures/MapTextures/coated_pine_1k.blend/textures/coated_pine_disp_1k.png"
-dest_files=["res://.godot/imported/coated_pine_disp_1k.png-e49dbd4dd06370fba727c37e36278ae6.s3tc.ctex"]
+dest_files=["res://.godot/imported/coated_pine_disp_1k.png-e49dbd4dd06370fba727c37e36278ae6.s3tc.ctex", "res://.godot/imported/coated_pine_disp_1k.png-e49dbd4dd06370fba727c37e36278ae6.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2rfr2fylri4y"
 path.s3tc="res://.godot/imported/AlarmMorning.png-2008dfc516b476383ca00dd68254b86d.s3tc.ctex"
+path.etc2="res://.godot/imported/AlarmMorning.png-2008dfc516b476383ca00dd68254b86d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Textures/MiscImages/AlarmMorning.png"
-dest_files=["res://.godot/imported/AlarmMorning.png-2008dfc516b476383ca00dd68254b86d.s3tc.ctex"]
+dest_files=["res://.godot/imported/AlarmMorning.png-2008dfc516b476383ca00dd68254b86d.s3tc.ctex", "res://.godot/imported/AlarmMorning.png-2008dfc516b476383ca00dd68254b86d.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkn0p63bxpngj"
 path.s3tc="res://.godot/imported/marble_cliff_05_diff_1k.jpg-bd9a40dace3afb86383509d96c6db417.s3tc.ctex"
+path.etc2="res://.godot/imported/marble_cliff_05_diff_1k.jpg-bd9a40dace3afb86383509d96c6db417.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Textures/MapTextures/marble_cliff_05_1k.blend/textures/marble_cliff_05_diff_1k.jpg"
-dest_files=["res://.godot/imported/marble_cliff_05_diff_1k.jpg-bd9a40dace3afb86383509d96c6db417.s3tc.ctex"]
+dest_files=["res://.godot/imported/marble_cliff_05_diff_1k.jpg-bd9a40dace3afb86383509d96c6db417.s3tc.ctex", "res://.godot/imported/marble_cliff_05_diff_1k.jpg-bd9a40dace3afb86383509d96c6db417.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcu4n1vsnjv1j"
 path.s3tc="res://.godot/imported/riverphoto.jpg-2581b6088bfa7e6caec97a3bddd07bc7.s3tc.ctex"
+path.etc2="res://.godot/imported/riverphoto.jpg-2581b6088bfa7e6caec97a3bddd07bc7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Textures/PeoplePhotos/riverphoto.jpg"
-dest_files=["res://.godot/imported/riverphoto.jpg-2581b6088bfa7e6caec97a3bddd07bc7.s3tc.ctex"]
+dest_files=["res://.godot/imported/riverphoto.jpg-2581b6088bfa7e6caec97a3bddd07bc7.s3tc.ctex", "res://.godot/imported/riverphoto.jpg-2581b6088bfa7e6caec97a3bddd07bc7.etc2.ctex"]
 
 [params]
 

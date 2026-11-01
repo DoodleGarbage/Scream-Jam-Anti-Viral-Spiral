@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bff834j3rvmiv"
 path.s3tc="res://.godot/imported/Ethanphoto.jpg-ddcf3facea9001efb08d2c9c38e4cb9c.s3tc.ctex"
+path.etc2="res://.godot/imported/Ethanphoto.jpg-ddcf3facea9001efb08d2c9c38e4cb9c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Textures/PeoplePhotos/Ethanphoto.jpg"
-dest_files=["res://.godot/imported/Ethanphoto.jpg-ddcf3facea9001efb08d2c9c38e4cb9c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Ethanphoto.jpg-ddcf3facea9001efb08d2c9c38e4cb9c.s3tc.ctex", "res://.godot/imported/Ethanphoto.jpg-ddcf3facea9001efb08d2c9c38e4cb9c.etc2.ctex"]
 
 [params]
 

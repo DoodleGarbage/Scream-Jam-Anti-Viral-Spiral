@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6fu0dnq5h454"
 path.s3tc="res://.godot/imported/rocks on a montion _0.png-071b4984125fbf7ae62cbb9c12da0987.s3tc.ctex"
+path.etc2="res://.godot/imported/rocks on a montion _0.png-071b4984125fbf7ae62cbb9c12da0987.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Models/mountain-skybox/source/rocks on a montion _0.png"
-dest_files=["res://.godot/imported/rocks on a montion _0.png-071b4984125fbf7ae62cbb9c12da0987.s3tc.ctex"]
+dest_files=["res://.godot/imported/rocks on a montion _0.png-071b4984125fbf7ae62cbb9c12da0987.s3tc.ctex", "res://.godot/imported/rocks on a montion _0.png-071b4984125fbf7ae62cbb9c12da0987.etc2.ctex"]
 
 [params]
 

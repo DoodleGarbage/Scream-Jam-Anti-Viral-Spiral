@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dblb54qcom8t0"
 path.s3tc="res://.godot/imported/Dysnomia-moon-transparent-new12.png-e84800628b6aefe66e2b2b0ffb6b3a45.s3tc.ctex"
+path.etc2="res://.godot/imported/Dysnomia-moon-transparent-new12.png-e84800628b6aefe66e2b2b0ffb6b3a45.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Scenes/Town/Environments/Dysnomia-moon-transparent-new12.png"
-dest_files=["res://.godot/imported/Dysnomia-moon-transparent-new12.png-e84800628b6aefe66e2b2b0ffb6b3a45.s3tc.ctex"]
+dest_files=["res://.godot/imported/Dysnomia-moon-transparent-new12.png-e84800628b6aefe66e2b2b0ffb6b3a45.s3tc.ctex", "res://.godot/imported/Dysnomia-moon-transparent-new12.png-e84800628b6aefe66e2b2b0ffb6b3a45.etc2.ctex"]
 
 [params]
 

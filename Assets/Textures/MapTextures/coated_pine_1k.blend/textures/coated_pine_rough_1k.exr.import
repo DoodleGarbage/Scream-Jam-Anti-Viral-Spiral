@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dywnk3q5cp8ko"
 path.bptc="res://.godot/imported/coated_pine_rough_1k.exr-353b3acf10756abb08673b2c2351d81b.bptc.ctex"
+path.astc="res://.godot/imported/coated_pine_rough_1k.exr-353b3acf10756abb08673b2c2351d81b.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Textures/MapTextures/coated_pine_1k.blend/textures/coated_pine_rough_1k.exr"
-dest_files=["res://.godot/imported/coated_pine_rough_1k.exr-353b3acf10756abb08673b2c2351d81b.bptc.ctex"]
+dest_files=["res://.godot/imported/coated_pine_rough_1k.exr-353b3acf10756abb08673b2c2351d81b.bptc.ctex", "res://.godot/imported/coated_pine_rough_1k.exr-353b3acf10756abb08673b2c2351d81b.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bd37jum0kmtai"
 path.s3tc="res://.godot/imported/fog.png-bba8b29113581e41450c03039853d842.s3tc.ctex"
+path.etc2="res://.godot/imported/fog.png-bba8b29113581e41450c03039853d842.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Textures/ParticleImages/fog.png"
-dest_files=["res://.godot/imported/fog.png-bba8b29113581e41450c03039853d842.s3tc.ctex"]
+dest_files=["res://.godot/imported/fog.png-bba8b29113581e41450c03039853d842.s3tc.ctex", "res://.godot/imported/fog.png-bba8b29113581e41450c03039853d842.etc2.ctex"]
 
 [params]
 
