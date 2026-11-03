@@ -187,7 +187,7 @@ script = ExtResource("28_03w7q")
 desc = "Read Note"
 is_dialogue = true
 event_name = "death_note_tunnels"
-forced_cue = "death"
+forced_cue = "deathnotice"
 dialogue = ExtResource("4_j3fnm")
 metadata/_custom_type_script = "uid://b05o3m5lkmf63"
 

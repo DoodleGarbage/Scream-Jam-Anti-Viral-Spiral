@@ -565,7 +565,7 @@ mesh = SubResource("PlaneMesh_qq7nf")
 metadata/_edit_lock_ = true
 
 [node name="TownBridge" parent="Meshes" unique_id=1045979897 instance=ExtResource("15_o3tjd")]
-transform = Transform3D(0.42205417, 0, -0.32714865, 0, 0.534, 0, 0.32714865, 0, 0.42205417, 14.750092, 2.3565292, 29.251375)
+transform = Transform3D(0.40951234, 0, -0.34271783, 0, 0.5339999, 0, 0.34271783, 0, 0.40951234, 10.613111, 7.4045477, 33.5608)
 
 [node name="BridgePosts" type="StaticBody3D" parent="Meshes/TownBridge" unique_id=949404978]
 
@@ -1048,28 +1048,28 @@ draw_pass_1 = SubResource("QuadMesh_5pwny")
 [node name="Fences" type="Node3D" parent="." unique_id=1701299111]
 
 [node name="fence2" parent="Fences" unique_id=1759449798 instance=ExtResource("43_lhihy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.548187, 14.322241, 94.59352)
+transform = Transform3D(0.8710515, 0, 0.49119177, 0, 1, 0, -0.49119177, 0, 0.8710515, 3.6023412, 14.322241, 90.33608)
 
 [node name="fence3" parent="Fences" unique_id=1177070566 instance=ExtResource("43_lhihy")]
-transform = Transform3D(0.840491, 0, -0.5418256, 0, 1, 0, 0.5418256, 0, 0.840491, -35.953163, 13.666964, 89.459785)
+transform = Transform3D(0.9997077, 0, -0.024178218, 0, 1, 0, 0.024178218, 0, 0.9997077, 1.0858418, 13.143645, 83.94947)
 
 [node name="fence4" parent="Fences" unique_id=2144587616 instance=ExtResource("43_lhihy")]
-transform = Transform3D(0.71886134, 0, -0.69515353, 0, 1, 0, 0.69515353, 0, 0.71886134, -32.018684, 13.112591, 84.917816)
+transform = Transform3D(0.9572936, 0.010350478, -0.2889322, -0.0404113, 0.99433887, -0.0982708, 0.28627938, 0.10575013, 0.9522926, 0.9166081, 12.641553, 75.53191)
 
 [node name="fence5" parent="Fences" unique_id=251949388 instance=ExtResource("43_lhihy")]
 transform = Transform3D(0.053674597, 0, -0.99855846, 0, 1, 0, 0.99855846, 0, 0.053674597, -70.67983, 14.82395, 98.76129)
 
 [node name="fence6" parent="Fences" unique_id=1690203102 instance=ExtResource("43_lhihy")]
-transform = Transform3D(0.30858496, 0, -0.95119673, 0, 1, 0, 0.95119673, 0, 0.30858496, -59.128956, 14.867891, 97.64829)
+transform = Transform3D(0.76817834, 0, -0.64023584, 0, 1, 0, 0.64023584, 0, 0.76817834, -14.645171, 8.307222, 48.93854)
 
 [node name="fence7" parent="Fences" unique_id=1313064157 instance=ExtResource("43_lhihy")]
-transform = Transform3D(-0.40864143, 0, -0.912695, 0, 1, 0, 0.912695, 0, -0.40864143, -84.21172, 14.82395, 97.89338)
+transform = Transform3D(0.3562942, 0, -0.93437386, 0, 1, 0, 0.93437386, 0, 0.3562942, -26.525806, 8.522942, 56.48605)
 
 [node name="fence8" parent="Fences" unique_id=1330019618 instance=ExtResource("43_lhihy")]
-transform = Transform3D(-0.5394213, 0.06329095, -0.83965385, -0.3733436, 0.87582016, 0.30586532, 0.7547443, 0.47846973, -0.44880688, -121.44308, 16.541542, 86.440186)
+transform = Transform3D(0.097934484, 0, 0.9951928, 0, 0.99999994, 0, -0.9951928, 0, 0.097934484, -68.46258, 8.298489, 66.30275)
 
 [node name="fence9" parent="Fences" unique_id=275147526 instance=ExtResource("43_lhihy")]
-transform = Transform3D(-0.8636959, -0.33705023, -0.37473506, -0.4630934, 0.8241461, 0.3260793, 0.1989314, 0.45517075, -0.86789733, -125.93197, 19.469126, 75.78373)
+transform = Transform3D(-0.27147815, 0, 0.96244466, 0, 1, 0, -0.96244466, 0, -0.27147815, -45.745903, 8.540896, 65.559296)
 
 [node name="fence10" parent="Fences" unique_id=1749295251 instance=ExtResource("43_lhihy")]
 transform = Transform3D(0.89657223, 0, 0.44289768, 0, 1, 0, -0.44289768, 0, 0.89657223, 128.0468, 0.31191587, -61.042244)
@@ -1170,7 +1170,7 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 curve = SubResource("Curve3D_sb7e8")
 
 [node name="BridgeIncident" type="Node3D" parent="." unique_id=191743409]
-transform = Transform3D(0.42635414, 0, -0.32152468, 0, 0.534, 0, 0.32152468, 0, 0.42635414, 15.632864, 3.363119, 28.692217)
+transform = Transform3D(0.41401988, 0, -0.33725882, 0, 0.5339999, 0, 0.33725882, 0, 0.41401988, 11.516194, 8.411138, 33.03508)
 
 [node name="BridgeCollider" type="StaticBody3D" parent="BridgeIncident" unique_id=1015992275]
 process_mode = 4

@@ -737,6 +737,7 @@ shape = SubResource("BoxShape3D_qktnr")
 
 [node name="childhood_door" parent="." unique_id=851363931 instance=ExtResource("2_fyksx")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.4495044, 1.0851191, -1.0198104)
+visible = false
 
 [node name="Flower" type="Node3D" parent="." unique_id=252457292]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7369417, 0, 0)
